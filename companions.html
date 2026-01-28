@@ -118,10 +118,59 @@
       font-size: 1.75rem;
     }
 
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
     .content-section p {
       color: var(--text-secondary);
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+
+    .companion-card {
+      background: rgba(124, 58, 237, 0.05);
+      border-left: 3px solid var(--accent-purple);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .companion-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .companion-name {
+      color: var(--accent-orange);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .companion-ability {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .companion-unlock {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .companion-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .feature-list {
@@ -156,6 +205,10 @@
       .container {
         padding: 5rem 1rem 2rem;
       }
+
+      .companion-card {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -171,44 +224,189 @@
   <div class="container">
     <div class="hero-section">
       <h1 class="page-title">🐾 Loyal Companions</h1>
-      <p class="page-subtitle">Recruit and train powerful companions to fight by your side</p>
+      <p class="page-subtitle">Recruit and train 9 unique companions, each with powerful special abilities</p>
     </div>
 
     <div class="content-section">
-      <h2>Companion System</h2>
+      <h2>Meet Your Companions</h2>
       <p>
-        Discover and recruit 9 unique companions, each with their own abilities, personalities, and
-        combat styles. Your companions fight alongside you in battle, providing crucial support and
-        opening up new strategic possibilities.
+        Each companion brings unique abilities and combat styles to your adventures. Unlock them as you progress
+        and discover which companions best suit your playstyle.
       </p>
-      <ul class="feature-list">
-        <li>9 unique companions with distinct abilities</li>
-        <li>Active and passive companion skills</li>
-        <li>Companion-specific equipment and upgrades</li>
-        <li>Companion loyalty system</li>
-      </ul>
+
+      <div class="companion-card">
+        <div class="companion-name">Jindo</div>
+        <div class="companion-ability">Special Attack: Alpha Rush!</div>
+        <div class="companion-unlock">Unlocks at Level 5</div>
+        <div class="companion-description">
+          A fierce offensive companion that unleashes devastating burst damage. Alpha Rush grants <span class="stat-highlight">+84% damage</span>,
+          <span class="stat-highlight">+50% crit chance</span>, increased crit damage, and doubles attack speed.
+          Perfect for players who want to maximize damage output in short bursts.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Ember</div>
+        <div class="companion-ability">Special Attack: PyroMantic</div>
+        <div class="companion-unlock">Unlocks at Level 8</div>
+        <div class="companion-description">
+          A fire-specialized companion that applies burning damage over time. PyroMantic stacks burn effects on enemies,
+          dealing <span class="stat-highlight">19% damage per second</span> for 8 seconds. When the special activates,
+          it consumes all burn stacks for massive guaranteed critical damage. Excellent for sustained damage and boss fights.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Mystikat</div>
+        <div class="companion-ability">Special Attack: Vital Bloom!</div>
+        <div class="companion-unlock">Unlocks at Level 10</div>
+        <div class="companion-description">
+          Your healing support companion. Vital Bloom provides passive healing with <span class="stat-highlight">1-3 HP per attack</span>,
+          and every third attack triggers a larger heal that scales with the Special stat. Drains 4% HP per 2 attacks but
+          sustains you through difficult encounters. Essential for survivability-focused builds.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Hootini (Rune Owl)</div>
+        <div class="companion-ability">Special Attack: Runic Mark!</div>
+        <div class="companion-unlock">Unlocks at Level 12</div>
+        <div class="companion-description">
+          A debuff specialist that marks enemies for increased damage. Runic Mark causes marked enemies to take
+          <span class="stat-highlight">+3-27% more damage</span> (scaling with Special stat) and grants you
+          <span class="stat-highlight">+25% damage</span> against marked targets. The mark lasts 12 seconds,
+          making this companion invaluable for tough enemies and bosses.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Globbie</div>
+        <div class="companion-ability">Special Attack: Sticky Ruin!</div>
+        <div class="companion-unlock">Unlocks at Level 15</div>
+        <div class="companion-description">
+          A control-focused companion with extended range. Sticky Ruin guarantees a critical hit on the next attack,
+          slows enemies by <span class="stat-highlight">67%</span>, and provides <span class="stat-highlight">+3m range</span>.
+          The slow lasts 10 seconds, giving you breathing room in combat. Great for kiting and controlling enemy movement.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Acornelius</div>
+        <div class="companion-ability">Special Attack: Squirrel Defense!</div>
+        <div class="companion-unlock">Unlocks at Level 15</div>
+        <div class="companion-description">
+          Your defensive tank companion. Squirrel Defense reduces incoming damage by <span class="stat-highlight">50%</span>
+          while boosting your next 2-4 attacks by <span class="stat-highlight">+65% damage</span>. The defensive buff
+          lasts 4-11 seconds (scaling with Special stat) with a 32-second cooldown. Perfect for surviving dangerous zones.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Florence</div>
+        <div class="companion-ability">Special Attack: Grasping Roots!</div>
+        <div class="companion-unlock">Unlocks at Level 15</div>
+        <div class="companion-description">
+          A powerful crowd control companion. Grasping Roots immobilizes enemies for <span class="stat-highlight">1-5 seconds</span>
+          (scaling with Special stat) while dealing <span class="stat-highlight">+175% damage</span>. Costs +2 stamina when active
+          but completely neutralizes threats. Essential for controlling dangerous enemies.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">MechaBird</div>
+        <div class="companion-ability">Special Attack: Pecking Overdrive!</div>
+        <div class="companion-unlock">Unlocks at Level 20</div>
+        <div class="companion-description">
+          A ramping damage dealer that grows stronger with each hit. Pecking Overdrive grants <span class="stat-highlight">+50% damage</span>,
+          <span class="stat-highlight">+35% crit chance</span>, and gains <span class="stat-highlight">+2.5% attack speed</span>
+          per hit (up to 10 stacks). Also provides +0.5m range and enhanced crit damage. Devastating in extended fights.
+        </div>
+      </div>
+
+      <div class="companion-card">
+        <div class="companion-name">Snekles</div>
+        <div class="companion-ability">Special Attack: Neurotoxin</div>
+        <div class="companion-unlock">Unlocks at Level 25</div>
+        <div class="companion-description">
+          An advanced companion with debilitating poison. Neurotoxin deals <span class="stat-highlight">+21% damage</span>,
+          has a <span class="stat-highlight">15% chance to stun</span>, weakens enemies (reducing their effectiveness by 15%),
+          and provides <span class="stat-highlight">+0.5m range</span>. The combination of damage, stun, and debuffs makes
+          Snekles incredibly versatile for late-game content.
+        </div>
+      </div>
     </div>
 
     <div class="content-section">
-      <h2>Training & Development</h2>
+      <h2>Companion Progression</h2>
       <p>
-        Train your companions to unlock their full potential. Level them up, unlock new abilities,
-        and equip them with powerful gear. Each companion has a unique skill tree that allows you
-        to customize their role in your party.
+        Companions grow stronger alongside you through a deep progression system. Each companion can reach
+        <span class="stat-highlight">Level 60</span> and develops five core stats that define their combat effectiveness.
+      </p>
+
+      <h3>Stat System</h3>
+      <p>
+        Every companion has five stats that influence their performance:
       </p>
       <ul class="feature-list">
-        <li>Individual companion leveling system</li>
-        <li>Unlock new abilities and passive bonuses</li>
-        <li>Companion-specific quests and story</li>
-        <li>Synergy bonuses for companion combinations</li>
+        <li><strong>STR (Strength)</strong> - Increases damage dealt by 2.5% per point</li>
+        <li><strong>DEX (Dexterity)</strong> - Improves attack speed and hit chance</li>
+        <li><strong>CON (Constitution)</strong> - Boosts max stamina and stamina regeneration</li>
+        <li><strong>LUCK</strong> - Enhances critical hit chance and critical damage</li>
+        <li><strong>SPECIAL</strong> - Amplifies special ability effects and stamina capacity</li>
       </ul>
+
+      <h3>Leveling & Stat Growth</h3>
+      <p>
+        Companions earn experience from combat and level up automatically. Each level grants
+        <span class="stat-highlight">5 random stat points</span> distributed across their stats:
+      </p>
+      <ul class="feature-list">
+        <li>STR, DEX, CON, LUCK: 22.2% chance each (2/9)</li>
+        <li>SPECIAL: 11.1% chance (1/9)</li>
+      </ul>
+      <p>
+        This random distribution means each companion develops uniquely, even of the same type. The XP required
+        per level scales exponentially, with late levels requiring significantly more combat experience.
+      </p>
+
+      <h3>Equipment Bonuses</h3>
+      <p>
+        Your equipment's Pet Power stat directly increases companion damage. Guild buffs can further enhance
+        companion performance by boosting damage (+15%), speed and range (+20%), or stamina regeneration.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Mentor System</h2>
+      <p>
+        Accelerate your companion training with the mentor system. Your active companion can mentor one lower-level
+        companion, sharing <span class="stat-highlight">15% of earned XP</span> to speed up their development.
+      </p>
+
+      <h3>How It Works</h3>
+      <ul class="feature-list">
+        <li>Select any owned companion that's lower level than your active companion as a mentee</li>
+        <li>The mentee receives 15% of all XP earned by your active companion</li>
+        <li>The active companion still receives full XP - mentoring doesn't reduce their gains</li>
+        <li>Mentoring automatically stops if the mentee reaches or surpasses the mentor's level</li>
+        <li>Perfect for bringing new companions up to speed or balancing your roster</li>
+      </ul>
+
+      <h3>Strategic Benefits</h3>
+      <p>
+        The mentor system lets you efficiently level multiple companions without switching your active fighter.
+        This is especially valuable when you unlock high-level companions but want to try earlier ones, or when
+        building a balanced team for different combat scenarios.
+      </p>
     </div>
 
     <div class="content-section">
       <h2>Pet Collection</h2>
       <p>
-        Beyond companions, collect over 90 unique pets that provide various bonuses and benefits.
-        Pets can boost your stats, provide resource generation, and offer cosmetic customization.
+        Beyond your 9 trainable companions, discover and collect over <span class="stat-highlight">90+ unique pets</span>
+        throughout your adventure. Pets provide passive bonuses, cosmetic variety, and collectible achievements.
+        Each pet contributes to your overall power through the Pet Power system, which scales with your collection size
+        and rarity.
       </p>
     </div>
   </div>
