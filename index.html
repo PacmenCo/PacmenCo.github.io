@@ -1,121 +1,847 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PacmenCo – Idle Adventure: Pixel RPG</title>
+  <title>Idle Adventure – Pixel RPG by PacmenCo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, #1f2933, #111827);
-      color: #e5e7eb;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Sticky Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+
+    .burger-menu {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+    }
+
+    .burger-menu span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--accent-orange);
+      transition: all 0.3s ease;
+    }
+
+    .burger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(7px);
+    }
+
+    .burger-menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-7px);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: var(--bg-card);
+      border-left: 2px solid var(--accent-purple);
+      padding: 5rem 2rem 2rem;
+      transition: right 0.3s ease;
+      z-index: 999;
+      overflow-y: auto;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-overlay.active {
+      right: 0;
+    }
+
+    .menu-overlay h3 {
+      color: var(--accent-orange);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+    }
+
+    .menu-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .menu-items li {
+      padding: 1rem;
+      background: rgba(124, 58, 237, 0.1);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-purple);
+      transition: all 0.3s ease;
+    }
+
+    .menu-items li:hover {
+      background: rgba(124, 58, 237, 0.2);
+      border-left-color: var(--accent-orange);
+      transform: translateX(5px);
+    }
+
+    .menu-items .feature-name {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-items .feature-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Header Image Section */
+    .header-image {
+      width: 100%;
+      min-height: 70vh;
+      overflow: hidden;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      background: var(--bg-dark);
+      margin-top: 60px;
     }
 
-    .card {
-      max-width: 720px;
-      padding: 32px;
-      background: rgba(17, 24, 39, 0.88);
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    .header-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
     }
 
-    h1 {
-      margin-top: 0;
-      font-size: 2rem;
-      color: #f9fafb;
+    .header-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      text-align: center;
+      width: 90%;
+      max-width: 900px;
     }
 
-    h2 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: #d1d5db;
+    .header-title .logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(2rem, 8vw, 4rem);
+      color: var(--accent-orange);
+      text-shadow:
+        0 4px 12px rgba(0, 0, 0, 1),
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 0.5rem;
     }
 
-    p {
-      line-height: 1.6;
-      color: #d1d5db;
+    .header-title .subtitle {
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      color: var(--text-primary);
+      text-shadow:
+        0 3px 10px rgba(0, 0, 0, 1),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
 
-    .buttons {
-      margin-top: 28px;
+    /* Section background system - each section gets its own screenshot */
+    .section-bg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      filter: blur(3px) brightness(0.6);
+      z-index: -2;
+    }
+
+    /* Dark overlay for text readability */
+    .section-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg,
+          rgba(10, 14, 26, 0.6) 0%,
+          rgba(10, 14, 26, 0.5) 50%,
+          rgba(10, 14, 26, 0.7) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Fallback gradient background for sections without screenshots */
+    .section-bg.no-screenshot::before {
+      background:
+        radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+      filter: none;
+    }
+
+    /* Glow animation for header title */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 30px rgba(245, 158, 11, 0.8), 0 0 60px rgba(245, 158, 11, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      to {
+        text-shadow: 0 0 50px rgba(245, 158, 11, 1), 0 0 80px rgba(245, 158, 11, 0.8), 0 2px 4px rgba(0, 0, 0, 0.8);
+      }
+    }
+
+
+    /* CTA Buttons */
+    .cta-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
     }
 
-    .button {
-      padding: 12px 18px;
-      border-radius: 10px;
-      text-decoration: none;
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      color: #111827;
-      background: #22c55e;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     }
 
-    .button.secondary {
-      background: #3b82f6;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-orange) 0%, #dc2626 100%);
       color: white;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
     }
 
-    footer {
-      margin-top: 32px;
-      font-size: 0.9rem;
-      color: #9ca3af;
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--accent-purple) 0%, #6366f1 100%);
+      color: white;
     }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+    }
+
+
+    /* Section styling */
+    section {
+      padding: 5rem 2rem;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-size: 1.15rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-purple);
+      box-shadow: 0 12px 40px rgba(124, 58, 237, 0.3);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: linear-gradient(135deg, var(--bg-dark-2) 0%, var(--bg-dark) 100%);
+      padding: 4rem 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .stat-item:nth-child(-n+3) .stat-number {
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-item:nth-child(n+4) .stat-number {
+      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+    }
+
+    .stat-item:nth-child(7) {
+      grid-column: 1 / -1;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    .stat-item:nth-child(7) .stat-number {
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: none;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Community Section */
+    .community {
+      text-align: center;
+    }
+
+    .discord-card {
+      background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px rgba(88, 101, 242, 0.4);
+    }
+
+    .discord-card h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .discord-card p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark-2);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    .copyright {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .menu-overlay {
+        max-width: 100%;
+      }
+
+      .header-image {
+        min-height: 85vh;
+        margin-top: 50px;
+      }
+
+      .header-title {
+        width: 95%;
+      }
+
+      .header-title .logo {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+      }
+
+      .header-title .subtitle {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        margin-bottom: 0.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <h1>PacmenCo</h1>
-    <h2>Idle Adventure – Pixel RPG</h2>
-
-    <p>
-      Idle Adventure is a pixel-style incremental RPG focused on long-term
-      progression, pets, upgrades, and strategic growth. Play actively or let
-      your adventure continue while idle.
-    </p>
-
-    <p>
-      Join the community to share feedback, report bugs, and help shape the
-      future of the game.
-    </p>
-
-    <div class="buttons">
-      <a
-        class="button"
-        href="https://discord.gg/8YXUDXTC"
-        target="_blank"
-        rel="noopener"
-      >
-        Join the Discord
-      </a>
-
-      <a
-        class="button secondary"
-        href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&hl=en"
-        target="_blank"
-        rel="noopener"
-      >
-        View on Google Play
-      </a>
+  <!-- Sticky Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <div class="nav-logo">IDLE ADVENTURE</div>
+      <button class="burger-menu" id="burgerMenu" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
 
-    <footer>
-      © PacmenCo — Indie game development focused on idle and RPG experiences.
-    </footer>
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay">
+    <h3>FEATURES</h3>
+    <ul class="menu-items">
+      <li>
+        <span class="feature-name">⚔️ Epic Combat</span>
+        <span class="feature-desc">Battle through diverse zones and defeat powerful bosses</span>
+      </li>
+      <li>
+        <span class="feature-name">🐾 Loyal Companions</span>
+        <span class="feature-desc">Recruit unique companions with special abilities</span>
+      </li>
+      <li>
+        <span class="feature-name">⚡ Skill System</span>
+        <span class="feature-desc">Master powerful skills and devastating combos</span>
+      </li>
+      <li>
+        <span class="feature-name">🏰 Guild System</span>
+        <span class="feature-desc">Battle guild bosses together with other players</span>
+      </li>
+      <li>
+        <span class="feature-name">🌙 Idle Progress</span>
+        <span class="feature-desc">Your adventure continues even when offline</span>
+      </li>
+      <li>
+        <span class="feature-name">🔮 Enchanting System</span>
+        <span class="feature-desc">Upgrade and customize your equipment</span>
+      </li>
+    </ul>
   </div>
+
+  <script>
+    // ======================================
+    // SCREENSHOT BACKGROUND CONFIGURATION
+    // ======================================
+    // Folder path for screenshots (relative to index.html)
+    const SCREENSHOTS_FOLDER = 'images/landing/';
+
+    // Header image (shown as banner at top)
+    const HEADER_IMAGE = '1.png';
+
+    // Section backgrounds (applied to data-section-bg sections in order)
+    const SCREENSHOTS = [
+      '2.png',  // Features section
+      '3.png',  // Stats section
+    ];
+    // ======================================
+
+    // Apply screenshot backgrounds to sections
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('[data-section-bg]');
+
+      sections.forEach((section, index) => {
+        if (index < SCREENSHOTS.length) {
+          // Apply screenshot background
+          const imageUrl = `${SCREENSHOTS_FOLDER}${SCREENSHOTS[index]}`;
+          section.style.setProperty('--bg-image', `url('${imageUrl}')`);
+          section.classList.add('section-bg');
+        } else {
+          // No screenshot available, use gradient fallback
+          section.classList.add('section-bg', 'no-screenshot');
+        }
+      });
+
+      // Burger menu toggle
+      const burgerMenu = document.getElementById('burgerMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+
+      burgerMenu.addEventListener('click', function() {
+        burgerMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+      });
+
+      // Close menu when clicking outside
+      menuOverlay.addEventListener('click', function(e) {
+        if (e.target === menuOverlay) {
+          burgerMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+        }
+      });
+    });
+  </script>
+
+  <!-- Header Image -->
+  <div class="header-image">
+    <img src="images/landing/1.png" alt="Idle Adventure">
+    <div class="header-title">
+      <h1 class="logo">IDLE ADVENTURE</h1>
+      <p class="subtitle">Pixel RPG</p>
+
+      <div class="cta-buttons">
+        <a class="btn btn-primary"
+          href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&utm_source=website&utm_medium=organic&utm_campaign=landing"
+          target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm3.35-4.31c.34.27.54.68.54 1.19 0 .51-.2.92-.54 1.19l-2.3 1.33-2.54-2.54 2.54-2.54 2.3 1.37zM6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66z" />
+          </svg>
+          Download on Google Play
+        </a>
+
+        <a class="btn btn-secondary" href="https://discord.gg/8YXUDXTC" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
+          </svg>
+          Join Discord
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section data-section-bg>
+    <div class="container">
+      <h2>Adventure Awaits</h2>
+      <p class="section-subtitle">
+        Discover a rich RPG experience with endless progression, strategic combat, and loyal companions
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚔️</div>
+          <h3>Epic Combat</h3>
+          <p>
+            Battle through diverse zones, defeat powerful bosses, and master strategic combat mechanics.
+            Every encounter rewards your efforts with loot and progression.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🐾</div>
+          <h3>Loyal Companions</h3>
+          <p>
+            Recruit unique companions with special abilities. Train them, unlock their powers,
+            and fight alongside them in your journey through the realm.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Skill System</h3>
+          <p>
+            Master powerful skills and abilities. Chain attacks, unleash devastating combos,
+            and customize your playstyle with a deep skill tree.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎒</div>
+          <h3>Endless Loot</h3>
+          <p>
+            Discover legendary weapons, rare armor, and powerful artifacts.
+            Enchant your gear, craft upgrades, and build the ultimate loadout.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏰</div>
+          <h3>Guild System</h3>
+          <p>
+            Join forces with other adventurers! Battle guild bosses together,
+            earn exclusive rewards, and climb the leaderboards.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌙</div>
+          <h3>True Idle Progress</h3>
+          <p>
+            Your adventure continues even when offline. Return to collect resources,
+            experience, and rewards from your automated battles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats" data-section-bg>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">60+</div>
+          <div class="stat-label">Zones to Explore</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">9</div>
+          <div class="stat-label">Companions to Train</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">90+</div>
+          <div class="stat-label">Pets to Collect</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">☁️</div>
+          <div class="stat-label">Cloud Save</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">⚒️</div>
+          <div class="stat-label">Crafting</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">✨</div>
+          <div class="stat-label">Enchanting</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">And Much More</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="community" data-section-bg>
+    <div class="container">
+      <h2>Join the Community</h2>
+      <p class="section-subtitle">
+        Connect with thousands of adventurers, share strategies, and stay updated on new features
+      </p>
+
+      <div class="discord-card">
+        <h3>💬 Active Discord Server</h3>
+        <p>
+          Get help, share your progress, report bugs, and help shape the future of Idle Adventure.
+          Our community is friendly, active, and always ready to help!
+        </p>
+        <a class="btn" href="https://discord.gg/8YXUDXTC" target="_blank" rel="noopener"
+          style="background: white; color: #5865F2;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
+          </svg>
+          Join Our Discord
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&utm_source=website&utm_medium=organic&utm_campaign=landing"
+          target="_blank" rel="noopener">Google Play</a>
+        <a href="https://discord.gg/8YXUDXTC" target="_blank" rel="noopener">Discord</a>
+      </div>
+      <p class="copyright">
+        © 2025 PacmenCo — Crafting immersive idle RPG experiences
+      </p>
+    </div>
+  </footer>
 </body>
+
 </html>
