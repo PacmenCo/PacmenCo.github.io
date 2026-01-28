@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PacmenCo – Idle Adventure: Pixel RPG</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1f2933, #111827);
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      max-width: 720px;
+      padding: 32px;
+      background: rgba(17, 24, 39, 0.85);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+      color: #f9fafb;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: #d1d5db;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+
+    .buttons {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #111827;
+      background: #22c55e;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .button.secondary {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>PacmenCo</h1>
+    <h2>Idle Adventure – Pixel RPG</h2>
+
+    <p>
+      Idle Adventure is a pixel-style incremental RPG focused on long-term
+      progression, pets, upgrades, and strategic growth. Play actively or let
+      your adventure continue while idle.
+    </p>
+
+    <p>
+      This page exists to provide official links and community access for our
+      players.
+    </p>
+
+    <div class="buttons">
+      <!-- Replace with your actual Discord invite -->
+      <a
+        class="button"
+        href="https://discord.gg/YOUR_DISCORD_INVITE"
+        target="_blank"
+        rel="noopener"
+      >
+        Join the Discord
+      </a>
+
+      <!-- Optional: Play Store link -->
+      <a
+        class="button secondary"
+        href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME"
+        target="_blank"
+        rel="noopener"
+      >
+        View on Google Play
+      </a>
+    </div>
+
+    <footer>
+      © PacmenCo — Indie game development focused on idle and RPG experiences.
+    </footer>
+  </div>
+</body>
+</html>
