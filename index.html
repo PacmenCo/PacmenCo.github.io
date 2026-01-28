@@ -135,14 +135,21 @@
     }
 
     .menu-items li {
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-link {
+      display: block;
       padding: 1rem;
       background: rgba(124, 58, 237, 0.1);
       border-radius: 8px;
       border-left: 3px solid var(--accent-purple);
+      text-decoration: none;
       transition: all 0.3s ease;
     }
 
-    .menu-items li:hover {
+    .menu-link:hover {
       background: rgba(124, 58, 237, 0.2);
       border-left-color: var(--accent-orange);
       transform: translateX(5px);
@@ -593,28 +600,34 @@
     <h3>FEATURES</h3>
     <ul class="menu-items">
       <li>
-        <span class="feature-name">⚔️ Epic Combat</span>
-        <span class="feature-desc">Battle through diverse zones and defeat powerful bosses</span>
+        <a href="combat.html" class="menu-link">
+          <span class="feature-name">⚔️ Epic Combat</span>
+          <span class="feature-desc">Battle through diverse zones and defeat powerful bosses</span>
+        </a>
       </li>
       <li>
-        <span class="feature-name">🐾 Loyal Companions</span>
-        <span class="feature-desc">Recruit unique companions with special abilities</span>
+        <a href="companions.html" class="menu-link">
+          <span class="feature-name">🐾 Loyal Companions</span>
+          <span class="feature-desc">Recruit unique companions with special abilities</span>
+        </a>
       </li>
       <li>
-        <span class="feature-name">⚡ Skill System</span>
-        <span class="feature-desc">Master powerful skills and devastating combos</span>
+        <a href="skills.html" class="menu-link">
+          <span class="feature-name">⚡ Skill System</span>
+          <span class="feature-desc">Master powerful skills and devastating combos</span>
+        </a>
       </li>
       <li>
-        <span class="feature-name">🏰 Guild System</span>
-        <span class="feature-desc">Battle guild bosses together with other players</span>
+        <a href="guild.html" class="menu-link">
+          <span class="feature-name">🏰 Guild System</span>
+          <span class="feature-desc">Battle guild bosses together with other players</span>
+        </a>
       </li>
       <li>
-        <span class="feature-name">🌙 Idle Progress</span>
-        <span class="feature-desc">Your adventure continues even when offline</span>
-      </li>
-      <li>
-        <span class="feature-name">🔮 Enchanting System</span>
-        <span class="feature-desc">Upgrade and customize your equipment</span>
+        <a href="enchanting.html" class="menu-link">
+          <span class="feature-name">🔮 Enchanting System</span>
+          <span class="feature-desc">Upgrade and customize your equipment</span>
+        </a>
       </li>
     </ul>
   </div>
