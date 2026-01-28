@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ember – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-red: #ef4444;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1));
+      border-radius: 20px;
+      border: 2px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .companion-icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.5));
+    }
+
+    .companion-title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .companion-subtitle {
+      font-size: 1.5rem;
+      color: var(--accent-cyan);
+      margin-bottom: 1rem;
+    }
+
+    .unlock-badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid var(--accent-red);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      border-bottom: 2px solid rgba(124, 58, 237, 0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .ability-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid var(--accent-red);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .ability-name {
+      color: var(--accent-red);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .ability-effects {
+      list-style: none;
+      padding: 0;
+    }
+
+    .ability-effects li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(239, 68, 68, 0.1);
+    }
+
+    .ability-effects li:last-child {
+      border-bottom: none;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-card {
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid var(--accent-purple);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      color: var(--accent-orange);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .build-card {
+      background: rgba(124, 58, 237, 0.05);
+      border-left: 3px solid var(--accent-purple);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .build-name {
+      color: var(--accent-orange);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .build-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .build-stats {
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    .comparison-table table {
+      width: 100%;
+      min-width: 600px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .comparison-table th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      color: var(--text-secondary);
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid var(--accent-red);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .warning-box strong {
+      color: var(--accent-red);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .companion-icon {
+        font-size: 3rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="companions.html" class="back-link">← Back to Companions</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <div class="companion-icon">🔥</div>
+      <h1 class="companion-title">Ember</h1>
+      <p class="companion-subtitle">Fire Specialist & DoT Master</p>
+      <div class="unlock-badge">Unlocks at Level 8 | Cost: 1650 Gems</div>
+    </div>
+
+    <div class="content-section">
+      <h2>🔥 PyroMantic Ability</h2>
+      <div class="ability-box">
+        <div class="ability-name">PyroMantic</div>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          A powerful burn-based ability that stacks damage over time before detonating all stacks for massive damage.
+        </p>
+        <ul class="ability-effects">
+          <li><strong>Passive:</strong> Every hit applies an Ember stack to enemies</li>
+          <li><strong>Active (35s cooldown):</strong> Consumes all Ember stacks, dealing massive damage per stack</li>
+          <li><strong>Guaranteed Critical:</strong> 100% crit chance when consuming stacks</li>
+          <li><strong>Stamina Cost:</strong> 2 stamina to activate special, 1 per normal attack</li>
+        </ul>
+      </div>
+
+      <h3>Burn Mechanics</h3>
+      <p>
+        Ember stacks are independent DoT (damage over time) effects that can coexist on enemies. Each stack deals
+        consistent damage over 8 seconds. When you activate PyroMantic, all stacks are consumed simultaneously
+        for a devastating burst of guaranteed critical damage.
+      </p>
+
+      <div class="formula-box">
+        <strong>Burn DPS per Stack:</strong><br>
+        (Companion Damage × 0.19 × (1 + SPECIAL × 0.125)) / 8
+      </div>
+
+      <div class="formula-box">
+        <strong>Total Burn Damage per Stack (8 seconds):</strong><br>
+        Companion Damage × 0.19 × (1 + SPECIAL × 0.125)
+      </div>
+
+      <div class="formula-box">
+        <strong>Consume Damage per Stack:</strong><br>
+        Burn Total Damage × 1.7 = Companion Damage × 0.323 × (1 + SPECIAL × 0.125)
+      </div>
+
+      <h3>Maximum Burn Stacks</h3>
+      <p>
+        The number of stacks you can maintain on an enemy scales with your SPECIAL stat:
+      </p>
+      <div class="formula-box">
+        Max Stacks = 2 + floor(SPECIAL / 25)
+      </div>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>SPECIAL</th>
+              <th>Max Stacks</th>
+              <th>Total Burn Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0-24</td>
+              <td>2 stacks</td>
+              <td>16 seconds (8s each)</td>
+            </tr>
+            <tr>
+              <td>25-49</td>
+              <td>3 stacks</td>
+              <td>24 seconds</td>
+            </tr>
+            <tr>
+              <td>50-74</td>
+              <td>4 stacks</td>
+              <td>32 seconds</td>
+            </tr>
+            <tr>
+              <td>100+</td>
+              <td>6 stacks</td>
+              <td>48 seconds</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>⚡ Activation Prerequisites</h2>
+      <p>
+        To activate PyroMantic, the following conditions must be met:
+      </p>
+      <ul class="ability-effects">
+        <li><strong>Not on Cooldown:</strong> 35 second cooldown must be complete</li>
+        <li><strong>Sufficient Stamina:</strong> Must have at least 2 stamina</li>
+        <li><strong>Companion Awake:</strong> Companion must not be sleeping</li>
+        <li><strong>Enemy Exists:</strong> A valid enemy must be in combat</li>
+        <li><strong>Enemy is Burned:</strong> Target MUST have at least one active Ember stack</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>Critical Requirement:</strong> You cannot activate PyroMantic unless the enemy has active burn stacks.
+        This means you need to land hits first to apply burns before you can detonate them.
+      </div>
+
+      <h3>Stack Management</h3>
+      <p>
+        When you reach max stacks and apply a new burn, the <strong>soonest-to-expire</strong> burn is immediately
+        removed and replaced. This means maintaining maximum stacks requires consistent attacks, but also means
+        you won't waste damage by over-stacking.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>📊 Base Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">STR</div>
+          <div class="stat-value">9</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">DEX</div>
+          <div class="stat-value">7</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">CON</div>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">LUCK</div>
+          <div class="stat-value">8</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">SPECIAL</div>
+          <div class="stat-value">9</div>
+        </div>
+      </div>
+
+      <p>
+        Ember has balanced base stats with slightly higher CON for survivability. The SPECIAL stat is particularly
+        important for this companion as it directly scales burn damage and stack capacity.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>📈 Stat Scaling</h2>
+
+      <h3>🗡️ STR (Strength) → Damage</h3>
+      <div class="formula-box">
+        Damage Multiplier = (1 + STR × 0.025 × 0.85)
+      </div>
+      <p>
+        Each STR point increases damage by <span class="stat-highlight">2.125%</span>. This affects both regular
+        attacks and burn damage since burns scale with companion damage.
+      </p>
+
+      <h3>⚡ DEX (Dexterity) → Attack Speed & Hit Chance</h3>
+      <div class="formula-box">
+        Attack Speed = (1 + DEX × 0.004 × 3.75)<br>
+        Hit Chance = DEX × 0.003
+      </div>
+      <p>
+        Each DEX point increases attack speed by <span class="stat-highlight">1.5%</span> and improves hit chance.
+        More attacks means faster burn stack application and more frequent special ability opportunities.
+      </p>
+
+      <h3>🛡️ CON (Constitution) → Stamina & Regeneration</h3>
+      <div class="formula-box">
+        Max Stamina = 3 + floor(SPECIAL / 7) + floor(CON / 5)
+      </div>
+      <p>
+        Each 5 CON points grants <span class="stat-highlight">+1 max stamina</span>. CON also significantly
+        improves stamina regeneration speed, allowing more consistent uptime.
+      </p>
+
+      <h3>🎲 LUCK → Critical Chance & Critical Damage</h3>
+      <div class="formula-box">
+        Crit Chance = 5 + LUCK × 0.0962<br>
+        Crit Damage = 1.4 + LUCK × 0.01375
+      </div>
+      <p>
+        Each LUCK point adds <span class="stat-highlight">0.0962%</span> crit chance and increases crit damage
+        multiplier. While PyroMantic guarantees crits on consume, LUCK still affects your regular burn-applying attacks.
+      </p>
+
+      <h3>✨ SPECIAL → Burn Scaling & Stamina</h3>
+      <div class="formula-box">
+        Max Burn Stacks = 2 + floor(SPECIAL / 25)<br>
+        Burn Damage Multiplier = 1 + SPECIAL × 0.125<br>
+        Max Stamina Bonus = floor(SPECIAL / 7)
+      </div>
+      <p>
+        SPECIAL is Ember's most important stat. Every 25 SPECIAL grants <span class="stat-highlight">+1 max stack</span>,
+        and each point increases burn damage by <span class="stat-highlight">12.5%</span>. Every 7 SPECIAL also grants
+        +1 max stamina, improving uptime.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>🎯 Recommended Builds</h2>
+
+      <div class="build-card">
+        <div class="build-name">🔥 Maximum Burn (SPECIAL Focus)</div>
+        <div class="build-description">
+          Prioritize SPECIAL above all else to maximize burn damage and stack capacity. This build delivers the
+          highest single-target damage by maximizing the number of stacks you can maintain and their individual
+          potency. Ideal for boss encounters where you can build up full stacks before detonating.
+        </div>
+        <div class="build-stats">
+          Priority: SPECIAL (60%) → STR (20%) → DEX (10%) → CON (10%)
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">⚡ Rapid Burn (DEX Focus)</div>
+        <div class="build-description">
+          Balance SPECIAL with high DEX to apply burns faster and cycle PyroMantic more frequently. The increased
+          attack speed means reaching max stacks quickly, allowing more frequent special ability activations.
+          Great for clearing zones where enemies die before you can build full stacks.
+        </div>
+        <div class="build-stats">
+          Priority: SPECIAL (40%) → DEX (30%) → STR (20%) → CON (10%)
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">🛡️ Sustained Burn (CON Focus)</div>
+        <div class="build-description">
+          Invest in CON for maximum stamina and regeneration, ensuring you never run out of resources during
+          extended fights. This build sacrifices some damage for consistent uptime, making it excellent for
+          idle progression where you need to fight continuously without micromanagement.
+        </div>
+        <div class="build-stats">
+          Priority: SPECIAL (35%) → CON (30%) → STR (20%) → DEX (15%)
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>⚔️ Combat Strategy</h2>
+
+      <h3>Burn Build-Up Phase</h3>
+      <p>
+        Focus on applying maximum burn stacks before activating PyroMantic. With higher DEX, this happens naturally,
+        but with lower attack speed you may need to wait for several attacks to land before the special is worth
+        activating.
+      </p>
+
+      <h3>Optimal Detonation Timing</h3>
+      <p>
+        Activate PyroMantic when you have maximum stacks and the cooldown is available. Don't wait for stacks to
+        expire—the 35-second cooldown means you want to use it as soon as conditions are met. With max stacks,
+        a single PyroMantic activation deals 170% of the total burn damage all stacks would have dealt over time,
+        plus guaranteed critical multiplier.
+      </p>
+
+      <h3>Cooldown Management</h3>
+      <p>
+        After using PyroMantic, immediately start re-applying burns. The 35-second cooldown means you'll typically
+        build 3-6+ full stack cycles between special uses. Don't hold the special—use it on cooldown for maximum
+        damage throughput.
+      </p>
+
+      <h3>Stamina Conservation</h3>
+      <p>
+        Each attack costs 1 stamina, and PyroMantic costs 2. With base 3 stamina + SPECIAL/7 + CON/5, you can
+        perform several attack cycles before needing to rest. Higher CON builds can maintain near-permanent uptime.
+      </p>
+
+      <h3>Boss Encounters</h3>
+      <p>
+        Ember excels against bosses due to sustained burn damage. Build up full stacks, detonate with PyroMantic,
+        then rebuild. The guaranteed crit on detonation makes this extremely effective against high-HP targets.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>📊 Power Progression Examples</h2>
+      <p>
+        Here's how Ember's burn damage scales at different levels with a SPECIAL-focused build:
+      </p>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>SPECIAL</th>
+              <th>Max Stacks</th>
+              <th>Burn DPS/Stack</th>
+              <th>Consume Dmg/Stack</th>
+              <th>Total Detonate Damage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>9</td>
+              <td>2</td>
+              <td>Base × 0.26</td>
+              <td>Base × 0.45</td>
+              <td>Base × 0.90 (2 stacks)</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>27</td>
+              <td>3</td>
+              <td>Base × 0.41</td>
+              <td>Base × 0.70</td>
+              <td>Base × 2.10 (3 stacks)</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>60</td>
+              <td>4</td>
+              <td>Base × 0.71</td>
+              <td>Base × 1.21</td>
+              <td>Base × 4.84 (4 stacks)</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>93</td>
+              <td>5</td>
+              <td>Base × 1.01</td>
+              <td>Base × 1.72</td>
+              <td>Base × 8.60 (5 stacks)</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>126</td>
+              <td>7</td>
+              <td>Base × 1.31</td>
+              <td>Base × 2.23</td>
+              <td>Base × 15.61 (7 stacks)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+        Note: "Base" refers to your companion's base damage including STR scaling. These multipliers show how burn
+        damage scales with SPECIAL investment. At level 60, a single PyroMantic activation with 7 stacks deals over
+        15× your base damage as a guaranteed critical hit.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
