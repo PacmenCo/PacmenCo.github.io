@@ -572,25 +572,23 @@
 
       <h3>🗡️ STR (Strength) → Damage</h3>
       <div class="formula-box">
-        Damage Multiplier = (1 × 0.5 + STR × 0.025 × 0.5) (idle)<br>
-        Damage Multiplier = (1 × 0.3 + STR × 0.025 × 0.3) (active)
+        Damage Multiplier = (1 × 0.5 + STR × 0.025 × 0.3)
       </div>
       <p>
-        Each STR point increases damage by <span class="stat-highlight">1.25% (idle)</span> or
-        <span class="stat-highlight">0.75% (active)</span>. Hootini has low damage scaling from STR, relying
-        instead on mark multipliers for damage output.
+        Each STR point increases damage by <span class="stat-highlight">0.75%</span>. Hootini has low damage
+        scaling from STR, relying instead on mark multipliers for damage output. The base multiplier is 0.5
+        (50% of base damage) regardless of special attack status.
       </p>
 
       <h3>⚡ DEX (Dexterity) → Attack Speed & Hit Chance</h3>
       <div class="formula-box">
-        Attack Speed = (1 + DEX × 0.004 × 1.5) (idle)<br>
-        Attack Speed = (1 + DEX × 0.004 × 5.0) (active)<br>
-        Hit Chance = DEX × 0.005 × 1.25 (active only)
+        Attack Speed = (1 + DEX × 0.004 × 5.0)<br>
+        Hit Chance = DEX × 0.005 × 1.25
       </div>
       <p>
-        Each DEX point increases attack speed by <span class="stat-highlight">0.6% (idle)</span> or
-        <span class="stat-highlight">2.0% (active)</span>. When Runic Mark is active, Hootini gains massive
-        attack speed, making DEX very effective for maximizing hits during the 12-second mark window.
+        Each DEX point increases attack speed by <span class="stat-highlight">2.0%</span>. Hootini has excellent
+        attack speed scaling, making DEX very effective for maximizing hits during the 12-second mark window. Hit
+        chance increases by <span class="stat-highlight">0.625%</span> per DEX point.
       </p>
 
       <h3>🛡️ CON (Constitution) → Stamina & Regeneration</h3>
@@ -605,14 +603,13 @@
 
       <h3>🎲 LUCK → Critical Chance & Critical Damage</h3>
       <div class="formula-box">
-        Crit Chance = 7.5 + LUCK × 0.2625 (idle)<br>
-        Crit Chance = 2.5 + LUCK × 0.0875 (active)<br>
-        Crit Damage = 2.75 + LUCK × 0.04375 (idle)<br>
-        Crit Damage = 2.6 + LUCK × 0.04 (active)
+        Crit Chance = (5 × 1.5) + LUCK × (0.175 × 0.5) = 7.5 + LUCK × 0.0875<br>
+        Crit Damage = 1 + (1 × 1.75 + LUCK × 0.025 × 1.6) = 2.75 + LUCK × 0.04
       </div>
       <p>
-        With base LUCK=15, Hootini starts with <span class="stat-highlight">11.4% crit chance (idle)</span> and
-        impressive crit damage. Each LUCK point adds substantial crit chance and damage, making LUCK an excellent
+        With base LUCK=15, Hootini starts with <span class="stat-highlight">8.8% crit chance</span> and
+        <span class="stat-highlight">335% crit damage</span>. Each LUCK point adds <span class="stat-highlight">0.0875%
+        crit chance</span> and <span class="stat-highlight">4% crit damage</span>, making LUCK an excellent
         secondary stat after SPECIAL.
       </p>
 
