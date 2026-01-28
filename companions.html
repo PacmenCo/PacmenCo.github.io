@@ -143,6 +143,11 @@
       margin-bottom: 0;
     }
 
+    a:has(.companion-card):hover .companion-card {
+      transform: translateY(-2px);
+      border-left-color: var(--accent-orange);
+    }
+
     .companion-name {
       color: var(--accent-orange);
       font-size: 1.3rem;
@@ -234,16 +239,18 @@
         and discover which companions best suit your playstyle.
       </p>
 
-      <div class="companion-card">
-        <div class="companion-name">Jindo</div>
-        <div class="companion-ability">Special Attack: Alpha Rush!</div>
-        <div class="companion-unlock">Unlocks at Level 5</div>
-        <div class="companion-description">
-          A fierce offensive companion that unleashes devastating burst damage. Alpha Rush grants <span class="stat-highlight">+84% damage</span>,
-          <span class="stat-highlight">+50% crit chance</span>, increased crit damage, and doubles attack speed.
-          Perfect for players who want to maximize damage output in short bursts.
+      <a href="jindo.html" style="text-decoration: none; color: inherit; display: block;">
+        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
+          <div class="companion-name">Jindo</div>
+          <div class="companion-ability">Special Attack: Alpha Rush!</div>
+          <div class="companion-unlock">Unlocks at Level 5</div>
+          <div class="companion-description">
+            A fierce offensive companion that unleashes devastating burst damage. Alpha Rush grants <span class="stat-highlight">+84% damage</span>,
+            <span class="stat-highlight">+50% crit chance</span>, increased crit damage, and doubles attack speed.
+            Perfect for players who want to maximize damage output in short bursts.
+          </div>
         </div>
-      </div>
+      </a>
 
       <div class="companion-card">
         <div class="companion-name">Ember</div>
