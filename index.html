@@ -572,7 +572,6 @@
         padding: 3rem 1rem;
       }
     }
-
   </style>
 </head>
 
@@ -638,7 +637,7 @@
     // ======================================
 
     // Apply screenshot backgrounds to sections
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const sections = document.querySelectorAll('[data-section-bg]');
 
       sections.forEach((section, index) => {
@@ -657,13 +656,13 @@
       const burgerMenu = document.getElementById('burgerMenu');
       const menuOverlay = document.getElementById('menuOverlay');
 
-      burgerMenu.addEventListener('click', function() {
+      burgerMenu.addEventListener('click', function () {
         burgerMenu.classList.toggle('active');
         menuOverlay.classList.toggle('active');
       });
 
       // Close menu when clicking outside
-      menuOverlay.addEventListener('click', function(e) {
+      menuOverlay.addEventListener('click', function (e) {
         if (e.target === menuOverlay) {
           burgerMenu.classList.remove('active');
           menuOverlay.classList.remove('active');
@@ -808,7 +807,7 @@
     <div class="container">
       <h2>Join the Community</h2>
       <p class="section-subtitle">
-        Connect with thousands of adventurers, share strategies, and stay updated on new features
+        Connect with other adventurers, share strategies, and stay updated on new features
       </p>
 
       <div class="discord-card">
@@ -838,7 +837,7 @@
         <a href="https://discord.gg/8YXUDXTC" target="_blank" rel="noopener">Discord</a>
       </div>
       <p class="copyright">
-        © 2025 PacmenCo — Crafting immersive idle RPG experiences
+        © 2025 PacmenCo — Idle Adventure. All rights reserved.
       </p>
     </div>
   </footer>
