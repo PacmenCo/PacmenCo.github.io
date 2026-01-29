@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Globbie – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-teal: #14b8a6;
+      --accent-lime: #84cc16;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(132, 204, 22, 0.1));
+      border-radius: 20px;
+      border: 2px solid rgba(20, 184, 166, 0.3);
+    }
+
+    .companion-icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 20px rgba(20, 184, 166, 0.5));
+    }
+
+    .companion-title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      background: linear-gradient(135deg, var(--accent-teal), var(--accent-lime));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .companion-subtitle {
+      font-size: 1.5rem;
+      color: var(--accent-cyan);
+      margin-bottom: 1rem;
+    }
+
+    .unlock-badge {
+      display: inline-block;
+      background: rgba(20, 184, 166, 0.2);
+      border: 1px solid var(--accent-teal);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      border-bottom: 2px solid rgba(124, 58, 237, 0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .ability-box {
+      background: rgba(20, 184, 166, 0.1);
+      border-left: 4px solid var(--accent-teal);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .ability-name {
+      color: var(--accent-teal);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .ability-effects {
+      list-style: none;
+      padding: 0;
+    }
+
+    .ability-effects li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+    }
+
+    .ability-effects li:last-child {
+      border-bottom: none;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-card {
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid var(--accent-purple);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-card.highlight {
+      background: rgba(20, 184, 166, 0.2);
+      border: 2px solid var(--accent-teal);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      color: var(--accent-orange);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .build-card {
+      background: rgba(124, 58, 237, 0.05);
+      border-left: 3px solid var(--accent-purple);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .build-name {
+      color: var(--accent-orange);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .build-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .build-stats {
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    .comparison-table table {
+      width: 100%;
+      min-width: 600px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .comparison-table th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      color: var(--text-secondary);
+    }
+
+    .info-box {
+      background: rgba(20, 184, 166, 0.1);
+      border: 1px solid var(--accent-teal);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .info-box strong {
+      color: var(--accent-teal);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .companion-icon {
+        font-size: 3rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="companions.html" class="back-link">← Back to Companions</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <div class="companion-icon">🟢</div>
+      <h1 class="companion-title">Globbie</h1>
+      <p class="companion-subtitle">Sticky Slime Control Specialist</p>
+      <div class="unlock-badge">Unlocks at Level 15 | Cost: 1550 Gems</div>
+    </div>
+
+    <div class="content-section">
+      <h2>🎯 Sticky Ruin Ability</h2>
+      <div class="ability-box">
+        <div class="ability-name">Sticky Ruin!</div>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          A control-focused ability that guarantees a critical hit while massively slowing enemies and extending
+          Globbie's attack range. Perfect for kiting dangerous enemies and controlling the battlefield.
+        </p>
+        <ul class="ability-effects">
+          <li><strong>Guaranteed Critical Hit:</strong> Next attack has +150% crit chance (guaranteed crit) and +2.0 crit damage</li>
+          <li><strong>Active Slow:</strong> 67-81% slow for 10 seconds (scales with SPECIAL)</li>
+          <li><strong>Passive Slow:</strong> 10-25% slow on every hit while active (scales with SPECIAL)</li>
+          <li><strong>Range Bonus:</strong> +3m range (+0.6m effective after scaling)</li>
+          <li><strong>Cooldown:</strong> 18 seconds</li>
+          <li><strong>Stamina Cost:</strong> 3 stamina to activate</li>
+        </ul>
+      </div>
+
+      <h3>Slow Mechanics</h3>
+      <p>
+        Sticky Ruin provides two types of slows that work together to control enemy movement:
+      </p>
+
+      <h4 style="color: var(--accent-teal); margin-top: 1rem;">Active Slow (On Special Activation)</h4>
+      <div class="formula-box">
+        Slow % = 67 + 19 × (1 - 45/(SPECIAL + 45))
+      </div>
+      <p>
+        This powerful slow applies when you activate Sticky Ruin and hit an enemy. It lasts <span class="stat-highlight">10 seconds</span>
+        and reduces enemy acceleration dramatically. The slow starts at 67% and asymptotically approaches 86% at very high SPECIAL values.
+      </p>
+
+      <h4 style="color: var(--accent-teal); margin-top: 1rem;">Passive Slow (Continuous)</h4>
+      <div class="formula-box">
+        Slow % = 10 + 20 × (1 - 30/(SPECIAL + 30))
+      </div>
+      <p>
+        While Sticky Ruin is active, every hit applies a passive slow that stacks with the active slow. This scales from
+        10% to ~30% with high SPECIAL investment, providing continuous control over enemy positioning.
+      </p>
+
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>SPECIAL</th>
+              <th>Active Slow</th>
+              <th>Passive Slow</th>
+              <th>Combined Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4</td>
+              <td>67.0%</td>
+              <td>10.0%</td>
+              <td>Moderate control</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>75.8%</td>
+              <td>20.0%</td>
+              <td>Strong control</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>79.1%</td>
+              <td>23.3%</td>
+              <td>Excellent control</td>
+            </tr>
+            <tr>
+              <td>100</td>
+              <td>81.1%</td>
+              <td>25.4%</td>
+              <td>Maximum control</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Guaranteed Critical Hit</h3>
+      <p>
+        The next attack after activating Sticky Ruin gains <span class="stat-highlight">+150% crit chance</span>
+        (guaranteeing a critical hit) and <span class="stat-highlight">+2.0 crit damage multiplier</span>. This is
+        perfect for burst damage against slowed enemies or finishing off dangerous targets.
+      </p>
+
+      <h3>Extended Range</h3>
+      <p>
+        When Sticky Ruin is active and you have sufficient stamina, Globbie gains <span class="stat-highlight">+3m range</span>
+        (which translates to +0.6m effective range after division by 5). This range bonus allows you to kite enemies safely
+        while dealing damage from a distance. Base range: 0.24m → Active range: 0.84m
+      </p>
+
+      <div class="info-box">
+        <strong>Slow Note:</strong> The slow effect reduces enemy acceleration, not just speed. This means slowed
+        enemies take longer to reach their maximum movement speed, making it easier to maintain distance and control
+        positioning.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>⚡ Activation Prerequisites</h2>
+      <p>
+        To use Sticky Ruin effectively:
+      </p>
+      <ul class="ability-effects">
+        <li><strong>Manual Activation Required:</strong> Must press the Sticky Ruin button (no auto-activation)</li>
+        <li><strong>Sufficient Stamina:</strong> Must have at least 3 stamina</li>
+        <li><strong>Companion Awake:</strong> Companion must not be sleeping</li>
+        <li><strong>Not on Cooldown:</strong> 18-second cooldown must be complete</li>
+      </ul>
+
+      <h3>Effect Duration</h3>
+      <p>
+        Once activated, Sticky Ruin's effects apply on the next attack and remain active until you deactivate it or
+        run out of stamina. The active slow lasts 10 seconds from the time it's applied, while the passive slow
+        continues on every hit as long as the ability remains active.
+      </p>
+
+      <div class="info-box">
+        <strong>Pro Tip:</strong> The 18-second cooldown is short compared to most other companions. You can activate
+        Sticky Ruin frequently to maintain consistent crowd control, making Globbie excellent for zones with dangerous
+        fast enemies.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>📊 Base Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card highlight">
+          <div class="stat-label">STR ⭐</div>
+          <div class="stat-value">17</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">DEX</div>
+          <div class="stat-value">5</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">CON</div>
+          <div class="stat-value">9</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">LUCK</div>
+          <div class="stat-value">10</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">SPECIAL</div>
+          <div class="stat-value">4</div>
+        </div>
+      </div>
+
+      <p>
+        Globbie has the <strong>highest base STR</strong> (17) of all companions, making it naturally powerful
+        despite being a control specialist. The very low DEX (5) means slow attack speed, but the guaranteed crit
+        and massive slow make up for it. Low SPECIAL (4) means control effects start weak but scale well with
+        investment.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>📈 Stat Scaling</h2>
+
+      <h3>🗡️ STR (Strength) → Damage</h3>
+      <div class="formula-box">
+        Damage Multiplier = (1 × 2.0 + STR × 0.025 × 2.0) = 2.0 + STR × 0.05
+      </div>
+      <p>
+        Each STR point increases damage by <span class="stat-highlight">5.0%</span>. With base STR=17, Globbie starts
+        with a 2.85 damage multiplier (185% of base damage), making it the highest base damage companion. This
+        exceptional scaling means STR is extremely valuable on Globbie.
+      </p>
+
+      <h3>⚡ DEX (Dexterity) → Attack Speed & Hit Chance</h3>
+      <div class="formula-box">
+        Attack Speed = (1 + DEX × 0.004 × 4.0) = 1 + DEX × 0.016<br>
+        Hit Chance = DEX × 0.005 × 0.8 = DEX × 0.004
+      </div>
+      <p>
+        Each DEX point increases attack speed by <span class="stat-highlight">1.6%</span> and hit chance by
+        <span class="stat-highlight">0.4%</span>. While base DEX is low, the 4.0× speed scaling means DEX investment
+        is effective if you want faster attacks to apply slows more frequently.
+      </p>
+
+      <h3>🛡️ CON (Constitution) → Stamina & Regeneration</h3>
+      <div class="formula-box">
+        Max Stamina = 3 + floor(SPECIAL / 6) + floor(CON / 5)
+      </div>
+      <p>
+        Each 5 CON points grants <span class="stat-highlight">+1 max stamina</span>. With base CON=9 and SPECIAL=4,
+        Globbie starts with <span class="stat-highlight">4 stamina</span> (3 + 0 + 1), which is just enough for one
+        Sticky Ruin activation with 1 stamina left.
+      </p>
+
+      <h3>🎲 LUCK → Critical Chance & Critical Damage</h3>
+      <div class="formula-box">
+        Crit Chance = (5 × 0.5) + LUCK × (0.175 × 1.0) = 2.5 + LUCK × 0.175<br>
+        Crit Damage = 1 + (1 × 0.5 + LUCK × 0.025 × 0.8) = 1.5 + LUCK × 0.02
+      </div>
+      <p>
+        With base LUCK=10, Globbie starts with <span class="stat-highlight">4.25% crit chance</span> and
+        <span class="stat-highlight">170% crit damage</span>. Each LUCK point adds <span class="stat-highlight">0.175%
+        crit chance</span> and <span class="stat-highlight">2% crit damage</span>. While not exceptional, the
+        guaranteed crit from Sticky Ruin makes LUCK valuable for maximizing that burst.
+      </p>
+
+      <h3>✨ SPECIAL → Control & Stamina</h3>
+      <div class="formula-box">
+        Max Stamina Bonus = floor(SPECIAL / 6)<br>
+        Active Slow = 67 + 19 × (1 - 45/(SPECIAL + 45))<br>
+        Passive Slow = 10 + 20 × (1 - 30/(SPECIAL + 30))
+      </div>
+      <p>
+        SPECIAL is crucial for control builds. Every 6 SPECIAL grants <span class="stat-highlight">+1 max stamina</span>.
+        Each point significantly improves both active and passive slow percentages, with diminishing returns as you
+        approach the caps (86% active, ~30% passive). The scaling is asymptotic, meaning early SPECIAL points provide
+        the most benefit.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>🎯 Recommended Builds</h2>
+
+      <div class="build-card">
+        <div class="build-name">💥 Burst Assassin (STR Focus)</div>
+        <div class="build-description">
+          Maximize STR to leverage Globbie's exceptional 5% damage per point scaling. Combined with the guaranteed
+          crit from Sticky Ruin, this build delivers devastating burst damage to slowed enemies. The slow keeps targets
+          in range while you deal massive damage. Perfect for quickly eliminating dangerous enemies.
+        </div>
+        <div class="build-stats">
+          Priority: STR (50%) → LUCK (20%) → SPECIAL (15%) → CON (10%) → DEX (5%)
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">🎯 Maximum Control (SPECIAL Focus)</div>
+        <div class="build-description">
+          Prioritize SPECIAL to maximize slow effectiveness, reaching 81%+ active slow and 25%+ passive slow. This
+          build excels at controlling fast or dangerous enemies, keeping them perpetually slowed. The short cooldown
+          means near-permanent slow uptime. Excellent for survival and kiting playstyles.
+        </div>
+        <div class="build-stats">
+          Priority: SPECIAL (45%) → STR (30%) → CON (15%) → LUCK (10%)
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">⚖️ Balanced Striker (Hybrid)</div>
+        <div class="build-description">
+          Balance STR and SPECIAL to combine high damage with solid control. This build provides good burst potential
+          from the guaranteed crit while maintaining effective slows to keep enemies at bay. DEX investment improves
+          attack speed to apply slows more frequently. Well-rounded for most content.
+        </div>
+        <div class="build-stats">
+          Priority: STR (35%) → SPECIAL (30%) → LUCK (15%) → DEX (10%) → CON (10%)
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>⚔️ Combat Strategy</h2>
+
+      <h3>When to Use Sticky Ruin</h3>
+      <p>
+        Activate Sticky Ruin when:
+      </p>
+      <ul class="ability-effects">
+        <li>Facing fast enemies that close distance quickly</li>
+        <li>Fighting dangerous enemies you want to kite</li>
+        <li>Boss encounters where positioning matters</li>
+        <li>You need a guaranteed crit for burst damage</li>
+        <li>You have 3+ stamina and the 18s cooldown is ready</li>
+      </ul>
+
+      <h3>Kiting Strategy</h3>
+      <p>
+        The extended range (+0.6m effective) combined with 67-81% slow creates a powerful kiting setup. Activate
+        Sticky Ruin, hit the enemy for the guaranteed crit and massive slow, then use the extended range to
+        maintain distance while dealing damage. The 10-second slow duration gives plenty of time to reposition.
+      </p>
+
+      <h3>Cooldown Management</h3>
+      <p>
+        With only an 18-second cooldown, Sticky Ruin has one of the shortest cooldowns among companions. This means
+        you can activate it frequently. Don't save it—use it on cooldown for tough enemies or whenever you need
+        crowd control. The passive slow remains active between cooldowns if you keep the ability enabled.
+      </p>
+
+      <h3>Stamina Conservation</h3>
+      <p>
+        Sticky Ruin costs 3 stamina, and each attack costs 1 stamina. With base 4 stamina, you can activate the
+        ability and get 1 attack before needing to rest. Higher CON or SPECIAL increases max stamina, allowing
+        multiple attacks per activation. Plan your stamina usage to maximize uptime.
+      </p>
+
+      <h3>Burst Damage Combo</h3>
+      <p>
+        The guaranteed crit provides excellent burst potential:
+      </p>
+      <ul class="ability-effects">
+        <li>Activate Sticky Ruin when facing a priority target</li>
+        <li>Next attack: Guaranteed crit with +2.0 crit damage and full STR scaling</li>
+        <li>Enemy is now massively slowed for 10 seconds</li>
+        <li>Continue attacking with extended range and passive slow</li>
+        <li>Repeat every 18 seconds</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>📊 Control Power Progression</h2>
+      <p>
+        Here's how Globbie's control effects scale at different levels with a SPECIAL-focused build:
+      </p>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>SPECIAL</th>
+              <th>Active Slow</th>
+              <th>Passive Slow</th>
+              <th>Guaranteed Crit Damage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>4</td>
+              <td>67.0%</td>
+              <td>10.0%</td>
+              <td>+2.0× multiplier</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>24</td>
+              <td>74.5%</td>
+              <td>18.9%</td>
+              <td>+2.0× multiplier</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>54</td>
+              <td>78.5%</td>
+              <td>22.9%</td>
+              <td>+2.0× multiplier</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>84</td>
+              <td>80.3%</td>
+              <td>24.7%</td>
+              <td>+2.0× multiplier</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>114</td>
+              <td>81.4%</td>
+              <td>25.7%</td>
+              <td>+2.0× multiplier</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+        Note: The guaranteed crit provides a fixed +2.0 crit damage multiplier regardless of level. At level 60,
+        Globbie can slow enemies by over 81% while maintaining 25%+ passive slow on every hit, providing near-total
+        control over enemy movement. The short 18-second cooldown means frequent burst windows.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
