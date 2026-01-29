@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MechaBird – Idle Adventure Companion</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .companion-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .companion-subtitle {
+      font-size: 1.5rem;
+      color: var(--accent-purple);
+      margin-bottom: 1rem;
+    }
+
+    .unlock-info {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      background: rgba(124, 58, 237, 0.1);
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-item {
+      background: rgba(124, 58, 237, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-purple);
+    }
+
+    .stat-name {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      color: var(--accent-orange);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .ability-box {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.1));
+      border: 2px solid var(--accent-purple);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .ability-name {
+      color: var(--accent-orange);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .ability-cost {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(10, 14, 26, 0.5);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .formula-label {
+      color: var(--accent-orange);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .formula {
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--accent-orange);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box {
+      background: rgba(6, 182, 212, 0.1);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .build-card {
+      background: rgba(124, 58, 237, 0.05);
+      border-left: 3px solid var(--accent-purple);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .build-name {
+      color: var(--accent-orange);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--text-secondary);
+    }
+
+    .progression-table {
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="companions.html" class="back-link">← Back to Companions</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="companion-title">⚙️ MechaBird</h1>
+      <p class="companion-subtitle">Ramping Damage Dealer</p>
+      <div class="unlock-info">Unlocks at Level 20 • Cost: 1750 Gems</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Base Stats</h2>
+      <p>
+        MechaBird is a late-game offensive companion with a unique ramping damage system. While starting with
+        moderate base stats, the attack speed stacking mechanic makes MechaBird incredibly powerful in extended fights.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-name">STRENGTH</div>
+          <div class="stat-value">11</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-name">DEXTERITY</div>
+          <div class="stat-value">5</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-name">CONSTITUTION</div>
+          <div class="stat-value">8</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-name">LUCK</div>
+          <div class="stat-value">9</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-name">SPECIAL</div>
+          <div class="stat-value">12</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Special Ability: Pecking Overdrive!</h2>
+
+      <div class="ability-box">
+        <div class="ability-name">⚡ Pecking Overdrive!</div>
+        <div class="ability-cost">
+          Cooldown: 26 seconds | Stamina Cost: 2 activation + 1 per attack | Duration: 4 seconds
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          A powerful ramping damage ability that grows stronger with each consecutive hit. Grants immediate damage
+          and crit bonuses, then stacks attack speed exponentially up to devastating levels.
+        </p>
+
+        <h3 style="margin-top: 0;">Immediate Effects (On Activation)</h3>
+
+        <div class="formula-box">
+          <div class="formula-label">Damage Boost</div>
+          <div class="formula">+50% multiplicative damage increase</div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-label">Critical Hit Chance</div>
+          <div class="formula">+35% crit chance (additive)</div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-label">Base Speed Modifier</div>
+          <div class="formula">-0.15 + 0.025 × (SPECIAL - 12)</div>
+          <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+            At 12 SPECIAL: -15% speed (slow start)<br>
+            At 20 SPECIAL: +5% speed<br>
+            At 32 SPECIAL: +35% speed
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-label">Extra Range</div>
+          <div class="formula">+0.5m attack range while active</div>
+        </div>
+
+        <h3>Unique Mechanic: Attack Speed Stacking</h3>
+
+        <p style="color: var(--text-secondary);">
+          The true power of Pecking Overdrive is the exponential attack speed stacking. Each hit during the
+          4-second duration increases attack speed by 8%, stacking up to 10 hits.
+        </p>
+
+        <div class="formula-box">
+          <div class="formula-label">Speed Increase Per Hit</div>
+          <div class="formula">8% multiplicative per hit</div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-label">Total Speed Scaling Formula</div>
+          <div class="formula">(1.08)^HitCount - 1</div>
+        </div>
+
+        <div class="info-box">
+          <strong style="color: var(--accent-cyan);">Attack Speed Progression:</strong>
+          <table style="margin-top: 0.5rem;">
+            <tr>
+              <th>Hits</th>
+              <th>Speed Bonus</th>
+              <th>Total Multiplier</th>
+            </tr>
+            <tr>
+              <td>0 (Start)</td>
+              <td>0%</td>
+              <td>1.00×</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>+8.0%</td>
+              <td>1.08×</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>+25.97%</td>
+              <td>1.26×</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>+46.93%</td>
+              <td>1.47×</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>+71.38%</td>
+              <td>1.71×</td>
+            </tr>
+            <tr>
+              <td>10 (Max)</td>
+              <td>+115.89%</td>
+              <td>2.16×</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="warning-box">
+          <strong style="color: var(--accent-orange);">Peak Performance:</strong> At maximum stacks (10 hits),
+          MechaBird achieves 2.16× base attack speed on top of the +50% damage and +35% crit chance. This makes
+          MechaBird one of the highest burst DPS companions when fully ramped.
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Stat Scaling Breakdown</h2>
+
+      <p>
+        Understanding how each stat affects MechaBird's performance helps optimize your build. All formulas use
+        both base scaling and level-up scaling together.
+      </p>
+
+      <h3>Strength (STR) - Damage</h3>
+      <div class="formula-box">
+        <div class="formula-label">Damage Multiplier Formula</div>
+        <div class="formula">Damage = (1 × 0.4 + STR × 0.025 × 0.19) = 0.4 + STR × 0.00475</div>
+      </div>
+      <p style="color: var(--text-secondary);">
+        Each point of STR increases damage by <span class="stat-highlight">0.475%</span>. Relatively low scaling,
+        but the special ability's +50% damage boost makes STR more effective during Pecking Overdrive.
+      </p>
+
+      <h3>Dexterity (DEX) - Attack Speed</h3>
+      <div class="formula-box">
+        <div class="formula-label">Attack Speed Formula</div>
+        <div class="formula">Attack Speed = (1 + DEX × 0.004 × 7.5) = 1 + DEX × 0.03</div>
+      </div>
+      <p style="color: var(--text-secondary);">
+        Each point of DEX increases attack speed by <span class="stat-highlight">3.0%</span>. Extremely high
+        scaling makes DEX the most important stat for maximizing hit count during Pecking Overdrive. More hits
+        means higher attack speed stacks.
+      </p>
+
+      <h3>Constitution (CON) - Stamina</h3>
+      <div class="formula-box">
+        <div class="formula-label">Max Stamina Formula</div>
+        <div class="formula">Max Stamina = 5 + CON × 1</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Stamina Regen Formula</div>
+        <div class="formula">Regen Per Second = (1 × 0.5 + CON × 0.025 × 3.8) = 0.5 + CON × 0.095</div>
+      </div>
+      <p style="color: var(--text-secondary);">
+        Each point of CON adds <span class="stat-highlight">1 max stamina</span> and
+        <span class="stat-highlight">0.095 stamina/sec</span> regeneration. Pecking Overdrive costs 2 activation
+        + 1 per attack, so sustained fighting requires moderate CON investment.
+      </p>
+
+      <h3>Luck (LUCK) - Critical Hits</h3>
+      <div class="formula-box">
+        <div class="formula-label">Critical Hit Chance Formula</div>
+        <div class="formula">Crit Chance = (1 × 5 + LUCK × 0.025 × 0.5) = 5 + LUCK × 0.0125</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Critical Damage Formula</div>
+        <div class="formula">Crit Damage = (1 × 2 + LUCK × 0.025 × 1.9) = 2 + LUCK × 0.04775</div>
+      </div>
+      <p style="color: var(--text-secondary);">
+        Each point of LUCK adds <span class="stat-highlight">0.0125% crit chance</span> and
+        <span class="stat-highlight">0.04775 crit damage</span>. With the +35% crit chance from Pecking Overdrive,
+        even moderate LUCK investment guarantees crits during the ability window.
+      </p>
+
+      <h3>Special (SPECIAL) - Ability Effectiveness</h3>
+      <div class="formula-box">
+        <div class="formula-label">Base Speed Modifier Formula</div>
+        <div class="formula">Speed Modifier = -0.15 + 0.025 × (SPECIAL - 12)</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Max Stamina Bonus Formula</div>
+        <div class="formula">Stamina Bonus = SPECIAL × 0.025 × 2.5 = SPECIAL × 0.0625</div>
+      </div>
+      <p style="color: var(--text-secondary);">
+        Each point of SPECIAL adds <span class="stat-highlight">2.5% to base speed modifier</span> during Pecking
+        Overdrive and <span class="stat-highlight">0.0625 max stamina</span>. High SPECIAL eliminates the initial
+        speed penalty and provides a strong starting boost before stacks ramp up.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Build Recommendations</h2>
+
+      <div class="build-card">
+        <div class="build-name">Speed Stack Build (Recommended)</div>
+        <p style="color: var(--text-secondary);">
+          <strong style="color: var(--accent-cyan);">Priority:</strong> DEX > SPECIAL > LUCK > CON > STR<br><br>
+          Maximizes attack speed to reach 10 stacks as quickly as possible. High DEX (3% per point) combined
+          with SPECIAL investment (to eliminate speed penalty) creates the fastest ramp time. LUCK ensures
+          crits during the peak damage window. This build transforms MechaBird into a burst monster that melts
+          targets during the 4-second Pecking Overdrive window.
+        </p>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">Balanced Damage Build</div>
+        <p style="color: var(--text-secondary);">
+          <strong style="color: var(--accent-cyan);">Priority:</strong> DEX > LUCK > SPECIAL > CON > STR<br><br>
+          Balances speed stacking with critical damage output. Focuses on DEX for stack generation and LUCK
+          for crit reliability with the +35% crit chance buff. SPECIAL provides stamina and removes speed penalty.
+          Good for sustained DPS across multiple ability cycles.
+        </p>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">High Uptime Build</div>
+        <p style="color: var(--text-secondary);">
+          <strong style="color: var(--accent-cyan);">Priority:</strong> CON > DEX > SPECIAL > LUCK > STR<br><br>
+          Prioritizes stamina for frequent ability usage. With 26-second cooldown and moderate stamina costs,
+          high CON enables near-constant Pecking Overdrive uptime. DEX still important for stack generation.
+          Best for long boss fights where sustained ability usage outweighs peak burst damage.
+        </p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Combat Strategy</h2>
+
+      <h3>Ability Timing</h3>
+      <p>
+        Pecking Overdrive has a fixed 4-second duration, making timing critical. Activate when you have full stamina
+        and can commit to continuous attacks for the entire window. The exponential speed scaling means every hit
+        matters - interruptions reset your stacks and waste the ability.
+      </p>
+
+      <h3>Stack Management</h3>
+      <p>
+        Your goal is to reach 10 stacks (2.16× attack speed) as fast as possible. With high DEX, you can achieve
+        maximum stacks within 2-3 seconds, leaving 1-2 seconds to benefit from peak performance. Low DEX builds
+        may only reach 5-7 stacks before the ability ends, significantly reducing effectiveness.
+      </p>
+
+      <div class="info-box">
+        <strong style="color: var(--accent-cyan);">Optimal Combo:</strong> Start Pecking Overdrive → Attack
+        continuously → Reach 10 stacks → Maximize damage during remaining duration. The +50% damage, +35% crit
+        chance, and 2.16× attack speed combine for devastating burst windows.
+      </div>
+
+      <h3>Stamina Management</h3>
+      <p>
+        Each activation costs 2 stamina, and each attack costs 1 stamina during the ability. With approximately
+        8-12 attacks per activation (depending on DEX and stack level), expect to consume 10-14 stamina per
+        ability cycle. Plan your stamina regeneration between cooldowns.
+      </p>
+
+      <h3>Target Priority</h3>
+      <p>
+        MechaBird excels against single high-value targets where the full 4-second duration can be utilized.
+        Elite enemies and bosses are ideal - the ramping speed lets MechaBird maintain DPS advantage throughout
+        the fight. Less effective against swarms where targets die before stacks accumulate.
+      </p>
+
+      <div class="warning-box">
+        <strong style="color: var(--accent-orange);">Ramp Dependency:</strong> MechaBird's performance is
+        heavily dependent on reaching high stack counts. Low DEX or interrupted attack sequences drastically
+        reduce effectiveness. This companion rewards aggressive, committed play and punishes defensive or
+        interrupted positioning.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Power Progression</h2>
+
+      <p>
+        MechaBird's power scales exponentially with levels due to high DEX scaling. The table below shows key
+        performance metrics at different levels with typical stat distributions.
+      </p>
+
+      <div class="progression-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Avg STR</th>
+              <th>Avg DEX</th>
+              <th>Base Speed Bonus</th>
+              <th>Max Stack Speed</th>
+              <th>Total Crit Chance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>11</td>
+              <td>5</td>
+              <td>+15%</td>
+              <td>2.49× (base + stacks)</td>
+              <td>~40%</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>21</td>
+              <td>15</td>
+              <td>+45%</td>
+              <td>3.13× (base + stacks)</td>
+              <td>~41%</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>33</td>
+              <td>27</td>
+              <td>+81%</td>
+              <td>3.91× (base + stacks)</td>
+              <td>~42%</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>44</td>
+              <td>38</td>
+              <td>+114%</td>
+              <td>4.62× (base + stacks)</td>
+              <td>~43%</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>55</td>
+              <td>49</td>
+              <td>+147%</td>
+              <td>5.33× (base + stacks)</td>
+              <td>~44%</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>66</td>
+              <td>60</td>
+              <td>+180%</td>
+              <td>6.05× (base + stacks)</td>
+              <td>~45%</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>77</td>
+              <td>71</td>
+              <td>+213%</td>
+              <td>6.76× (base + stacks)</td>
+              <td>~46%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-top: 1rem;">
+        <em>Note: These values assume balanced stat distribution (22.2% STR/DEX). Focused DEX builds achieve even
+        higher attack speeds. Base speed bonus includes SPECIAL scaling. Max stack speed shows total multiplier
+        at 10 stacks including base DEX scaling and Pecking Overdrive bonuses.</em>
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Companion Synergies</h2>
+
+      <h3>Strong Synergies</h3>
+      <ul style="color: var(--text-secondary); margin-left: 2rem;">
+        <li style="margin-bottom: 0.5rem;">
+          <strong style="color: var(--accent-orange);">Hootini (Rune Owl):</strong> Runic Mark's damage
+          amplification enhances MechaBird's already devastating peak DPS during max stacks.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong style="color: var(--accent-orange);">Globbie:</strong> Slow effects give MechaBird more time
+          to land hits and build stacks safely without enemy retaliation.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong style="color: var(--accent-orange);">Florence:</strong> Grasping Roots immobilizes targets,
+          ensuring MechaBird can reach maximum stacks without interruption.
+        </li>
+      </ul>
+
+      <h3>Weak Synergies</h3>
+      <ul style="color: var(--text-secondary); margin-left: 2rem;">
+        <li style="margin-bottom: 0.5rem;">
+          <strong style="color: var(--accent-orange);">Jindo:</strong> Both are burst damage specialists competing
+          for the same role. Better to specialize in one.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong style="color: var(--accent-orange);">Ember:</strong> Burn stacking takes time, MechaBird wants
+          quick kills. Conflicting timescales reduce synergy.
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
