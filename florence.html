@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florence – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-green: #22c55e;
+      --accent-emerald: #10b981;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.1));
+      border-radius: 20px;
+      border: 2px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .companion-icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5));
+    }
+
+    .companion-title {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      background: linear-gradient(135deg, var(--accent-emerald), var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .companion-subtitle {
+      font-size: 1.5rem;
+      color: var(--accent-cyan);
+      margin-bottom: 1rem;
+    }
+
+    .unlock-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--accent-emerald);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      border-bottom: 2px solid rgba(124, 58, 237, 0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .ability-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--accent-emerald);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .ability-name {
+      color: var(--accent-green);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .ability-effects {
+      list-style: none;
+      padding: 0;
+    }
+
+    .ability-effects li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    }
+
+    .ability-effects li:last-child {
+      border-bottom: none;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-card {
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid var(--accent-purple);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-card.highlight {
+      background: rgba(34, 197, 94, 0.2);
+      border: 2px solid var(--accent-green);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      color: var(--accent-orange);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .build-card {
+      background: rgba(124, 58, 237, 0.05);
+      border-left: 3px solid var(--accent-purple);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .build-name {
+      color: var(--accent-orange);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .build-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .build-stats {
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    .comparison-table table {
+      width: 100%;
+      min-width: 600px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .comparison-table th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      color: var(--text-secondary);
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid #ef4444;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .warning-box strong {
+      color: #ef4444;
+    }
+
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--accent-emerald);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .info-box strong {
+      color: var(--accent-green);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .companion-icon {
+        font-size: 3rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="companions.html" class="back-link">← Back to Companions</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <div class="companion-icon">🌿</div>
+      <h1 class="companion-title">Florence</h1>
+      <p class="companion-subtitle">Nature's Crowd Control Master</p>
+      <div class="unlock-badge">Unlocks at Level 15 | Cost: 1650 Gems</div>
+    </div>
+
+    <div class="content-section">
+      <h2>🌿 Grasping Roots Ability</h2>
+      <div class="ability-box">
+        <div class="ability-name">Grasping Roots!</div>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          A powerful crowd control ability that completely immobilizes enemies while dealing massive damage. Florence
+          channels nature's power to root enemies in place, neutralizing threats while dealing devastating attacks.
+        </p>
+        <ul class="ability-effects">
+          <li><strong>Damage Boost:</strong> +175-269%+ damage (scales with SPECIAL)</li>
+          <li><strong>Root Duration:</strong> 1-5 seconds (scales with SPECIAL)</li>
+          <li><strong>Stamina Cost:</strong> +2 stamina per attack while active, +3 stamina to apply root</li>
+          <li><strong>Cooldown:</strong> 18 seconds (for root application)</li>
+          <li><strong>Always Active:</strong> Damage boost applies continuously, root on cooldown</li>
+        </ul>
+      </div>
+
+      <h3>Root Mechanics</h3>
+      <p>
+        Grasping Roots is unique among companion abilities - the damage boost is <strong>always active</strong> when
+        enabled, but rooting enemies has a cooldown. This creates a high-risk, high-reward playstyle:
+      </p>
+
+      <div class="info-box">
+        <strong>Key Mechanic:</strong> When Grasping Roots is enabled, every attack costs +2 stamina (3 total).
+        When you hit an enemy and the root cooldown is ready, an additional +3 stamina is consumed to apply the root
+        (6 stamina total for that hit). This high stamina cost means you must manage resources carefully.
+      </div>
+
+      <h3>Damage Scaling</h3>
+      <div class="formula-box">
+        Damage Multiplier = 2.75 + (SPECIAL - 4) × 0.03<br><br>
+        At SPECIAL=2: 2.69× (169% bonus)<br>
+        At SPECIAL=25: 2.38× (138% bonus)<br>
+        At SPECIAL=50: 3.13× (213% bonus)<br>
+        At SPECIAL=100: 3.63× (263% bonus)
+      </div>
+
+      <p>
+        The damage boost starts at +175% (2.75× multiplier) and increases by <span class="stat-highlight">3% per
+        SPECIAL point</span>. Even with Florence's low base SPECIAL (2), the ability provides nearly 170% bonus
+        damage continuously.
+      </p>
+
+      <h3>Root Duration Scaling</h3>
+      <div class="formula-box">
+        Duration = 1 + 4 × (1 - 55/(SPECIAL + 51))
+      </div>
+
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>SPECIAL</th>
+              <th>Root Duration</th>
+              <th>Damage Multiplier</th>
+              <th>Total Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>1.04s</td>
+              <td>2.69× (169%)</td>
+              <td>Brief stun, high damage</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>2.36s</td>
+              <td>3.38× (238%)</td>
+              <td>Moderate control</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>3.11s</td>
+              <td>4.13× (313%)</td>
+              <td>Strong control</td>
+            </tr>
+            <tr>
+              <td>100</td>
+              <td>4.05s</td>
+              <td>5.63× (463%)</td>
+              <td>Maximum control</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        The root duration asymptotically approaches 5 seconds as SPECIAL increases. Even at base SPECIAL=2, you get
+        ~1 second of immobilization, which is enough to prevent an enemy attack or reposition.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>⚡ Activation & Stamina Management</h2>
+
+      <h3>Activation Prerequisites</h3>
+      <ul class="ability-effects">
+        <li><strong>Manual Activation Required:</strong> Must press the Grasping Roots button</li>
+        <li><strong>High Stamina Required:</strong> 3 stamina per normal attack, 6 stamina for root application</li>
+        <li><strong>Companion Awake:</strong> Companion must not be sleeping</li>
+        <li><strong>Root Cooldown:</strong> 18-second cooldown for root application (damage boost always active)</li>
+      </ul>
+
+      <h3>Stamina Cost Breakdown</h3>
+      <div class="warning-box">
+        <strong>Critical Limitation:</strong> Grasping Roots has the highest stamina cost of any companion ability.
+        Every attack costs 3 stamina (base 1 + ability 2), and rooting an enemy costs an additional 3 stamina for
+        a total of 6 stamina. With Florence's base max stamina of 5, you cannot apply a root without first
+        increasing your max stamina through SPECIAL or CON investment.
+      </div>
+
+      <p>
+        Understanding stamina costs:
+      </p>
+      <ul class="ability-effects">
+        <li>Normal attack without ability: 1 stamina</li>
+        <li>Attack with Grasping Roots active: 3 stamina (1 base + 2 ability)</li>
+        <li>Root application (when cooldown ready): 6 stamina total (3 for attack + 3 for root)</li>
+        <li>Base max stamina: 5 (3 + 0 SPECIAL/15 + 2 CON/5)</li>
+      </ul>
+
+      <p>
+        To use Grasping Roots effectively, you <strong>must</strong> invest in either:
+      </p>
+      <ul class="ability-effects">
+        <li>CON to increase max stamina (every 5 CON = +1 stamina)</li>
+        <li>SPECIAL to increase max stamina (every 15 SPECIAL = +1 stamina)</li>
+        <li>Both for maximum stamina capacity</li>
+      </ul>
+
+      <h3>Optimal Stamina Thresholds</h3>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Max Stamina</th>
+              <th>Capabilities</th>
+              <th>How to Achieve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5 (base)</td>
+              <td>1 normal attack only</td>
+              <td>No investment needed</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>2 normal attacks OR 1 root</td>
+              <td>+5 CON or +15 SPECIAL</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>3 normal attacks OR 1 root + 1 attack</td>
+              <td>+20 CON or +60 SPECIAL (or mix)</td>
+            </tr>
+            <tr>
+              <td>12+</td>
+              <td>4+ normal attacks OR 2 roots</td>
+              <td>High CON + SPECIAL investment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>📊 Base Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">STR</div>
+          <div class="stat-value">9</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">DEX</div>
+          <div class="stat-value">7</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">CON</div>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card highlight">
+          <div class="stat-label">LUCK ⭐</div>
+          <div class="stat-value">15</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">SPECIAL</div>
+          <div class="stat-value">2</div>
+        </div>
+      </div>
+
+      <p>
+        Florence has the <strong>second-highest base LUCK</strong> (15, tied with Hootini) for excellent crit
+        potential. High CON (12) provides decent base stamina. Very low SPECIAL (2, lowest among all companions)
+        means root duration starts weak but the damage boost is still strong. Balanced STR and DEX provide
+        consistent damage output.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>📈 Stat Scaling</h2>
+
+      <h3>🗡️ STR (Strength) → Damage</h3>
+      <div class="formula-box">
+        Damage Multiplier = (1 × 0.65 + STR × 0.025 × 0.4) = 0.65 + STR × 0.01
+      </div>
+      <p>
+        Each STR point increases damage by <span class="stat-highlight">1.0%</span>. With base STR=9, Florence
+        starts with a 0.74 damage multiplier. The low scaling is offset by the massive +175-269% damage boost from
+        Grasping Roots, making total damage output very high.
+      </p>
+
+      <h3>⚡ DEX (Dexterity) → Attack Speed & Hit Chance</h3>
+      <div class="formula-box">
+        Attack Speed = (1 + DEX × 0.004 × 0.8) = 1 + DEX × 0.0032<br>
+        Hit Chance = DEX × 0.005 × 1.75 = DEX × 0.00875
+      </div>
+      <p>
+        Each DEX point increases attack speed by <span class="stat-highlight">0.32%</span> and hit chance by
+        <span class="stat-highlight">0.875%</span>. Low attack speed scaling means Florence attacks slowly, but
+        high hit chance scaling (1.75×) ensures attacks land reliably despite the low base.
+      </p>
+
+      <h3>🛡️ CON (Constitution) → Stamina & Regeneration</h3>
+      <div class="formula-box">
+        Max Stamina = 3 + floor(SPECIAL / 15) + floor(CON / 5)
+      </div>
+      <p>
+        Each 5 CON points grants <span class="stat-highlight">+1 max stamina</span>. With base CON=12 and
+        SPECIAL=2, Florence starts with <span class="stat-highlight">5 stamina</span> (3 + 0 + 2). CON is
+        <strong>critical</strong> for Florence - without stamina investment, you cannot apply roots (which cost 6
+        stamina).
+      </p>
+
+      <h3>🎲 LUCK → Critical Chance & Critical Damage</h3>
+      <div class="formula-box">
+        Crit Chance = (5 × 2.0) + LUCK × (0.175 × 0.25) = 10 + LUCK × 0.04375<br>
+        Crit Damage = 1 + (1 × 0.25 + LUCK × 0.025 × 2.0) = 1.25 + LUCK × 0.05
+      </div>
+      <p>
+        With base LUCK=15, Florence starts with <span class="stat-highlight">10.66% crit chance</span> and
+        <span class="stat-highlight">200% crit damage</span>. Each LUCK point adds <span class="stat-highlight">
+        0.04375%</span> crit chance and <span class="stat-highlight">5%</span> crit damage. The high base crit
+        damage (2.0×) and excellent crit damage scaling make LUCK very valuable for burst damage.
+      </p>
+
+      <h3>✨ SPECIAL → Root Duration & Stamina</h3>
+      <div class="formula-box">
+        Max Stamina Bonus = floor(SPECIAL / 15)<br>
+        Root Duration = 1 + 4 × (1 - 55/(SPECIAL + 51))<br>
+        Damage Boost = 175% + (SPECIAL - 4) × 3%
+      </div>
+      <p>
+        SPECIAL increases root duration (approaching 5s max) and damage boost by <span class="stat-highlight">3%
+        per point</span>. Every 15 SPECIAL grants <span class="stat-highlight">+1 max stamina</span>. While
+        Florence has the lowest base SPECIAL, it scales incredibly well - 100 SPECIAL provides 4+ seconds of root
+        and nearly 5× damage multiplier.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>🎯 Recommended Builds</h2>
+
+      <div class="build-card">
+        <div class="build-name">🌿 Maximum Control (SPECIAL + CON Focus)</div>
+        <div class="build-description">
+          Prioritize SPECIAL for maximum root duration (5s) and damage boost (5×+), backed by CON for stamina
+          capacity. This build provides the longest crowd control windows and highest damage multiplier. At high
+          investment, you can root enemies for 4-5 seconds every 18 seconds, effectively neutralizing threats.
+          Essential stamina investment ensures you can always apply roots.
+        </div>
+        <div class="build-stats">
+          Priority: SPECIAL (45%) → CON (30%) → LUCK (15%) → STR (10%)
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">⚔️ Burst Control (LUCK + SPECIAL Focus)</div>
+        <div class="build-description">
+          Leverage Florence's exceptional LUCK (15 base) combined with SPECIAL for high crit damage during root
+          windows. With 5% crit damage per LUCK point and already high base crit damage (2.0×), this build deals
+          massive crits while enemies are rooted and helpless. Balance SPECIAL for decent root duration (2-3s) and
+          damage boost. Great for one-shotting tough enemies.
+        </div>
+        <div class="build-stats">
+          Priority: LUCK (40%) → SPECIAL (30%) → CON (20%) → STR (10%)
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-name">🔄 Sustained Roots (CON Focus)</div>
+        <div class="build-description">
+          Focus on CON for maximum stamina capacity, allowing multiple attacks and frequent root applications.
+          With high stamina, you can attack 3-4 times before resting, maintaining near-permanent root uptime with
+          the 18s cooldown. Lower SPECIAL means shorter root duration, but more frequent applications compensate.
+          This build prioritizes consistent control over peak power.
+        </div>
+        <div class="build-stats">
+          Priority: CON (45%) → SPECIAL (25%) → LUCK (20%) → STR (10%)
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>⚔️ Combat Strategy</h2>
+
+      <h3>Managing Stamina Costs</h3>
+      <p>
+        The most important aspect of playing Florence is stamina management:
+      </p>
+      <ul class="ability-effects">
+        <li>Always ensure you have 6+ stamina before attempting to root</li>
+        <li>Normal attacks (3 stamina) let you deal boosted damage while conserving stamina</li>
+        <li>Apply roots when the 18s cooldown is ready and you have sufficient stamina</li>
+        <li>Rest before dangerous fights to enter with full stamina</li>
+        <li>Higher CON/SPECIAL = more attacks per rest cycle</li>
+      </ul>
+
+      <h3>Root Timing</h3>
+      <p>
+        Save roots for optimal moments:
+      </p>
+      <ul class="ability-effects">
+        <li>Priority targets: Fast enemies, hard-hitting enemies, bosses</li>
+        <li>Root before the enemy's next attack to prevent incoming damage</li>
+        <li>Use root windows to land multiple boosted attacks safely</li>
+        <li>18-second cooldown allows frequent control (every ~20 seconds of combat)</li>
+      </ul>
+
+      <h3>Damage Optimization</h3>
+      <p>
+        Florence's +175-269% damage boost is always active while Grasping Roots is enabled. This means:
+      </p>
+      <ul class="ability-effects">
+        <li>Every attack deals 2.7-3.7× damage continuously</li>
+        <li>Critical hits multiply this further (base 2× crit damage)</li>
+        <li>Rooted enemies cannot dodge or move, ensuring all attacks land</li>
+        <li>High damage per hit compensates for low attack speed</li>
+      </ul>
+
+      <h3>Risk vs. Reward</h3>
+      <p>
+        Grasping Roots is high-risk, high-reward:
+      </p>
+      <ul class="ability-effects">
+        <li><strong>Risk:</strong> Highest stamina cost means less uptime, more resting</li>
+        <li><strong>Reward:</strong> Nearly 3× damage boost and complete enemy neutralization</li>
+        <li>Best against single powerful enemies where control matters</li>
+        <li>Less effective against swarms where stamina runs out quickly</li>
+      </ul>
+
+      <h3>When to Disable</h3>
+      <p>
+        Consider disabling Grasping Roots when:
+      </p>
+      <ul class="ability-effects">
+        <li>Facing weak enemies that die in 1-2 hits (stamina cost not worth it)</li>
+        <li>Your stamina is too low to root (less than 6 max stamina)</li>
+        <li>You need more consistent uptime and less resting</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>📊 Control Power Progression</h2>
+      <p>
+        Here's how Grasping Roots scales at different levels with a SPECIAL-focused build:
+      </p>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>SPECIAL</th>
+              <th>Root Duration</th>
+              <th>Damage Multiplier</th>
+              <th>Max Stamina</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>1.04s</td>
+              <td>2.69× (169%)</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>22</td>
+              <td>2.26s</td>
+              <td>3.29× (229%)</td>
+              <td>6 (3+1+2)</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>52</td>
+              <td>3.19s</td>
+              <td>4.19× (319%)</td>
+              <td>8 (3+3+2)</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>82</td>
+              <td>3.76s</td>
+              <td>5.09× (409%)</td>
+              <td>10 (3+5+2)</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>112</td>
+              <td>4.14s</td>
+              <td>5.99× (499%)</td>
+              <td>12 (3+7+2)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+        Note: At level 60, Florence can root enemies for over 4 seconds every 18 seconds while dealing nearly 6×
+        damage continuously. With 12 max stamina, you can apply 2 roots or perform 4 normal attacks before resting.
+        The combination of frequent 4-second immobilizations and 500% bonus damage makes Florence one of the most
+        powerful control companions.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
