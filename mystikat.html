@@ -528,25 +528,22 @@
 
       <h3>🗡️ STR (Strength) → Damage</h3>
       <div class="formula-box">
-        Damage Multiplier = (1 × 0.9 + STR × 0.025 × 0.9) (idle)<br>
-        Damage Multiplier = (1 × 0.8 + STR × 0.025 × 0.8) (active)
+        Damage Multiplier = (1 × 0.9 + STR × 0.025 × 0.8) = 0.9 + STR × 0.02
       </div>
       <p>
-        Each STR point increases damage by <span class="stat-highlight">2.25% (idle)</span> or
-        <span class="stat-highlight">2.0% (active)</span>. While Mystikat isn't a damage dealer, STR still helps
-        with faster enemy kills.
+        Each STR point increases damage by <span class="stat-highlight">2.0%</span>. While Mystikat isn't a
+        damage dealer, STR still helps with faster enemy kills. The base multiplier is 0.9 (90% of base damage).
       </p>
 
       <h3>⚡ DEX (Dexterity) → Attack Speed & Hit Chance</h3>
       <div class="formula-box">
-        Attack Speed = (1 + DEX × 0.004 × 0.9) (idle)<br>
-        Attack Speed = (1 + DEX × 0.004 × 0.8) (active)<br>
-        Hit Chance = DEX × 0.005 × 1.2 (active only)
+        Attack Speed = (1 + DEX × 0.004 × 0.8) = 1 + DEX × 0.0032<br>
+        Hit Chance = DEX × 0.005 × 1.2 = DEX × 0.006
       </div>
       <p>
-        Each DEX point increases attack speed by <span class="stat-highlight">0.36% (idle)</span> or
-        <span class="stat-highlight">0.32% (active)</span>. More attacks means more passive healing triggers
-        and faster completion of Vital Bloom sequences.
+        Each DEX point increases attack speed by <span class="stat-highlight">0.32%</span> and hit chance by
+        <span class="stat-highlight">0.6%</span>. More attacks means more passive healing triggers and faster
+        completion of Vital Bloom sequences.
       </p>
 
       <h3>🛡️ CON (Constitution) → Stamina & Regeneration</h3>
@@ -561,15 +558,14 @@
 
       <h3>🎲 LUCK → Critical Chance & Critical Damage</h3>
       <div class="formula-box">
-        Crit Chance = 3.75 + LUCK × 0.13125 (idle)<br>
-        Crit Chance = 3.75 + LUCK × 0.20125 (active)<br>
-        Crit Damage = 2.1 + LUCK × 0.0275 (idle)<br>
-        Crit Damage = 2.35 + LUCK × 0.03375 (active)
+        Crit Chance = (5 × 0.75) + LUCK × (0.175 × 1.15) = 3.75 + LUCK × 0.20125<br>
+        Crit Damage = 1 + (1 × 1.1 + LUCK × 0.025 × 1.35) = 2.1 + LUCK × 0.03375
       </div>
       <p>
-        Mystikat has excellent crit scaling, especially during Vital Bloom (active). Each LUCK point adds
-        <span class="stat-highlight">0.20%</span> crit chance when active, and crit damage starts at
-        <span class="stat-highlight">235%</span> with high scaling (3.375% per point).
+        With base LUCK=9, Mystikat starts with <span class="stat-highlight">5.6% crit chance</span> and
+        <span class="stat-highlight">240% crit damage</span>. Each LUCK point adds <span class="stat-highlight">
+        0.20%</span> crit chance and <span class="stat-highlight">3.375%</span> crit damage, providing
+        solid scaling for a healing companion.
       </p>
 
       <h3>✨ SPECIAL → Healing & Stamina</h3>
