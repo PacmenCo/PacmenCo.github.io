@@ -5,7 +5,7 @@ const companionsData = {
   "jindo": {
     "name": "Jindo",
     "icon": "🐕",
-    "subtitle": "Fierce offensive companion with devastating burst damage",
+    "subtitle": "Burst Damage Specialist",
     "unlockLevel": 5,
     "cost": 500,
     "theme": {
