@@ -174,36 +174,197 @@
   <!-- Main Content -->
   <div class="container">
     <div class="hero-section">
-      <h1 class="page-title">⚔️ Epic Combat</h1>
-      <p class="page-subtitle">Master strategic combat mechanics and defeat powerful enemies</p>
+      <h1 class="page-title">⚔️ Combat</h1>
+      <p class="page-subtitle">Understand combat mechanics and defeat powerful enemies</p>
     </div>
 
     <div class="content-section">
       <h2>Battle System</h2>
       <p>
-        Idle Adventure features a dynamic combat system that rewards both strategy and progression.
-        Engage in turn-based battles where timing, skill selection, and equipment choices make the difference
+        Idle Adventure features a dynamic combat system that focuses on both strategy and progression.
+        Engage in battles where timing, skill selection, companions, pets and equipment choices make the
+        difference
         between victory and defeat.
       </p>
-      <ul class="feature-list">
-        <li>Strategic turn-based combat with skill cooldowns</li>
-        <li>Elemental affinities and weakness exploitation</li>
-        <li>Critical hits and combo multipliers</li>
-        <li>Enemy telegraphing and counter mechanics</li>
-      </ul>
+
     </div>
 
     <div class="content-section">
-      <h2>Boss Encounters</h2>
+      <h2>Health (HP)</h2>
       <p>
-        Face off against challenging bosses that require preparation and strategy. Each boss has unique
-        attack patterns, phases, and mechanics that you'll need to master to emerge victorious.
+        Your maximum HP determines how much damage you can take before dying. HP is calculated from multiple
+        sources that stack together:
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Flat HP Sources</h3>
+      <ul class="feature-list">
+        <li><strong>Level:</strong> The amount depends on your level (higher levels => more HP per level)</li>
+        <li><strong>Rank:</strong> +3 HP per rank</li>
+        <li><strong>Equipment:</strong> Items can provide flat HP bonuses</li>
+        <li><strong>Pets:</strong> Some Pets grant additional HP</li>
+        <li><strong>Talents:</strong> Flat HP-nodes</li>
+        <li><strong>Ascension:</strong> Permanent HP bonuses from ascensions (Easy, hard and hardcore!)</li>
+        <li><strong>Pixel Sink:</strong> HP purchased through pixel investments</li>
+      </ul>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Percentage HP Multipliers</h3>
+      <p>
+        After calculating your flat HP, the total is multiplied by percentage bonuses from:
       </p>
       <ul class="feature-list">
-        <li>Multi-phase boss battles with evolving mechanics</li>
-        <li>Special boss-specific loot and rewards</li>
-        <li>Hard mode variants for increased challenge</li>
-        <li>Guild boss raids for cooperative gameplay</li>
+        <li><strong>Equipment:</strong> HP% stats on items</li>
+        <li><strong>Pets:</strong> HP% modifiers from Pets</li>
+        <li><strong>Talents:</strong> Percentage HP-nodes</li>
+        <li><strong>Buffs:</strong> Temporary HP buffs (Elixirs and adbuff)</li>
+        <li><strong>Guild Buffs:</strong> Guild-wide HP increases (Coming soon!)</li>
+      </ul>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">HP Formula</h3>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Max HP = (Flat HP Sources) × (1 + All HP% Bonuses)
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Death Penalty</h3>
+      <p>
+        When your HP reaches zero, you die and suffer penalties:
+      </p>
+      <ul class="feature-list">
+        <li><strong>XP Loss:</strong> You lose a portion of your current Rank experience</li>
+        <li><strong>Teleported Home:</strong> You are transported back to the home area</li>
+      </ul>
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Heal Spell</h3>
+      <p>
+        The heal spell scales with both your base HP and maximum HP:
+      </p>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Heal Amount = (Base HP × 0.083) + (Max HP × 0.074)<br><br>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">Where:</span><br>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">Base HP = HP from Level + HP from Rank +
+          10</span><br>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">HP from Level = 0.41 × (Level +
+          Level^1.85)</span><br>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">HP from Rank = Rank × 3 × Ascension
+          Modifier</span>
+      </p>
+      <p>
+        Base HP represents your health from level and rank progression only, before equipment, pets, talents, and
+        other bonuses are applied. Max HP includes all sources, and is the value you will see in your HP bar.
+      </p>
+      <p style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-orange); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+        <strong style="color: var(--accent-orange);">Note:</strong> The heal spell works differently in certain areas of the game.
+      </p>
+      <p>
+        While HP does not help you directly in obtaining XP faster, you should not underestimate its importance.
+        Higher max HP means stronger healing, better survivability, and fewer deaths.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Mana</h2>
+      <p>
+        Mana is consumed when using abilities and skills. Your maximum mana and regeneration rate determine
+        how often you can cast spells in combat.
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Maximum Mana</h3>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Max Mana = (100 + Mana from Pets + Mana from Items + Mana from Talents) × (Mana Buffs + Focus)
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>Base:</strong> 100 mana for all characters</li>
+        <li><strong>Pets:</strong> Certain pets provide flat mana bonuses</li>
+        <li><strong>Equipment:</strong> Items with mana affixes</li>
+        <li><strong>Talents:</strong> Talent points invested in mana</li>
+        <li><strong>Buffs & Focus:</strong> Temporary mana multipliers</li>
+      </ul>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Mana Regeneration</h3>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Mana Regen = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen)
+      </p>
+
+      <p>
+        Mana regenerates every 0.2 seconds. Higher maximum mana increases your regeneration rate, creating
+        a synergy between mana investment and ability usage. Talent bonuses further multiply your regeneration.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Hit Chance: Accuracy & Evasion</h2>
+      <p>
+        Every attack in combat must pass a hit chance calculation that determines whether it connects or misses.
+        This system creates strategic depth through the interplay of level, accuracy, and evasion.
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Hit Chance Formula</h3>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Level Factor = 0.8 + (Attacker Level - Defender Level) × 0.0173<br>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">(Capped between 0.4 and 0.9)</span><br><br>
+        Accuracy Factor = (Attacker Accuracy - Defender Evasion) × 0.012<br><br>
+        Final Hit Chance = Level Factor + Accuracy Factor<br>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">(Minimum 5%, Maximum 99.8%)</span>
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Understanding the Components
+      </h3>
+      <ul class="feature-list">
+        <li><strong>Level Advantage:</strong> Being higher level than your target provides a base hit chance boost (up
+          to +10%)</li>
+        <li><strong>Level Disadvantage:</strong> Lower level reduces your base hit chance (down to -40%)</li>
+        <li><strong>Accuracy:</strong> Increases your hit chance by 1.2% per point of net advantage</li>
+        <li><strong>Evasion:</strong> Reduces enemy hit chance against you by 1.2% per point</li>
+        <li><strong>Guaranteed Outcomes:</strong> You can never achieve 100% hit rate or 0% - minimum 5%, maximum 99.8%
+        </li>
+      </ul>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Strategic Implications</h3>
+      <p>
+        The net difference between accuracy and evasion determines combat reliability. When facing enemies with high
+        evasion, accuracy investment becomes crucial. Similarly, high evasion can make you significantly harder to hit,
+        especially when combined with level advantage. The 5% minimum hit chance means even heavily outmatched enemies
+        pose some threat, while the 99.8% cap ensures perfect accuracy is unattainable.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Rating Stats Explained</h2>
+      <p>
+        Items can provide stats as <strong>direct bonuses</strong> (like "+5% Critical Chance") or as
+        <strong>rating values</strong> (like "+150 Critical Rating"). Ratings convert to actual stats using
+        your character level.
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Converting Rating to Critical
+        Strike %</h3>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Rating Multiplier = (1 / 2^(Player Level × 0.0111 + 1)) × (50 / Player Level)<br><br>
+        Critical Chance % = Critical Rating × Rating Multiplier
+      </p>
+
+      <p>
+        <strong>Example:</strong> If you have 200 Critical Rating at level 50, your rating multiplier is approximately
+        0.275, giving you 200 × 0.275 = 55% critical chance from that rating.
+      </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">How It Scales</h3>
+      <p>
+        The rating multiplier <strong>decreases</strong> as you level up, meaning the same amount of rating provides
+        less benefit at higher levels. However, higher ilvl items roll higher rating values, maintaining progression
+        balance.
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>Critical Rating:</strong> Converts to Critical Chance %</li>
+        <li><strong>Speed Rating:</strong> Converts to Speed %</li>
+        <li><strong>Evasion Rating:</strong> Converts to Evasion points</li>
+        <li><strong>Accuracy Rating:</strong> Converts to Accuracy points</li>
       </ul>
     </div>
 

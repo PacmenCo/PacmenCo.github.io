@@ -239,7 +239,7 @@
         and discover which companions best suit your playstyle.
       </p>
 
-      <a href="jindo.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=jindo" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Jindo</div>
           <div class="companion-ability">Special Attack: Alpha Rush!</div>
@@ -250,7 +250,7 @@
         </div>
       </a>
 
-      <a href="ember.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=ember" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Ember</div>
           <div class="companion-ability">Special Attack: PyroMantic</div>
@@ -261,7 +261,7 @@
         </div>
       </a>
 
-      <a href="mystikat.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=mystikat" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Mystikat</div>
           <div class="companion-ability">Special Attack: Vital Bloom!</div>
@@ -272,7 +272,7 @@
         </div>
       </a>
 
-      <a href="hootini.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=hootini" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Hootini (Rune Owl)</div>
           <div class="companion-ability">Special Attack: Runic Mark!</div>
@@ -283,7 +283,7 @@
         </div>
       </a>
 
-      <a href="globbie.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=globbie" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Globbie</div>
           <div class="companion-ability">Special Attack: Sticky Ruin!</div>
@@ -294,7 +294,7 @@
         </div>
       </a>
 
-      <a href="acornelius.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=acornelius" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Acornelius</div>
           <div class="companion-ability">Special Attack: Squirrel Defense!</div>
@@ -305,7 +305,7 @@
         </div>
       </a>
 
-      <a href="florence.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=florence" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Florence</div>
           <div class="companion-ability">Special Attack: Grasping Roots!</div>
@@ -316,7 +316,7 @@
         </div>
       </a>
 
-      <a href="mechabird.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=mechabird" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">MechaBird</div>
           <div class="companion-ability">Special Attack: Pecking Overdrive!</div>
@@ -327,7 +327,7 @@
         </div>
       </a>
 
-      <a href="snekles.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="companion.html?id=snekles" style="text-decoration: none; color: inherit; display: block;">
         <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
           <div class="companion-name">Snekles</div>
           <div class="companion-ability">Special Attack: Neurotoxin</div>
@@ -351,7 +351,7 @@
         Every companion has five stats that influence their performance:
       </p>
       <ul class="feature-list">
-        <li><strong>STR (Strength)</strong> - Increases damage dealt by 2.5% per point</li>
+        <li><strong>STR (Strength)</strong> - Increases damage dealt</li>
         <li><strong>DEX (Dexterity)</strong> - Improves attack speed and hit chance</li>
         <li><strong>CON (Constitution)</strong> - Boosts max stamina and stamina regeneration</li>
         <li><strong>LUCK</strong> - Enhances critical hit chance and critical damage</li>
@@ -361,21 +361,69 @@
       <h3>Leveling & Stat Growth</h3>
       <p>
         Companions earn experience from combat and level up automatically. Each level grants
-        <span class="stat-highlight">5 random stat points</span> distributed across their stats:
+        <span class="stat-highlight">5 stat points</span>. Some of these points are allocated automatically
+        based on the companion's nature, while the rest can be assigned by you to customize their build.
       </p>
-      <ul class="feature-list">
-        <li>STR, DEX, CON, LUCK: 22.2% chance each (2/9)</li>
-        <li>SPECIAL: 11.1% chance (1/9)</li>
-      </ul>
       <p>
-        This random distribution means each companion develops uniquely, even of the same type. The XP required
-        per level scales exponentially, with late levels requiring significantly more combat experience.
+        The XP required per level scales exponentially:
+      </p>
+      <div class="formula-box">
+        XP to Next Level = 1.3 × Level^(2 + 0.025 × Level) + 350 × Level + 100
+      </div>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+        This exponential scaling means late levels require significantly more combat experience than early levels.
       </p>
 
-      <h3>Equipment Bonuses</h3>
+      <h3>Scaling with Your Gear</h3>
       <p>
-        Your equipment's Pet Power stat directly increases companion damage. Guild buffs can further enhance
-        companion performance by boosting damage (+15%), speed and range (+20%), or stamina regeneration.
+        Companion damage scales with three aspects of your equipped items:
+      </p>
+      <ul class="feature-list">
+        <li><strong>ilvl (Item Level)</strong> - The base level of each item type</li>
+        <li><strong>Item Quality</strong> - Determined by rarity and quality upgrades</li>
+        <li><strong>Soul Level</strong> - Gained by leveling your items (requires an item to have a Soul)</li>
+      </ul>
+      <p>
+        As you equip higher ilvl gear, upgrade your items, and level them through combat, your companions
+        automatically become stronger. This creates natural progression where your companions grow alongside
+        your character's equipment improvements.
+      </p>
+      <p>
+        Guild buffs can also enhance companion performance, providing bonuses to damage, speed and range, or
+        stamina regeneration based on your guild's active buffs.
+      </p>
+      <h3>Total Companion Level</h3>
+      <p>
+        Your <span class="stat-highlight">Total Companion Level</span> is the sum of all your companions' individual levels.
+        This cumulative progression provides powerful account-wide benefits that make leveling additional companions increasingly rewarding.
+      </p>
+
+      <h4>Bonus Stat Points</h4>
+      <div class="formula-box">
+        Bonus Stat Points = (Total Companion Level ÷ 10) × 2
+      </div>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+        Every 10 total companion levels grants <span class="stat-highlight">2 bonus stat points</span> that can be allocated
+        to any companion. For example, reaching 50 total companion levels provides 10 bonus stat points to distribute across
+        your roster as you see fit.
+      </p>
+
+      <h4>Global XP Bonus</h4>
+      <div class="formula-box">
+        XP Bonus = 125% × (1 - 350 ÷ (Total Companion Level + 350))
+      </div>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+        All companions gain bonus XP based on your total companion level. This bonus scales asymptotically toward a maximum
+        of 125%, meaning each companion you level makes all future companion progression faster:
+      </p>
+      <ul class="feature-list">
+        <li>50 total levels: ~17.8% bonus XP</li>
+        <li>100 total levels: ~27.8% bonus XP</li>
+        <li>350 total levels: ~62.5% bonus XP</li>
+      </ul>
+      <p style="color: var(--text-secondary);">
+        This system rewards investing in your entire companion roster. Guild buffs can further enhance companion XP gains
+        by an additional 25%, stacking multiplicatively with your total companion level bonus.
       </p>
     </div>
 
@@ -391,7 +439,7 @@
         <li>Select any owned companion that's lower level than your active companion as a mentee</li>
         <li>The mentee receives 15% of all XP earned by your active companion</li>
         <li>The active companion still receives full XP - mentoring doesn't reduce their gains</li>
-        <li>Mentoring automatically stops if the mentee reaches or surpasses the mentor's level</li>
+        <li>Mentoring automatically stops if the mentee reaches the mentor's level</li>
         <li>Perfect for bringing new companions up to speed or balancing your roster</li>
       </ul>
 

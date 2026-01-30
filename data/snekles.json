@@ -1,0 +1,270 @@
+{
+  "name": "Snekles",
+  "icon": "🐍",
+  "subtitle": "Venomous Utility Specialist",
+  "unlockLevel": 25,
+  "cost": 1350,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-purple), var(--accent-green))",
+    "heroBg": "rgba(124, 58, 237, 0.1)",
+    "heroBorder": "rgba(124, 58, 237, 0.3)",
+    "abilityBg": "rgba(124, 58, 237, 0.1)",
+    "abilityBorder": "var(--accent-purple)",
+    "abilityColor": "#10b981"
+  },
+  "baseStats": {
+    "str": 3,
+    "dex": 3,
+    "con": 9,
+    "luck": 23,
+    "special": 7
+  },
+  "statsDescription": "Snekles has the most extreme stat distribution of any companion. With LUCK=23 (highest base) but STR=3 and DEX=3 (both lowest), this creates a feast-or-famine playstyle where critical hits are frequent but base damage is weak. Moderate CON (9) and SPECIAL (7) provide utility support.",
+  "sections": [
+    {
+      "title": "Special Ability: Neurotoxin",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "☠️ Neurotoxin",
+          "cost": "Stamina Cost: 2 activation + 1 per attack",
+          "description": "A debilitating poison that amplifies Snekles' damage while applying multiple control and debuff effects. Each attack has a chance to stun enemies and weakens their offensive capabilities, creating a multi-layered utility toolkit."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Damage Amplification"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = 0.21 + SPECIAL × 0.02"
+        },
+        {
+          "type": "paragraph",
+          "text": "At 7 SPECIAL: +35% damage<br>At 20 SPECIAL: +61% damage<br>At 40 SPECIAL: +101% damage (doubles damage)"
+        },
+        {
+          "type": "paragraph",
+          "text": "The damage boost is always active when Neurotoxin is enabled. Each point of SPECIAL adds <span class=\"stat-highlight\">2% damage</span>, making SPECIAL investment directly translate to offensive power."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stun Mechanic"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Stun Chance: 15% per attack (constant)"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Duration = 3 × 0.45 × (1 - 32/(SPECIAL + 31)) = 1.35 × (1 - 32/(SPECIAL + 31))"
+        },
+        {
+          "type": "paragraph",
+          "text": "At 7 SPECIAL: ~0.68 seconds<br>At 20 SPECIAL: ~1.07 seconds<br>At 40 SPECIAL: ~1.27 seconds<br>Maximum: ~1.35 seconds (asymptotic limit)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Every attack has a 15% chance to stun the enemy, interrupting their actions. The stun duration scales asymptotically with SPECIAL, approaching but never exceeding 1.35 seconds. High-frequency attacks combined with 15% proc chance makes stuns reliably occur throughout combat."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Weaken Effect"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Reduction = 0.15 × (1 - 40/(SPECIAL + 40))"
+        },
+        {
+          "type": "paragraph",
+          "text": "At 7 SPECIAL: Enemies deal 97.65% damage (~2.35% reduction)<br>At 20 SPECIAL: Enemies deal 95.59% damage (~4.41% reduction)<br>At 40 SPECIAL: Enemies deal 92.50% damage (~7.50% reduction)<br>At 60 SPECIAL: Enemies deal 91.82% damage (~8.18% reduction)<br>Maximum: 85% enemy damage (15% reduction, asymptotic limit)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each hit weakens the enemy's next attack, reducing their damage output. The weaken effect stacks with SPECIAL investment but scales slowly - even at very high SPECIAL values, the reduction approaches but never exceeds 15%. This provides consistent defensive utility throughout the fight."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Additional Effects"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Extra Range: +0.5m attack range while Neurotoxin is active"
+        },
+        {
+          "type": "info-box",
+          "text": "<strong style=\"color: var(--accent-cyan);\">Multi-Layered Utility:</strong> Neurotoxin combines offensive (damage boost), control (stun), and defensive (weaken) mechanics into a single ability. This versatility makes Snekles valuable in diverse combat scenarios despite low base offensive stats."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Understanding Snekles' unique stat scaling is crucial for maximizing performance. The extreme base stat distribution creates unusual scaling priorities compared to other companions."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage = (1 × 0.55 + STR × 0.025 × 0.5) = 0.55 + STR × 0.0125"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of STR increases damage by <span class=\"stat-highlight\">1.25%</span>. Despite low base STR (3), the scaling is reasonable. However, with Neurotoxin providing +35-101% damage from SPECIAL, STR investment is less impactful than for most companions."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 3.0) = 1 + DEX × 0.012"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of DEX increases attack speed by <span class=\"stat-highlight\">1.2%</span>. Moderate scaling, but important for Snekles due to proc-based mechanics. More attacks means more stun chances and consistent weaken application."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 5 + CON × 1"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Regen Per Second = (1 × 0.8 + CON × 0.025 × 1.6) = 0.8 + CON × 0.04"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of CON adds <span class=\"stat-highlight\">1 max stamina</span> and <span class=\"stat-highlight\">0.04 stamina/sec</span> regeneration. Neurotoxin costs 2 activation + 1 per attack, making stamina management critical for sustained combat."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Hits"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (1 × 1.0 + LUCK × 0.025 × 1.8) = 1 + LUCK × 0.045"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Damage = (1 × 0.7 + LUCK × 0.025 × 1.4) = 0.7 + LUCK × 0.035"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of LUCK adds <span class=\"stat-highlight\">0.045% crit chance</span> and <span class=\"stat-highlight\">0.035 crit damage</span>. With base LUCK=23 (highest of all companions), Snekles starts with strong crit potential and scales it extremely well. This is Snekles' primary damage source given low STR."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Ability Effectiveness"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Boost = 0.21 + SPECIAL × 0.02 (2% per point)"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Stun Duration = 1.35 × (1 - 32/(SPECIAL + 31))"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Enemy Damage Reduction = 0.15 × (1 - 40/(SPECIAL + 40))"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Stamina Bonus = SPECIAL × 0.025 × 8.0 = SPECIAL × 0.2"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is Snekles' most versatile stat. Each point adds <span class=\"stat-highlight\">2% damage boost</span>, increases stun duration, improves weaken effectiveness, and provides <span class=\"stat-highlight\">0.2 max stamina</span>. The high stamina bonus (0.2 vs typical 0.0625) makes SPECIAL particularly valuable for sustained Neurotoxin uptime."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Proc-Based Combat Flow"
+        },
+        {
+          "type": "paragraph",
+          "text": "Snekles relies on probabilistic effects rather than guaranteed burst windows. The 15% stun chance means you'll see stuns roughly every 6-7 attacks. Combined with critical hits (high LUCK) and consistent weaken effects, combat becomes a sustained war of attrition where Snekles gradually degrades enemy effectiveness while landing powerful critical strikes."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "Neurotoxin costs 2 activation + 1 per attack. With base stamina of 5 + CON + (SPECIAL × 0.2), you can afford extended combat sequences. Unlike burst companions, Snekles benefits from keeping Neurotoxin active continuously rather than timing short windows. Plan your stamina investments to support sustained aggression."
+        },
+        {
+          "type": "info-box",
+          "text": "<strong style=\"color: var(--accent-cyan);\">Sustained Pressure:</strong> Unlike burst companions (Jindo, MechaBird), Snekles excels when Neurotoxin stays active across entire fights. The weaken effect, stun procs, and damage boost create cumulative advantages that compound over time."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Defensive Utility Value"
+        },
+        {
+          "type": "paragraph",
+          "text": "The weaken effect reduces enemy damage by 2-8% per hit (scaling with SPECIAL). While modest compared to Acornelius' 50% reduction, it's always-on and stacks with the 15% stun chance. Together, these effects create significant survivability improvements through offensive pressure - enemies that are stunned or weakened can't deal damage effectively."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Critical Hit Dependency"
+        },
+        {
+          "type": "paragraph",
+          "text": "With STR=3 (lowest), your non-crit damage will be weak even with Neurotoxin's boost. Fortunately, LUCK=23 (highest) ensures frequent critical hits. Your damage output is polarized - weak non-crits but devastating critical strikes. This creates variance but averages out to competitive DPS when built correctly."
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong style=\"color: var(--accent-orange);\">Low Floor, High Ceiling:</strong> Snekles has the weakest base offensive stats (STR=3, DEX=3) but the highest LUCK (23). This creates a feast-or-famine damage pattern where critical hits carry your damage output. Low LUCK investment makes Snekles feel weak; proper stat allocation makes Snekles devastating."
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "🎲 Critical Utility Build (Recommended)",
+          "description": "Maximizes Snekles' natural strengths. High LUCK (0.045% crit/point, 0.035 crit dmg/point) compensates for low STR by making critical hits frequent and powerful. SPECIAL amplifies Neurotoxin damage (+2%/point) and extends utility effects. DEX increases attack frequency for more stun/weaken procs. This build embraces the critical-focused design while maintaining utility value.",
+          "priority": "LUCK > SPECIAL > DEX > CON > STR"
+        },
+        {
+          "type": "build-card",
+          "name": "🛡️ Utility Tank Build",
+          "description": "Focuses on Neurotoxin uptime and defensive utility. High SPECIAL provides damage boost, strong weaken effects, long stun durations, and massive stamina pool (0.2/point). CON adds stamina for sustained combat. This build excels in long fights where consistent debuffs and defensive utility outweigh burst damage potential.",
+          "priority": "SPECIAL > CON > LUCK > DEX > STR"
+        },
+        {
+          "type": "build-card",
+          "name": "⚡ Speed Proc Build",
+          "description": "Maximizes attack frequency to trigger stuns (15% chance) and critical hits. With low base DEX (3), heavy investment is required to reach competitive attack speeds, but the 1.2% scaling is decent. More attacks means more chances to stun, more weaken applications, and more crit opportunities. Best for players who want consistent proc-based gameplay.",
+          "priority": "DEX > LUCK > SPECIAL > CON > STR"
+        }
+      ]
+    }
+  ]
+}

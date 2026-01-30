@@ -1,0 +1,344 @@
+{
+  "name": "Globbie",
+  "icon": "🟢",
+  "subtitle": "Sticky Slime Control Specialist",
+  "unlockLevel": 15,
+  "cost": 1550,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-teal), var(--accent-lime))",
+    "heroBg": "linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(132, 204, 22, 0.1))",
+    "heroBorder": "rgba(20, 184, 166, 0.3)",
+    "abilityBg": "rgba(20, 184, 166, 0.1)",
+    "abilityBorder": "#14b8a6",
+    "abilityColor": "#14b8a6"
+  },
+  "baseStats": {
+    "str": 17,
+    "dex": 5,
+    "con": 9,
+    "luck": 10,
+    "special": 4
+  },
+  "statsDescription": "Globbie has the highest base STR (17) of all companions, making it naturally powerful despite being a control specialist. The very low DEX (5) means slow attack speed, but the guaranteed crit and massive slow make up for it. Low SPECIAL (4) means control effects start weak but scale well with investment.",
+  "sections": [
+    {
+      "title": "Special Ability: Sticky Ruin!",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "🎯 Sticky Ruin!",
+          "cost": "Cost: 3 Stamina | Cooldown: 18 seconds",
+          "description": "A control-focused ability that guarantees a critical hit while massively slowing enemies and extending Globbie's attack range. Perfect for kiting dangerous enemies and controlling the battlefield."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ability Effects"
+        },
+        {
+          "type": "list",
+          "className": "feature-list",
+          "items": [
+            "<strong>Guaranteed Critical Hit:</strong> Next attack has +150% crit chance (guaranteed crit) and +2.0 crit damage",
+            "<strong>Active Slow:</strong> 67-81% slow for 10 seconds (scales with SPECIAL)",
+            "<strong>Passive Slow:</strong> 10-25% slow on every hit while active (scales with SPECIAL)",
+            "<strong>Range Bonus:</strong> +3m range (+0.6m effective after scaling)",
+            "<strong>Cooldown:</strong> 18 seconds",
+            "<strong>Stamina Cost:</strong> 3 stamina to activate"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Slow Mechanics"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sticky Ruin provides two types of slows that work together to control enemy movement:"
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Active Slow (On Special Activation)",
+          "className": "accent-teal"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Slow % = 67 + 19 × (1 - 45/(SPECIAL + 45))"
+        },
+        {
+          "type": "paragraph",
+          "text": "This powerful slow applies when you activate Sticky Ruin and hit an enemy. It lasts <span class=\"stat-highlight\">10 seconds</span> and reduces enemy acceleration dramatically. The slow starts at 67% and asymptotically approaches 86% at very high SPECIAL values."
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Passive Slow (Continuous)",
+          "className": "accent-teal"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Slow % = 10 + 20 × (1 - 30/(SPECIAL + 30))"
+        },
+        {
+          "type": "paragraph",
+          "text": "While Sticky Ruin is active, every hit applies a passive slow that stacks with the active slow. This scales from 10% to ~30% with high SPECIAL investment, providing continuous control over enemy positioning."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "SPECIAL",
+            "Active Slow",
+            "Passive Slow",
+            "Combined Control"
+          ],
+          "rows": [
+            [
+              "4",
+              "67.0%",
+              "10.0%",
+              "Moderate control"
+            ],
+            [
+              "30",
+              "75.8%",
+              "20.0%",
+              "Strong control"
+            ],
+            [
+              "60",
+              "79.1%",
+              "23.3%",
+              "Excellent control"
+            ],
+            [
+              "100",
+              "81.1%",
+              "25.4%",
+              "Maximum control"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Guaranteed Critical Hit"
+        },
+        {
+          "type": "paragraph",
+          "text": "The next attack after activating Sticky Ruin gains <span class=\"stat-highlight\">+150% crit chance</span> (guaranteeing a critical hit) and <span class=\"stat-highlight\">+2.0 crit damage multiplier</span>. This is perfect for burst damage against slowed enemies or finishing off dangerous targets."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Extended Range"
+        },
+        {
+          "type": "paragraph",
+          "text": "When Sticky Ruin is active and you have sufficient stamina, Globbie gains <span class=\"stat-highlight\">+3m range</span> (which translates to +0.6m effective range after division by 5). This range bonus allows you to kite enemies safely while dealing damage from a distance. Base range: 0.24m → Active range: 0.84m"
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Slow Note:</strong> The slow effect reduces enemy acceleration, not just speed. This means slowed enemies take longer to reach their maximum movement speed, making it easier to maintain distance and control positioning."
+        }
+      ]
+    },
+    {
+      "title": "Activation Prerequisites",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To use Sticky Ruin effectively:"
+        },
+        {
+          "type": "list",
+          "className": "feature-list",
+          "items": [
+            "<strong>Manual Activation Required:</strong> Must press the Sticky Ruin button (no auto-activation)",
+            "<strong>Sufficient Stamina:</strong> Must have at least 3 stamina",
+            "<strong>Companion Awake:</strong> Companion must not be sleeping",
+            "<strong>Not on Cooldown:</strong> 18-second cooldown must be complete"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Effect Duration"
+        },
+        {
+          "type": "paragraph",
+          "text": "Once activated, Sticky Ruin's effects apply on the next attack and remain active until you deactivate it or run out of stamina. The active slow lasts 10 seconds from the time it's applied, while the passive slow continues on every hit as long as the ability remains active."
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Pro Tip:</strong> The 18-second cooldown is short compared to most other companions. You can activate Sticky Ruin frequently to maintain consistent crowd control, making Globbie excellent for zones with dangerous fast enemies."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 2.0 + STR × 0.025 × 2.0) = 2.0 + STR × 0.05"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">5.0%</span>. With base STR=17, Globbie starts with a 2.85 damage multiplier (185% of base damage), making it the highest base damage companion. This exceptional scaling means STR is extremely valuable on Globbie."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed & Hit Chance"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 4.0) = 1 + DEX × 0.016<br>Hit Chance = DEX × 0.005 × 0.8 = DEX × 0.004"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">1.6%</span> and hit chance by <span class=\"stat-highlight\">0.4%</span>. While base DEX is low, the 4.0× speed scaling means DEX investment is effective if you want faster attacks to apply slows more frequently."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina & Regeneration"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 6) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. With base CON=9 and SPECIAL=4, Globbie starts with <span class=\"stat-highlight\">4 stamina</span> (3 + 0 + 1), which is just enough for one Sticky Ruin activation with 1 stamina left."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (5 × 0.5) + LUCK × (0.175 × 1.0) = 2.5 + LUCK × 0.175<br>Crit Damage = 1 + (1 × 0.5 + LUCK × 0.025 × 0.8) = 1.5 + LUCK × 0.02"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base LUCK=10, Globbie starts with <span class=\"stat-highlight\">4.25% crit chance</span> and <span class=\"stat-highlight\">170% crit damage</span>. Each LUCK point adds <span class=\"stat-highlight\">0.175% crit chance</span> and <span class=\"stat-highlight\">2% crit damage</span>. While not exceptional, the guaranteed crit from Sticky Ruin makes LUCK valuable for maximizing that burst."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Control & Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina Bonus = floor(SPECIAL / 6)<br>Active Slow = 67 + 19 × (1 - 45/(SPECIAL + 45))<br>Passive Slow = 10 + 20 × (1 - 30/(SPECIAL + 30))"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is crucial for control builds. Every 6 SPECIAL grants <span class=\"stat-highlight\">+1 max stamina</span>. Each point significantly improves both active and passive slow percentages, with diminishing returns as you approach the caps (86% active, ~30% passive). The scaling is asymptotic, meaning early SPECIAL points provide the most benefit."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to Use Sticky Ruin"
+        },
+        {
+          "type": "paragraph",
+          "text": "Activate Sticky Ruin when:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Facing fast enemies that close distance quickly",
+            "Fighting dangerous enemies you want to kite",
+            "Boss encounters where positioning matters",
+            "You need a guaranteed crit for burst damage",
+            "You have 3+ stamina and the 18s cooldown is ready"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Kiting Strategy"
+        },
+        {
+          "type": "paragraph",
+          "text": "The extended range (+0.6m effective) combined with 67-81% slow creates a powerful kiting setup. Activate Sticky Ruin, hit the enemy for the guaranteed crit and massive slow, then use the extended range to maintain distance while dealing damage. The 10-second slow duration gives plenty of time to reposition."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Cooldown Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "With only an 18-second cooldown, Sticky Ruin has one of the shortest cooldowns among companions. This means you can activate it frequently. Don't save it—use it on cooldown for tough enemies or whenever you need crowd control. The passive slow remains active between cooldowns if you keep the ability enabled."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Conservation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sticky Ruin costs 3 stamina, and each attack costs 1 stamina. With base 4 stamina, you can activate the ability and get 1 attack before needing to rest. Higher CON or SPECIAL increases max stamina, allowing multiple attacks per activation. Plan your stamina usage to maximize uptime."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Burst Damage Combo"
+        },
+        {
+          "type": "paragraph",
+          "text": "The guaranteed crit provides excellent burst potential:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Activate Sticky Ruin when facing a priority target",
+            "Next attack: Guaranteed crit with +2.0 crit damage and full STR scaling",
+            "Enemy is now massively slowed for 10 seconds",
+            "Continue attacking with extended range and passive slow",
+            "Repeat every 18 seconds"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "💥 Burst Assassin (STR Focus)",
+          "description": "Maximize STR to leverage Globbie's exceptional 5% damage per point scaling. Combined with the guaranteed crit from Sticky Ruin, this build delivers devastating burst damage to slowed enemies. The slow keeps targets in range while you deal massive damage. Perfect for quickly eliminating dangerous enemies.",
+          "priority": "STR (50%) → LUCK (20%) → SPECIAL (15%) → CON (10%) → DEX (5%)"
+        },
+        {
+          "type": "build-card",
+          "name": "🎯 Maximum Control (SPECIAL Focus)",
+          "description": "Prioritize SPECIAL to maximize slow effectiveness, reaching 81%+ active slow and 25%+ passive slow. This build excels at controlling fast or dangerous enemies, keeping them perpetually slowed. The short cooldown means near-permanent slow uptime. Excellent for survival and kiting playstyles.",
+          "priority": "SPECIAL (45%) → STR (30%) → CON (15%) → LUCK (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚖️ Balanced Striker (Hybrid)",
+          "description": "Balance STR and SPECIAL to combine high damage with solid control. This build provides good burst potential from the guaranteed crit while maintaining effective slows to keep enemies at bay. DEX investment improves attack speed to apply slows more frequently. Well-rounded for most content.",
+          "priority": "STR (35%) → SPECIAL (30%) → LUCK (15%) → DEX (10%) → CON (10%)"
+        }
+      ]
+    }
+  ]
+}

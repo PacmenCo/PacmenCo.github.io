@@ -1,0 +1,275 @@
+{
+  "name": "MechaBird",
+  "icon": "🤖",
+  "subtitle": "Ramping Damage Dealer",
+  "unlockLevel": 20,
+  "cost": 2100,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-cyan), var(--accent-orange))",
+    "heroBg": "rgba(6, 182, 212, 0.1)",
+    "heroBorder": "rgba(6, 182, 212, 0.3)",
+    "abilityBg": "rgba(6, 182, 212, 0.1)",
+    "abilityBorder": "var(--accent-cyan)",
+    "abilityColor": "var(--accent-cyan)"
+  },
+  "baseStats": {
+    "str": 11,
+    "dex": 5,
+    "con": 8,
+    "luck": 9,
+    "special": 12
+  },
+  "statsDescription": "MechaBird has moderate base stats with STR (11) for decent damage and SPECIAL (12) for ability effectiveness. Low DEX (5) means slow initial attack speed, but the ramping mechanic compensates. Low CON (8) requires stamina management for sustained ability usage.",
+  "sections": [
+    {
+      "title": "Special Ability: Pecking Overdrive!",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "⚡ Pecking Overdrive!",
+          "cost": "Cooldown: 26 seconds | Stamina Cost: 2 activation + 1 per attack | Duration: 4 seconds",
+          "description": "A powerful ramping damage ability that grows stronger with each consecutive hit. Grants immediate damage and crit bonuses, then stacks attack speed exponentially up to devastating levels."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Immediate Effects (On Activation)"
+        },
+        {
+          "type": "formula-box",
+          "label": "Damage Boost",
+          "formula": "+50% multiplicative damage increase"
+        },
+        {
+          "type": "formula-box",
+          "label": "Critical Hit Chance",
+          "formula": "+35% crit chance (additive)"
+        },
+        {
+          "type": "formula-box",
+          "label": "Base Speed Modifier",
+          "formula": "-0.15 + 0.025 × (SPECIAL - 12)",
+          "details": "At 12 SPECIAL: -15% speed (slow start)\nAt 20 SPECIAL: +5% speed\nAt 32 SPECIAL: +35% speed"
+        },
+        {
+          "type": "formula-box",
+          "label": "Extra Range",
+          "formula": "+0.5m attack range while active"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Unique Mechanic: Attack Speed Stacking"
+        },
+        {
+          "type": "paragraph",
+          "text": "The true power of Pecking Overdrive is the exponential attack speed stacking. Each hit during the 4-second duration increases attack speed by 8%, stacking up to 10 hits."
+        },
+        {
+          "type": "formula-box",
+          "label": "Speed Increase Per Hit",
+          "formula": "8% multiplicative per hit"
+        },
+        {
+          "type": "formula-box",
+          "label": "Total Speed Scaling Formula",
+          "formula": "(1.08)^HitCount - 1"
+        },
+        {
+          "type": "stats-grid",
+          "title": "Attack Speed Progression",
+          "stats": [
+            {
+              "label": "0 Hits (Start)",
+              "value": "0%",
+              "sublabel": "Speed Bonus"
+            },
+            {
+              "label": "1 Hit",
+              "value": "+8.0%",
+              "sublabel": "Speed Bonus"
+            },
+            {
+              "label": "3 Hits",
+              "value": "+25.97%",
+              "sublabel": "Speed Bonus"
+            },
+            {
+              "label": "5 Hits",
+              "value": "+46.93%",
+              "sublabel": "Speed Bonus"
+            },
+            {
+              "label": "7 Hits",
+              "value": "+71.38%",
+              "sublabel": "Speed Bonus"
+            },
+            {
+              "label": "10 Hits (Max)",
+              "value": "+115.89%",
+              "sublabel": "Speed Bonus"
+            }
+          ]
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Peak Performance:</strong> At maximum stacks (10 hits), MechaBird achieves 2.16× base attack speed on top of the +50% damage and +35% crit chance. This makes MechaBird one of the highest burst DPS companions when fully ramped."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 0.4 + STR × 0.025 × 0.19) = 0.4 + STR × 0.00475"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of STR increases damage by <span class=\"stat-highlight\">0.475%</span>. Relatively low scaling, but the special ability's +50% damage boost makes STR more effective during Pecking Overdrive."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 7.5) = 1 + DEX × 0.03"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of DEX increases attack speed by <span class=\"stat-highlight\">3.0%</span>. Extremely high scaling makes DEX the most important stat for maximizing hit count during Pecking Overdrive. More hits means higher attack speed stacks."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 5 + CON × 1"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Regen Per Second = (1 × 0.5 + CON × 0.025 × 3.8) = 0.5 + CON × 0.095"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of CON adds <span class=\"stat-highlight\">1 max stamina</span> and <span class=\"stat-highlight\">0.095 stamina/sec</span> regeneration. Pecking Overdrive costs 2 activation + 1 per attack, so sustained fighting requires moderate CON investment."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (1 × 5 + LUCK × 0.025 × 0.5) = 5 + LUCK × 0.0125"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Damage = (1 × 2 + LUCK × 0.025 × 1.9) = 2 + LUCK × 0.04775"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of LUCK adds <span class=\"stat-highlight\">0.0125% crit chance</span> and <span class=\"stat-highlight\">0.04775 crit damage</span>. With the +35% crit chance from Pecking Overdrive, even moderate LUCK investment guarantees crits during the ability window."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Ability Effectiveness"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Speed Modifier = -0.15 + 0.025 × (SPECIAL - 12)"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Stamina Bonus = SPECIAL × 0.025 × 2.5 = SPECIAL × 0.0625"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each point of SPECIAL adds <span class=\"stat-highlight\">2.5% to base speed modifier</span> during Pecking Overdrive and <span class=\"stat-highlight\">0.0625 max stamina</span>. High SPECIAL eliminates the initial speed penalty and provides a strong starting boost before stacks ramp up."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ability Timing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Pecking Overdrive has a fixed 4-second duration, making timing critical. Activate when you have full stamina and can commit to continuous attacks for the entire window. The exponential speed scaling means every hit matters - interruptions reset your stacks and waste the ability."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stack Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "Your goal is to reach 10 stacks (2.16× attack speed) as fast as possible. With high DEX, you can achieve maximum stacks within 2-3 seconds, leaving 1-2 seconds to benefit from peak performance. Low DEX builds may only reach 5-7 stacks before the ability ends, significantly reducing effectiveness."
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Optimal Combo:</strong> Start Pecking Overdrive → Attack continuously → Reach 10 stacks → Maximize damage during remaining duration. The +50% damage, +35% crit chance, and 2.16× attack speed combine for devastating burst windows."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each activation costs 2 stamina, and each attack costs 1 stamina during the ability. With approximately 8-12 attacks per activation (depending on DEX and stack level), expect to consume 10-14 stamina per ability cycle. Plan your stamina regeneration between cooldowns."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Target Priority"
+        },
+        {
+          "type": "paragraph",
+          "text": "MechaBird excels against single high-value targets where the full 4-second duration can be utilized. Elite enemies and bosses are ideal - the ramping speed lets MechaBird maintain DPS advantage throughout the fight. Less effective against swarms where targets die before stacks accumulate."
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Ramp Dependency:</strong> MechaBird's performance is heavily dependent on reaching high stack counts. Low DEX or interrupted attack sequences drastically reduce effectiveness. This companion rewards aggressive, committed play and punishes defensive or interrupted positioning."
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "⚡ Speed Stack Build (Recommended)",
+          "description": "Maximizes attack speed to reach 10 stacks as quickly as possible. High DEX (3% per point) combined with SPECIAL investment (to eliminate speed penalty) creates the fastest ramp time. LUCK ensures crits during the peak damage window. This build transforms MechaBird into a burst monster that melts targets during the 4-second Pecking Overdrive window.",
+          "priority": "DEX (60%) → SPECIAL (20%) → LUCK (10%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚔️ Balanced Damage Build",
+          "description": "Balances speed stacking with critical damage output. Focuses on DEX for stack generation and LUCK for crit reliability with the +35% crit chance buff. SPECIAL provides stamina and removes speed penalty. Good for sustained DPS across multiple ability cycles.",
+          "priority": "DEX (40%) → LUCK (30%) → SPECIAL (20%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "🔄 High Uptime Build",
+          "description": "Prioritizes stamina for frequent ability usage. With 26-second cooldown and moderate stamina costs, high CON enables near-constant Pecking Overdrive uptime. DEX still important for stack generation. Best for long boss fights where sustained ability usage outweighs peak burst damage.",
+          "priority": "CON (40%) → DEX (35%) → SPECIAL (15%) → LUCK (10%)"
+        }
+      ]
+    }
+  ]
+}

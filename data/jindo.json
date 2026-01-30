@@ -1,0 +1,273 @@
+{
+  "name": "Jindo",
+  "icon": "🐕",
+  "subtitle": "Fierce offensive companion specializing in devastating burst damage",
+  "unlockLevel": 5,
+  "cost": 500,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-orange), var(--accent-red))",
+    "heroBg": "rgba(239, 68, 68, 0.1)",
+    "heroBorder": "rgba(239, 68, 68, 0.3)",
+    "abilityBg": "rgba(239, 68, 68, 0.1)",
+    "abilityBorder": "var(--accent-red)",
+    "abilityColor": "var(--accent-red)"
+  },
+  "baseStats": {
+    "str": 11,
+    "dex": 6,
+    "con": 11,
+    "luck": 9,
+    "special": 8
+  },
+  "statsDescription": "Jindo has balanced STR and CON (both 11) for solid damage and survivability. Good base SPECIAL (8) provides decent Alpha Rush scaling. Low DEX (6) means slower attack speed. Moderate LUCK (9) offers fair crit potential.",
+  "sections": [
+    {
+      "title": "Special Ability: Alpha Rush!",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "⚡ Alpha Rush!",
+          "cost": "Cost: 3 Stamina | Duration: 1 Attack | Cooldown: Per Activation",
+          "description": "Jindo unleashes a ferocious attack with massively increased damage, critical hit chance, and attack speed. This powerful burst ability activates when enemies are vulnerable, making Jindo an excellent finisher."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ability Effects"
+        },
+        {
+          "type": "list",
+          "className": "feature-list",
+          "items": [
+            "<strong>Damage:</strong> +84% base (scales +2% per SPECIAL stat) - Multiplicative",
+            "<strong>Critical Chance:</strong> +50% flat increase - Additive",
+            "<strong>Critical Damage:</strong> +20% base (scales +4% per SPECIAL stat) - Additive",
+            "<strong>Attack Speed:</strong> 2× speed - Attacks happen twice as fast",
+            "<strong>Stamina Cost:</strong> 3 stamina per attack instead of 1"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Scaling with SPECIAL Stat"
+        },
+        {
+          "type": "stats-grid",
+          "stats": [
+            {
+              "label": "8 SPECIAL (Base)",
+              "value": "+100%",
+              "sublabel": "Damage"
+            },
+            {
+              "label": "8 SPECIAL (Base)",
+              "value": "+52%",
+              "sublabel": "Crit Damage"
+            },
+            {
+              "label": "20 SPECIAL",
+              "value": "+124%",
+              "sublabel": "Damage"
+            },
+            {
+              "label": "20 SPECIAL",
+              "value": "+100%",
+              "sublabel": "Crit Damage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "How to Activate Alpha Rush",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Alpha Rush can be activated when specific combat conditions are met. Understanding these triggers is key to maximizing Jindo's effectiveness."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Activation Prerequisites"
+        },
+        {
+          "type": "list",
+          "className": "feature-list",
+          "items": [
+            "<strong>Enemy HP Below 35%:</strong> Primary trigger - ability becomes available when enemy drops below 35% HP",
+            "<strong>Enemy Critical Hit on You:</strong> Defensive trigger - activates when an enemy lands a critical hit on you",
+            "<strong>Minimum 3 Stamina:</strong> Jindo must have at least 3 stamina available",
+            "<strong>Jindo Must Be Awake:</strong> Cannot activate while sleeping",
+            "<strong>Enemy Must Be Alive:</strong> Cannot activate if enemy is already defeated"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Manual vs Auto-Activation"
+        },
+        {
+          "type": "paragraph",
+          "text": "When activation conditions are met, the Alpha Rush button begins glowing. You can either:"
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Manual Activation:</strong> Press the glowing button yourself for guaranteed activation"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Auto-Activation Chance = (SPECIAL × 0.65) - 2.2 percent"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base SPECIAL=8, auto-activation chance is only 3%. Even at SPECIAL=20, it's just 11%. For reliable activation, manual control is recommended."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 0.8 + STR × 0.025 × 0.35) = 0.8 + STR × 0.00875"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">0.875%</span>. With base STR=11, Jindo starts with a 0.896 damage multiplier. The 0.35 scaling factor is below average, but Alpha Rush's massive +84%+ damage boost makes STR investment worthwhile."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 5.5) = 1 + DEX × 0.022"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">2.2%</span>. The 5.5× scaling factor is above average. With base DEX=6, Jindo attacks 13.2% faster than baseline. Higher DEX reduces the window between Alpha Rush triggers."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 7) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. With base CON=11 and SPECIAL=8, Jindo starts with <span class=\"stat-highlight\">6 stamina</span> (3 + 1 + 2). This allows two Alpha Rush attacks (3 stamina each) before needing rest."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (5 × 1.4) + LUCK × (0.175 × 1.8) = 7 + LUCK × 0.315<br>Crit Damage = 1 + (1 × 1.4 + LUCK × 0.025 × 1.2) = 2.4 + LUCK × 0.03"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base LUCK=9, Jindo starts with <span class=\"stat-highlight\">9.8% crit chance</span> and <span class=\"stat-highlight\">267% crit damage</span>. The 1.8× crit chance scaling is above average. Alpha Rush adds +50% crit chance (bringing it to ~60%) and scales crit damage further."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Alpha Rush Scaling"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina Bonus = floor(SPECIAL / 7)<br>Alpha Rush Damage Bonus = 84% + (SPECIAL × 2%)<br>Alpha Rush Crit Damage Bonus = 20% + (SPECIAL × 4%)"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is Jindo's most important stat. Every 7 SPECIAL grants <span class=\"stat-highlight\">+1 max stamina</span>. Each point adds <span class=\"stat-highlight\">2% damage</span> and <span class=\"stat-highlight\">4% crit damage</span> to Alpha Rush. At base SPECIAL=8, Alpha Rush provides +100% damage and +52% crit damage."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to Use Alpha Rush"
+        },
+        {
+          "type": "paragraph",
+          "text": "Activate Alpha Rush when:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Enemy drops below 35% HP (primary trigger)",
+            "Enemy lands a critical hit on you (defensive trigger)",
+            "You have 3+ stamina available",
+            "The enemy is a high-value target (boss, elite, or tanky enemy)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "Alpha Rush costs 3 stamina per attack. With base 6 stamina, you can use it twice before resting. Plan your stamina usage:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Save stamina for Alpha Rush opportunities",
+            "Don't waste stamina on weak enemies",
+            "Rest before boss fights to ensure full stamina",
+            "Higher CON/SPECIAL increases stamina pool for more Alpha Rush uses"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Manual vs Auto Control"
+        },
+        {
+          "type": "paragraph",
+          "text": "Manual activation is strongly recommended. The auto-activation chance is very low (3-11% even with high SPECIAL). Manually activating guarantees you don't miss burst opportunities. Watch for the glowing button when conditions are met."
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "🔥 Maximum Burst (SPECIAL Focus)",
+          "description": "Prioritize SPECIAL above all to maximize Alpha Rush damage and crit damage scaling. This build delivers the highest single-hit damage in the game when Alpha Rush is active. Ideal for boss encounters where you need devastating finishing blows.",
+          "priority": "SPECIAL (60%) → STR (20%) → LUCK (10%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚔️ Consistent DPS (STR + SPECIAL Balance)",
+          "description": "Balance SPECIAL with high STR to maintain good damage even without Alpha Rush active. This build is more reliable for general progression where Alpha Rush isn't always available. The high STR scaling ensures you're not dead weight between burst windows.",
+          "priority": "SPECIAL (40%) → STR (35%) → LUCK (15%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚡ Rapid Finisher (DEX Focus)",
+          "description": "Invest in DEX to attack faster, allowing more frequent Alpha Rush opportunities and faster enemy HP reduction to the 35% threshold. This build reduces downtime between burst windows. Great for clearing zones where enemies die quickly.",
+          "priority": "SPECIAL (40%) → DEX (30%) → STR (20%) → CON (10%)"
+        }
+      ]
+    }
+  ]
+}

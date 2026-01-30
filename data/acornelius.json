@@ -1,0 +1,331 @@
+{
+  "name": "Acornelius",
+  "icon": "🐿️",
+  "subtitle": "Defensive Tank & Counter-Attacker",
+  "unlockLevel": 15,
+  "cost": 1450,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-brown), var(--accent-amber))",
+    "heroBg": "linear-gradient(135deg, rgba(146, 64, 14, 0.1), rgba(245, 158, 11, 0.1))",
+    "heroBorder": "rgba(146, 64, 14, 0.3)",
+    "abilityBg": "rgba(146, 64, 14, 0.1)",
+    "abilityBorder": "#92400e",
+    "abilityColor": "var(--accent-amber)"
+  },
+  "baseStats": {
+    "str": 11,
+    "dex": 6,
+    "con": 11,
+    "luck": 5,
+    "special": 12
+  },
+  "statsDescription": "Acornelius has balanced STR and CON (both 11) for solid damage and survivability. High base SPECIAL (12) provides good starting values for buff duration and damage boost. Very low LUCK (5) means minimal crit chance, making this companion focused on consistent damage rather than burst crits.",
+  "sections": [
+    {
+      "title": "🛡️ Squirrel Defense Ability",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "Squirrel Defense!",
+          "description": "A powerful defensive ability that reduces incoming damage while simultaneously boosting Acornelius' attack power. Perfect for surviving dangerous encounters while maintaining offensive pressure."
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Damage Reduction:</strong> 50% less damage taken (fixed)",
+            "<strong>Damage Boost:</strong> +65-95%+ damage for next 2-4 attacks (scales with SPECIAL)",
+            "<strong>Duration:</strong> 4-11 seconds (scales with SPECIAL)",
+            "<strong>Cooldown:</strong> 32 seconds",
+            "<strong>Stamina Cost:</strong> 4 stamina to activate",
+            "<strong>Range Bonus:</strong> +3m range (+0.6m effective)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Dual Mechanic System"
+        },
+        {
+          "type": "paragraph",
+          "text": "Squirrel Defense provides both defensive and offensive benefits simultaneously, making Acornelius unique among defensive companions:"
+        },
+        {
+          "type": "dual-mechanic-grid",
+          "mechanics": [
+            {
+              "title": "🛡️ Defensive Phase",
+              "description": "Reduces incoming damage by <span class=\"stat-highlight\">50%</span> for the entire duration. This damage reduction is constant and doesn't scale with SPECIAL. Lasts 4-11 seconds depending on SPECIAL investment, providing a reliable defensive window.",
+              "formula": "Duration = 4 + 7 × (1 - 45/(SPECIAL + 45))"
+            },
+            {
+              "title": "⚔️ Offensive Phase",
+              "description": "Boosts damage for the next <span class=\"stat-highlight\">2-4 attacks</span> (based on SPECIAL). Each boosted attack deals +65% damage plus an additional 2.5% per SPECIAL point. The number of buffed attacks increases at SPECIAL thresholds.",
+              "formula": "Damage Boost = 65% + (SPECIAL × 2.5%)<br>Attacks: 2 (SPECIAL <17), 3 (SPECIAL <50), 4 (SPECIAL ≥50)"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Buff Duration Scaling"
+        },
+        {
+          "type": "comparison-table",
+          "headers": [
+            "SPECIAL",
+            "Duration",
+            "Damage Boost",
+            "Boosted Attacks"
+          ],
+          "rows": [
+            [
+              "12",
+              "6.0s",
+              "+95%",
+              "2 attacks"
+            ],
+            [
+              "25",
+              "7.4s",
+              "+127.5%",
+              "3 attacks"
+            ],
+            [
+              "50",
+              "9.1s",
+              "+190%",
+              "4 attacks"
+            ],
+            [
+              "100",
+              "10.4s",
+              "+315%",
+              "4 attacks"
+            ]
+          ]
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Key Mechanic:</strong> The damage reduction lasts for the full duration, but the damage boost only applies to a specific number of attacks. With high attack speed, you might use all boosted attacks before the defensive buff expires. With low attack speed, the defensive buff might outlast your damage boost."
+        }
+      ]
+    },
+    {
+      "title": "⚡ Activation Prerequisites",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To use Squirrel Defense effectively:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Manual Activation Required:</strong> Must press the Squirrel Defense button",
+            "<strong>Sufficient Stamina:</strong> Must have at least 4 stamina",
+            "<strong>Companion Awake:</strong> Companion must not be sleeping",
+            "<strong>Not on Cooldown:</strong> 32-second cooldown must be complete"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Buff Tracking"
+        },
+        {
+          "type": "paragraph",
+          "text": "The ability tracks two separate timers: the duration of the defensive buff (time-based) and the number of remaining boosted attacks (attack-based). You can monitor both to optimize your usage."
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Pro Tip:</strong> The 32-second cooldown is relatively long, so timing your activation is crucial. Activate before or during dangerous encounters, not after taking heavy damage. The defensive buff gives you breathing room to heal or reposition while dealing increased damage."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 1.2 + STR × 0.025 × 0.65) = 1.2 + STR × 0.01625"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">1.625%</span>. With base STR=11, Acornelius starts with a 1.38 damage multiplier. While not the highest scaling, the damage boost from Squirrel Defense more than compensates."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed & Hit Chance"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 2.5) = 1 + DEX × 0.01<br>Hit Chance = DEX × 0.005 × 0.8 = DEX × 0.004"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">1.0%</span> and hit chance by <span class=\"stat-highlight\">0.4%</span>. With 2.5× speed scaling, DEX is effective for getting more boosted attacks within the duration window."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina & Regeneration"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 7) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. With base CON=11 and SPECIAL=12, Acornelius starts with <span class=\"stat-highlight\">6 stamina</span> (3 + 1 + 2), which is enough for one Squirrel Defense activation with stamina to spare for attacks."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (5 × 2.0) + LUCK × (0.175 × 2.5) = 10 + LUCK × 0.4375<br>Crit Damage = 1 + (1 × 2.0 + LUCK × 0.025 × 0.3) = 3.0 + LUCK × 0.0075"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base LUCK=5, Acornelius starts with <span class=\"stat-highlight\">12.2% crit chance</span> and <span class=\"stat-highlight\">303.75% crit damage</span>. Despite low LUCK, the 2.5× crit chance scaling makes LUCK investment effective. High base crit damage (3.0×) provides good burst potential when crits land."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Buff Duration & Damage Boost"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina Bonus = floor(SPECIAL / 7)<br>Duration = 4 + 7 × (1 - 45/(SPECIAL + 45))<br>Damage Boost = 65% + (SPECIAL × 2.5%)<br>Boosted Attacks = 2 (SPECIAL <17), 3 (SPECIAL <50), 4 (SPECIAL ≥50)"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is Acornelius' most important stat. Every 7 SPECIAL grants <span class=\"stat-highlight\">+1 max stamina</span>. Each point increases buff duration (approaching 11s cap) and adds <span class=\"stat-highlight\">2.5%</span> to the damage boost. Reaching SPECIAL thresholds (17, 50) increases the number of boosted attacks, dramatically improving damage output."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to Use Squirrel Defense"
+        },
+        {
+          "type": "paragraph",
+          "text": "Activate Squirrel Defense when:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Facing tough enemies or bosses that deal high damage",
+            "Your HP is around 70-80% (before it gets critical)",
+            "Starting a difficult encounter where you know damage is coming",
+            "You have 4+ stamina and won't need it for other abilities soon",
+            "The 32-second cooldown is ready for the next dangerous phase"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Buff Window Optimization"
+        },
+        {
+          "type": "paragraph",
+          "text": "The key to Acornelius is maximizing damage during the boosted attack window:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Attack immediately after activation to use boosted attacks while buff is active",
+            "With high DEX, use all 4 boosted attacks in 2-3 seconds",
+            "The defensive buff continues even after boosted attacks are used",
+            "Extended range (+0.6m) allows safer positioning during buff"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Cooldown Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "With a 32-second cooldown, Squirrel Defense is available roughly every 30-40 seconds of combat. This means you should use it liberally—don't save it for \"perfect\" moments. If you're taking damage or facing a tough enemy, activate it. The defensive buff alone (50% reduction) is worth the cooldown."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Planning"
+        },
+        {
+          "type": "paragraph",
+          "text": "Squirrel Defense costs 4 stamina, which is the highest cost among companions. With base 6 stamina, you can activate once and perform 2 attacks before needing to rest. Plan your stamina usage:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Ensure you have 4+ stamina before activating",
+            "After activation, you have enough stamina for 2 attacks (out of 2-4 boosted)",
+            "Higher CON/SPECIAL increases max stamina, allowing full buff usage",
+            "Consider resting before dangerous fights to enter with full stamina"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Defensive Positioning"
+        },
+        {
+          "type": "paragraph",
+          "text": "The 50% damage reduction doesn't mean you're invincible. Use the defensive window to:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Tank through damage spikes you'd normally avoid",
+            "Stay in melee range to maximize boosted attack usage",
+            "Use extended range (+0.6m) to maintain optimal distance",
+            "Heal during the defensive phase if HP is low"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "🛡️ Maximum Defense (SPECIAL + CON Focus)",
+          "description": "Prioritize SPECIAL for maximum buff duration and damage boost, backed by high CON for stamina capacity and survivability. This build provides the longest defensive windows (11s) with the highest damage boost (300%+). Excellent for difficult content where survival is paramount. The high stamina pool allows multiple Squirrel Defense cycles before resting.",
+          "priority": "SPECIAL (50%) → CON (25%) → STR (15%) → DEX (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚔️ Counter-Attacker (SPECIAL + STR Focus)",
+          "description": "Balance SPECIAL with high STR to maximize damage during boosted attack windows. This build reaches 4 boosted attacks (at SPECIAL 50+) with high base damage from STR scaling. While defensive duration is solid, the focus is on dealing massive damage during the buff window. Great for boss encounters where you need both survivability and DPS.",
+          "priority": "SPECIAL (40%) → STR (35%) → DEX (15%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚡ Rapid Tank (DEX + SPECIAL Focus)",
+          "description": "Invest in DEX to attack faster, allowing you to use all 4 boosted attacks quickly within the duration window. Higher attack speed also means more attacks benefit from the defensive buff. This build is excellent for maximizing damage output while maintaining defensive uptime. The fast attacks can overwhelm enemies before they deal significant damage.",
+          "priority": "SPECIAL (40%) → DEX (30%) → STR (20%) → CON (10%)"
+        }
+      ]
+    }
+  ]
+}

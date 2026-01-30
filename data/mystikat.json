@@ -1,0 +1,303 @@
+{
+  "name": "Mystikat",
+  "icon": "🌸",
+  "subtitle": "Healing Support & Sustain Specialist",
+  "unlockLevel": 10,
+  "cost": 950,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-green), var(--accent-pink))",
+    "heroBg": "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(236, 72, 153, 0.1))",
+    "heroBorder": "rgba(16, 185, 129, 0.3)",
+    "abilityBg": "rgba(16, 185, 129, 0.1)",
+    "abilityBorder": "var(--accent-green)",
+    "abilityColor": "var(--accent-green)"
+  },
+  "baseStats": {
+    "str": 5,
+    "dex": 4,
+    "con": 14,
+    "luck": 9,
+    "special": 13
+  },
+  "statsDescription": "Mystikat has the highest base CON (14) for excellent stamina capacity and regeneration, paired with high SPECIAL (13) for powerful healing scaling. Low STR and DEX mean lower damage and attack speed, but the focus is on survivability rather than offense.",
+  "sections": [
+    {
+      "title": "🌸 Vital Bloom Ability",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "Vital Bloom!",
+          "cost": "Cost: 3 Stamina | Duration: 3 Attacks | Cooldown: None (Manual Only)",
+          "description": "A unique healing ability with dual mechanics: passive healing on every hit, and an active 3-attack sequence that drains HP twice before delivering a powerful heal on the third hit."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ability Effects"
+        },
+        {
+          "type": "list",
+          "className": "feature-list",
+          "items": [
+            "<strong>Passive:</strong> Every hit heals you for 1-3 HP (scales with SPECIAL)",
+            "<strong>Active (Manual):</strong> Triggers a 3-attack drain/heal sequence",
+            "<strong>Attacks 1-2:</strong> Drain ~4-10% of your max HP per attack",
+            "<strong>Attack 3:</strong> Heal ~16-29% of your max HP",
+            "<strong>Stamina Cost:</strong> 3 stamina to activate sequence"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Dual Healing System"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mystikat provides two independent healing sources. The passive healing triggers on <strong>every successful hit</strong> regardless of whether Vital Bloom is active, providing consistent sustain. The active ability must be manually triggered and requires landing 3 consecutive hits to complete the sequence."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Vital Bloom Sequence"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Step 1 - Drain Phase:</strong> Takes ~4-10% of your max HP as damage",
+            "<strong>Step 2 - Drain Phase:</strong> Takes ~4-10% of your max HP as damage",
+            "<strong>Step 3 - Healing Phase:</strong> Heals ~16-29% of your max HP (more than double the drain)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Healing Formulas"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong style=\"color: var(--accent-green);\">Passive Healing (Every Hit)</strong>"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Average Healing = 2 + (SPECIAL × 0.05) + (MaxHealth × SPECIAL × 0.00017)<br><br>Healing Range: Minimum: 1 HP | Maximum: Average + 1 HP"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong style=\"color: var(--accent-green);\">Active Drain (Attacks 1 & 2)</strong>"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Drain Amount = (0.04 × (1 + SPECIAL × 0.014) + 0.05) × MaxHealth"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong style=\"color: var(--accent-green);\">Active Heal (Attack 3)</strong>"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Heal Amount = (0.16 × (1 + SPECIAL × 0.014) + 0.10) × MaxHealth"
+        },
+        {
+          "type": "paragraph",
+          "text": "With SPECIAL=13 and MaxHealth=100:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Passive: 1-4 HP per hit",
+            "Drain: ~9.7 HP per attack (attacks 1 & 2)",
+            "Heal: ~28.9 HP (attack 3)",
+            "Net Gain: +9.5 HP per full sequence (plus passive healing)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "⚡ Activation Prerequisites",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mystikat's passive healing works automatically, but Vital Bloom's active sequence requires:"
+        },
+        {
+          "type": "list",
+          "className": "feature-list",
+          "items": [
+            "<strong>Manual Activation:</strong> Must press the Vital Bloom button (no auto-activation)",
+            "<strong>Sufficient Stamina:</strong> Must have at least 3 stamina",
+            "<strong>Companion Awake:</strong> Companion must not be sleeping",
+            "<strong>Three Consecutive Hits:</strong> Must land 3 hits to complete the sequence"
+          ]
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Important:</strong> If you miss an attack or the enemy dies mid-sequence, the drain/heal cycle is interrupted and resets. The HP drained will not be recovered unless you complete the full 3-attack sequence."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Sequence Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Vital Bloom sequence tracks charges (0, 1, 2). After the 3rd attack heals you, the sequence automatically deactivates and resets to 0 charges. You must manually reactivate it to start another drain/heal cycle. There is no cooldown—you can immediately reactivate after completing a sequence if you have 3 stamina available."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 0.9 + STR × 0.025 × 0.8) = 0.9 + STR × 0.02"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">2.0%</span>. While Mystikat isn't a damage dealer, STR still helps with faster enemy kills. The base multiplier is 0.9 (90% of base damage)."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed & Hit Chance"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 0.8) = 1 + DEX × 0.0032<br>Hit Chance = DEX × 0.005 × 1.2 = DEX × 0.006"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">0.32%</span> and hit chance by <span class=\"stat-highlight\">0.6%</span>. More attacks means more passive healing triggers and faster completion of Vital Bloom sequences."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina & Regeneration"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 4) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. With base CON=14 and SPECIAL=13, Mystikat starts with <span class=\"stat-highlight\">9 stamina</span> (3 + 3 + 3). CON also dramatically improves stamina regeneration speed, allowing more Vital Bloom sequences."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (5 × 0.75) + LUCK × (0.175 × 1.15) = 3.75 + LUCK × 0.20125<br>Crit Damage = 1 + (1 × 1.1 + LUCK × 0.025 × 1.35) = 2.1 + LUCK × 0.03375"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base LUCK=9, Mystikat starts with <span class=\"stat-highlight\">5.6% crit chance</span> and <span class=\"stat-highlight\">240% crit damage</span>. Each LUCK point adds <span class=\"stat-highlight\">0.20%</span> crit chance and <span class=\"stat-highlight\">3.375%</span> crit damage, providing solid scaling for a healing companion."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Healing & Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina Bonus = floor(SPECIAL / 4)<br>Passive Healing = 2 + SPECIAL × 0.05 + MaxHealth × SPECIAL × 0.00017<br>Drain/Heal Multiplier = 1 + SPECIAL × 0.014"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is Mystikat's most important stat. Every 4 SPECIAL grants <span class=\"stat-highlight\">+1 max stamina</span>. Each point increases passive healing by <span class=\"stat-highlight\">~0.05 HP</span> (plus a small % of max HP), and boosts drain/heal amounts by <span class=\"stat-highlight\">1.4%</span>."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Passive Healing Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "The passive healing is always active and requires no management. With higher DEX, you'll heal more frequently due to faster attacks. This passive sustain alone can keep you alive through many zones without ever using Vital Bloom."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to Use Vital Bloom"
+        },
+        {
+          "type": "paragraph",
+          "text": "Activate Vital Bloom when:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Your HP is below 70% and you need a burst heal",
+            "Fighting tough enemies or bosses where the net +9.5 HP gain matters",
+            "You have 3+ stamina available and won't need it for other companions",
+            "The enemy will survive all 3 hits (don't waste it on low-HP enemies)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Risk/Reward Calculation"
+        },
+        {
+          "type": "paragraph",
+          "text": "The drain phase takes approximately <span class=\"stat-highlight\">20% of your max HP</span> over 2 attacks before healing <span class=\"stat-highlight\">~29% back</span> on the 3rd. If you're at low HP, using Vital Bloom is risky—the drain could kill you before the heal lands. Always ensure you can survive 2 drains before activating."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Conservation"
+        },
+        {
+          "type": "paragraph",
+          "text": "With 9 base stamina and 3 stamina cost per sequence, you can perform 3 full Vital Bloom cycles before needing rest. Higher CON builds can maintain near-permanent uptime. Don't spam it—save stamina for when you actually need healing."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boss Encounters"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mystikat excels in extended boss fights. The passive healing keeps you alive while the active sequences provide burst healing to recover from damage spikes. Time your Vital Bloom activations to complete the sequence before major boss mechanics hit."
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "💚 Maximum Sustain (SPECIAL Focus)",
+          "description": "Prioritize SPECIAL above all to maximize both passive and active healing. This build provides the strongest healing output, making you nearly unkillable in most zones. The stamina bonus from SPECIAL also allows more frequent Vital Bloom sequences. Perfect for pushing difficult content or AFK progression.",
+          "priority": "SPECIAL (50%) → CON (25%) → LUCK (15%) → DEX (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚡ Active Healer (CON Focus)",
+          "description": "Balance SPECIAL with high CON for maximum stamina capacity and near-instant regeneration. This build can use Vital Bloom constantly without running out of stamina, providing a steady stream of healing cycles. Excellent for longer fights where you need sustained healing output over time.",
+          "priority": "SPECIAL (40%) → CON (35%) → LUCK (15%) → DEX (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "🌟 Balanced Support (Even Distribution)",
+          "description": "Distribute stats evenly to create a well-rounded healer that can also contribute decent damage. Higher DEX means more passive healing triggers per second, while LUCK adds crit potential. This build trades peak healing for better overall combat performance and faster enemy clears.",
+          "priority": "SPECIAL (30%) → CON (25%) → LUCK (20%) → DEX (15%) → STR (10%)"
+        }
+      ]
+    }
+  ]
+}

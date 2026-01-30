@@ -1,0 +1,285 @@
+{
+  "name": "Ember",
+  "icon": "🔥",
+  "subtitle": "Fire Specialist & DoT Master",
+  "unlockLevel": 8,
+  "cost": 1650,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-red), var(--accent-orange))",
+    "heroBg": "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1))",
+    "heroBorder": "rgba(239, 68, 68, 0.3)",
+    "abilityBg": "rgba(239, 68, 68, 0.1)",
+    "abilityBorder": "var(--accent-red)",
+    "abilityColor": "var(--accent-red)"
+  },
+  "baseStats": {
+    "str": 9,
+    "dex": 7,
+    "con": 12,
+    "luck": 8,
+    "special": 9
+  },
+  "statsDescription": "Ember has balanced stats across the board with high CON (12) for stamina capacity. Moderate STR (9) and SPECIAL (9) provide decent damage and burn scaling. Fair DEX (7) and LUCK (8) offer reasonable attack speed and crit chance.",
+  "sections": [
+    {
+      "title": "🔥 PyroMantic Ability",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "PyroMantic",
+          "description": "A powerful burn-based ability that stacks damage over time before detonating all stacks for massive damage."
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Passive:</strong> Every hit applies an Ember stack to enemies",
+            "<strong>Active (35s cooldown):</strong> Consumes all Ember stacks, dealing massive damage per stack",
+            "<strong>Guaranteed Critical:</strong> 100% crit chance when consuming stacks",
+            "<strong>Stamina Cost:</strong> 2 stamina to activate special, 1 per normal attack"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Burn Mechanics"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ember stacks are independent DoT (damage over time) effects that can coexist on enemies. Each stack deals consistent damage over 8 seconds. When you activate PyroMantic, all stacks are consumed simultaneously for a devastating burst of guaranteed critical damage."
+        },
+        {
+          "type": "formula-box",
+          "formula": "Burn DPS per Stack:<br>(Companion Damage × 0.19 × (1 + SPECIAL × 0.125)) / 8"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Total Burn Damage per Stack (8 seconds):<br>Companion Damage × 0.19 × (1 + SPECIAL × 0.125)"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Consume Damage per Stack:<br>Burn Total Damage × 1.7 = Companion Damage × 0.323 × (1 + SPECIAL × 0.125)"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Maximum Burn Stacks"
+        },
+        {
+          "type": "paragraph",
+          "text": "The number of stacks you can maintain on an enemy scales with your SPECIAL stat:"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stacks = 2 + floor(SPECIAL / 25)"
+        },
+        {
+          "type": "comparison-table",
+          "headers": [
+            "SPECIAL",
+            "Max Stacks",
+            "Total Burn Time"
+          ],
+          "rows": [
+            [
+              "0-24",
+              "2 stacks",
+              "16 seconds (8s each)"
+            ],
+            [
+              "25-49",
+              "3 stacks",
+              "24 seconds"
+            ],
+            [
+              "50-74",
+              "4 stacks",
+              "32 seconds"
+            ],
+            [
+              "100+",
+              "6 stacks",
+              "48 seconds"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "⚡ Activation Prerequisites",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To activate PyroMantic, the following conditions must be met:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Not on Cooldown:</strong> 35 second cooldown must be complete",
+            "<strong>Sufficient Stamina:</strong> Must have at least 2 stamina",
+            "<strong>Companion Awake:</strong> Companion must not be sleeping",
+            "<strong>Enemy Exists:</strong> A valid enemy must be in combat",
+            "<strong>Enemy is Burned:</strong> Target MUST have at least one active Ember stack"
+          ]
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Critical Requirement:</strong> You cannot activate PyroMantic unless the enemy has active burn stacks. This means you need to land hits first to apply burns before you can detonate them."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stack Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "When you reach max stacks and apply a new burn, the <strong>soonest-to-expire</strong> burn is immediately removed and replaced. This means maintaining maximum stacks requires consistent attacks, but also means you won't waste damage by over-stacking."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 + STR × 0.025 × 0.85)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">2.125%</span>. This affects both regular attacks and burn damage since burns scale with companion damage."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed & Hit Chance"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 3.75)<br>Hit Chance = DEX × 0.003"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">1.5%</span> and improves hit chance. More attacks means faster burn stack application and more frequent special ability opportunities."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina & Regeneration"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 7) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. CON also significantly improves stamina regeneration speed, allowing more consistent uptime."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = 5 + LUCK × 0.0962<br>Crit Damage = 1.4 + LUCK × 0.01375"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each LUCK point adds <span class=\"stat-highlight\">0.0962%</span> crit chance and increases crit damage multiplier. While PyroMantic guarantees crits on consume, LUCK still affects your regular burn-applying attacks."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Burn Scaling & Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Burn Stacks = 2 + floor(SPECIAL / 25)<br>Burn Damage Multiplier = 1 + SPECIAL × 0.125<br>Max Stamina Bonus = floor(SPECIAL / 7)"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is Ember's most important stat. Every 25 SPECIAL grants <span class=\"stat-highlight\">+1 max stack</span>, and each point increases burn damage by <span class=\"stat-highlight\">12.5%</span>. Every 7 SPECIAL also grants +1 max stamina, improving uptime."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Burn Build-Up Phase"
+        },
+        {
+          "type": "paragraph",
+          "text": "Focus on applying maximum burn stacks before activating PyroMantic. With higher DEX, this happens naturally, but with lower attack speed you may need to wait for several attacks to land before the special is worth activating."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Optimal Detonation Timing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Activate PyroMantic when you have maximum stacks and the cooldown is available. Don't wait for stacks to expire—the 35-second cooldown means you want to use it as soon as conditions are met. With max stacks, a single PyroMantic activation deals 170% of the total burn damage all stacks would have dealt over time, plus guaranteed critical multiplier."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Cooldown Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "After using PyroMantic, immediately start re-applying burns. The 35-second cooldown means you'll typically build 3-6+ full stack cycles between special uses. Don't hold the special—use it on cooldown for maximum damage throughput."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Conservation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each attack costs 1 stamina, and PyroMantic costs 2. With base 3 stamina + SPECIAL/7 + CON/5, you can perform several attack cycles before needing to rest. Higher CON builds can maintain near-permanent uptime."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boss Encounters"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ember excels against bosses due to sustained burn damage. Build up full stacks, detonate with PyroMantic, then rebuild. The guaranteed crit on detonation makes this extremely effective against high-HP targets."
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "🔥 Maximum Burn (SPECIAL Focus)",
+          "description": "Prioritize SPECIAL above all else to maximize burn damage and stack capacity. This build delivers the highest single-target damage by maximizing the number of stacks you can maintain and their individual potency. Ideal for boss encounters where you can build up full stacks before detonating.",
+          "priority": "SPECIAL (60%) → STR (20%) → DEX (10%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚡ Rapid Burn (DEX Focus)",
+          "description": "Balance SPECIAL with high DEX to apply burns faster and cycle PyroMantic more frequently. The increased attack speed means reaching max stacks quickly, allowing more frequent special ability activations. Great for clearing zones where enemies die before you can build full stacks.",
+          "priority": "SPECIAL (40%) → DEX (30%) → STR (20%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "🛡️ Sustained Burn (CON Focus)",
+          "description": "Invest in CON for maximum stamina and regeneration, ensuring you never run out of resources during extended fights. This build sacrifices some damage for consistent uptime, making it excellent for idle progression where you need to fight continuously without micromanagement.",
+          "priority": "SPECIAL (35%) → CON (30%) → STR (20%) → DEX (15%)"
+        }
+      ]
+    }
+  ]
+}

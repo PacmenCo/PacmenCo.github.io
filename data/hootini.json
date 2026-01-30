@@ -1,0 +1,344 @@
+{
+  "name": "Hootini",
+  "icon": "🦉",
+  "subtitle": "Rune Owl Debuff Specialist",
+  "unlockLevel": 12,
+  "cost": 1750,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-indigo), var(--accent-violet))",
+    "heroBg": "linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1))",
+    "heroBorder": "rgba(99, 102, 241, 0.3)",
+    "abilityBg": "rgba(99, 102, 241, 0.1)",
+    "abilityBorder": "var(--accent-indigo)",
+    "abilityColor": "var(--accent-indigo)"
+  },
+  "baseStats": {
+    "str": 6,
+    "dex": 8,
+    "con": 12,
+    "luck": 15,
+    "special": 4
+  },
+  "statsDescription": "Hootini has the highest base LUCK (15) of all companions, making it naturally inclined toward critical hit builds. Low SPECIAL (4) means mark bonuses start weak but scale significantly with investment. Balanced CON (12) provides decent stamina for multiple marks.",
+  "sections": [
+    {
+      "title": "✨ Runic Mark Ability",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "Runic Mark!",
+          "cost": "Cost: 3 Stamina | Duration: 12 Seconds | Cooldown: 40 Seconds",
+          "description": "A powerful debuff ability that marks enemies with ancient runes, amplifying all damage they take while granting Hootini a massive personal damage boost against marked targets."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Dual Damage Amplification"
+        },
+        {
+          "type": "paragraph",
+          "text": "Runic Mark provides two independent damage bonuses that stack together for devastating results:"
+        },
+        {
+          "type": "dual-bonus-grid",
+          "bonuses": [
+            {
+              "icon": "🎯",
+              "title": "Shared Debuff",
+              "description": "Marked enemies take <span class=\"stat-highlight\">3-27% more damage</span> from all sources (including you, the player, and other companions). This debuff benefits your entire team.",
+              "formula": "Debuff = 3 + 24 × (1 - 55/(SPECIAL + 51))<br><br>Scales from 3% at base to ~27% at high SPECIAL"
+            },
+            {
+              "icon": "⚔️",
+              "title": "Hootini's Bonus",
+              "description": "Hootini deals <span class=\"stat-highlight\">25-81%+ extra damage</span> to marked enemies. This is a personal multiplier that only applies to Hootini's attacks, separate from the shared debuff.",
+              "formula": "Multiplier = 1.25 + (SPECIAL - 4) × 0.035<br><br>At SPECIAL=4: 1.25× (25% bonus)<br>At SPECIAL=50: 2.86× (186% total damage)"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Combined Damage Example"
+        },
+        {
+          "type": "paragraph",
+          "text": "With SPECIAL=50, against a marked enemy:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Enemy takes +14% damage from all sources (shared debuff)",
+            "Hootini deals +161% personal bonus damage (2.61× multiplier)",
+            "Combined: Hootini deals 2.61 × 1.14 = <span class=\"stat-highlight\">2.98× total damage</span> (198% increase)"
+          ]
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Important Mechanic:</strong> Mark damage is applied LAST after base damage. This means the mark's damage amplification can still deal damage even if the base attack would kill the enemy, ensuring no wasted damage."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Mark Application Formula"
+        },
+        {
+          "type": "formula-box",
+          "formula": "<strong>Shared Debuff Damage Increase:</strong><br>3 + 24 × (1 - 55 / (SPECIAL - 4 + 55))"
+        },
+        {
+          "type": "comparison-table",
+          "headers": [
+            "SPECIAL",
+            "Shared Debuff",
+            "Hootini's Multiplier",
+            "Combined Effect"
+          ],
+          "rows": [
+            [
+              "4",
+              "+3%",
+              "1.25× (25%)",
+              "1.29× total"
+            ],
+            [
+              "20",
+              "+9.4%",
+              "1.81× (81%)",
+              "1.98× total"
+            ],
+            [
+              "50",
+              "+14.4%",
+              "2.61× (161%)",
+              "2.98× total"
+            ],
+            [
+              "100",
+              "+18.5%",
+              "4.61× (361%)",
+              "5.46× total"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "⚡ Activation Prerequisites",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To use Runic Mark effectively, understand these activation conditions:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Manual Activation Required:</strong> Must press the Runic Mark button",
+            "<strong>Sufficient Stamina:</strong> Must have at least 4 stamina available",
+            "<strong>Companion Awake:</strong> Companion must not be sleeping",
+            "<strong>Not on Cooldown:</strong> 40-second cooldown must be complete",
+            "<strong>Enemy Must Be Hit:</strong> Mark only applies on successful hit after activation"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Smart Auto-Behavior"
+        },
+        {
+          "type": "paragraph",
+          "text": "Once activated, Hootini intelligently manages the mark:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "If enemy is unmarked: Next hit applies the mark (costs 3 stamina)",
+            "If enemy is marked: Automatically enables +25-81% damage bonus (no stamina cost)",
+            "Won't waste marks on already-marked enemies",
+            "Cooldown starts AFTER mark is applied, not when button is pressed"
+          ]
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Pro Tip:</strong> The mark lasts 12 seconds but the cooldown is 40 seconds. This means there's a 28-second gap where no marks are active. Plan your mark timing for tough enemies or boss encounters to maximize efficiency."
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 0.5 + STR × 0.025 × 0.3)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">0.75%</span>. Hootini has low damage scaling from STR, relying instead on mark multipliers for damage output. The base multiplier is 0.5 (50% of base damage) regardless of special attack status."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed & Hit Chance"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 5.0)<br>Hit Chance = DEX × 0.005 × 1.25"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">2.0%</span>. Hootini has excellent attack speed scaling, making DEX very effective for maximizing hits during the 12-second mark window. Hit chance increases by <span class=\"stat-highlight\">0.625%</span> per DEX point."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina & Regeneration"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 3.5) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. With base CON=12 and SPECIAL=4, Hootini starts with <span class=\"stat-highlight\">6 stamina</span> (3 + 1 + 2), enough for one mark with stamina to spare."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (5 × 1.5) + LUCK × (0.175 × 0.5) = 7.5 + LUCK × 0.0875<br>Crit Damage = 1 + (1 × 1.75 + LUCK × 0.025 × 1.6) = 2.75 + LUCK × 0.04"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base LUCK=15, Hootini starts with <span class=\"stat-highlight\">8.8% crit chance</span> and <span class=\"stat-highlight\">335% crit damage</span>. Each LUCK point adds <span class=\"stat-highlight\">0.0875% crit chance</span> and <span class=\"stat-highlight\">4% crit damage</span>, making LUCK an excellent secondary stat after SPECIAL."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Mark Amplification & Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina Bonus = floor(SPECIAL / 3.5)<br>Shared Debuff = 3 + 24 × (1 - 55/(SPECIAL + 51))<br>Hootini's Multiplier = 1.25 + (SPECIAL - 4) × 0.035"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL is Hootini's most important stat for debuff builds. Every 3.5 SPECIAL grants <span class=\"stat-highlight\">+1 max stamina</span>. More critically, each SPECIAL point increases the shared debuff asymptotically toward 27% and increases Hootini's personal multiplier by <span class=\"stat-highlight\">3.5%</span> (linear scaling)."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Mark Timing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Save Runic Mark for:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Elite enemies with high HP",
+            "Boss encounters where the 12-second window matters most",
+            "Situations where the shared debuff helps other companions/player",
+            "When you have 4+ stamina available and won't need it soon"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Maximizing Mark Uptime"
+        },
+        {
+          "type": "paragraph",
+          "text": "With a 40-second cooldown and 12-second duration, marks have <span class=\"stat-highlight\">30% uptime</span>. Use this window efficiently:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Attack as fast as possible during the mark window (DEX helps)",
+            "Save high-damage player abilities for marked enemies",
+            "Don't waste marks on enemies that will die quickly",
+            "Plan mark timing around boss mechanics or damage phases"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "Marking costs 3 stamina. With 6 base stamina, you can mark twice before resting. Higher CON and SPECIAL increase max stamina, allowing more frequent marks. Balance mark usage with companion uptime—running out of stamina means no attacks while sleeping."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Team Synergy"
+        },
+        {
+          "type": "paragraph",
+          "text": "The shared debuff makes Hootini excellent for team-based gameplay. The <span class=\"stat-highlight\">3-27% damage amplification</span> applies to all damage sources, including:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Your player character's attacks",
+            "Other companions' damage",
+            "Damage-over-time effects (burns, etc.)",
+            "Critical hits and ability damage"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Against Unmarked Enemies"
+        },
+        {
+          "type": "paragraph",
+          "text": "Without marks active, Hootini's high LUCK (15) makes it effective through critical hits. The low damage scaling means you won't deal exceptional damage, but consistent crits keep DPS respectable between mark windows."
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "🔮 Maximum Debuff (SPECIAL Focus)",
+          "description": "Prioritize SPECIAL to maximize both the shared debuff and Hootini's personal damage multiplier. This build creates the strongest marks possible, making Hootini invaluable for tough enemies and bosses. The shared debuff benefits your entire team, while Hootini deals massive personal damage during mark windows.",
+          "priority": "SPECIAL (50%) → LUCK (25%) → CON (15%) → DEX (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⭐ Critical Marksman (LUCK Focus)",
+          "description": "Leverage Hootini's exceptional base LUCK (15) to create a crit-focused build. Balance SPECIAL for decent mark bonuses while maximizing critical hit chance and damage. Against marked enemies, critical hits deal devastating damage thanks to the combined multipliers. Perfect for players who enjoy high burst damage.",
+          "priority": "LUCK (40%) → SPECIAL (30%) → DEX (20%) → CON (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚡ Rapid Marker (DEX Focus)",
+          "description": "Combine SPECIAL with high DEX to maximize hits during the 12-second mark window. The increased attack speed means more damage applications while the mark is active. DEX also improves hit chance, ensuring marks land reliably. Excellent for consistent DPS rather than burst damage.",
+          "priority": "SPECIAL (35%) → DEX (30%) → LUCK (20%) → CON (15%)"
+        }
+      ]
+    }
+  ]
+}

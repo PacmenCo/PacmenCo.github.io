@@ -1,0 +1,404 @@
+{
+  "name": "Florence",
+  "icon": "🌿",
+  "subtitle": "Nature's Crowd Control Master",
+  "unlockLevel": 15,
+  "cost": 1650,
+  "theme": {
+    "gradient": "linear-gradient(135deg, var(--accent-emerald), var(--accent-green))",
+    "heroBg": "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.1))",
+    "heroBorder": "rgba(16, 185, 129, 0.3)",
+    "abilityBg": "rgba(16, 185, 129, 0.1)",
+    "abilityBorder": "#10b981",
+    "abilityColor": "#22c55e"
+  },
+  "baseStats": {
+    "str": 9,
+    "dex": 7,
+    "con": 12,
+    "luck": 15,
+    "special": 2
+  },
+  "statsDescription": "Florence has the second-highest base LUCK (15, tied with Hootini) for excellent crit potential. High CON (12) provides decent base stamina. Very low SPECIAL (2, lowest among all companions) means root duration starts weak but the damage boost is still strong. Balanced STR and DEX provide consistent damage output.",
+  "sections": [
+    {
+      "title": "🌿 Grasping Roots Ability",
+      "content": [
+        {
+          "type": "ability-box",
+          "name": "Grasping Roots!",
+          "description": "A powerful crowd control ability that completely immobilizes enemies while dealing massive damage. Florence channels nature's power to root enemies in place, neutralizing threats while dealing devastating attacks."
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Damage Boost:</strong> +175-269%+ damage (scales with SPECIAL)",
+            "<strong>Root Duration:</strong> 1-5 seconds (scales with SPECIAL)",
+            "<strong>Stamina Cost:</strong> +2 stamina per attack while active, +3 stamina to apply root",
+            "<strong>Cooldown:</strong> 18 seconds (for root application)",
+            "<strong>Always Active:</strong> Damage boost applies continuously, root on cooldown"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Root Mechanics"
+        },
+        {
+          "type": "paragraph",
+          "text": "Grasping Roots is unique among companion abilities - the damage boost is <strong>always active</strong> when enabled, but rooting enemies has a cooldown. This creates a high-risk, high-reward playstyle:"
+        },
+        {
+          "type": "info-box",
+          "text": "<strong>Key Mechanic:</strong> When Grasping Roots is enabled, every attack costs +2 stamina (3 total). When you hit an enemy and the root cooldown is ready, an additional +3 stamina is consumed to apply the root (6 stamina total for that hit). This high stamina cost means you must manage resources carefully."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Damage Scaling"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = 2.75 + (SPECIAL - 4) × 0.03<br><br>At SPECIAL=2: 2.69× (169% bonus)<br>At SPECIAL=25: 2.38× (138% bonus)<br>At SPECIAL=50: 3.13× (213% bonus)<br>At SPECIAL=100: 3.63× (263% bonus)"
+        },
+        {
+          "type": "paragraph",
+          "text": "The damage boost starts at +175% (2.75× multiplier) and increases by <span class=\"stat-highlight\">3% per SPECIAL point</span>. Even with Florence's low base SPECIAL (2), the ability provides nearly 170% bonus damage continuously."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Root Duration Scaling"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Duration = 1 + 4 × (1 - 55/(SPECIAL + 51))"
+        },
+        {
+          "type": "comparison-table",
+          "headers": [
+            "SPECIAL",
+            "Root Duration",
+            "Damage Multiplier",
+            "Total Effect"
+          ],
+          "rows": [
+            [
+              "2",
+              "1.04s",
+              "2.69× (169%)",
+              "Brief stun, high damage"
+            ],
+            [
+              "25",
+              "2.36s",
+              "3.38× (238%)",
+              "Moderate control"
+            ],
+            [
+              "50",
+              "3.11s",
+              "4.13× (313%)",
+              "Strong control"
+            ],
+            [
+              "100",
+              "4.05s",
+              "5.63× (463%)",
+              "Maximum control"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The root duration asymptotically approaches 5 seconds as SPECIAL increases. Even at base SPECIAL=2, you get ~1 second of immobilization, which is enough to prevent an enemy attack or reposition."
+        }
+      ]
+    },
+    {
+      "title": "⚡ Activation & Stamina Management",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Activation Prerequisites"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Manual Activation Required:</strong> Must press the Grasping Roots button",
+            "<strong>High Stamina Required:</strong> 3 stamina per normal attack, 6 stamina for root application",
+            "<strong>Companion Awake:</strong> Companion must not be sleeping",
+            "<strong>Root Cooldown:</strong> 18-second cooldown for root application (damage boost always active)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stamina Cost Breakdown"
+        },
+        {
+          "type": "warning-box",
+          "text": "<strong>Critical Limitation:</strong> Grasping Roots has the highest stamina cost of any companion ability. Every attack costs 3 stamina (base 1 + ability 2), and rooting an enemy costs an additional 3 stamina for a total of 6 stamina. With Florence's base max stamina of 5, you cannot apply a root without first increasing your max stamina through SPECIAL or CON investment."
+        },
+        {
+          "type": "paragraph",
+          "text": "Understanding stamina costs:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Normal attack without ability: 1 stamina",
+            "Attack with Grasping Roots active: 3 stamina (1 base + 2 ability)",
+            "Root application (when cooldown ready): 6 stamina total (3 for attack + 3 for root)",
+            "Base max stamina: 5 (3 + 0 SPECIAL/15 + 2 CON/5)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To use Grasping Roots effectively, you <strong>must</strong> invest in either:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "CON to increase max stamina (every 5 CON = +1 stamina)",
+            "SPECIAL to increase max stamina (every 15 SPECIAL = +1 stamina)",
+            "Both for maximum stamina capacity"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Optimal Stamina Thresholds"
+        },
+        {
+          "type": "comparison-table",
+          "headers": [
+            "Max Stamina",
+            "Capabilities",
+            "How to Achieve"
+          ],
+          "rows": [
+            [
+              "5 (base)",
+              "1 normal attack only",
+              "No investment needed"
+            ],
+            [
+              "6",
+              "2 normal attacks OR 1 root",
+              "+5 CON or +15 SPECIAL"
+            ],
+            [
+              "9",
+              "3 normal attacks OR 1 root + 1 attack",
+              "+20 CON or +60 SPECIAL (or mix)"
+            ],
+            [
+              "12+",
+              "4+ normal attacks OR 2 roots",
+              "High CON + SPECIAL investment"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "📈 Stat Scaling",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🗡️ STR (Strength) → Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Damage Multiplier = (1 × 0.65 + STR × 0.025 × 0.4) = 0.65 + STR × 0.01"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each STR point increases damage by <span class=\"stat-highlight\">1.0%</span>. With base STR=9, Florence starts with a 0.74 damage multiplier. The low scaling is offset by the massive +175-269% damage boost from Grasping Roots, making total damage output very high."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "⚡ DEX (Dexterity) → Attack Speed & Hit Chance"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Attack Speed = (1 + DEX × 0.004 × 0.8) = 1 + DEX × 0.0032<br>Hit Chance = DEX × 0.005 × 1.75 = DEX × 0.00875"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each DEX point increases attack speed by <span class=\"stat-highlight\">0.32%</span> and hit chance by <span class=\"stat-highlight\">0.875%</span>. Low attack speed scaling means Florence attacks slowly, but high hit chance scaling (1.75×) ensures attacks land reliably despite the low base."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🛡️ CON (Constitution) → Stamina & Regeneration"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina = 3 + floor(SPECIAL / 15) + floor(CON / 5)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each 5 CON points grants <span class=\"stat-highlight\">+1 max stamina</span>. With base CON=12 and SPECIAL=2, Florence starts with <span class=\"stat-highlight\">5 stamina</span> (3 + 0 + 2). CON is <strong>critical</strong> for Florence - without stamina investment, you cannot apply roots (which cost 6 stamina)."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "🎲 LUCK → Critical Chance & Critical Damage"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Crit Chance = (5 × 2.0) + LUCK × (0.175 × 0.25) = 10 + LUCK × 0.04375<br>Crit Damage = 1 + (1 × 0.25 + LUCK × 0.025 × 2.0) = 1.25 + LUCK × 0.05"
+        },
+        {
+          "type": "paragraph",
+          "text": "With base LUCK=15, Florence starts with <span class=\"stat-highlight\">10.66% crit chance</span> and <span class=\"stat-highlight\">200% crit damage</span>. Each LUCK point adds <span class=\"stat-highlight\">0.04375%</span> crit chance and <span class=\"stat-highlight\">5%</span> crit damage. The high base crit damage (2.0×) and excellent crit damage scaling make LUCK very valuable for burst damage."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "✨ SPECIAL → Root Duration & Stamina"
+        },
+        {
+          "type": "formula-box",
+          "formula": "Max Stamina Bonus = floor(SPECIAL / 15)<br>Root Duration = 1 + 4 × (1 - 55/(SPECIAL + 51))<br>Damage Boost = 175% + (SPECIAL - 4) × 3%"
+        },
+        {
+          "type": "paragraph",
+          "text": "SPECIAL increases root duration (approaching 5s max) and damage boost by <span class=\"stat-highlight\">3% per point</span>. Every 15 SPECIAL grants <span class=\"stat-highlight\">+1 max stamina</span>. While Florence has the lowest base SPECIAL, it scales incredibly well - 100 SPECIAL provides 4+ seconds of root and nearly 5× damage multiplier."
+        }
+      ]
+    },
+    {
+      "title": "⚔️ Combat Strategy",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Managing Stamina Costs"
+        },
+        {
+          "type": "paragraph",
+          "text": "The most important aspect of playing Florence is stamina management:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Always ensure you have 6+ stamina before attempting to root",
+            "Normal attacks (3 stamina) let you deal boosted damage while conserving stamina",
+            "Apply roots when the 18s cooldown is ready and you have sufficient stamina",
+            "Rest before dangerous fights to enter with full stamina",
+            "Higher CON/SPECIAL = more attacks per rest cycle"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Root Timing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Save roots for optimal moments:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Priority targets: Fast enemies, hard-hitting enemies, bosses",
+            "Root before the enemy's next attack to prevent incoming damage",
+            "Use root windows to land multiple boosted attacks safely",
+            "18-second cooldown allows frequent control (every ~20 seconds of combat)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Damage Optimization"
+        },
+        {
+          "type": "paragraph",
+          "text": "Florence's +175-269% damage boost is always active while Grasping Roots is enabled. This means:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Every attack deals 2.7-3.7× damage continuously",
+            "Critical hits multiply this further (base 2× crit damage)",
+            "Rooted enemies cannot dodge or move, ensuring all attacks land",
+            "High damage per hit compensates for low attack speed"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Risk vs. Reward"
+        },
+        {
+          "type": "paragraph",
+          "text": "Grasping Roots is high-risk, high-reward:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "<strong>Risk:</strong> Highest stamina cost means less uptime, more resting",
+            "<strong>Reward:</strong> Nearly 3× damage boost and complete enemy neutralization",
+            "Best against single powerful enemies where control matters",
+            "Less effective against swarms where stamina runs out quickly"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to Disable"
+        },
+        {
+          "type": "paragraph",
+          "text": "Consider disabling Grasping Roots when:"
+        },
+        {
+          "type": "list",
+          "className": "ability-effects",
+          "items": [
+            "Facing weak enemies that die in 1-2 hits (stamina cost not worth it)",
+            "Your stamina is too low to root (less than 6 max stamina)",
+            "You need more consistent uptime and less resting"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "🎯 Recommended Builds",
+      "content": [
+        {
+          "type": "build-card",
+          "name": "🌿 Maximum Control (SPECIAL + CON Focus)",
+          "description": "Prioritize SPECIAL for maximum root duration (5s) and damage boost (5×+), backed by CON for stamina capacity. This build provides the longest crowd control windows and highest damage multiplier. At high investment, you can root enemies for 4-5 seconds every 18 seconds, effectively neutralizing threats. Essential stamina investment ensures you can always apply roots.",
+          "priority": "SPECIAL (45%) → CON (30%) → LUCK (15%) → STR (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "⚔️ Burst Control (LUCK + SPECIAL Focus)",
+          "description": "Leverage Florence's exceptional LUCK (15 base) combined with SPECIAL for high crit damage during root windows. With 5% crit damage per LUCK point and already high base crit damage (2.0×), this build deals massive crits while enemies are rooted and helpless. Balance SPECIAL for decent root duration (2-3s) and damage boost. Great for one-shotting tough enemies.",
+          "priority": "LUCK (40%) → SPECIAL (30%) → CON (20%) → STR (10%)"
+        },
+        {
+          "type": "build-card",
+          "name": "🔄 Sustained Roots (CON Focus)",
+          "description": "Focus on CON for maximum stamina capacity, allowing multiple attacks and frequent root applications. With high stamina, you can attack 3-4 times before resting, maintaining near-permanent root uptime with the 18s cooldown. Lower SPECIAL means shorter root duration, but more frequent applications compensate. This build prioritizes consistent control over peak power.",
+          "priority": "CON (45%) → SPECIAL (25%) → LUCK (20%) → STR (10%)"
+        }
+      ]
+    }
+  ]
+}
