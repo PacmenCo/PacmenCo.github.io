@@ -131,46 +131,52 @@
       margin-bottom: 1rem;
     }
 
+    .companions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
     .companion-card {
-      background: rgba(124, 58, 237, 0.05);
-      border-left: 3px solid var(--accent-purple);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
+      background: var(--bg-card);
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
     }
 
-    .companion-card:last-child {
-      margin-bottom: 0;
+    .companion-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-orange);
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
     }
 
-    a:has(.companion-card):hover .companion-card {
-      transform: translateY(-2px);
-      border-left-color: var(--accent-orange);
+    .companion-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
     }
 
     .companion-name {
       color: var(--accent-orange);
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .companion-ability {
       color: var(--accent-cyan);
       font-weight: 600;
       margin-bottom: 0.75rem;
-    }
-
-    .companion-unlock {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
     }
 
     .companion-description {
       color: var(--text-secondary);
       line-height: 1.7;
+      font-size: 0.95rem;
     }
 
     .stat-highlight {
@@ -198,6 +204,16 @@
       margin-right: 0.75rem;
     }
 
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+      margin: 1rem 0;
+    }
+
     @media (max-width: 768px) {
       .nav-bar {
         padding: 0.75rem 1rem;
@@ -211,8 +227,17 @@
         padding: 5rem 1rem 2rem;
       }
 
+      .companions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
       .companion-card {
-        padding: 1rem;
+        padding: 1.5rem;
+      }
+
+      .companion-icon {
+        font-size: 3rem;
       }
     }
   </style>
@@ -239,104 +264,7 @@
         and discover which companions best suit your playstyle.
       </p>
 
-      <a href="companion.html?id=jindo" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Jindo</div>
-          <div class="companion-ability">Special Attack: Alpha Rush!</div>
-          <div class="companion-unlock">Unlocks at Level 5</div>
-          <div class="companion-description">
-            Fierce offensive companion with devastating burst damage windows.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=ember" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Ember</div>
-          <div class="companion-ability">Special Attack: PyroMantic</div>
-          <div class="companion-unlock">Unlocks at Level 8</div>
-          <div class="companion-description">
-            Fire specialist that stacks burns then detonates them for guaranteed critical damage.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=mystikat" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Mystikat</div>
-          <div class="companion-ability">Special Attack: Vital Bloom!</div>
-          <div class="companion-unlock">Unlocks at Level 10</div>
-          <div class="companion-description">
-            Healing support with passive regeneration and a drain/heal sequence.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=hootini" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Hootini (Rune Owl)</div>
-          <div class="companion-ability">Special Attack: Runic Mark!</div>
-          <div class="companion-unlock">Unlocks at Level 12</div>
-          <div class="companion-description">
-            Debuff specialist that marks enemies for amplified damage from all sources.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=globbie" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Globbie</div>
-          <div class="companion-ability">Special Attack: Sticky Ruin!</div>
-          <div class="companion-unlock">Unlocks at Level 15</div>
-          <div class="companion-description">
-            Control specialist with guaranteed crits, massive slows, and extended range.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=acornelius" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Acornelius</div>
-          <div class="companion-ability">Special Attack: Squirrel Defense!</div>
-          <div class="companion-unlock">Unlocks at Level 15</div>
-          <div class="companion-description">
-            Defensive tank with 50% damage reduction and counter-attack damage boosts.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=florence" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Florence</div>
-          <div class="companion-ability">Special Attack: Grasping Roots!</div>
-          <div class="companion-unlock">Unlocks at Level 15</div>
-          <div class="companion-description">
-            Crowd control specialist with enemy immobilization and massive damage boost at high stamina cost.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=mechabird" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">MechaBird</div>
-          <div class="companion-ability">Special Attack: Pecking Overdrive!</div>
-          <div class="companion-unlock">Unlocks at Level 20</div>
-          <div class="companion-description">
-            Ramping damage dealer with exponential attack speed stacking up to devastating burst DPS.
-          </div>
-        </div>
-      </a>
-
-      <a href="companion.html?id=snekles" style="text-decoration: none; color: inherit; display: block;">
-        <div class="companion-card" style="cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;">
-          <div class="companion-name">Snekles</div>
-          <div class="companion-ability">Special Attack: Neurotoxin</div>
-          <div class="companion-unlock">Unlocks at Level 25</div>
-          <div class="companion-description">
-            Venomous utility specialist with high crit potential, enemy stuns, and damage debuffs.
-          </div>
-        </div>
-      </a>
+      <div class="companions-grid" id="companions-grid"></div>
     </div>
 
     <div class="content-section">
@@ -461,6 +389,58 @@
       </p>
     </div>
   </div>
+
+  <!-- Load companion data and render cards -->
+  <script src="companions-data.js"></script>
+  <script>
+    // Define companion order
+    const companionOrder = ['jindo', 'ember', 'mystikat', 'hootini', 'globbie', 'acornelius', 'florence', 'mechabird', 'snekles'];
+
+    // Get the special ability name from companion data
+    function getSpecialAbilityName(companion) {
+      // Find the special ability section
+      const abilitySection = companion.sections.find(section =>
+        section.title.toLowerCase().includes('special ability') ||
+        section.title.toLowerCase().includes('special attack')
+      );
+
+      if (abilitySection) {
+        const abilityContent = abilitySection.content.find(content => content.type === 'ability-box');
+        if (abilityContent) {
+          return abilityContent.name;
+        }
+      }
+      return 'Special Attack';
+    }
+
+    // Render companion cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('companions-grid');
+
+      companionOrder.forEach(companionId => {
+        const companion = companionsData[companionId];
+        if (!companion) return;
+
+        const card = document.createElement('a');
+        card.href = `companion.html?id=${companionId}`;
+        card.style.textDecoration = 'none';
+        card.style.color = 'inherit';
+
+        const abilityName = getSpecialAbilityName(companion);
+
+        card.innerHTML = `
+          <div class="companion-card">
+            <div class="companion-icon">${companion.icon}</div>
+            <div class="companion-name">${companion.name}</div>
+            <div class="companion-ability">${abilityName}</div>
+            <div class="companion-description">${companion.subtitle}</div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    });
+  </script>
 </body>
 
 </html>
