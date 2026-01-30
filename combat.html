@@ -146,6 +146,41 @@
       margin-right: 0.75rem;
     }
 
+    .debuffs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .debuff-card {
+      background: rgba(124, 58, 237, 0.05);
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .debuff-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-orange);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .debuff-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.3));
+    }
+
+    .debuff-name {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
     @media (max-width: 768px) {
       .nav-bar {
         padding: 0.75rem 1rem;
@@ -252,8 +287,10 @@
         Base HP represents your health from level and rank progression only, before equipment, pets, talents, and
         other bonuses are applied. Max HP includes all sources, and is the value you will see in your HP bar.
       </p>
-      <p style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-orange); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
-        <strong style="color: var(--accent-orange);">Note:</strong> The heal spell works differently in certain areas of the game.
+      <p
+        style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-orange); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+        <strong style="color: var(--accent-orange);">Note:</strong> The heal spell works differently in certain areas of
+        the game.
       </p>
       <p>
         While HP does not help you directly in obtaining XP faster, you should not underestimate its importance.
@@ -271,7 +308,7 @@
       <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Maximum Mana</h3>
       <p
         style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Max Mana = (100 + Mana from Pets + Mana from Items + Mana from Talents) × (Mana Buffs + Focus)
+        Max Mana = (100 + Mana from Pets + Mana from Items + Mana from Talents) × (Mana Buffs)
       </p>
 
       <ul class="feature-list">
@@ -279,7 +316,7 @@
         <li><strong>Pets:</strong> Certain pets provide flat mana bonuses</li>
         <li><strong>Equipment:</strong> Items with mana affixes</li>
         <li><strong>Talents:</strong> Talent points invested in mana</li>
-        <li><strong>Buffs & Focus:</strong> Temporary mana multipliers</li>
+        <li><strong>Buffs:</strong> Temporary mana multipliers</li>
       </ul>
 
       <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Mana Regeneration</h3>
@@ -369,6 +406,16 @@
     </div>
 
     <div class="content-section">
+      <h2>Status Effects & Debuffs</h2>
+      <p>
+        Various abilities, skills, and enchantments can apply powerful debuffs to enemies. Understanding these
+        status effects is crucial for maximizing your damage and controlling the battlefield.
+      </p>
+
+      <div class="debuffs-grid" id="debuffs-grid"></div>
+    </div>
+
+    <div class="content-section">
       <h2>Combat Progression</h2>
       <p>
         As you progress through zones, combat becomes increasingly challenging and rewarding.
@@ -377,6 +424,35 @@
       </p>
     </div>
   </div>
+
+  <!-- Load debuff data and render cards -->
+  <script src="debuffs-data.js"></script>
+  <script>
+    // Render debuff cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('debuffs-grid');
+      const debuffOrder = ['stun', 'ministun', 'root', 'slow', 'runicmark', 'poison', 'burn', 'bleed', 'armorbreak', 'attackreduction', 'weaken'];
+
+      debuffOrder.forEach(debuffId => {
+        const debuff = debuffsData[debuffId];
+        if (!debuff) return;
+
+        const card = document.createElement('a');
+        card.href = `debuff.html?id=${debuffId}`;
+        card.style.textDecoration = 'none';
+        card.style.color = 'inherit';
+
+        card.innerHTML = `
+          <div class="debuff-card">
+            <div class="debuff-icon">${debuff.icon}</div>
+            <div class="debuff-name">${debuff.name}</div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    });
+  </script>
 </body>
 
 </html>
