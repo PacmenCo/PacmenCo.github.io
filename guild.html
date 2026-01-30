@@ -27,6 +27,8 @@
       --accent-purple: #7c3aed;
       --accent-orange: #f59e0b;
       --accent-cyan: #06b6d4;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
     }
@@ -118,6 +120,13 @@
       font-size: 1.75rem;
     }
 
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
     .content-section p {
       color: var(--text-secondary);
       line-height: 1.8;
@@ -144,6 +153,45 @@
       margin-right: 0.75rem;
     }
 
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid var(--accent-red);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .warning-box strong {
+      color: var(--accent-red);
+    }
+
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--accent-green);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: var(--accent-green);
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       .nav-bar {
         padding: 0.75rem 1rem;
@@ -155,6 +203,32 @@
 
       .container {
         padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .content-section {
+        padding: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -171,46 +245,267 @@
   <div class="container">
     <div class="hero-section">
       <h1 class="page-title">🏰 Guild System</h1>
-      <p class="page-subtitle">Battle guild bosses together with other players</p>
+      <p class="page-subtitle">Cooperative guild boss battles with powerful rewards</p>
     </div>
 
     <div class="content-section">
-      <h2>Join a Guild</h2>
+      <h2>Guild Boss Events</h2>
       <p>
-        Team up with other adventurers by joining or creating a guild. Guilds provide a
-        community of players working together toward common goals, sharing strategies,
-        and supporting each other's progress.
+        Guild bosses are time-limited cooperative challenges where all guild members work together to defeat powerful
+        bosses. The entire guild shares a common HP pool that all members damage during their individual runs.
       </p>
+
+      <h3>Event Schedule</h3>
       <ul class="feature-list">
-        <li>Join existing guilds or create your own</li>
-        <li>Guild chat and communication</li>
-        <li>Guild leveling and perks</li>
-        <li>Member roles and management</li>
+        <li><strong>Event Duration:</strong> 108 hours (4.5 days)</li>
+        <li><strong>Cooldown Between Bosses:</strong> 9.5 hours</li>
+        <li><strong>Total Cycle:</strong> ~117.5 hours (~5 days per boss rotation)</li>
+        <li><strong>Boss Rotation:</strong> Boss 1 → Boss 2 → Boss 3 → Boss 4 → Repeat</li>
+      </ul>
+
+      <h3>Boss HP Pools</h3>
+      <p>Each boss type has a different shared HP pool that the entire guild damages together:</p>
+      <ul class="feature-list">
+        <li><strong>Boss 1:</strong> 1,000,000 HP (shared)</li>
+        <li><strong>Boss 2:</strong> 2,000,000 HP (shared)</li>
+        <li><strong>Boss 3:</strong> 3,000,000 HP (shared)</li>
+        <li><strong>Boss 4:</strong> 1,500,000 HP (shared)</li>
       </ul>
     </div>
 
     <div class="content-section">
-      <h2>Guild Bosses</h2>
+      <h2>Ticket System</h2>
       <p>
-        Face powerful guild bosses that require coordinated effort from multiple guild members.
-        Each member can contribute damage using limited tickets that regenerate over time.
-        Work together to defeat the boss before the timer runs out.
+        Players use tickets to participate in guild boss runs. Each run lasts 2 minutes, during which you fight
+        the boss to deal as much damage as possible.
+      </p>
+
+      <h3>Ticket Mechanics</h3>
+      <ul class="feature-list">
+        <li><strong>Maximum Tickets:</strong> 3 per player</li>
+        <li><strong>Regeneration Time:</strong> 8.5 hours per ticket</li>
+        <li><strong>New Member Starting Tickets:</strong> 1 ticket</li>
+        <li><strong>Run Duration:</strong> 120 seconds (2 minutes)</li>
+      </ul>
+
+      <p>
+        Tickets regenerate automatically over time. When you have less than 3 tickets, the UI displays a countdown
+        timer showing when your next ticket will be available. You cannot start a run without at least 1 ticket.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Boss Difficulty & Progression</h2>
+      <p>
+        Guild bosses feature a dynamic difficulty system where each time you defeat the boss (deplete one HP bar),
+        the difficulty increases and the boss becomes stronger with a refilled HP bar.
+      </p>
+
+      <h3>Starting Difficulty</h3>
+      <div class="formula-box">
+        Starting Difficulty = max(1, Last Reached Difficulty - 3)
+      </div>
+      <p>
+        The game remembers the highest difficulty you've reached. Your next run always starts 3 levels below your
+        best, with a minimum of difficulty level 1. For example, if you previously reached difficulty 10, your
+        next run starts at difficulty 7.
+      </p>
+
+      <h3>Difficulty Scaling</h3>
+      <p>
+        Each difficulty level multiplies the boss's stats by the following factors:
       </p>
       <ul class="feature-list">
-        <li>Epic guild boss encounters</li>
-        <li>Limited attack tickets with regeneration</li>
-        <li>Time-limited events (108 hours per boss)</li>
-        <li>Personal and guild-wide rewards</li>
+        <li><strong>Health:</strong> ×1.05 (5% increase per level)</li>
+        <li><strong>Attack:</strong> ×1.05 (5% increase per level)</li>
+        <li><strong>Defense:</strong> ×1.02 (2% increase per level)</li>
+        <li><strong>HP Regeneration:</strong> ×1.005 (0.5% increase per level)</li>
+        <li><strong>Attack Speed:</strong> ×1.005 (0.5% increase per level)</li>
+      </ul>
+
+      <div class="formula-box">
+        Boss Stat = Base Stat × Phase Multiplier × (Scale Per Difficulty)^(Difficulty - 1)
+      </div>
+
+      <h3>Damage Reduction</h3>
+      <p>
+        Starting at difficulty 6, bosses gain additional damage reduction:
+      </p>
+      <div class="formula-box">
+        Damage Reduction = 2% per difficulty level above 5 (capped at 99%)
+      </div>
+
+      <div class="info-box">
+        <strong>Difficulty Display:</strong> The UI shows difficulty as 0-indexed (internal difficulty 1 displays as
+        "Difficulty 0").
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Enrage Mechanics</h2>
+      <p>
+        Guild bosses can become ENRAGED under certain conditions, making them significantly more dangerous.
+        Once triggered, enrage lasts for the entire run and cannot be removed.
+      </p>
+
+      <h3>Difficulty Enrage</h3>
+      <p><strong>Trigger:</strong> When current difficulty ≥ starting difficulty + 6</p>
+      <div class="formula-box">
+        Difficulty Enrage = Starting at (Start Difficulty + 6)
+      </div>
+
+      <h3>Damage Cap Enrage</h3>
+      <p><strong>Trigger:</strong> When your total damage exceeds 2% of the boss's remaining shared HP pool</p>
+      <div class="formula-box">
+        Damage Cap Enrage = Total Damage > (Remaining Shared HP × 0.02)
+      </div>
+
+      <h3>Enrage Effects</h3>
+      <ul class="feature-list">
+        <li><strong>Attack Damage:</strong> ×2.0 (100% increase)</li>
+        <li><strong>Damage Reduction:</strong> 25% base + 75% of existing DR</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>Warning:</strong> Both enrage types can be active simultaneously! If both trigger, the boss's attack
+        is multiplied by 4× and damage reduction is applied twice, making the boss extremely difficult to defeat.
+      </div>
+
+      <p>
+        The damage cap enrage prevents individual players from contributing too much damage relative to the
+        guild's progress, encouraging balanced participation from all guild members.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Valor (Player Currency)</h2>
+      <p>
+        Valor is the personal currency earned from guild boss participation. It can be spent in the Valor Shop
+        on companions, skills, and powerful guild buffs.
+      </p>
+
+      <h3>Earning Valor</h3>
+      <div class="formula-box">
+        Valor = (Guild HP Removed ÷ 5%) + Kill Bonus
+      </div>
+      <ul class="feature-list">
+        <li><strong>1 Valor Point</strong> per 5% of boss HP removed by your guild</li>
+        <li><strong>5 Bonus Valor Points</strong> if the boss is killed (100% HP removed)</li>
+        <li><strong>Maximum:</strong> 25 Valor (20 from damage + 5 bonus)</li>
+      </ul>
+
+      <h3>Valor Examples</h3>
+      <ul class="feature-list">
+        <li>100% HP removed (boss killed): <span class="stat-highlight">25 Valor</span> (20 + 5 bonus)</li>
+        <li>95% HP removed: <span class="stat-highlight">19 Valor</span></li>
+        <li>50% HP removed: <span class="stat-highlight">10 Valor</span></li>
+        <li>25% HP removed: <span class="stat-highlight">5 Valor</span></li>
+        <li>No participation: <span class="stat-highlight">0 Valor</span></li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Important:</strong> Rewards are identical for all participants! Whether you dealt 1 damage or 1 million
+        damage, everyone who attacked receives the same Valor based on the guild's total performance.
+      </div>
+
+      <h3>Claiming Rewards</h3>
+      <p>
+        Valor rewards are not automatic. You must:
+      </p>
+      <ul class="feature-list">
+        <li>Navigate to the Guild Boss Rewards panel after the event</li>
+        <li>Click the "Claim!" button</li>
+        <li>Valor is added to your spendable balance</li>
+      </ul>
+
+      <h3>Valor Shop</h3>
+      <p>
+        Spend your Valor on:
+      </p>
+      <ul class="feature-list">
+        <li><strong>Companions:</strong> Permanent unlocks that fight alongside you</li>
+        <li><strong>Skills:</strong> Permanent new abilities for your character</li>
+        <li><strong>Guild Buffs:</strong> Temporary consumable buffs that benefit your entire guild</li>
+      </ul>
+
+      <h3>Guild Buff Types</h3>
+      <ul class="feature-list">
+        <li>Attack Bonus - Increased damage output</li>
+        <li>Defense Bonus - Reduced damage taken</li>
+        <li>XP Bonus - Faster leveling</li>
+        <li>Loot Bonus - Better drop rates</li>
+        <li>Health Bonus - Increased max HP</li>
+        <li>Mana Bonus - Increased max mana</li>
+        <li>Companion Speed & Range - Faster and longer-range companion attacks</li>
+        <li>Companion Damage & Stamina - More powerful companions with higher stamina</li>
+        <li>Companion XP Bonus - Faster companion leveling</li>
+        <li>Guild Boss Killer - Extra damage specifically against guild bosses</li>
       </ul>
     </div>
 
     <div class="content-section">
-      <h2>Rewards & Progression</h2>
+      <h2>Sigils (Guild Currency)</h2>
       <p>
-        Earn exclusive rewards based on your contribution and your guild's performance.
-        Guild bosses drop unique items and resources that can't be obtained anywhere else,
-        making guild participation essential for progression.
+        Sigils are the guild-wide currency earned from boss participation. While Valor is personal, Sigils
+        belong to the entire guild and are likely used for guild upgrades and features.
       </p>
+
+      <h3>Earning Sigils</h3>
+      <div class="formula-box">
+        Sigils = (Guild HP Removed ÷ 10%) + Kill Bonus
+      </div>
+      <ul class="feature-list">
+        <li><strong>1 Sigil</strong> per 10% of boss HP removed</li>
+        <li><strong>5 Bonus Sigils</strong> if the boss is killed</li>
+        <li><strong>Minimum:</strong> 1 Sigil if any damage was dealt (even 1%)</li>
+      </ul>
+
+      <h3>Sigil Examples</h3>
+      <ul class="feature-list">
+        <li>100% HP removed (boss killed): <span class="stat-highlight">15 Sigils</span> (10 + 5 bonus)</li>
+        <li>95% HP removed: <span class="stat-highlight">9 Sigils</span></li>
+        <li>50% HP removed: <span class="stat-highlight">5 Sigils</span></li>
+        <li>25% HP removed: <span class="stat-highlight">2 Sigils</span></li>
+        <li>1% HP removed: <span class="stat-highlight">1 Sigil</span> (guaranteed minimum)</li>
+      </ul>
+
+      <h3>Guild XP (Separate System)</h3>
+      <p>
+        In addition to Sigils, guilds also earn Guild XP:
+      </p>
+      <div class="formula-box">
+        Guild XP = (Guild HP Removed ÷ 1%) + Kill Bonus
+      </div>
+      <ul class="feature-list">
+        <li><strong>1 Guild XP</strong> per 1% of boss HP removed</li>
+        <li><strong>25 Bonus Guild XP</strong> if the boss is killed</li>
+        <li><strong>Maximum:</strong> 125 Guild XP (100 from damage + 25 bonus)</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Tips</h2>
+      <h3>Maximize Your Contribution</h3>
+      <ul class="feature-list">
+        <li>Start your run at a difficulty you can handle - going too high means less time actually damaging the boss</li>
+        <li>Watch for the damage cap enrage (2% of remaining HP) and stop before triggering it</li>
+        <li>Coordinate with guild members to avoid wasting tickets during low-activity periods</li>
+        <li>Save tickets for when the boss is fresh and easier to damage</li>
+      </ul>
+
+      <h3>Managing Enrage</h3>
+      <ul class="feature-list">
+        <li>Difficulty enrage is inevitable after 6 difficulties - plan your build to survive it</li>
+        <li>Damage cap enrage can be avoided by monitoring your total damage output</li>
+        <li>If both enrages trigger, focus on survival over damage</li>
+      </ul>
+
+      <h3>Valor Shop Priorities</h3>
+      <ul class="feature-list">
+        <li>Unlock essential companions first - they provide permanent value</li>
+        <li>Save Valor for key skills that complement your build</li>
+        <li>Guild buffs are consumable - coordinate with your guild before purchasing</li>
+      </ul>
     </div>
   </div>
 </body>

@@ -3,76 +3,80 @@ const debuffsData = {
   "stun": {
     "name": "Stun",
     "icon": "💫",
-    "description": "Prevents the enemy from attacking for a duration. Stun effectiveness is modified by stun resistance.",
+    "description": "Prevents the enemy from moving for a duration.",
     "details": [
-      "Completely stops enemy attacks during the stun duration",
-      "Boss enemies receive only 33% stun effectiveness",
-      "Duration can be modified by stun resistance stats",
-      "Applied by certain skills, abilities, and companion attacks"
+      "Completely stops enemy movement during the stun duration",
+      "Boss enemies are very resistant to stuns (only 33% stun effectiveness)",
+      "Duration modified by enemy stun resistance",
+      "For Snekles' stun mechanics, see the Snekles companion page"
     ],
-    "sources": ["Snekles companion ability", "Skill effects", "Weapon enchantments"]
+    "sources": ["Snekles companion - Neurotoxin ability"]
   },
   "ministun": {
     "name": "Mini Stun",
     "icon": "✨",
-    "description": "A shorter duration stun effect that briefly interrupts enemy attacks.",
+    "description": "A very short duration stun effect that briefly interrupts enemy movement.",
     "details": [
-      "Shorter duration than regular stun",
+      "Duration formula: 2 / (weaponSpeed^1.2)",
+      "Maximum duration: 0.30 seconds (capped)",
+      "Slower weapons = longer mini stun duration",
       "Prevents enemy attacks during active duration",
-      "Useful for interrupting dangerous enemy abilities",
-      "Less affected by stun resistance than full stun"
+      "Duration modified by enemy stun resistance"
     ],
-    "sources": ["Certain skill effects", "Quick-activation abilities"]
+    "sources": ["Automatically applied when using a melee weapon!",]
   },
   "root": {
     "name": "Root",
     "icon": "🌿",
-    "description": "Prevents enemy movement, keeping them in place. Roots are partially effective against bosses.",
+    "description": "Prevents enemy movement, keeping them in place.",
     "details": [
-      "Completely immobilizes the enemy",
-      "Boss enemies receive 50% root effectiveness",
-      "Enemies can still attack while rooted",
-      "Duration modified by stun resistance",
-      "Excellent for kiting and positioning"
+      "Completely immobilizes the enemy for a duration",
+      "50% reduced root effectiveness vs bosses",
+      "Enemies can still attack while rooted - if they have an ability to do so",
+      "Duration modified by enemy stun resistance",
+      "Excellent in combination with a high damage output melee weapon",
+      "For Florence's root mechanics, see the Florence companion page"
     ],
-    "sources": ["Florence's Grasping Roots ability", "Root-based skills"]
+    "sources": ["Florence companion - Grasping Roots ability"]
   },
   "slow": {
     "name": "Slow",
     "icon": "🐌",
-    "description": "Reduces enemy movement and attack speed, making them easier to avoid and fight.",
+    "description": "Reduces enemy's acceleration when moving towards the player",
     "details": [
-      "Reduces both movement speed and attack speed",
-      "Boss enemies receive 20% reduced effectiveness",
-      "Stacks multiplicatively with other slow effects",
-      "Allows more time to react to enemy attacks"
+      "Reduces the enemy's acceleration",
+      "20% reduced effectiveness against bosses",
+      "Effectively reduces incoming damage",
+      "Gives the player more time to attack the enemy before they reach them",
+      "For Globbie's slow mechanics, see the Globbie companion page"
     ],
-    "sources": ["Globbie companion ability", "Freeze skill effect", "Slow-based enchantments"]
+    "sources": ["Globbie companion - Slow ability"]
   },
   "runicmark": {
     "name": "Runic Mark",
     "icon": "🔮",
-    "description": "Marks the enemy with runes, increasing all damage they take from any source.",
+    "description": "Marks the enemy for death, increasing all damage they take from any source.",
     "details": [
       "Increases damage taken by the marked enemy",
       "Applied by Hootini's special attack",
       "Affects damage from all sources (player, companions, pets)",
       "Particularly powerful for burst damage strategies",
-      "Visible indicator shows when enemy is marked"
+      "For full mechanics and damage formulas, see the Hootini companion page"
     ],
-    "sources": ["Hootini (Rune Owl) companion special attack"]
+    "sources": ["Hootini companion - Runic Mark ability"]
   },
   "poison": {
     "name": "Poison",
     "icon": "☠️",
     "description": "Reduces the enemy's health regeneration.",
     "details": [
-      "Reduces enemy HP regeneration",
-      "Stacks multiplicatively",
-      "Visual effect: enemy color shifts",
-      "Particularly effective against enemies with high HP regeneration"
+      "Each stack multiplies enemy HP regeneration by 0.75 (25% reduction per stack)",
+      "Maximum of 8 stacks",
+      "Stacks multiplicatively: New Regen = Original Regen × 0.75^stacks",
+      "Visual effect: enemy color shifts toward cyan/green",
+      "Particularly effective against enemies with high regeneration"
     ],
-    "sources": ["Poison skill effects", "Certain weapon enchantments"]
+    "sources": ["Poison skill effects"]
   },
   "burn": {
     "name": "Burn",
@@ -104,11 +108,12 @@ const debuffsData = {
     "icon": "🛡️",
     "description": "Reduces enemy defense, making them take more damage from most attacks.",
     "details": [
-      "Reduces enemy defence",
-      "Stacks multiplicatively using formula: 1 - (1 - reduction%)^stacks",
-      "Best used against heavily armored enemies!"
+      "Reduces enemy MDefence (armor resistance)",
+      "Stacks multiplicatively: Total Reduction = 1 - (1 - reduction%)^stacks",
+      "Example: 10% per stack × 3 stacks = 1 - (0.9)³ = 27.1% total reduction",
+      "Best used against heavily armored enemies"
     ],
-    "sources": ["Armor Break skill effects", "ArmorBreak weapon enchantments"]
+    "sources": ["Armor Break skill effects"]
   },
   "attackreduction": {
     "name": "Attack Reduction",
@@ -120,7 +125,7 @@ const debuffsData = {
       "Excellent defensive debuff for survival",
       "Particularly useful against hard-hitting enemies"
     ],
-    "sources": ["Attack Reduction skill effects", "Defensive abilities"]
+    "sources": ["Attack Reduction skill effects"]
   },
   "weaken": {
     "name": "Weaken",

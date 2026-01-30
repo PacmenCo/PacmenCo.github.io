@@ -98,6 +98,14 @@
       filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
     }
 
+    .debuff-image-large {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1rem;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+    }
+
     .debuff-title {
       font-size: clamp(2rem, 5vw, 3rem);
       background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
@@ -193,6 +201,11 @@
       .debuff-icon-large {
         font-size: 3.5rem;
       }
+
+      .debuff-image-large {
+        width: 100px;
+        height: 100px;
+      }
     }
   </style>
 </head>
@@ -248,8 +261,25 @@
       // Update page title
       document.getElementById('page-title').textContent = `${debuff.name} – Idle Adventure`;
 
-      // Populate hero section
-      document.getElementById('debuff-icon').textContent = debuff.icon;
+      // Populate hero section with image (fallback to emoji)
+      const iconContainer = document.getElementById('debuff-icon');
+
+      // Capitalize first letter for image filename
+      const imageFileName = debuffId.charAt(0).toUpperCase() + debuffId.slice(1);
+
+      const img = document.createElement('img');
+      img.src = `images/debuffs/${imageFileName}.png`;
+      img.alt = debuff.name;
+      img.className = 'debuff-image-large';
+
+      // Fallback to emoji if image fails to load
+      img.onerror = function() {
+        iconContainer.textContent = debuff.icon;
+        iconContainer.className = 'debuff-icon-large';
+      };
+
+      iconContainer.appendChild(img);
+
       document.getElementById('debuff-title').textContent = debuff.name;
       document.getElementById('debuff-description').textContent = debuff.description;
 

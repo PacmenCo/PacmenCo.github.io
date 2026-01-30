@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ascensions – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "🌟";
+      margin-right: 0.75rem;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--accent-green);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: var(--accent-green);
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid var(--accent-red);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .warning-box strong {
+      color: var(--accent-red);
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    table table {
+      width: 100%;
+      display: table;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .content-section {
+        padding: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      table {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🌟 Ascensions</h1>
+      <p class="page-subtitle">Reset your progress for permanent power increases and Dream Points</p>
+    </div>
+
+    <div class="content-section">
+      <h2>What is Ascension?</h2>
+      <p>
+        Ascension is a prestige system that allows you to reset your character's level and progress in exchange for
+        powerful permanent bonuses and Dream Points. Each ascension makes you stronger and unlocks new progression
+        systems.
+      </p>
+
+      <h3>Ascension Requirements</h3>
+      <ul class="feature-list">
+        <li><strong>Level Requirement:</strong> Must be level 301 or higher</li>
+        <li><strong>No Locked Items:</strong> Must have no items in ascension-locked inventory</li>
+        <li><strong>No Locked Currencies:</strong> All locked pixels, voxels, and crystals must be redeemed</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Ascension Types</h2>
+      <p>
+        There are three types of ascensions, each with different difficulty levels and rewards.
+      </p>
+
+      <h3>Normal Ascension (Easy)</h3>
+      <p><strong>Unlock Requirement:</strong> Always available</p>
+      <p><strong>Reward:</strong> 1 Dream Point per completion (unlimited)</p>
+
+      <h4>What Happens:</h4>
+      <ul class="feature-list">
+        <li>Resets your level to 1 and XP to 0</li>
+        <li>All areas reset and must be unlocked again</li>
+        <li><strong>You KEEP:</strong> All items, currencies, pets, talents, guild progress</li>
+        <li>First completion unlocks the Dream Point system</li>
+      </ul>
+
+      <h3>Hard Ascension (Medium)</h3>
+      <p><strong>Unlock Requirement:</strong> Must have defeated the "Bossy Roleplayer" boss</p>
+      <p><strong>Reward:</strong> 1 Dream Point per completion (max 3 completions count)</p>
+
+      <h4>What Happens:</h4>
+      <ul class="feature-list">
+        <li>Resets your level to 1 and XP to 0</li>
+        <li>All areas reset</li>
+        <li><strong>LOCKS AWAY:</strong> All equipped items, inventory, transmog, pixels, voxels, crystals</li>
+        <li>Progress bar multiplier resets from 1.01 → 0.30</li>
+        <li>Auto-looting chance resets to 1</li>
+        <li>Offline rewards disabled</li>
+        <li>VIP chests unavailable</li>
+        <li>Items and currencies restored upon completion</li>
+      </ul>
+
+      <h3>Hardcore Ascension (Extreme)</h3>
+      <p><strong>Unlock Requirement:</strong> Must have completed at least 1 Hard Ascension</p>
+      <p><strong>Reward:</strong> 1 Dream Point per completion (max 1 completion counts)</p>
+
+      <h4>What Happens:</h4>
+      <ul class="feature-list">
+        <li>Same as Hard Ascension</li>
+        <li><strong>PERMADEATH:</strong> If you die, the ascension fails and converts to Normal</li>
+        <li>Most challenging ascension type</li>
+        <li>Higher enemy difficulty than Hard mode</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>Warning:</strong> In Hardcore mode, dying will fail your ascension! You lose the Dream Point reward
+        and your ascension converts to Normal mode. All locked items are restored, but you lose the prestige of
+        completing Hardcore.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Ascension Difficulty Comparison</h2>
+      <p>
+        Each ascension type modifies enemy difficulty and player restrictions.
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Modifier</th>
+              <th>Normal</th>
+              <th>Hard</th>
+              <th>Hardcore</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>XP Penalty</td>
+              <td>100% (none)</td>
+              <td>50%</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>Enemy HP</td>
+              <td>100%</td>
+              <td>150%</td>
+              <td>185%</td>
+            </tr>
+            <tr>
+              <td>Enemy Damage</td>
+              <td>100%</td>
+              <td>215%</td>
+              <td>320%</td>
+            </tr>
+            <tr>
+              <td>Enemy Magic Damage</td>
+              <td>100%</td>
+              <td>150%</td>
+              <td>175%</td>
+            </tr>
+            <tr>
+              <td>Player HP from Rank</td>
+              <td>100%</td>
+              <td>(10 + level) / 500</td>
+              <td>(10 + level) / 620</td>
+            </tr>
+            <tr>
+              <td>Items Locked</td>
+              <td>No</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Offline Rewards</td>
+              <td>Enabled</td>
+              <td>Disabled</td>
+              <td>Disabled</td>
+            </tr>
+            <tr>
+              <td>Death Penalty</td>
+              <td>Normal</td>
+              <td>Normal</td>
+              <td>Fails ascension</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>HP Penalty Examples (Hard Mode)</h3>
+      <ul class="feature-list">
+        <li>Level 1: (10+1)/500 = 2.2% of normal HP from rank</li>
+        <li>Level 50: (10+50)/500 = 12% of normal HP from rank</li>
+        <li>Level 150: (10+150)/500 = 32% of normal HP from rank</li>
+        <li>Level 301: (10+301)/500 = 62.2% of normal HP from rank</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Note:</strong> The HP penalty only affects HP gained from ranks. HP from items, talents, and other
+        sources is unaffected (but items are locked during Hard/Hardcore runs).
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Permanent Ascension Bonuses</h2>
+      <p>
+        Each ascension type provides passive bonuses that are always active, even after completion. These bonuses have
+        a maximum number of times they can be earned.
+      </p>
+
+      <h3>Normal Ascension Bonuses (Max 5)</h3>
+      <ul class="feature-list">
+        <li>+15 base HP per completion</li>
+        <li>+1% damage per completion</li>
+        <li>+3% XP gain (level & rank) per completion</li>
+        <li>+3% loot drop chance per completion</li>
+      </ul>
+
+      <h3>Hard Ascension Bonuses (Max 3)</h3>
+      <ul class="feature-list">
+        <li>+20 base HP per completion</li>
+        <li>+1.5% damage per completion</li>
+        <li>+4% XP gain (level & rank) per completion</li>
+        <li>+3% loot drop chance per completion</li>
+      </ul>
+
+      <h3>Hardcore Ascension Bonuses (Max 1)</h3>
+      <ul class="feature-list">
+        <li>+50 base HP</li>
+        <li>+5% damage</li>
+        <li>+5% XP gain (level & rank)</li>
+        <li>+5% loot drop chance</li>
+      </ul>
+
+      <h3>Maximum Possible Bonuses</h3>
+      <p>If you complete all ascensions to their caps:</p>
+      <div class="formula-box">
+        HP: (15×5) + (20×3) + (50×1) = +185 base HP<br>
+        Damage: (1%×5) + (1.5%×3) + (5%×1) = +14.5%<br>
+        XP: (3%×5) + (4%×3) + (5%×1) = +32%<br>
+        Loot: (3%×5) + (3%×3) + (5%×1) = +29%
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Dream Points & Ascension Skills</h2>
+      <p>
+        Dream Points are special currency earned from completing ascensions. They're spent on powerful permanent
+        upgrades called Ascension Skills.
+      </p>
+
+      <h3>Earning Dream Points</h3>
+      <ul class="feature-list">
+        <li>1 Dream Point per Normal Ascension (unlimited)</li>
+        <li>1 Dream Point per Hard Ascension (first 3 completions only)</li>
+        <li>1 Dream Point per Hardcore Ascension (first completion only)</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Important:</strong> Your first ascension of any type unlocks the Dream Point system. Choose wisely
+        which ascension type to pursue for maximum Dream Point rewards!
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Ascension Skills (Dream Point Shop)</h2>
+      <p>
+        Ascension Skills are permanent upgrades purchased with Dream Points. Once bought, they're active forever and
+        cannot be refunded.
+      </p>
+
+      <h3>Blacksmithing Skills</h3>
+      <ul class="feature-list">
+        <li><strong>BlacksmithingLegend:</strong> +1.6% legendary craft chance per level (max 3) - Cost: 3 DP</li>
+        <li><strong>BlacksmithingQuality:</strong> +4.5% item quality per level (max 2) - Cost: 2 DP</li>
+        <li><strong>Enchanting:</strong> +1 max upgrade level (max 1) - Cost: 1 DP</li>
+      </ul>
+
+      <h3>Talent Skills</h3>
+      <ul class="feature-list">
+        <li><strong>MoreSkill:</strong> +3 talent points per level (max 3, total +9) - Cost: 3 DP</li>
+        <li><strong>SkillQuality:</strong> +3% talent effectiveness per level (max 5, total +15%) - Cost: 5 DP</li>
+      </ul>
+
+      <h3>Pet Skills</h3>
+      <ul class="feature-list">
+        <li><strong>StrongPets:</strong> +1 max pet level per level (max 2) - Cost: 2 DP</li>
+        <li><strong>BeastMaster:</strong> +15% active pet bonus per level (max 4, total +60%) - Cost: 4 DP</li>
+      </ul>
+
+      <h3>Combat Skills</h3>
+      <ul class="feature-list">
+        <li><strong>IdleMaster:</strong> +5% idle/autoattack damage per level (max 3) - Cost: 3 DP</li>
+        <li><strong>BossEater:</strong> +4.5% boss damage per level (max 4) - Cost: 4 DP</li>
+        <li><strong>CounterAttack:</strong> +4% damage reflection per level (max 4) - Cost: 4 DP</li>
+      </ul>
+
+      <h3>Progression Skills</h3>
+      <ul class="feature-list">
+        <li><strong>QuickLearner:</strong> +5% level XP per level (max 3) - Cost: 3 DP</li>
+        <li><strong>BattleBrainy:</strong> +10% rank XP per level (max 5) - Cost: 5 DP</li>
+        <li><strong>LuckSeeker:</strong> +1 progress bar level per level (max 3) - Cost: 3 DP</li>
+        <li><strong>Greed:</strong> +5% drop chance per level (max 5) - Cost: 5 DP</li>
+      </ul>
+
+      <h3>Defense & Economy Skills</h3>
+      <ul class="feature-list">
+        <li><strong>Defender:</strong> +4% armor per level (max 3) - Cost: 3 DP</li>
+        <li><strong>Bank:</strong> +10% bank efficiency per level (max 2) - Cost: 2 DP</li>
+      </ul>
+
+      <h3>Unlimited Skill</h3>
+      <ul class="feature-list">
+        <li><strong>Sink:</strong> +1 to various stats per level (max 20) - Cost: 20 DP</li>
+      </ul>
+
+      <div class="formula-box">
+        Total Dream Points to Max All Skills: 72 DP
+      </div>
+
+      <div class="warning-box">
+        <strong>No Refunds:</strong> Dream Points cannot be refunded once spent. Choose your ascension skills carefully!
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Hardcore Mode Rules</h2>
+      <p>
+        Hardcore mode is the ultimate test of skill and patience, featuring permadeath and the harshest difficulty
+        modifiers.
+      </p>
+
+      <h3>Special Rules</h3>
+      <ul class="feature-list">
+        <li><strong>Permadeath:</strong> One death and you fail the ascension</li>
+        <li><strong>Enemy HP:</strong> 185% of normal (highest of all modes)</li>
+        <li><strong>Enemy Damage:</strong> 320% of normal (highest of all modes)</li>
+        <li><strong>Extreme HP Penalty:</strong> Your HP from rank is drastically reduced early game</li>
+        <li><strong>No Offline Rewards:</strong> Must play actively</li>
+        <li><strong>No VIP Chests:</strong> Premium shortcuts disabled</li>
+        <li><strong>All Items Locked:</strong> Start completely naked with no equipment</li>
+      </ul>
+
+      <h3>Failing Hardcore</h3>
+      <p>
+        When you die during a Hardcore Ascension:
+      </p>
+      <ul class="feature-list">
+        <li>Ascension immediately converts to Normal Ascension</li>
+        <li>All locked items and currencies are restored</li>
+        <li>You do NOT receive the Dream Point reward</li>
+        <li>Progress toward Hardcore completion is lost</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Strategy Tip:</strong> Hardcore is extremely challenging in the early levels (1-50) due to the HP
+        penalty. Consider grinding levels carefully and avoiding risky situations until you've regained enough HP from
+        leveling.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Resigning from Ascension</h2>
+      <p>
+        You can give up a Hard or Hardcore Ascension at any time.
+      </p>
+
+      <h3>What Happens When You Resign</h3>
+      <ul class="feature-list">
+        <li>Converts to Normal Ascension immediately</li>
+        <li>All locked items and currencies are restored</li>
+        <li>Offline rewards and VIP chests re-enabled</li>
+        <li><strong>You do NOT receive the Dream Point reward</strong></li>
+      </ul>
+
+      <p>
+        Resigning is useful if you started a Hard/Hardcore run but realize you're not ready for the challenge. You keep
+        your progress but lose the prestigious rewards.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -180,6 +180,14 @@
       filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.3));
     }
 
+    .debuff-image {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 0.5rem;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.3));
+    }
+
     .debuff-name {
       color: var(--accent-cyan);
       font-weight: 600;
@@ -234,6 +242,11 @@
         font-size: 2rem;
       }
 
+      .debuff-image {
+        width: 50px;
+        height: 50px;
+      }
+
       .debuff-name {
         font-size: 0.85rem;
       }
@@ -283,6 +296,11 @@
 
       .debuff-icon {
         font-size: 1.75rem;
+      }
+
+      .debuff-image {
+        width: 45px;
+        height: 45px;
       }
 
       .debuff-name {
@@ -541,13 +559,34 @@
         card.style.textDecoration = 'none';
         card.style.color = 'inherit';
 
-        card.innerHTML = `
-          <div class="debuff-card">
-            <div class="debuff-icon">${debuff.icon}</div>
-            <div class="debuff-name">${debuff.name}</div>
-          </div>
-        `;
+        // Capitalize first letter for image filename
+        const imageFileName = debuffId.charAt(0).toUpperCase() + debuffId.slice(1);
 
+        const cardContent = document.createElement('div');
+        cardContent.className = 'debuff-card';
+
+        // Create image element with fallback to emoji
+        const img = document.createElement('img');
+        img.src = `images/debuffs/${imageFileName}.png`;
+        img.alt = debuff.name;
+        img.className = 'debuff-image';
+
+        // Fallback to emoji if image fails to load
+        img.onerror = function() {
+          this.style.display = 'none';
+          const emojiIcon = document.createElement('div');
+          emojiIcon.className = 'debuff-icon';
+          emojiIcon.textContent = debuff.icon;
+          this.parentNode.insertBefore(emojiIcon, this);
+        };
+
+        const name = document.createElement('div');
+        name.className = 'debuff-name';
+        name.textContent = debuff.name;
+
+        cardContent.appendChild(img);
+        cardContent.appendChild(name);
+        card.appendChild(cardContent);
         grid.appendChild(card);
       });
     });
