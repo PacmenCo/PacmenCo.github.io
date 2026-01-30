@@ -279,13 +279,20 @@
     }
 
 
+    /* CTA Buttons Container */
+    .cta-buttons-container {
+      background: var(--bg-dark);
+      padding: 2rem 2rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
     /* CTA Buttons */
     .cta-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
-      margin-top: 2rem;
     }
 
     .btn {
@@ -556,13 +563,16 @@
 
       .header-title .subtitle {
         font-size: clamp(1rem, 4vw, 1.5rem);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0;
+      }
+
+      .cta-buttons-container {
+        padding: 1.5rem 1rem 2rem;
       }
 
       .cta-buttons {
         flex-direction: column;
         gap: 0.5rem;
-        margin-top: 1rem;
         align-items: center;
       }
 
@@ -606,12 +616,15 @@
 
       .header-title .subtitle {
         font-size: 1rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
+      }
+
+      .cta-buttons-container {
+        padding: 1.25rem 1rem 1.75rem;
       }
 
       .cta-buttons {
         gap: 0.4rem;
-        margin-top: 0.75rem;
       }
 
       .btn {
@@ -756,26 +769,29 @@
     <div class="header-title">
       <h1 class="logo">IDLE ADVENTURE</h1>
       <p class="subtitle">Pixel RPG</p>
+    </div>
+  </div>
 
-      <div class="cta-buttons">
-        <a class="btn btn-primary"
-          href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&utm_source=website&utm_medium=organic&utm_campaign=landing"
-          target="_blank" rel="noopener">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm3.35-4.31c.34.27.54.68.54 1.19 0 .51-.2.92-.54 1.19l-2.3 1.33-2.54-2.54 2.54-2.54 2.3 1.37zM6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66z" />
-          </svg>
-          Download on Google Play
-        </a>
+  <!-- CTA Buttons -->
+  <div class="cta-buttons-container">
+    <div class="cta-buttons">
+      <a class="btn btn-primary"
+        href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&utm_source=website&utm_medium=organic&utm_campaign=landing"
+        target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm3.35-4.31c.34.27.54.68.54 1.19 0 .51-.2.92-.54 1.19l-2.3 1.33-2.54-2.54 2.54-2.54 2.3 1.37zM6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66z" />
+        </svg>
+        Download on Google Play
+      </a>
 
-        <a class="btn btn-secondary" href="https://discord.gg/8YXUDXTC" target="_blank" rel="noopener">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
-          </svg>
-          Join Discord
-        </a>
-      </div>
+      <a class="btn btn-secondary" href="https://discord.gg/8YXUDXTC" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
+        </svg>
+        Join Discord
+      </a>
     </div>
   </div>
 
