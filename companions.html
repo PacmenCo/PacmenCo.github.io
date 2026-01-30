@@ -431,9 +431,12 @@
 
         const abilityName = getSpecialAbilityName(companion);
 
+        // Capitalize first letter for image filename
+        const imageFileName = companionId.charAt(0).toUpperCase() + companionId.slice(1);
+
         card.innerHTML = `
           <div class="companion-card">
-            <img src="images/companion/${companionId}.png" alt="${companion.name}" class="companion-icon" />
+            <img src="images/companion/${imageFileName}.png" alt="${companion.name}" class="companion-icon" />
             <div class="companion-name">${companion.name}</div>
             <div class="companion-ability">${abilityName}</div>
             <div class="companion-description">${companion.subtitle}</div>

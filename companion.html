@@ -79,7 +79,9 @@
       // Populate hero section
       // Set companion image
       const imageEl = document.getElementById('companion-image');
-      imageEl.src = `images/companion/${companionId}.png`;
+      // Capitalize first letter for image filename
+      const imageFileName = companionId.charAt(0).toUpperCase() + companionId.slice(1);
+      imageEl.src = `images/companion/${imageFileName}.png`;
       imageEl.alt = companion.name;
       // Hide image if it fails to load
       imageEl.onerror = function() {
