@@ -65,80 +65,70 @@ const debuffsData = {
   "poison": {
     "name": "Poison",
     "icon": "☠️",
-    "description": "Reduces the enemy's health regeneration. Stacks up to 10 times for maximum effectiveness.",
+    "description": "Reduces the enemy's health regeneration.",
     "details": [
-      "Reduces enemy HP regeneration by 20% per stack",
-      "Maximum of 10 stacks",
-      "At max stacks, completely negates enemy regeneration",
-      "Visual effect: enemy color shifts toward cyan",
-      "Particularly effective against regenerating enemies"
+      "Reduces enemy HP regeneration",
+      "Stacks multiplicatively",
+      "Visual effect: enemy color shifts",
+      "Particularly effective against enemies with high HP regeneration"
     ],
     "sources": ["Poison skill effects", "Certain weapon enchantments"]
   },
   "burn": {
     "name": "Burn",
     "icon": "🔥",
-    "description": "Deals damage over time through fire. Burns stack and can be detonated for massive damage.",
+    "description": "Deals damage over time through fire. Applied and detonated by Ember's special ability.",
     "details": [
       "Deals damage every 0.75 seconds",
-      "Stacks can accumulate (max stacks based on source)",
-      "Ember companion can detonate all stacks for multiplied damage",
+      "Stacks accumulate with each application",
+      "Ember can detonate all stacks for massive burst damage",
       "Each stack has individual expiration time",
       "Burn damage affected by enemy resistances",
-      "Visual fire effect on burning enemies"
+      "For full mechanics and detonation formulas, see the Ember companion page"
     ],
-    "sources": ["Ember companion", "Burn skill effects", "Fire-based enchantments"]
+    "sources": ["Ember companion - Flame special ability"]
   },
   "bleed": {
     "name": "Bleed",
     "icon": "🩸",
-    "description": "Physical damage over time that makes enemies bleed out. Multiple bleeds stack for increased damage.",
+    "description": "Physical damage over time that makes enemies bleed out.",
     "details": [
-      "Deals physical damage every 1 second",
+      "Deals physical damage every second",
       "Affected by enemy armor resistance",
-      "Multiple bleed stacks tracked independently",
-      "Particularly effective against low-armor enemies",
-      "Visual blood effect on bleeding enemies"
+      "Particularly effective against low-armor enemies"
     ],
     "sources": ["Bleed skill effects", "Physical damage enchantments"]
   },
   "armorbreak": {
     "name": "Armor Break",
     "icon": "🛡️",
-    "description": "Reduces enemy defense, making them take more damage from all attacks.",
+    "description": "Reduces enemy defense, making them take more damage from most attacks.",
     "details": [
-      "Reduces enemy MDefence (armor resistance)",
+      "Reduces enemy defence",
       "Stacks multiplicatively using formula: 1 - (1 - reduction%)^stacks",
-      "More effective with multiple stacks",
-      "Affects both physical and magical damage",
-      "Permanent for the debuff duration"
+      "Best used against heavily armored enemies!"
     ],
     "sources": ["Armor Break skill effects", "ArmorBreak weapon enchantments"]
   },
   "attackreduction": {
     "name": "Attack Reduction",
     "icon": "⬇️",
-    "description": "Reduces the enemy's attack damage output. Stacks multiplicatively for safety.",
+    "description": "Reduces the enemy's damage output.",
     "details": [
       "Reduces enemy damage output",
       "Stacks multiplicatively (each stack compounds)",
       "Excellent defensive debuff for survival",
-      "Particularly useful against hard-hitting enemies",
-      "Works on both normal attacks and special abilities"
+      "Particularly useful against hard-hitting enemies"
     ],
     "sources": ["Attack Reduction skill effects", "Defensive abilities"]
   },
   "weaken": {
     "name": "Weaken",
     "icon": "💢",
-    "description": "Temporarily weakens the enemy's next attack, reducing its damage by a significant amount.",
+    "description": "Reduces the damage of the enemy's next attack. Applied by Snekles' Neurotoxin ability.",
     "details": [
-      "One-time effect that applies to the next enemy attack",
-      "Reduces damage of the next attack only",
-      "Applied by Snekles companion",
-      "Useful for surviving dangerous enemy abilities",
-      "Consumed after the weakened attack hits"
+      "Reduces the damage of enemy's next attack"
     ],
-    "sources": ["Snekles companion ability"]
+    "sources": ["Snekles companion - Neurotoxin ability"]
   }
 };

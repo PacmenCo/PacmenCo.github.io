@@ -148,9 +148,10 @@
 
     .debuffs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       margin-top: 1.5rem;
+      grid-auto-rows: 1fr;
     }
 
     .debuff-card {
@@ -161,6 +162,10 @@
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
     }
 
     .debuff-card:hover {
@@ -192,6 +197,100 @@
 
       .container {
         padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+      }
+
+      .debuffs-grid {
+        gap: 0.75rem;
+      }
+
+      .debuff-card {
+        padding: 1rem;
+      }
+
+      .debuff-icon {
+        font-size: 2rem;
+      }
+
+      .debuff-name {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .container {
+        padding: 5rem 0.75rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .content-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .content-section h3 {
+        font-size: 1rem;
+      }
+
+      .content-section p {
+        font-size: 0.9rem;
+      }
+
+      .debuffs-grid {
+        gap: 0.5rem;
+      }
+
+      .debuff-card {
+        padding: 0.75rem;
+      }
+
+      .debuff-icon {
+        font-size: 1.75rem;
+      }
+
+      .debuff-name {
+        font-size: 0.8rem;
+      }
+
+      .feature-list li {
+        font-size: 0.9rem;
       }
     }
   </style>

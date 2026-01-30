@@ -264,10 +264,37 @@
       // Populate sources
       const sourcesContainer = document.getElementById('sources-container');
       debuff.sources.forEach(source => {
-        const badge = document.createElement('div');
-        badge.className = 'source-badge';
-        badge.textContent = source;
-        sourcesContainer.appendChild(badge);
+        // Check if source mentions a companion
+        const companionMatch = source.match(/^(\w+) companion/i);
+
+        if (companionMatch) {
+          const companionName = companionMatch[1].toLowerCase();
+          const link = document.createElement('a');
+          link.href = `companion.html?id=${companionName}`;
+          link.style.textDecoration = 'none';
+
+          const badge = document.createElement('div');
+          badge.className = 'source-badge';
+          badge.textContent = source;
+          badge.style.cursor = 'pointer';
+          badge.style.transition = 'all 0.3s ease';
+          badge.onmouseover = function() {
+            this.style.background = 'rgba(124, 58, 237, 0.4)';
+            this.style.borderColor = 'var(--accent-orange)';
+          };
+          badge.onmouseout = function() {
+            this.style.background = 'rgba(124, 58, 237, 0.2)';
+            this.style.borderColor = 'rgba(124, 58, 237, 0.3)';
+          };
+
+          link.appendChild(badge);
+          sourcesContainer.appendChild(link);
+        } else {
+          const badge = document.createElement('div');
+          badge.className = 'source-badge';
+          badge.textContent = source;
+          sourcesContainer.appendChild(badge);
+        }
       });
     }
   </script>

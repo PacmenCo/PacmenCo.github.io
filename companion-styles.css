@@ -201,7 +201,7 @@ body {
 /* Stats Grid */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   margin: 1.5rem 0;
 }
@@ -483,21 +483,134 @@ table td {
     padding: 5rem 1rem 2rem;
   }
 
+  .hero-section {
+    margin-bottom: 1rem;
+    padding: 1rem 0.75rem;
+  }
+
   .companion-icon {
     font-size: 3rem;
   }
 
+  .companion-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .companion-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .unlock-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
   }
 
   .content-section {
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h3 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  .ability-box {
+    padding: 1rem;
+  }
+
+  .ability-name {
+    font-size: 1.2rem;
   }
 
   .dual-bonus-grid,
   .dual-mechanic-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 5rem 0.75rem 2rem;
+  }
+
+  .hero-section {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .companion-title {
+    font-size: 1.5rem;
+  }
+
+  .companion-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .stats-grid {
+    gap: 0.5rem;
+  }
+
+  .stat-card,
+  .stat-box,
+  .stat-item {
+    padding: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .content-section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .content-section h3 {
+    font-size: 1rem;
+  }
+
+  .ability-box {
+    padding: 0.75rem;
+  }
+
+  .ability-name {
+    font-size: 1.1rem;
+  }
+
+  .build-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .build-name {
+    font-size: 1.1rem;
   }
 }
 
@@ -516,7 +629,14 @@ table td {
 
 @media (max-width: 768px) {
   .companion-image {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  .companion-image {
+    width: 100px;
+    height: 100px;
   }
 }
