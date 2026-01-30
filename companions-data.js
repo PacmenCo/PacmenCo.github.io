@@ -866,7 +866,7 @@ const companionsData = {
   "hootini": {
     "name": "Hootini",
     "icon": "🦉",
-    "subtitle": "Rune Owl Debuff Specialist",
+    "subtitle": "Runic Debuffer",
     "unlockLevel": 12,
     "cost": 1750,
     "theme": {
