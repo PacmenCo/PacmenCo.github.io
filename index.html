@@ -367,9 +367,10 @@
     /* Features Grid */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 3rem;
+      grid-auto-rows: 1fr;
     }
 
     .feature-card {
@@ -380,6 +381,9 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .feature-card::before {
@@ -418,6 +422,7 @@
     .feature-card p {
       color: var(--text-secondary);
       line-height: 1.7;
+      flex-grow: 1;
     }
 
     /* Stats Section */
