@@ -133,15 +133,15 @@
 
     .companions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
     }
 
     .companion-card {
       background: var(--bg-card);
       border: 2px solid rgba(124, 58, 237, 0.2);
-      border-radius: 16px;
-      padding: 2rem;
+      border-radius: 12px;
+      padding: 1.25rem;
       transition: all 0.3s ease;
       cursor: pointer;
       text-align: center;
@@ -154,31 +154,31 @@
     }
 
     .companion-icon {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1rem;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 0.75rem;
       object-fit: contain;
       filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
     }
 
     .companion-name {
       color: var(--accent-orange);
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     .companion-ability {
       color: var(--accent-cyan);
       font-weight: 600;
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
     }
 
     .companion-description {
       color: var(--text-secondary);
-      line-height: 1.7;
-      font-size: 0.95rem;
+      line-height: 1.5;
+      font-size: 0.85rem;
     }
 
     .stat-highlight {
@@ -231,16 +231,16 @@
 
       .companions-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
       }
 
       .companion-card {
-        padding: 1.5rem;
+        padding: 1rem;
       }
 
       .companion-icon {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
       }
     }
   </style>
