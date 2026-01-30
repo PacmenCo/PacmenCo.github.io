@@ -278,7 +278,7 @@ const companionsData = {
   "ember": {
     "name": "Ember",
     "icon": "🔥",
-    "subtitle": "Fire Specialist & DoT Master",
+    "subtitle": "DoT Master",
     "unlockLevel": 8,
     "cost": 1650,
     "theme": {
@@ -563,7 +563,7 @@ const companionsData = {
   "mystikat": {
     "name": "Mystikat",
     "icon": "🌸",
-    "subtitle": "Healing Support & Sustain Specialist",
+    "subtitle": "Healing Support",
     "unlockLevel": 10,
     "cost": 950,
     "theme": {
@@ -1210,7 +1210,7 @@ const companionsData = {
   "globbie": {
     "name": "Globbie",
     "icon": "🟢",
-    "subtitle": "Sticky Slime Control Specialist",
+    "subtitle": "Slow Specialist",
     "unlockLevel": 15,
     "cost": 1550,
     "theme": {
@@ -1554,7 +1554,7 @@ const companionsData = {
   "acornelius": {
     "name": "Acornelius",
     "icon": "🐿️",
-    "subtitle": "Defensive Tank & Counter-Attacker",
+    "subtitle": "Defensive Support",
     "unlockLevel": 15,
     "cost": 1450,
     "theme": {
@@ -1885,7 +1885,7 @@ const companionsData = {
   "florence": {
     "name": "Florence",
     "icon": "🌿",
-    "subtitle": "Nature's Crowd Control Master",
+    "subtitle": "Nature's Control Master",
     "unlockLevel": 15,
     "cost": 1650,
     "theme": {
