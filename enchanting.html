@@ -485,6 +485,231 @@
     </div>
 
     <div class="content-section">
+      <h2>What is Item Upgrading?</h2>
+      <p>
+        Item Upgrading is a system that allows you to permanently increase an item's base stats using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Voxels</span> (crystals). Each upgrade level increases the item's damage or armor by <span class="stat-highlight">5%</span>, making it significantly more powerful.
+      </p>
+
+      <h3>How Upgrading Works</h3>
+      <p>
+        Each item has an <span class="stat-highlight">itemStrength</span> value that represents its upgrade level. When you upgrade an item:
+      </p>
+      <ul class="feature-list">
+        <li>The item's upgrade level (itemStrength) increases by 1</li>
+        <li>Damage or armor increases by 5% of the base value</li>
+        <li>Enchantments are preserved during upgrades</li>
+        <li>Cost increases exponentially with each level</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Guaranteed Success:</strong> Item upgrades have a 100% success rate. Your enchantments and item properties are always preserved!
+      </div>
+
+      <h3>Stat Scaling Formula</h3>
+      <div class="formula-box">
+        Final Stat = Base Stat × Item Quality × (1 + itemStrength × 0.05)<br><br>
+        Example:<br>
+        Base Damage: 100<br>
+        Item Quality: 1.5 (Epic)<br>
+        Upgrade Level: 4<br>
+        Final Damage = 100 × 1.5 × (1 + 4 × 0.05) = 100 × 1.5 × 1.2 = 180
+      </div>
+
+      <p>
+        Each upgrade level adds <span class="stat-highlight">+5%</span> multiplicative bonus. At upgrade level 10, your item deals <span class="stat-highlight">+50%</span> more damage/armor!
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Item Upgrade Costs</h2>
+      <p>
+        Upgrade costs scale exponentially with upgrade level, item quality, and item rarity. Higher quality and rarer items cost significantly more to upgrade.
+      </p>
+
+      <h3>Pixel Cost Formula</h3>
+      <div class="formula-box">
+        Cost = itemTypeMultiplier × itemCost × 0.34 ×<br>
+        1.9^((itemQuality/1.25 + 0.1)^1.6 + itemStrength/1.75) × (2 × itemQuality - 1.97)
+      </div>
+
+      <p>
+        The formula uses several constants to create exponential growth:
+      </p>
+      <ul class="feature-list">
+        <li>a = 0.34 (base cost multiplier)</li>
+        <li>b = 1.9 (exponential base)</li>
+        <li>c = 1.6 (quality exponent)</li>
+        <li>d = -0.1 (quality offset)</li>
+        <li>e = 1.75 (strength divisor)</li>
+        <li>f = 1.25 (quality divisor)</li>
+      </ul>
+
+      <h3>Voxel Cost Formula</h3>
+      <div class="formula-box">
+        ilvlScale = (itemLevel + 10) / 50 × 5<br><br>
+        Cost = ilvlScale × itemTypeMultiplier ×<br>
+        ((rarity - 1)^2 + 0.4 × itemStrength^1.55 × (2 × rarity - 3))^1.35
+      </div>
+
+      <p>
+        Voxel costs increase based on:
+      </p>
+      <ul class="feature-list">
+        <li>Item level (higher level = more voxels)</li>
+        <li>Item rarity (exponential scaling)</li>
+        <li>Current upgrade level (power of 1.55)</li>
+        <li>Item type (weapon vs armor multipliers)</li>
+      </ul>
+
+      <h3>Rarity Adjustments (Voxel Costs)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Rarity</th>
+            <th>Adjusted Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Broken/Poor</td><td>Treated as 2</td></tr>
+          <tr><td>Common</td><td>2</td></tr>
+          <tr><td>Uncommon</td><td>3</td></tr>
+          <tr><td>Rare</td><td>4</td></tr>
+          <tr><td>Epic</td><td>5</td></tr>
+          <tr><td>Legendary</td><td>7 (instead of 6)</td></tr>
+          <tr><td>Artifact</td><td>10 (instead of 7)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <strong>Exponential Cost Scaling:</strong> Upgrade costs increase rapidly with each level. Plan your resources carefully before upgrading high-level items!
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Max Upgrade Level</h2>
+      <p>
+        The maximum upgrade level you can achieve increases with your player level and ascension bonuses.
+      </p>
+
+      <div class="formula-box">
+        Max Upgrade Level = 1 + AscensionEnchantingModifier + playerLevel / (15 × levelsPerRealLevel)
+      </div>
+
+      <p>
+        This means:
+      </p>
+      <ul class="feature-list">
+        <li>Base max level: 1</li>
+        <li>Ascension skills can increase the cap</li>
+        <li>Every 15 real levels grants +1 max upgrade level</li>
+        <li>Higher player levels unlock more powerful upgrades</li>
+      </ul>
+
+      <h3>Upgrade Level Progression Example</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Player Level</th>
+            <th>Max Upgrade Level</th>
+            <th>Total Stat Bonus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1-14</td><td>1</td><td>+5%</td></tr>
+          <tr><td>15-29</td><td>2</td><td>+10%</td></tr>
+          <tr><td>30-44</td><td>3</td><td>+15%</td></tr>
+          <tr><td>45-59</td><td>4</td><td>+20%</td></tr>
+          <tr><td>60-74</td><td>5</td><td>+25%</td></tr>
+          <tr><td>75-89</td><td>6</td><td>+30%</td></tr>
+          <tr><td>90+</td><td>7+</td><td>+35%+</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <em>Note: Assumes levelsPerRealLevel = 1 and no ascension bonuses. Actual max level may be higher with ascension skills.</em>
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Upgrading vs Enchanting vs Alteration</h2>
+      <p>
+        Understanding the differences between these three systems helps you choose the best path for improving your equipment.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Item Upgrading</th>
+            <th>Enchanting</th>
+            <th>Item Alteration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Purpose</td>
+            <td>Increase base stats</td>
+            <td>Add special effects</td>
+            <td>Modify item properties</td>
+          </tr>
+          <tr>
+            <td>Effect Type</td>
+            <td>+5% stat per level</td>
+            <td>Fixed bonuses (e.g., 2.5% per level)</td>
+            <td>Reroll/add/remove affixes</td>
+          </tr>
+          <tr>
+            <td>Success Rate</td>
+            <td>100% guaranteed</td>
+            <td>100% guaranteed</td>
+            <td>Varies (some can break)</td>
+          </tr>
+          <tr>
+            <td>Cost Type</td>
+            <td>Pixels + Voxels</td>
+            <td>Pixels + Voxels</td>
+            <td>Pixels + Voxels + Orbs</td>
+          </tr>
+          <tr>
+            <td>Cost Scaling</td>
+            <td>Exponential</td>
+            <td>Linear per enchant level</td>
+            <td>Varies by operation</td>
+          </tr>
+          <tr>
+            <td>Max Levels</td>
+            <td>Dynamic (player level)</td>
+            <td>2 per enchant</td>
+            <td>3 affixes max</td>
+          </tr>
+          <tr>
+            <td>Preservation</td>
+            <td>Keeps enchantments</td>
+            <td>Can replace enchants</td>
+            <td>Can destroy affixes</td>
+          </tr>
+          <tr>
+            <td>Best For</td>
+            <td>Core stat progression</td>
+            <td>Build-specific bonuses</td>
+            <td>Advanced optimization</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>When to Use Each System</h3>
+      <ul class="feature-list">
+        <li><strong>Item Upgrading:</strong> Your primary method of increasing power. Always upgrade your best equipment first.</li>
+        <li><strong>Enchanting:</strong> Add after upgrading to complement your build (damage, defense, utility).</li>
+        <li><strong>Item Alteration:</strong> Use for fine-tuning high-tier items or fixing unwanted affixes.</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Pro Tip:</strong> Upgrade your item first, then enchant it, and finally use alteration orbs for optimization. This order minimizes wasted resources if you replace the item later.
+      </div>
+    </div>
+
+    <div class="content-section">
       <h2>What is Item Alteration?</h2>
       <p>
         Item Alteration is an advanced crafting system that allows you to modify item properties using <span class="stat-highlight">Alteration Orbs</span>. Unlike enchanting, alteration can reroll stats, add/remove affixes, upgrade rarity, and improve item quality.
