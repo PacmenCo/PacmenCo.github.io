@@ -118,6 +118,13 @@
       font-size: 1.75rem;
     }
 
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
     .content-section p {
       color: var(--text-secondary);
       line-height: 1.8;
@@ -144,6 +151,75 @@
       margin-right: 0.75rem;
     }
 
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: #10b981;
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .warning-box strong {
+      color: #ef4444;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    table table {
+      width: 100%;
+      display: table;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--text-secondary);
+    }
+
     @media (max-width: 768px) {
       .nav-bar {
         padding: 0.75rem 1rem;
@@ -155,6 +231,45 @@
 
       .container {
         padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .content-section {
+        padding: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      table {
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -170,47 +285,503 @@
 
   <div class="container">
     <div class="hero-section">
-      <h1 class="page-title">✨ Enchanting System</h1>
-      <p class="page-subtitle">Upgrade and customize your equipment</p>
+      <h1 class="page-title">✨ Enchanting & Alteration</h1>
+      <p class="page-subtitle">Two powerful systems to upgrade and customize your equipment</p>
     </div>
 
     <div class="content-section">
-      <h2>Equipment Enchanting</h2>
+      <h2>What is Enchanting?</h2>
       <p>
-        Enhance your weapons and armor with powerful enchantments. Each piece of equipment
-        can be enchanted multiple times to increase its stats and add special effects.
-        Higher enchantment levels provide greater bonuses but require more resources.
+        Enchanting allows you to add powerful stat bonuses to your equipment using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Voxels</span> (enchanting crystals). Each item can have up to level 2 enchantments, with different enchantment types available based on the item slot.
+      </p>
+
+      <h3>How Enchanting Works</h3>
+      <p>
+        There are three enchanting actions you can perform:
       </p>
       <ul class="feature-list">
-        <li>Enchant weapons, armor, and accessories</li>
-        <li>Multiple enchantment levels per item</li>
-        <li>Stat bonuses scale with enchantment level</li>
-        <li>Special enchantment effects and properties</li>
+        <li><strong>New Enchant:</strong> Add an enchantment to an item for the first time (level 0 → level 1)</li>
+        <li><strong>Upgrade Enchant:</strong> Increase an existing enchantment by one level (level 1 → level 2)</li>
+        <li><strong>Change Enchant:</strong> Replace an existing enchantment with a different one (resets to level 1)</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Guaranteed Success:</strong> Enchanting has a 100% success rate - there is no chance of failure!
+      </div>
+
+      <h3>Enchanting Materials</h3>
+      <p>
+        <span class="stat-highlight">Voxels</span> (enchanting crystals) are obtained by defeating enemies. The amount dropped is based on:
+      </p>
+      <ul class="feature-list">
+        <li>Enemy level (higher level enemies drop more)</li>
+        <li>Level difference between you and the enemy (fighting enemies 8+ levels below you reduces drops)</li>
+        <li>Random variation in loot rolls</li>
+      </ul>
+
+      <div class="formula-box">
+        Base Amount = 0-2 + 0-2 + Random(1, max_roll+1)<br>
+        Where: max_roll = (int)(2.76 × (enemyLevel/levelsPerRealLevel + 15) / 20)
+      </div>
+
+      <p>
+        If you are 8+ levels above the enemy, Voxel drops are reduced by the formula:
+      </p>
+      <div class="formula-box">
+        Reduction = (levelDiff^0.9 + 34) / (levelDiff^0.9 + 14) - 1<br>
+        (Minimum 55% reduction)
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Enchantment Types</h2>
+      <p>
+        Different item slots have access to different enchantment types. Each item type has two enchantment options to choose from.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item Type</th>
+            <th>Enchantment 1</th>
+            <th>Bonus (per level)</th>
+            <th>Enchantment 2</th>
+            <th>Bonus (per level)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weapon</td>
+            <td>Deadly Strike</td>
+            <td>+2.5% damage</td>
+            <td>Piercing</td>
+            <td>17.5% armor ignore chance</td>
+          </tr>
+          <tr>
+            <td>RWeapon</td>
+            <td>Deadly Strike</td>
+            <td>+2.5% damage</td>
+            <td>Piercing</td>
+            <td>17.5% armor ignore chance</td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td>Endurance</td>
+            <td>+3% damage reduction</td>
+            <td>Blocking</td>
+            <td>15% block chance</td>
+          </tr>
+          <tr>
+            <td>Helm</td>
+            <td>Life Steal</td>
+            <td>+2% life steal</td>
+            <td>Consume Souls</td>
+            <td>+7.5 mana on kill</td>
+          </tr>
+          <tr>
+            <td>Legs</td>
+            <td>Mana Absorb</td>
+            <td>6% mana on hit chance</td>
+            <td>Mana Leech</td>
+            <td>4% mana steal chance</td>
+          </tr>
+          <tr>
+            <td>Boots</td>
+            <td>Swiftness</td>
+            <td>+2% movement speed</td>
+            <td>Reflect</td>
+            <td>+10% damage reflection</td>
+          </tr>
+          <tr>
+            <td>Gloves</td>
+            <td>Open Wounds</td>
+            <td>+3% DoT damage</td>
+            <td>Crushing Blows</td>
+            <td>+3% crushing blow</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Example:</strong> A weapon with Deadly Strike level 2 grants +5% damage (2.5% × 2).
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Enchanting Costs</h2>
+      <p>
+        Enchanting requires both <span class="stat-highlight">Pixels</span> (currency) and <span class="stat-highlight">Voxels</span> (crystals). Costs scale based on item quality, item type, and enchantment level.
+      </p>
+
+      <h3>Pixel Cost Formula</h3>
+      <div class="formula-box">
+        For New/Upgrade Enchant:<br>
+        Cost = (int)(itemCost × itemQuality × (enchantLevel + 1)) × itemTypeMultiplier<br><br>
+        For Change Enchant:<br>
+        Cost = (int)(itemCost/2 × itemQuality + 5) × (1 + 2×enchantLevel)
+      </div>
+
+      <h3>Item Type Multipliers (Pixel Cost)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Type</th>
+            <th>Multiplier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>RWeapon</td><td>0.65x (cheapest)</td></tr>
+          <tr><td>Weapon</td><td>0.7x</td></tr>
+          <tr><td>Legs</td><td>0.59x</td></tr>
+          <tr><td>Boots</td><td>0.8x</td></tr>
+          <tr><td>Helm</td><td>1.25x</td></tr>
+          <tr><td>Armor</td><td>1.4x</td></tr>
+          <tr><td>Gloves</td><td>1.57x (most expensive)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Voxel Cost Formula</h3>
+      <div class="formula-box">
+        For Change Enchant: 2 voxels (flat cost)<br><br>
+        For New/Upgrade Enchant:<br>
+        Cost = (int)(itemTypeMultiplier × ilvlScale × 23 ×<br>
+        ((rarity^1.3 - 1.5) × (2 + 7×enchantLevel) - 1))<br><br>
+        Where: ilvlScale = (itemLevel + 10) / 50
+      </div>
+
+      <h3>Item Type Multipliers (Voxel Cost)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Type</th>
+            <th>Multiplier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Boots</td><td>0.51x (cheapest)</td></tr>
+          <tr><td>Gloves</td><td>0.60x</td></tr>
+          <tr><td>Helm</td><td>0.72x</td></tr>
+          <tr><td>Legs</td><td>0.90x</td></tr>
+          <tr><td>Armor</td><td>1.07x</td></tr>
+          <tr><td>Weapon</td><td>1.95x</td></tr>
+          <tr><td>RWeapon</td><td>2.09x (most expensive)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h2>Max Enchant Level</h2>
+      <p>
+        The maximum enchantment level you can apply increases with your player level and ascension bonuses.
+      </p>
+
+      <div class="formula-box">
+        Max Enchant Level = (int)AscensionEnchantingBonus + 1 + playerLevel / (15 × levelsPerRealLevel)
+      </div>
+
+      <p>
+        Higher levels and ascension skills unlock the ability to enchant items to level 2 and beyond.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>What is Item Alteration?</h2>
+      <p>
+        Item Alteration is an advanced crafting system that allows you to modify item properties using <span class="stat-highlight">Alteration Orbs</span>. Unlike enchanting, alteration can reroll stats, add/remove affixes, upgrade rarity, and improve item quality.
+      </p>
+
+      <div class="warning-box">
+        <strong>High Risk, High Reward:</strong> Some alteration types can break your item, reducing it to Broken rarity. Use with caution on valuable equipment!
+      </div>
+
+      <h3>Alteration vs Enchanting</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Enchanting</th>
+            <th>Item Alteration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Success Rate</td>
+            <td>100% guaranteed</td>
+            <td>Varies (some can break items)</td>
+          </tr>
+          <tr>
+            <td>Purpose</td>
+            <td>Add fixed stat bonuses</td>
+            <td>Reroll/modify item properties</td>
+          </tr>
+          <tr>
+            <td>Materials</td>
+            <td>Pixels + Voxels</td>
+            <td>Pixels + Voxels + Orbs</td>
+          </tr>
+          <tr>
+            <td>Complexity</td>
+            <td>Simple and predictable</td>
+            <td>Complex with many options</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>Moderate</td>
+            <td>Expensive for powerful operations</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h2>Alteration Orb Types</h2>
+      <p>
+        There are 11 different alteration orbs, each with unique effects and drop rates. Orbs are looted from enemies during combat.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Orb Name</th>
+            <th>Effect</th>
+            <th>Drop Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Orb of Alteration (Cyan)</td>
+            <td>Rerolls ONE random affix</td>
+            <td>11%</td>
+          </tr>
+          <tr>
+            <td>Orb of Transformation (Green)</td>
+            <td>Adds ONE new affix</td>
+            <td>22.1% (most common)</td>
+          </tr>
+          <tr>
+            <td>Orb of Reversal (Purple)</td>
+            <td>Removes ONE random affix</td>
+            <td>19.7%</td>
+          </tr>
+          <tr>
+            <td>Armor Plate (Legendary)</td>
+            <td>+1% armor quality</td>
+            <td>19.7%</td>
+          </tr>
+          <tr>
+            <td>Sharpening Stone (Light Purple)</td>
+            <td>+1% weapon quality</td>
+            <td>6.1%</td>
+          </tr>
+          <tr>
+            <td>Orb of Revision (Blue)</td>
+            <td>Rerolls ALL affixes</td>
+            <td>3.7%</td>
+          </tr>
+          <tr>
+            <td>Orb of Nullification (Black)</td>
+            <td>Removes ALL affixes</td>
+            <td>2.4%</td>
+          </tr>
+          <tr>
+            <td>Orb of Fortune (Gold)</td>
+            <td>Rerolls item quality/rarity</td>
+            <td>1.8%</td>
+          </tr>
+          <tr>
+            <td>Orb of Divination (Yellow)</td>
+            <td>Adds 1-3 new affixes</td>
+            <td>1.5%</td>
+          </tr>
+          <tr>
+            <td>Radiant Orb (Red)</td>
+            <td>Upgrades rarity by 1 tier</td>
+            <td>0.9%</td>
+          </tr>
+          <tr>
+            <td>Soulstone (Purple)</td>
+            <td>Adds +1 max soul level</td>
+            <td>0.1% (rarest)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h2>Alteration Costs</h2>
+      <p>
+        Alteration requires <span class="stat-highlight">Pixels</span>, <span class="stat-highlight">Voxels</span>, and the specific <span class="stat-highlight">Orb type</span>. Costs vary dramatically based on the alteration type and item properties.
+      </p>
+
+      <h3>Orb Quantity Required</h3>
+      <div class="formula-box">
+        Orb Cost = (itemRarity - 1) + extraCost<br><br>
+        Where extraCost:<br>
+        - Legendary: +3 orbs<br>
+        - Artifact: +14 orbs
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item Rarity</th>
+            <th>Orbs Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Broken/Poor</td><td>1 orb</td></tr>
+          <tr><td>Common</td><td>2 orbs</td></tr>
+          <tr><td>Uncommon</td><td>3 orbs</td></tr>
+          <tr><td>Rare</td><td>4 orbs</td></tr>
+          <tr><td>Epic</td><td>5 orbs</td></tr>
+          <tr><td>Legendary</td><td>8 orbs (5 + 3 extra)</td></tr>
+          <tr><td>Artifact</td><td>17 orbs (16 + 1 + 14 extra)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Price Modifiers by Alteration Type</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Alteration Type</th>
+            <th>Price Modifier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Remove Random Affix</td><td>0.5x (cheapest)</td></tr>
+          <tr><td>Remove All Affixes</td><td>0.6x</td></tr>
+          <tr><td>Reroll One Affix</td><td>0.6x</td></tr>
+          <tr><td>Reroll All Affixes</td><td>0.75x</td></tr>
+          <tr><td>Upgrade Quality (Armor/Weapon)</td><td>0.8x</td></tr>
+          <tr><td>Add New Affix</td><td>1.15x</td></tr>
+          <tr><td>Reroll Item Quality</td><td>1.4x</td></tr>
+          <tr><td>Add Soul Level</td><td>1.9x</td></tr>
+          <tr><td>Upgrade Rarity</td><td>2.2x</td></tr>
+          <tr><td>Fill With Affixes</td><td>3.15x (most expensive!)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Pixel & Voxel Cost Formulas</h3>
+      <div class="formula-box">
+        Pixel Cost = (int)((priceModifier + 1) / 2 × (itemCoinCost × (rarity + 1)) / 3.5)<br>
+        - Weapons: ×1.5 multiplier<br><br>
+        Voxel Cost = (int)(priceModifier × itemLevel × (rarity + 1) / 6) + 1<br>
+        - Weapons: ×1.6 multiplier
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Affix System</h2>
+      <p>
+        Items can have 0-3 affixes maximum. Affixes are additional stat modifiers that enhance your equipment beyond base stats and enchantments.
+      </p>
+
+      <h3>Affix Rules</h3>
+      <ul class="feature-list">
+        <li><strong>Maximum:</strong> 3 affixes per item</li>
+        <li><strong>Reroll One Affix:</strong> Requires at least 1 affix, max 2 affixes on item</li>
+        <li><strong>Reroll All Affixes:</strong> Requires at least 1 affix, max 3 affixes on item</li>
+        <li><strong>Remove Random Affix:</strong> Requires at least 1 affix to remove</li>
+        <li><strong>Add New Affix:</strong> Can add if item has fewer than 3 affixes</li>
+        <li><strong>Fill With Affixes:</strong> Requires exactly 2 affixes, adds 1-3 more</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Fill With Affixes Distribution:</strong><br>
+        - 65% chance: Add 1 affix<br>
+        - 31% chance: Add 2 affixes<br>
+        - 4% chance: Add 3 affixes
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Quality & Rarity Upgrades</h2>
+      <p>
+        Alteration orbs can improve item quality and rarity, but some operations carry significant risk.
+      </p>
+
+      <h3>Orb of Fortune (Reroll Quality/Rarity)</h3>
+      <ul class="feature-list">
+        <li>5% chance: Increase rarity by 1 tier</li>
+        <li>50% chance: Item breaks (becomes Broken rarity)</li>
+        <li>45% chance: No change</li>
+        <li>Cannot be used on Artifact items</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>High Risk:</strong> Orb of Fortune has a 50% chance to break your item! Only use on items you're willing to lose.
+      </div>
+
+      <h3>Radiant Orb (Upgrade Rarity)</h3>
+      <p>
+        Upgrades item rarity by 1 tier with a chance to break based on current rarity:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Current Rarity</th>
+            <th>Upgrades To</th>
+            <th>Break Chance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Uncommon</td><td>Rare</td><td>10%</td></tr>
+          <tr><td>Rare</td><td>Epic</td><td>15%</td></tr>
+          <tr><td>Epic</td><td>Legendary</td><td>20%</td></tr>
+          <tr><td>Legendary</td><td>-</td><td>Cannot be used</td></tr>
+          <tr><td>Artifact</td><td>-</td><td>Cannot be used</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Quality Upgrades</h3>
+      <ul class="feature-list">
+        <li><strong>Armor Plate:</strong> +1% to armor quality (no break chance)</li>
+        <li><strong>Sharpening Stone:</strong> +1% to weapon quality (no break chance)</li>
+        <li>Can be upgraded 15+ times before hitting soft cap</li>
+        <li>Quality directly multiplies item stats</li>
       </ul>
     </div>
 
     <div class="content-section">
-      <h2>Crafting System</h2>
+      <h2>Soul Level System</h2>
       <p>
-        Gather materials from your adventures to craft new equipment and items.
-        Crafted items can be customized with specific stats and enchantments,
-        allowing you to create gear perfectly suited to your playstyle.
+        Soul levels are a special item property that allows equipment to gain experience and level up over time.
       </p>
+
+      <h3>How Soul Levels Work</h3>
       <ul class="feature-list">
-        <li>Craft weapons, armor, and consumables</li>
-        <li>Recipe discovery and unlocking</li>
-        <li>Material gathering from combat and exploration</li>
-        <li>Crafting quality tiers and bonuses</li>
+        <li>Items can have 0-5 soul levels maximum</li>
+        <li>Use <span class="stat-highlight">Soulstones</span> to add +1 max soul level per use</li>
+        <li>Only items with soul levels can gain experience and level up</li>
+        <li>Leveling items can grant additional affixes and stat bonuses</li>
+        <li>Soulstones are the rarest orb type (0.1% drop rate)</li>
       </ul>
+
+      <div class="info-box">
+        <strong>Pro Tip:</strong> Reserve Soulstones for your best Legendary or Artifact items to maximize their long-term potential.
+      </div>
     </div>
 
     <div class="content-section">
-      <h2>Item Upgrades</h2>
-      <p>
-        Upgrade your existing equipment to higher tiers, preserving enchantments while
-        increasing base stats. This allows you to keep using your favorite items
-        throughout your adventure while maintaining their power.
-      </p>
+      <h2>Strategy Tips</h2>
+
+      <h3>Enchanting Strategy</h3>
+      <ul class="feature-list">
+        <li>Enchant your best items first - enchantments are permanent until changed</li>
+        <li>Choose enchantments that complement your build (damage for offense, endurance for defense)</li>
+        <li>Weapons and armor are expensive to enchant - save voxels for your best gear</li>
+        <li>Max enchant level increases with player level - wait for higher levels for better returns</li>
+      </ul>
+
+      <h3>Alteration Strategy</h3>
+      <ul class="feature-list">
+        <li>Use cheap alterations (Remove/Reroll Affix) on common items to experiment</li>
+        <li>Save expensive alterations (Fill With Affixes, Upgrade Rarity) for rare items</li>
+        <li>Never use Orb of Fortune on items you can't afford to lose</li>
+        <li>Upgrade quality with Armor Plates/Sharpening Stones early - no risk and permanent benefit</li>
+        <li>Soulstones are extremely rare - use them only on Legendary/Artifact items you plan to keep</li>
+        <li>Artifact items cost 17 orbs per alteration - alteration is prohibitively expensive</li>
+      </ul>
     </div>
   </div>
 </body>
