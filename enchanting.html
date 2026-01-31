@@ -302,11 +302,15 @@
       <ul class="feature-list">
         <li><strong>New Enchant:</strong> Add an enchantment to an item for the first time (level 0 → level 1)</li>
         <li><strong>Upgrade Enchant:</strong> Increase an existing enchantment by one level (level 1 → level 2)</li>
-        <li><strong>Change Enchant:</strong> Replace an existing enchantment with a different one (resets to level 1)</li>
+        <li><strong>Change Enchant:</strong> Replace an existing enchantment with a different one (keeps the same level!)</li>
       </ul>
 
       <div class="info-box">
         <strong>Guaranteed Success:</strong> Enchanting has a 100% success rate - there is no chance of failure!
+      </div>
+
+      <div class="info-box">
+        <strong>Level Preservation:</strong> When you switch from one enchantment to another, the new enchantment inherits the level from the old one! For example, if you have Deadly Strike level 2 and switch to Piercing, you'll get Piercing level 2 immediately. This makes experimenting with different enchantments much less costly!
       </div>
 
       <h3>Enchanting Materials</h3>
@@ -336,7 +340,10 @@
     <div class="content-section">
       <h2>Enchantment Types</h2>
       <p>
-        Different item slots have access to different enchantment types. Each item type has two enchantment options to choose from.
+        Enchantments are <span class="stat-highlight">restricted by equipment type</span>. Each item slot has access to exactly <span class="stat-highlight">two specific enchantments</span> - you cannot apply any other enchantment types to that item.
+      </p>
+      <p>
+        For example, weapons can ONLY have Deadly Strike or Piercing. You cannot add Life Steal or any other enchantment to a weapon.
       </p>
 
       <table>
@@ -428,6 +435,10 @@
         For Change Enchant:<br>
         Cost = (int)(itemCost/2 × itemQuality + 5) × (1 + 2×enchantLevel)
       </div>
+
+      <p>
+        <strong>Note on Change Enchant:</strong> The cost uses the current enchantment level in the formula because the new enchantment will keep the same level. This means changing a level 2 enchantment costs more than changing a level 1 enchantment, but you get to keep the level 2 on the new enchant!
+      </p>
 
       <h3>Item Type Multipliers (Pixel Cost)</h3>
       <table>
