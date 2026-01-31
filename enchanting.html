@@ -506,8 +506,12 @@
     <div class="content-section">
       <h2>What is Item Upgrading?</h2>
       <p>
-        Item Upgrading is a system that allows you to permanently increase an item's base stats using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Voxels</span> (crystals). Each upgrade level increases the item's damage or armor by <span class="stat-highlight">5%</span>, making it significantly more powerful.
+        Item Upgrading is a system that allows you to permanently increase an item's base stats using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Each upgrade level increases the item's damage or armor by <span class="stat-highlight">5%</span>, making it significantly more powerful.
       </p>
+
+      <div class="warning-box">
+        <strong>Currency Confusion:</strong> The game's code has misleading method names. The method `upgradeVoxelCost()` actually returns the <strong>Crystal</strong> cost, not Voxel cost! Voxels (Mystic Copper) are a separate currency used for other purposes in the game, NOT for upgrading, enchanting, or alteration.
+      </div>
 
       <h3>How Upgrading Works</h3>
       <p>
@@ -563,7 +567,7 @@
         <li>f = 1.25 (quality divisor)</li>
       </ul>
 
-      <h3>Voxel Cost Formula</h3>
+      <h3>Crystal Cost Formula</h3>
       <div class="formula-box">
         ilvlScale = (itemLevel + 10) / 50 × 5<br><br>
         Cost = ilvlScale × itemTypeMultiplier ×<br>
@@ -571,16 +575,16 @@
       </div>
 
       <p>
-        Voxel costs increase based on:
+        Crystal costs increase based on:
       </p>
       <ul class="feature-list">
-        <li>Item level (higher level = more voxels)</li>
+        <li>Item level (higher level = more crystals)</li>
         <li>Item rarity (exponential scaling)</li>
         <li>Current upgrade level (power of 1.55)</li>
         <li>Item type (weapon vs armor multipliers)</li>
       </ul>
 
-      <h3>Rarity Adjustments (Voxel Costs)</h3>
+      <h3>Rarity Adjustments (Crystal Costs)</h3>
       <table>
         <thead>
           <tr>
@@ -687,7 +691,7 @@
           </tr>
           <tr>
             <td>Cost Type</td>
-            <td>Pixels + Voxels</td>
+            <td>Pixels + Crystals</td>
             <td>Pixels + Crystals</td>
             <td>Pixels + Crystals + Orbs</td>
           </tr>
