@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enchanting – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "✨";
+      margin-right: 0.75rem;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: #10b981;
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 4px solid #ef4444;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .warning-box strong {
+      color: #ef4444;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    table table {
+      width: 100%;
+      display: table;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .content-section {
+        padding: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      table {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">✨ Enchanting</h1>
+      <p class="page-subtitle">Add powerful magical effects to your equipment</p>
+    </div>
+
+    <div class="content-section">
+      <h2>What is Enchanting?</h2>
+      <p>
+        Enchanting allows you to add powerful stat bonuses to your equipment using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Each item can have up to level 2 enchantments, with different enchantment types available based on the item slot.
+      </p>
+
+      <h3>How Enchanting Works</h3>
+      <p>
+        There are three enchanting actions you can perform:
+      </p>
+      <ul class="feature-list">
+        <li><strong>New Enchant:</strong> Add an enchantment to an item for the first time (level 0 → level 1)</li>
+        <li><strong>Upgrade Enchant:</strong> Increase an existing enchantment by one level (level 1 → level 2)</li>
+        <li><strong>Change Enchant:</strong> Replace an existing enchantment with a different one (keeps the same level!)</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Guaranteed Success:</strong> Enchanting has a 100% success rate - there is no chance of failure!
+      </div>
+
+      <div class="info-box">
+        <strong>Level Preservation:</strong> When you switch from one enchantment to another, the new enchantment inherits the level from the old one! For example, if you have Deadly Strike level 2 and switch to Piercing, you'll get Piercing level 2 immediately. This makes experimenting with different enchantments much less costly!
+      </div>
+
+      <h3>Enchanting Materials</h3>
+      <p>
+        <span class="stat-highlight">Crystals</span> (enchanting materials) are obtained by defeating enemies. The amount dropped is based on:
+      </p>
+      <ul class="feature-list">
+        <li>Enemy level (higher level enemies drop more)</li>
+        <li>Level difference between you and the enemy (fighting enemies 8+ levels below you reduces drops)</li>
+        <li>Random variation in loot rolls</li>
+      </ul>
+
+      <div class="formula-box">
+        Base Amount = 0-2 + 0-2 + Random(1, max_roll+1)<br>
+        Where: max_roll = (int)(2.76 × (enemyLevel/levelsPerRealLevel + 15) / 20)
+      </div>
+
+      <p>
+        If you are 8+ levels above the enemy, Crystal drops are reduced by the formula:
+      </p>
+      <div class="formula-box">
+        Reduction = (levelDiff^0.9 + 34) / (levelDiff^0.9 + 14) - 1<br>
+        (Minimum 55% reduction)
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Enchantment Types</h2>
+      <p>
+        Enchantments are <span class="stat-highlight">restricted by equipment type</span>. Each item slot has access to exactly <span class="stat-highlight">two specific enchantments</span> - you cannot apply any other enchantment types to that item.
+      </p>
+      <p>
+        For example, weapons can ONLY have Deadly Strike or Piercing. You cannot add Life Steal or any other enchantment to a weapon.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item Type</th>
+            <th>Enchantment 1</th>
+            <th>Bonus (per level)</th>
+            <th>Enchantment 2</th>
+            <th>Bonus (per level)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weapon</td>
+            <td>Deadly Strike</td>
+            <td>2.5% chance for 1.5x damage</td>
+            <td>Piercing</td>
+            <td>17.5% armor ignore chance</td>
+          </tr>
+          <tr>
+            <td>RWeapon</td>
+            <td>Deadly Strike</td>
+            <td>2.5% chance for 1.5x damage</td>
+            <td>Piercing</td>
+            <td>17.5% armor ignore chance</td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td>Endurance</td>
+            <td>+3% damage reduction</td>
+            <td>Blocking</td>
+            <td>15% block chance</td>
+          </tr>
+          <tr>
+            <td>Helm</td>
+            <td>Life Steal</td>
+            <td>+2% life steal</td>
+            <td>Consume Souls</td>
+            <td>+7.5 mana on kill</td>
+          </tr>
+          <tr>
+            <td>Legs</td>
+            <td>Mana Absorb</td>
+            <td>6% mana on hit chance</td>
+            <td>Mana Leech</td>
+            <td>4% mana steal chance</td>
+          </tr>
+          <tr>
+            <td>Boots</td>
+            <td>Swiftness</td>
+            <td>+2% movement speed</td>
+            <td>Reflect</td>
+            <td>+10% damage reflection</td>
+          </tr>
+          <tr>
+            <td>Gloves</td>
+            <td>Open Wounds</td>
+            <td>+3% DoT damage</td>
+            <td>Crushing Blows</td>
+            <td>+3% crushing blow</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Example:</strong> A weapon with Deadly Strike level 2 grants a 5% chance (2.5% × 2) to deal 1.5x damage on each attack.
+      </p>
+
+      <div class="info-box">
+        <strong>Additional Enchantment Types:</strong> There are also two rare/legacy enchantment types that may appear on certain items:
+        <ul style="margin: 0.5rem 0 0 1.5rem; list-style: disc;">
+          <li><strong>Life Steal 2:</strong> +0.4% life steal per level (variant of Life Steal)</li>
+          <li><strong>Damage Percent:</strong> +0.1% damage per level (generic damage bonus)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Enchanting Costs</h2>
+      <p>
+        Enchanting requires both <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Costs scale based on item quality, item type, and enchantment level.
+      </p>
+
+      <h3>Pixel Cost Formula</h3>
+      <div class="formula-box">
+        For New/Upgrade Enchant:<br>
+        Cost = (int)(itemCost × itemQuality × (enchantLevel + 1)) × itemTypeMultiplier<br><br>
+        For Change Enchant:<br>
+        Cost = (int)(itemCost/2 × itemQuality + 5) × (1 + 2×enchantLevel)
+      </div>
+
+      <p>
+        <strong>Note on Change Enchant:</strong> The cost uses the current enchantment level in the formula because the new enchantment will keep the same level. This means changing a level 2 enchantment costs more than changing a level 1 enchantment, but you get to keep the level 2 on the new enchant!
+      </p>
+
+      <h3>Item Type Multipliers (Pixel Cost)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Type</th>
+            <th>Multiplier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>RWeapon</td><td>0.65x (cheapest)</td></tr>
+          <tr><td>Weapon</td><td>0.7x</td></tr>
+          <tr><td>Legs</td><td>0.59x</td></tr>
+          <tr><td>Boots</td><td>0.8x</td></tr>
+          <tr><td>Helm</td><td>1.25x</td></tr>
+          <tr><td>Armor</td><td>1.4x</td></tr>
+          <tr><td>Gloves</td><td>1.57x (most expensive)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Crystal Cost Formula</h3>
+      <div class="formula-box">
+        For Change Enchant: 2 crystals (flat cost)<br><br>
+        For New/Upgrade Enchant:<br>
+        Cost = (int)(itemTypeMultiplier × ilvlScale × 23 ×<br>
+        ((rarity^1.3 - 1.5) × (2 + 7×enchantLevel) - 1))<br><br>
+        Where: ilvlScale = (itemLevel + 10) / 50
+      </div>
+
+      <h3>Item Type Multipliers (Crystal Cost)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Type</th>
+            <th>Multiplier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Boots</td><td>0.51x (cheapest)</td></tr>
+          <tr><td>Gloves</td><td>0.60x</td></tr>
+          <tr><td>Helm</td><td>0.72x</td></tr>
+          <tr><td>Legs</td><td>0.90x</td></tr>
+          <tr><td>Armor</td><td>1.07x</td></tr>
+          <tr><td>Weapon</td><td>1.95x</td></tr>
+          <tr><td>RWeapon</td><td>2.09x (most expensive)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h2>Max Enchant Level</h2>
+      <p>
+        The maximum enchantment level you can apply increases with your player level and ascension bonuses.
+      </p>
+
+      <div class="formula-box">
+        Max Enchant Level = (int)AscensionEnchantingBonus + 1 + playerLevel / (15 × levelsPerRealLevel)
+      </div>
+
+      <p>
+        Higher levels and ascension skills unlock the ability to enchant items to level 2 and beyond.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
