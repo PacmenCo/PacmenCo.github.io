@@ -292,7 +292,7 @@
     <div class="content-section">
       <h2>What is Enchanting?</h2>
       <p>
-        Enchanting allows you to add powerful stat bonuses to your equipment using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Voxels</span> (enchanting crystals). Each item can have up to level 2 enchantments, with different enchantment types available based on the item slot.
+        Enchanting allows you to add powerful stat bonuses to your equipment using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Each item can have up to level 2 enchantments, with different enchantment types available based on the item slot.
       </p>
 
       <h3>How Enchanting Works</h3>
@@ -315,7 +315,7 @@
 
       <h3>Enchanting Materials</h3>
       <p>
-        <span class="stat-highlight">Voxels</span> (enchanting crystals) are obtained by defeating enemies. The amount dropped is based on:
+        <span class="stat-highlight">Crystals</span> (enchanting materials) are obtained by defeating enemies. The amount dropped is based on:
       </p>
       <ul class="feature-list">
         <li>Enemy level (higher level enemies drop more)</li>
@@ -329,7 +329,7 @@
       </div>
 
       <p>
-        If you are 8+ levels above the enemy, Voxel drops are reduced by the formula:
+        If you are 8+ levels above the enemy, Crystal drops are reduced by the formula:
       </p>
       <div class="formula-box">
         Reduction = (levelDiff^0.9 + 34) / (levelDiff^0.9 + 14) - 1<br>
@@ -425,7 +425,7 @@
     <div class="content-section">
       <h2>Enchanting Costs</h2>
       <p>
-        Enchanting requires both <span class="stat-highlight">Pixels</span> (currency) and <span class="stat-highlight">Voxels</span> (crystals). Costs scale based on item quality, item type, and enchantment level.
+        Enchanting requires both <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Costs scale based on item quality, item type, and enchantment level.
       </p>
 
       <h3>Pixel Cost Formula</h3>
@@ -459,16 +459,16 @@
         </tbody>
       </table>
 
-      <h3>Voxel Cost Formula</h3>
+      <h3>Crystal Cost Formula</h3>
       <div class="formula-box">
-        For Change Enchant: 2 voxels (flat cost)<br><br>
+        For Change Enchant: 2 crystals (flat cost)<br><br>
         For New/Upgrade Enchant:<br>
         Cost = (int)(itemTypeMultiplier × ilvlScale × 23 ×<br>
         ((rarity^1.3 - 1.5) × (2 + 7×enchantLevel) - 1))<br><br>
         Where: ilvlScale = (itemLevel + 10) / 50
       </div>
 
-      <h3>Item Type Multipliers (Voxel Cost)</h3>
+      <h3>Item Type Multipliers (Crystal Cost)</h3>
       <table>
         <thead>
           <tr>
@@ -688,8 +688,8 @@
           <tr>
             <td>Cost Type</td>
             <td>Pixels + Voxels</td>
-            <td>Pixels + Voxels</td>
-            <td>Pixels + Voxels + Orbs</td>
+            <td>Pixels + Crystals</td>
+            <td>Pixels + Crystals + Orbs</td>
           </tr>
           <tr>
             <td>Cost Scaling</td>
@@ -762,8 +762,8 @@
           </tr>
           <tr>
             <td>Materials</td>
-            <td>Pixels + Voxels</td>
-            <td>Pixels + Voxels + Orbs</td>
+            <td>Pixels + Crystals</td>
+            <td>Pixels + Crystals + Orbs</td>
           </tr>
           <tr>
             <td>Complexity</td>
@@ -856,7 +856,7 @@
     <div class="content-section">
       <h2>Alteration Costs</h2>
       <p>
-        Alteration requires <span class="stat-highlight">Pixels</span>, <span class="stat-highlight">Voxels</span>, and the specific <span class="stat-highlight">Orb type</span>. Costs vary dramatically based on the alteration type and item properties.
+        Alteration requires <span class="stat-highlight">Pixels</span>, <span class="stat-highlight">Crystals</span>, and the specific <span class="stat-highlight">Orb type</span>. Costs vary dramatically based on the alteration type and item properties.
       </p>
 
       <h3>Orb Quantity Required</h3>
@@ -907,11 +907,11 @@
         </tbody>
       </table>
 
-      <h3>Pixel & Voxel Cost Formulas</h3>
+      <h3>Pixel & Crystal Cost Formulas</h3>
       <div class="formula-box">
         Pixel Cost = (int)((priceModifier + 1) / 2 × (itemCoinCost × (rarity + 1)) / 3.5)<br>
         - Weapons: ×1.5 multiplier<br><br>
-        Voxel Cost = (int)(priceModifier × itemLevel × (rarity + 1) / 6) + 1<br>
+        Crystal Cost = (int)(priceModifier × itemLevel × (rarity + 1) / 6) + 1<br>
         - Weapons: ×1.6 multiplier
       </div>
     </div>
@@ -1015,7 +1015,7 @@
       <ul class="feature-list">
         <li>Enchant your best items first - enchantments are permanent until changed</li>
         <li>Choose enchantments that complement your build (damage for offense, endurance for defense)</li>
-        <li>Weapons and armor are expensive to enchant - save voxels for your best gear</li>
+        <li>Weapons and armor are expensive to enchant - save crystals for your best gear</li>
         <li>Max enchant level increases with player level - wait for higher levels for better returns</li>
       </ul>
 
