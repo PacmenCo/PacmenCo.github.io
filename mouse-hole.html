@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Mouse Hole Raid – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "🐭";
+      margin-right: 0.75rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(124, 58, 237, 0.05);
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-orange);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .highlight-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent-orange);
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .highlight-box strong {
+      color: var(--accent-orange);
+    }
+
+    .special-box {
+      background: rgba(124, 58, 237, 0.15);
+      border: 2px solid var(--accent-purple);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .special-box strong {
+      color: var(--accent-purple);
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    thead {
+      background: rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--accent-orange);
+      font-weight: 600;
+      border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+    }
+
+    td {
+      padding: 0.75rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    tr:hover {
+      background: rgba(124, 58, 237, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .container {
+        padding: 5rem 0.75rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .content-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .content-section h3 {
+        font-size: 1rem;
+      }
+
+      .content-section p {
+        font-size: 0.9rem;
+      }
+
+      table {
+        font-size: 0.8rem;
+      }
+
+      th,
+      td {
+        padding: 0.4rem;
+      }
+
+      .feature-list li {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🐭 The Mouse Hole Raid</h1>
+      <p class="page-subtitle">Time-limited raid with treasure hunting and score-scaled Magic Ring rewards</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>
+        The Mouse Hole Raid is a unique timed challenge located in <strong>The Cottage (House)</strong>. Entry requires
+        a Saw.
+        Using a Saw opens a 6 minute 30 second window where you can complete multiple combat runs and open treasure
+        chests.
+        The raid features two distinct zones and culminates in a score-scaled Magic Ring with Speed% bonuses.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Location:</strong> The Cottage (House)</li>
+        <li><strong>Entry Requirement:</strong> 1 Saw per window (6m 30s)</li>
+        <li><strong>Unlock:</strong> Level 125</li>
+        <li><strong>Excellent Orb Farm:</strong> 25% from treasure chests & 4% from each Mouse</li>
+        <li><strong>Unique Reward:</strong> Score-scaled Magic Ring with Speed% bonuses</li>
+        <li><strong>Special rules:</strong> You do not lose rank experience on death (You cant die in the Mouse Hole!)
+        </li>
+      </ul>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Unlock Requirement</div>
+          <div class="stat-value">Level 125</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Entry Cost</div>
+          <div class="stat-value">1 Saw</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Window Duration</div>
+          <div class="stat-value">6m 30s</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Per-Window Limits</div>
+          <div class="stat-value">2 Chests</div>
+        </div>
+      </div>
+
+      <p class="highlight-box">
+        <strong>Mouse Hole Exclusive:</strong> Treasure chests in Zone 1 have a 25% random orb drop rate & 4% from each
+        Mouse - This makes the Mouse
+        Hole a decent location for random orb farming.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Access Window</h2>
+      <p>
+        Using 1 Saw opens the Mouse Hole for exactly 6 minutes and 30 seconds. During this time window, you have limited
+        interactions:
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>Treasure Chest Limit:</strong> Maximum 2 chest openings during the window</li>
+        <li><strong>Combat Run Limit:</strong> Maximum 4 total raid completions during the window</li>
+        <li><strong>Window Duration:</strong> 6m30s, decreases by 30s per passive reward tick</li>
+        <li><strong>Multiple Entries:</strong> Can re-enter multiple times until limits are hit or timer expires</li>
+      </ul>
+
+      <p class="highlight-box">
+        <strong>Timing Strategy:</strong> Each combat run takes 5 minutes. You can realistically fit 1-2 runs within the
+        6m30s window before you need to use another saw!
+      </p>
+    </div>
+
+
+
+    <div class="content-section">
+      <h2>Zone Structure</h2>
+      <p>
+        The Mouse Hole consists of two distinct zones serving different purposes:
+      </p>
+
+      <h3>Zone 0 - Combat Arena</h3>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Duration</div>
+          <div class="stat-value">5 minutes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Runs Allowed</div>
+          <div class="stat-value">4 Total</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Orb Drop Rate</div>
+          <div class="stat-value">4%</div>
+        </div>
+      </div>
+
+      <p>
+        Combat zone where you fight enemies for 5 minutes per run. Enemies scale with each kill, but orbs always drop at
+        a 4% rate.
+        Score from combat contributes to your final Magic Ring quality.
+      </p>
+
+      <h3>Zone 1 - Treasure Room</h3>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Chests Available</div>
+          <div class="stat-value">2 Opens</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Orb Drop Rate</div>
+          <div class="stat-value">25%</div>
+        </div>
+      </div>
+
+      <p>
+        Treasure zone with dramatically increased orb drop rate. The 25% drop rate makes this the primary source of orbs
+        during the raid. Limited to 2 chest opens per Saw usage.
+      </p>
+
+      <div class="special-box">
+        <strong>Orb Farming:</strong> Zone 1's 25% orb drop rate is over 6x higher than Zone 0's 4% rate.
+        Prioritize opening both chests for maximum orb gains!
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Enemy Scaling</h2>
+      <p>
+        Enemies in scale progressively with each kill during your run:
+      </p>
+
+      <div class="formula-box">
+        Health Multiplier = 1 + (0.004 × enemy_number)<br><br>
+        Attack Multiplier = 1 + (0.00045 × enemy_number)
+
+      </div>
+
+      <h3>Scaling Analysis</h3>
+      <ul class="feature-list">=
+        <li><strong>Enemy Level:</strong> Mice spawn 3 levels below player level</li>
+        <li><strong>Poison Damage:</strong> Mice deal poison damage (true damage that bypasses armor)</li>
+      </ul>
+
+      <h3>Special Raid Rules</h3>
+      <p>The Mouse Hole has unique combat mechanics that drastically change how your stats work:</p>
+
+      <ul class="feature-list">
+        <li><strong>No XP Loss on Death:</strong> You cannot lose rank experience - death teleports you to the treasure
+          room
+        </li>
+        <li><strong>Modified Health:</strong> Base HP reduced to 5%, but you gain +10,000 flat health</li>
+        <li><strong>Modified Attack:</strong> Power from items reduced to 5% + 10 flat damage</li>
+        <li><strong>Modified Armor:</strong> Armor from items reduced to 5% + 100 flat armor</li>
+        <li><strong>Melee Bonus:</strong> Melee weapons deal 1.5x damage (ranged weapons have no bonus)</li>
+        <li><strong>Enhanced Crits:</strong> 25% base crit chance, 3.0x base crit multiplier (crit damage bonuses 50%
+          effective)</li>
+        <li><strong>High HP Regen:</strong> 15% of normal regen + 1,800 flat regen</li>
+        <li><strong>Weakened Pets:</strong> Pet damage reduced to 10% + 5 flat damage</li>
+        <li><strong>Reduced Resist:</strong> Resistance reduced to 20% of normal</li>
+      </ul>
+
+      <p class="highlight-box">
+        <strong>Build Impact:</strong> These special rules create a completely different meta. Up to you to adapt your
+        build for maximum efficiency!
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Mouse Hole Magic Ring</h2>
+      <p>
+        The signature reward from Mouse Hole is a Magic Ring with score-scaled Speed% bonus and random enchantment.
+      </p>
+
+      <h3>Speed% Calculation</h3>
+      <div class="formula-box">
+        Speed% = Log10(1 + score/1600) × 1.77 + Random(0.3 to 1.0)
+      </div>
+
+      <h3>Ring Properties</h3>
+      <ul class="feature-list">
+        <li><strong>Primary Stat:</strong> Speed% scaled by your total score</li>
+        <li><strong>Random Component:</strong> +0.3% to +1.0% additional Speed% (RNG)</li>
+        <li><strong>Enchantment:</strong> One random enchantment rolled on the ring</li>
+        <li><strong>Higher Score = Better Ring</li>
+      </ul>
+
+      <h3>Speed% by Score</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Base Speed%</th>
+            <th>With Max Roll (+1.0%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1,600</td>
+            <td>~0.53%</td>
+            <td>~1.53%</td>
+          </tr>
+          <tr>
+            <td>8,000</td>
+            <td>~1.14%</td>
+            <td>~2.14%</td>
+          </tr>
+          <tr>
+            <td>16,000</td>
+            <td>~1.39%</td>
+            <td>~2.39%</td>
+          </tr>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <p class="highlight-box">
+        <strong>Optimization Tip:</strong> The logarithmic scaling means doubling your score doesn't double your Speed%.
+        Focus on consistent high scores rather than extreme pushing.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Guide</h2>
+
+      <h3>Window Management</h3>
+      <ul class="feature-list">
+        <li><strong>Multiple Runs Possible:</strong> Can complete 1-2 combat runs within a single window</li>
+        <li><strong>Chest Access:</strong> Open treasure chests after completing combat runs</li>
+      </ul>
+
+      <h3>Combat Optimization</h3>
+      <ul class="feature-list">
+        <li><strong>Sustain Damage Build:</strong> 5 minutes favors consistent DPS and survival over burst</li>
+        <li><strong>Use Buffs:</strong> Use Elixirs, and optimized ad-buff and skill layout</li>
+      </ul>
+
+
+      <h3>Ring Quality Goals</h3>
+      <p>
+        Aim for high scores to maximize your Magic Ring's Speed% bonus. Pray for a good random enchantment and high
+        rarity ring!
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Saw Crafting</h2>
+      <p>
+        Saws are crafted using pixels and voxels. The cost increases with each saw crafted but also decays over time.
+      </p>
+
+      <h3>Penalty System</h3>
+      <ul class="feature-list">
+        <li><strong>Penalty per purchase:</strong> 154 penalty per saw crafted</li>
+        <li><strong>Result:</strong> Slowest decay of all special areas - costs stay elevated longer</li>
+      </ul>
+
+      <p class="formula-box">
+        Decay per tick: 1 + penalty/175<br>
+        Applied every 30 seconds
+      </p>
+
+      <h3>Decay Examples</h3>
+      <ul class="feature-list">
+        <li><strong>At 175 penalty:</strong> Decay = 1 + (175/175) = 2 per tick</li>
+        <li><strong>At 350 penalty:</strong> Decay = 1 + (350/175) = 3 per tick</li>
+        <li><strong>At 700 penalty:</strong> Decay = 1 + (700/175) = 5 per tick</li>
+      </ul>
+
+      <p>
+        <strong>Conclusion:</strong> Higher penalties decay significantly faster. Mouse Hole saws decay slower than
+        other
+        special area keys (divider of 175 vs 115 for Cave and 80 for Tower), meaning costs take longer to normalize.
+      </p>
+
+      <h3>Saw Cost Tiers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Penalty Range</th>
+            <th>Pixels</th>
+            <th>Voxels</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-9</td>
+            <td>125</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>10-164</td>
+            <td>400</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>165-309</td>
+            <td>950</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>310-489</td>
+            <td>1,525</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>490-659</td>
+            <td>2,250</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>660+</td>
+            <td>3,175</td>
+            <td>30</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="highlight-box">
+        <strong>Note:</strong> Unlike Cave and Tower keys, Mouse Hole saws have no free tier - the minimum cost is
+        always
+        125 pixels and 2 voxels, even at 0 penalty.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Unlock Requirements</h2>
+      <ul class="feature-list">
+        <li><strong>Level Requirement:</strong> Reach level 125!</li>
+      </ul>
+
+
+    </div>
+  </div>
+</body>
+
+</html>

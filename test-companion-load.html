@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Data Load</title></head>
+<body>
+<h1>Companion Data Test</h1>
+<div id="output"></div>
+<script src="companions-data.js"></script>
+<script>
+document.getElementById('output').innerHTML = '<pre>' + 
+  JSON.stringify(Object.keys(companionsData), null, 2) + 
+  '</pre><p>Total companions: ' + Object.keys(companionsData).length + '</p>';
+</script>
+</body>
+</html>

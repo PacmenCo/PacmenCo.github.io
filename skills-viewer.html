@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Database – Idle Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #0a0e1a; --bg-card: #1a1f35;
+      --accent-purple: #7c3aed; --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
+      --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+    }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+    .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
+    .back-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .back-link:hover { color: var(--accent-orange); }
+    .container { max-width: 1400px; margin: 0 auto; padding: 6rem 2rem 3rem; }
+    .hero-section { text-align: center; margin-bottom: 3rem; }
+    .page-title { font-size: clamp(2.5rem, 6vw, 4rem); background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+    .page-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+
+    /* Hidden class */
+    .hidden { display: none !important; }
+
+    /* Filter Section */
+    .filter-section { background: var(--bg-card); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; border: 2px solid rgba(124, 58, 237, 0.2); display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .filter-btn { background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; }
+    .filter-btn:hover { background: rgba(124, 58, 237, 0.3); border-color: var(--accent-cyan); }
+    .filter-btn.active { background: var(--accent-purple); border-color: var(--accent-orange); }
+
+    /* Compact Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+    /* Compact Skill Card */
+    .skill-card-compact { background: var(--bg-card); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(124, 58, 237, 0.2); transition: all 0.3s; cursor: pointer; text-decoration: none; display: block; }
+    .skill-card-compact:hover { transform: translateY(-5px); border-color: var(--accent-cyan); box-shadow: 0 8px 30px rgba(6, 182, 212, 0.3); }
+    .compact-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .compact-icon { font-size: 2.5rem; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .compact-icon img { width: 64px; height: 64px; object-fit: contain; border-radius: 8px; }
+    .compact-info { flex: 1; }
+    .compact-name { font-size: 1.25rem; color: var(--accent-orange); margin-bottom: 0.25rem; font-weight: 600; }
+    .compact-type { font-size: 0.85rem; color: var(--accent-cyan); }
+    .compact-category { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(124, 58, 237, 0.3); border-radius: 12px; font-size: 0.75rem; color: var(--text-primary); margin-top: 0.5rem; }
+    .compact-stats { display: flex; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(124, 58, 237, 0.2); font-size: 0.85rem; }
+    .compact-stat { color: var(--text-secondary); }
+    .compact-stat .value { color: var(--accent-cyan); font-weight: 600; }
+
+    /* Detail View */
+    .detail-view { max-width: 900px; margin: 0 auto; }
+    .detail-back-btn { display: inline-block; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: var(--text-primary); padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; transition: all 0.3s; text-decoration: none; margin-bottom: 2rem; }
+    .detail-back-btn:hover { background: rgba(124, 58, 237, 0.3); border-color: var(--accent-cyan); }
+    .detail-card { background: var(--bg-card); border-radius: 16px; padding: 2.5rem; border: 2px solid rgba(124, 58, 237, 0.2); }
+    .detail-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid rgba(124, 58, 237, 0.2); }
+    .detail-icon { font-size: 4rem; width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; }
+    .detail-icon img { width: 96px; height: 96px; object-fit: contain; border-radius: 12px; }
+    .detail-title-group { flex: 1; }
+    .detail-name { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 0.5rem; }
+    .detail-type { font-size: 1.1rem; color: var(--accent-cyan); }
+    .detail-category { display: inline-block; padding: 0.5rem 1rem; background: rgba(124, 58, 237, 0.3); border-radius: 12px; font-size: 0.9rem; color: var(--text-primary); }
+    .detail-description { color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .stat-item { background: rgba(20, 24, 41, 0.6); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 8px; padding: 1rem; text-align: center; }
+    .stat-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+    .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan); }
+    .stat-value.zero { color: var(--text-secondary); opacity: 0.6; }
+    .stat-value.unknown { color: var(--text-secondary); opacity: 0.4; font-size: 1rem; }
+    .section-title { font-size: 1.25rem; color: var(--accent-orange); margin: 2rem 0 1rem; text-transform: uppercase; letter-spacing: 1px; }
+    .mechanics-list { list-style: none; padding: 0; }
+    .mechanics-item { padding: 1rem; margin-bottom: 0.75rem; background: rgba(6, 182, 212, 0.05); border-left: 3px solid var(--accent-cyan); border-radius: 4px; }
+    .mechanics-item-type { font-weight: 600; color: var(--accent-cyan); font-size: 1rem; margin-bottom: 0.25rem; }
+    .mechanics-item-desc { color: var(--text-secondary); }
+    .charge-system { background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-orange); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; }
+    .charge-system-title { color: var(--accent-orange); font-weight: 600; margin-bottom: 0.75rem; font-size: 1.1rem; }
+    .charge-detail { color: var(--text-secondary); line-height: 1.7; }
+    .notes-section { background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--accent-green); padding: 1.25rem; border-radius: 4px; }
+    .notes-list { list-style: none; padding: 0; }
+    .notes-list li { color: var(--text-secondary); padding: 0.5rem 0; }
+    .notes-list li:before { content: "✓"; color: var(--accent-green); margin-right: 0.75rem; font-weight: bold; }
+    .loading { text-align: center; padding: 4rem; color: var(--text-secondary); }
+
+    @media (max-width: 768px) {
+      .container { padding: 5rem 1rem 2rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .filter-section { padding: 1rem; }
+      .detail-card { padding: 1.5rem; }
+      .detail-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="skills.html" class="back-link">← Back to Skills</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Grid View -->
+    <div id="gridView">
+      <div class="hero-section">
+        <h1 class="page-title">⚔️ Skill Database</h1>
+        <p class="page-subtitle">Click any skill to view detailed stats and mechanics</p>
+      </div>
+
+      <div class="filter-section" id="filterSection">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="Defensive">Defensive</button>
+        <button class="filter-btn" data-filter="High-Risk Attack">High-Risk</button>
+        <button class="filter-btn" data-filter="Basic Attack">Basic Attack</button>
+        <button class="filter-btn" data-filter="Advanced">Advanced</button>
+      </div>
+
+      <div class="skills-grid" id="skillsContainer">
+        <div class="loading">Loading skills...</div>
+      </div>
+    </div>
+
+    <!-- Detail View -->
+    <div id="detailView" class="hidden detail-view"></div>
+  </div>
+
+  <script>
+    let allSkills = [];
+    let currentFilter = 'all';
+
+    // Embedded skills data (fallback for file:// protocol CORS issues)
+    const embeddedSkillsData = 
+{
+  "skills": [
+    {
+      "id": "auto_attack",
+      "name": "Auto Attack",
+      "icon": "\u2699\ufe0f",
+      "category": "Basic Combat",
+      "description": "Finding this button will enable some folks to eat with both hands",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": -0.15
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.18,
+        "damageMod": -0.15,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": true
+      },
+      "notes": []
+    },
+    {
+      "id": "armorbreak_attack",
+      "name": "Break Armor",
+      "icon": "\ud83d\udd28",
+      "category": "Debuff",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 6,
+        "manaCost": 15,
+        "duration": null,
+        "damageMultiplier": 1.45
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "ArmorBreak",
+            "value": 0.15,
+            "duration": 32.0,
+            "stacks": 3
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.1,
+        "damageMod": 1.45,
+        "critChance": 0.1,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "charged_strike",
+      "name": "Charged Strike",
+      "icon": "\u26a1",
+      "category": "Charge Skills",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 12,
+        "duration": null,
+        "damageMultiplier": -0.2
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "BuildCharges",
+            "value": 1.0,
+            "duration": 0,
+            "stacks": 5
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 0.75,
+        "damageMod": -0.2,
+        "critChance": 0.25,
+        "critDamage": 0.5,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "manaregeneration",
+      "name": "Clarity",
+      "icon": "\ud83d\udc99",
+      "category": "Utility",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 42,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "ManaRegeneration",
+            "value": 0.12,
+            "duration": 0,
+            "stacks": 0
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "cleave",
+      "name": "Cleave",
+      "icon": "\u2694\ufe0f",
+      "category": "Basic Combat",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 8,
+        "manaCost": 10,
+        "duration": null,
+        "damageMultiplier": 1.65
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.33,
+        "damageMod": 1.65,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "execute",
+      "name": "Execute",
+      "icon": "\ud83d\udc80",
+      "category": "Basic Combat",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 18,
+        "manaCost": 35,
+        "duration": null,
+        "damageMultiplier": 2.95
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.4,
+        "damageMod": 2.95,
+        "critChance": 0.3,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "testspell",
+      "name": "Final Judgement",
+      "icon": "\u2728",
+      "category": "Utility",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 140,
+        "manaCost": 50,
+        "duration": null,
+        "damageMultiplier": 5.0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 5.0,
+        "critChance": 0,
+        "critDamage": 0.5,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "heavy_attack",
+      "name": "Heavy Attack",
+      "icon": "\ud83d\udca5",
+      "category": "Basic Combat",
+      "description": "Just a ridiculously powerful attack",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 20,
+        "duration": null,
+        "damageMultiplier": 2.2
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.18,
+        "damageMod": 2.2,
+        "critChance": 0.05,
+        "critDamage": 0.2,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "laststand",
+      "name": "Last Stand",
+      "icon": "\ud83d\udee1\ufe0f",
+      "category": "Utility",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 48,
+        "manaCost": 18,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "Heal",
+            "value": 0.4,
+            "duration": 0,
+            "stacks": 0
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "normal_attack",
+      "name": "Normal Attack",
+      "icon": "\u2694\ufe0f",
+      "category": "Basic Combat",
+      "description": "Standard attack",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "poison_attack",
+      "name": "Poison Attack",
+      "icon": "\u2620\ufe0f",
+      "category": "Debuff",
+      "description": "Reduces the enemy's HP-Regen by 25% (Multiplicatively). Stacks 8 times!",
+      "stats": {
+        "cooldown": 6,
+        "manaCost": 15,
+        "duration": null,
+        "damageMultiplier": 0.65
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Poison",
+            "value": 0.25,
+            "duration": 0,
+            "stacks": 8
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0.65,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "speed_attack",
+      "name": "Quick Attack",
+      "icon": "\u26a1",
+      "category": "Basic Combat",
+      "description": "Fast attack, but slightly weak!",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 5,
+        "duration": null,
+        "damageMultiplier": 0.05
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 0.5,
+        "damageMod": 0.05,
+        "critChance": 0.05,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "rupture",
+      "name": "Rupture",
+      "icon": "\ud83e\ude78",
+      "category": "Debuff",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 6,
+        "manaCost": 10,
+        "duration": null,
+        "damageMultiplier": -0.55
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Bleed",
+            "value": 0.085,
+            "duration": 28.0,
+            "stacks": 4
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 0.8,
+        "damageMod": -0.55,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "sacrifice",
+      "name": "Sacrifice",
+      "icon": "\u2764\ufe0f",
+      "category": "Basic Combat",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": 0.95
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.2,
+        "damageMod": 0.95,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "shield",
+      "name": "Shield",
+      "icon": "\ud83d\udee1\ufe0f",
+      "category": "Utility",
+      "description": " ",
+      "stats": {
+        "cooldown": 36,
+        "manaCost": 14,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "Shield",
+            "value": 2.0,
+            "duration": 3.0,
+            "stacks": 3
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "staticdischarge",
+      "name": "Static Discharge",
+      "icon": "\u26a1",
+      "category": "Utility",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 24,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": 0.65
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0.65,
+        "critChance": 0.2,
+        "critDamage": 0.75,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "fortify",
+      "name": "Stone skin",
+      "icon": "\ud83d\uddff",
+      "category": "Utility",
+      "description": " ",
+      "stats": {
+        "cooldown": 38,
+        "manaCost": 14,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "DamageReduction",
+            "value": 0.3,
+            "duration": 14.0,
+            "stacks": 1
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "vengeance",
+      "name": "Vengeance",
+      "icon": "\u26a1",
+      "category": "Basic Combat",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 18,
+        "manaCost": 35,
+        "duration": null,
+        "damageMultiplier": 3.95
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.4,
+        "damageMod": 3.95,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    },
+    {
+      "id": "wither_strike",
+      "name": "Witherstrike",
+      "icon": "\ud83e\udd40",
+      "category": "Debuff",
+      "description": "Powerful combat ability",
+      "stats": {
+        "cooldown": 7,
+        "manaCost": 8,
+        "duration": null,
+        "damageMultiplier": 0.25
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "AttackReduction",
+            "value": 0.075,
+            "duration": 28.0,
+            "stacks": 3
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 0.8,
+        "damageMod": 0.25,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": false
+      },
+      "notes": []
+    }
+  ]
+}
+;
+
+    // Generate skill icon HTML (try image first, fallback to emoji)
+    function getSkillIcon(skill, size = 'small') {
+      const imagePath = `images/skills/${skill.id}.png`;
+      const sizeClass = size === 'large' ? 'detail-icon' : 'compact-icon';
+
+      return `<div class="${sizeClass}">
+        <img src="${imagePath}"
+             alt="${skill.name}"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+             style="display: block;">
+        <span style="display: none;">${skill.icon}</span>
+      </div>`;
+    }
+
+    // Load skills
+    async function loadSkills() {
+      try {
+        const response = await fetch('data/skills.json');
+        const data = await response.json();
+        allSkills = data.skills;
+      } catch (error) {
+        console.warn('Using embedded data:', error);
+        allSkills = embeddedSkillsData.skills;
+      }
+
+      // Check URL for skill parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const skillId = urlParams.get('skill');
+
+      if (skillId) {
+        showDetailView(skillId);
+      } else {
+        showGridView();
+      }
+    }
+
+    // Show grid view
+    function showGridView() {
+      document.getElementById('gridView').classList.remove('hidden');
+      document.getElementById('detailView').classList.add('hidden');
+      displaySkillGrid(currentFilter === 'all' ? allSkills : allSkills.filter(s => s.category === currentFilter));
+    }
+
+    // Show detail view
+    function showDetailView(skillId) {
+      const skill = allSkills.find(s => s.id === skillId);
+      if (!skill) {
+        showGridView();
+        return;
+      }
+
+      document.getElementById('gridView').classList.add('hidden');
+      document.getElementById('detailView').classList.remove('hidden');
+      document.getElementById('detailView').innerHTML = createDetailView(skill);
+    }
+
+    // Display skill grid
+    function displaySkillGrid(skills) {
+      const container = document.getElementById('skillsContainer');
+      if (skills.length === 0) {
+        container.innerHTML = '<div class="loading">No skills found.</div>';
+        return;
+      }
+      container.innerHTML = skills.map(skill => createCompactCard(skill)).join('');
+    }
+
+    // Create compact card
+    function createCompactCard(skill) {
+      const quickStats = [];
+      // Only show cooldown if it exists and is greater than 0
+      if (skill.stats.cooldown !== null && skill.stats.cooldown > 0) {
+        quickStats.push(`<span class="compact-stat">CD: <span class="value">${skill.stats.cooldown}s</span></span>`);
+      }
+      // Only show mana cost if it exists and is greater than 0
+      if (skill.stats.manaCost !== null && skill.stats.manaCost > 0) {
+        quickStats.push(`<span class="compact-stat">Mana: <span class="value">${skill.stats.manaCost}</span></span>`);
+      }
+
+      return `
+        <a href="?skill=${skill.id}" class="skill-card-compact" onclick="navigateToSkill(event, '${skill.id}')">
+          <div class="compact-header">
+            ${getSkillIcon(skill, 'small')}
+            <div class="compact-info">
+              <div class="compact-name">${skill.name}</div>
+            </div>
+          </div>
+          <span class="compact-category">${skill.category}</span>
+          ${quickStats.length > 0 ? `<div class="compact-stats">${quickStats.join('')}</div>` : ''}
+        </a>
+      `;
+    }
+
+    // Create detail view
+    function createDetailView(skill) {
+      return `
+        <a href="?" class="detail-back-btn" onclick="navigateToGrid(event)">← Back to All Skills</a>
+        <div class="detail-card">
+          <div class="detail-header">
+            ${getSkillIcon(skill, 'large')}
+            <div class="detail-title-group">
+              <h1 class="detail-name">${skill.name}</h1>
+            </div>
+            <span class="detail-category">${skill.category}</span>
+          </div>
+
+          <p class="detail-description">${skill.description}</p>
+
+          ${createStatsGrid(skill.stats)}
+          ${createMechanicsSection(skill.mechanics)}
+          ${createCombatAttributes(skill.combatAttributes)}
+          ${createNotesSection(skill.notes)}
+        </div>
+      `;
+    }
+
+    // Create stats grid
+    function createStatsGrid(stats) {
+      const statItems = [];
+      if (stats.cooldown !== null) statItems.push({ label: 'Cooldown', value: stats.cooldown === 0 ? 'None' : `${stats.cooldown}s`, isZero: stats.cooldown === 0 });
+      if (stats.manaCost !== null) statItems.push({ label: 'Mana Cost', value: stats.manaCost, isZero: stats.manaCost === 0 });
+      if (stats.duration !== null) statItems.push({ label: 'Duration', value: `${stats.duration}s`, isZero: false });
+      if (stats.damageMultiplier !== null) statItems.push({ label: 'Damage', value: stats.damageMultiplier === 0 ? 'None' : `${stats.damageMultiplier}x`, isZero: stats.damageMultiplier === 0 });
+
+      if (statItems.length === 0) return '<div class="stats-grid"><div class="stat-item"><div class="stat-label">Stats</div><div class="stat-value unknown">See mechanics</div></div></div>';
+
+      return `<div class="stats-grid">${statItems.map(stat => `
+        <div class="stat-item">
+          <div class="stat-label">${stat.label}</div>
+          <div class="stat-value ${stat.isZero ? 'zero' : ''}">${stat.value}</div>
+        </div>
+      `).join('')}</div>`;
+    }
+
+    // Create mechanics section
+    function createMechanicsSection(mechanics) {
+      let html = '<h3 class="section-title">Mechanics</h3>';
+      if (mechanics.chargeSystem?.enabled) {
+        const cs = mechanics.chargeSystem;
+        html += `<div class="charge-system"><div class="charge-system-title">⚡ Charge System</div><div class="charge-detail">`;
+        html += `<strong>Mode:</strong> ${cs.consumptionMode}<br>`;
+        html += `<strong>Max Charges:</strong> ${cs.maxCharges}<br>`;
+        if (cs.chargesPerHit) html += `<strong>Charges Per Hit:</strong> ${cs.chargesPerHit}<br>`;
+        if (cs.chargesPerCrit) html += `<strong>Charges Per Crit:</strong> ${cs.chargesPerCrit}<br>`;
+        if (cs.consumptionAmount) html += `<strong>Consumption Amount:</strong> ${cs.consumptionAmount}<br>`;
+        if (cs.bonusDamageMultiplier) html += `<strong>Bonus Damage:</strong> +${(cs.bonusDamageMultiplier * 100).toFixed(0)}%<br>`;
+        html += `<br>${cs.chargeDescription}</div></div>`;
+      }
+      if (mechanics.effects?.length > 0) {
+        html += '<ul class="mechanics-list">';
+        mechanics.effects.forEach(effect => {
+          html += `<li class="mechanics-item"><div class="mechanics-item-type">${effect.type}</div><div class="mechanics-item-desc">${effect.description}</div></li>`;
+        });
+        html += '</ul>';
+      }
+      return html;
+    }
+
+    // Create combat attributes
+    function createCombatAttributes(attributes) {
+      // Filter out null values and standard/default values
+      const relevantAttrs = Object.entries(attributes).filter(([key, value]) => {
+        // Skip null values
+        if (value === null) return false;
+
+        // Skip zero values for these attributes (they're the standard/default)
+        const skipIfZero = ['trueDamage', 'lowHealthDamageMultiplier', 'cleaveStackBonus'];
+        if (skipIfZero.includes(key) && value === 0) return false;
+
+        // Skip false boolean values (standard default)
+        if (typeof value === 'boolean' && value === false) return false;
+
+        return true;
+      });
+
+      if (relevantAttrs.length === 0) return '';
+
+      return `<h3 class="section-title">Combat Attributes</h3><div class="stats-grid">${relevantAttrs.map(([key, value]) => `
+        <div class="stat-item">
+          <div class="stat-label">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
+          <div class="stat-value ${value === 0 ? 'zero' : ''}">${typeof value === 'boolean' ? (value ? 'Yes' : 'No') : value}</div>
+        </div>
+      `).join('')}</div>`;
+    }
+
+    // Create notes section
+    function createNotesSection(notes) {
+      if (!notes || notes.length === 0) return '';
+      return `<h3 class="section-title">Notes</h3><div class="notes-section"><ul class="notes-list">${notes.map(note => `<li>${note}</li>`).join('')}</ul></div>`;
+    }
+
+    // Navigation functions
+    function navigateToSkill(event, skillId) {
+      event.preventDefault();
+      history.pushState({skill: skillId}, '', `?skill=${skillId}`);
+      showDetailView(skillId);
+    }
+
+    function navigateToGrid(event) {
+      event.preventDefault();
+      history.pushState({}, '', '?');
+      showGridView();
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const skillId = urlParams.get('skill');
+      if (skillId) {
+        showDetailView(skillId);
+      } else {
+        showGridView();
+      }
+    });
+
+    // Filter functionality
+    document.getElementById('filterSection').addEventListener('click', (e) => {
+      if (e.target.classList.contains('filter-btn')) {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        currentFilter = e.target.dataset.filter;
+        const filtered = currentFilter === 'all' ? allSkills : allSkills.filter(skill => skill.category === currentFilter);
+        displaySkillGrid(filtered);
+      }
+    });
+
+    loadSkills();
+  </script>
+</body>
+</html>

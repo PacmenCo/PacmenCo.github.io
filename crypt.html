@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Crypt – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "⚰️";
+      margin-right: 0.75rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(124, 58, 237, 0.05);
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-orange);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .highlight-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent-orange);
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .highlight-box strong {
+      color: var(--accent-orange);
+    }
+
+    .special-box {
+      background: rgba(124, 58, 237, 0.15);
+      border: 2px solid var(--accent-purple);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .special-box strong {
+      color: var(--accent-purple);
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    thead {
+      background: rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--accent-orange);
+      font-weight: 600;
+      border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+    }
+
+    td {
+      padding: 0.75rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    tr:hover {
+      background: rgba(124, 58, 237, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .container {
+        padding: 5rem 0.75rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .content-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .content-section h3 {
+        font-size: 1rem;
+      }
+
+      .content-section p {
+        font-size: 0.9rem;
+      }
+
+      table {
+        font-size: 0.8rem;
+      }
+
+      th,
+      td {
+        padding: 0.4rem;
+      }
+
+      .feature-list li {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">⚰️ The Crypt</h1>
+      <p class="page-subtitle">Explore a 30-minute dungeon maze - activate pillars and find your way to where the
+        Vampire awaits</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>
+        The Crypt is a 30-minute time limited dungeon featuring a maze of interconnected rooms. Navigate
+        through
+        normal rooms, minibosses, and special pillar chambers while managing the risk-reward of treasure chests.
+        Defeat the Vampire boss for a guaranteed Soulstone and score-scaled Crypt Ring with LifeSteal!
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Entry Cost</div>
+          <div class="stat-value">Free</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Cooldown</div>
+          <div class="stat-value">930 seconds</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Time-limit</div>
+          <div class="stat-value">30 minutes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Dungeon Structure</h2>
+      <p>
+        The Crypt consists of 37 rooms. Each run generates a randomized layout with
+        specific room types:
+      </p>
+
+      <h3>Room Distribution</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th>Count</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Start Room</td>
+            <td>1</td>
+            <td>Entry point, safe zone</td>
+          </tr>
+          <tr>
+            <td>Normal Rooms</td>
+            <td>19</td>
+            <td>Standard combat encounters</td>
+          </tr>
+          <tr>
+            <td>Empty Rooms</td>
+            <td>4</td>
+            <td>No enemies, safe passage</td>
+          </tr>
+          <tr>
+            <td>MiniBoss Rooms</td>
+            <td>8</td>
+            <td>Tougher enemies, better loot</td>
+          </tr>
+          <tr>
+            <td>Pillar Rooms</td>
+            <td>3</td>
+            <td>Must activate to unlock boss (5% Soulstone drop)</td>
+          </tr>
+          <tr>
+            <td>End Room</td>
+            <td>1</td>
+            <td>Boss room entrance (locked until pillars active)</td>
+          </tr>
+          <tr>
+            <td>Boss Room</td>
+            <td>1</td>
+            <td>Vampire boss (100% Soulstone drop)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Pillar Mechanic</h3>
+      <p>
+        Three pillar rooms are scattered throughout the dungeon. You must find and activate all three pillars to unlock
+        the boss room. This ensures exploration and prevents rushing directly to the boss.
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>3 Pillars Required:</strong> All three must be activated to access boss</li>
+        <li><strong>Boss Room Locked:</strong> Cannot enter boss room until all pillars activated</li>
+        <li><strong>Exploration Encouraged:</strong> Promotes full dungeon navigation</li>
+        <li><strong>Pillar Rooms:</strong> 5% Soulstone drop chance when cleared</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Treasure Chests</h2>
+      <p>
+        The Crypt contains 10 treasure chests offering progressive loot. However, each chest opened increases enemy
+        difficulty throughout the entire dungeon - creating a risk-reward dynamic.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Chests</div>
+          <div class="stat-value">10</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Loot Quality</div>
+          <div class="stat-value">Progressive</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Penalty</div>
+          <div class="stat-value">Enemy Scaling</div>
+        </div>
+      </div>
+
+      <h3>Enemy Scaling Per Chest</h3>
+      <div class="formula-box">
+        Attack Multiplier = (1.09 + 0.025)^chests_opened<br><br>
+        Health Multiplier = (1.12 + 0.005)^chests_opened
+      </div>
+
+      <h3>Chest Impact Table</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Chests Opened</th>
+            <th>Attack Multiplier</th>
+            <th>Health Multiplier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>1.00x (Base)</td>
+            <td>1.00x (Base)</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>1.115x</td>
+            <td>1.125x</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>1.39x</td>
+            <td>1.42x</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>1.73x</td>
+            <td>1.80x</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>2.15x</td>
+            <td>2.28x</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>2.91x</td>
+            <td>3.14x</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="highlight-box">
+        <strong>Risk vs Reward:</strong> Opening all 10 chests makes enemies nearly 3x stronger! Only open chests
+        if your build can handle the exponential difficulty increase.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Soulstone Drops</h2>
+      <p>
+        The Crypt provides multiple sources of Soulstone drops with varying probabilities:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Drop Rate</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Normal Rooms</td>
+            <td>0.5%</td>
+            <td>19 rooms = ~9.5% total chance</td>
+          </tr>
+          <tr>
+            <td>MiniBoss Rooms</td>
+            <td>2%</td>
+            <td>8 rooms = ~16% total chance</td>
+          </tr>
+          <tr>
+            <td>Pillar Rooms</td>
+            <td>5%</td>
+            <td>3 rooms (required) = ~15% total chance</td>
+          </tr>
+          <tr>
+            <td>Vampire Boss</td>
+            <td>100%</td>
+            <td>Guaranteed drop every run</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="special-box">
+        <strong>Guaranteed Soulstone:</strong> The Vampire boss always drops a Soulstone. Combined with the other
+        room drop chances, expect 1-3 Soulstones per successful Crypt run!
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Vampire Boss & Crypt Ring</h2>
+      <p>
+        The Vampire boss is the final encounter, rewarding a Crypt Ring with LifeSteal2 enchantment and score-scaled
+        Critical Rating. Ring quality improves dramatically at high scores.
+      </p>
+
+      <h3>Crypt Ring Properties</h3>
+      <ul class="feature-list">
+        <li><strong>Fixed Enchantment:</strong> LifeSteal2 (always present)</li>
+        <li><strong>Critical Rating:</strong> Scaled by your score</li>
+        <li><strong>Additional Enchant:</strong> Random enchant with level based on score tiers</li>
+        <li><strong>Rarity Bonus:</strong> Higher rarity at extreme scores</li>
+      </ul>
+
+      <h3>Critical Rating Formula</h3>
+      <div class="formula-box">
+        CritRating = (Log(score) / 3 × Log(score)) + Random(1 to 2)
+      </div>
+
+      <h3>Enchant Level by Score</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Score Range</th>
+            <th>Enchant Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-199</td>
+            <td>Level 0</td>
+          </tr>
+          <tr>
+            <td>200-399</td>
+            <td>Level 1</td>
+          </tr>
+          <tr>
+            <td>400-649</td>
+            <td>Level 2</td>
+          </tr>
+          <tr>
+            <td>650-999</td>
+            <td>Level 3</td>
+          </tr>
+          <tr>
+            <td>1,000-1,499</td>
+            <td>Level 5</td>
+          </tr>
+          <tr>
+            <td>1,500-2,499</td>
+            <td>Level 7</td>
+          </tr>
+          <tr>
+            <td>2,500+</td>
+            <td>Level 10</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Score-Based Bonuses</h3>
+      <ul class="feature-list">
+        <li><strong>Score 1,250+:</strong> +1 rarity tier, ×1.2 item roll multiplier (irm)</li>
+        <li><strong>Score 10,000+:</strong> +2 rarity tiers, ×1.44 item roll multiplier (irm)</li>
+      </ul>
+
+      <p class="highlight-box">
+        <strong>Elite Ring Threshold:</strong> Achieving 10,000+ score grants incredible ring bonuses with
+        +2 rarity and 44% better stat rolls. This requires near-perfect runs!
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Scoring System</h2>
+      <p>
+        Your score determines Crypt Ring quality and is based on base score, remaining time, chests opened, and
+        difficulty.
+      </p>
+
+      <div class="formula-box">
+        Score = (baseScore × √(timeLeft / 180) + chests × 200) × difficulty
+      </div>
+
+      <h3>Score Components</h3>
+      <ul class="feature-list">
+        <li><strong>Base Score:</strong> Derived from rooms cleared, enemies defeated</li>
+        <li><strong>Time Bonus:</strong> Square root of (timeLeft/180) - rewards fast completion</li>
+        <li><strong>Chest Bonus:</strong> +200 score per chest opened (10 chests = +2,000)</li>
+        <li><strong>Difficulty:</strong> Multiplier based on selected difficulty setting</li>
+      </ul>
+
+      <h3>Time Impact</h3>
+      <p>
+        The time bonus uses square root scaling, meaning finishing in 25 minutes (1500s left) gives √(1500/180) ≈ 2.89x
+        multiplier, while finishing in 15 minutes (900s left) gives √(900/180) ≈ 2.24x multiplier.
+      </p>
+
+      <p class="highlight-box">
+        <strong>Optimization Strategy:</strong> Opening all 10 chests adds 2,000 base score but makes enemies 3x harder,
+        potentially slowing you down and increasing death risk. Balance greed with speed!
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Guide</h2>
+
+      <h3>Exploration Strategy</h3>
+      <ul class="feature-list">
+        <li><strong>Find All Pillars:</strong> Required to unlock boss - explore systematically</li>
+        <li><strong>Map Awareness:</strong> Track which rooms are cleared to avoid backtracking</li>
+        <li><strong>Prioritize MiniBosses:</strong> 2% Soulstone drop rate is 4x normal rooms</li>
+        <li><strong>Speed Matters:</strong> Time bonus significantly affects score</li>
+      </ul>
+
+      <h3>Chest Decision Making</h3>
+      <ul class="feature-list">
+        <li><strong>Early Game:</strong> Skip most chests, focus on completion</li>
+        <li><strong>Mid Game:</strong> Open 3-5 chests for balanced score/difficulty</li>
+        <li><strong>Endgame:</strong> Open all 10 if you can handle 3x enemy scaling</li>
+        <li><strong>Risk Assessment:</strong> Each chest is +200 score but exponentially harder enemies</li>
+      </ul>
+
+      <h3>Combat Optimization</h3>
+      <ul class="feature-list">
+        <li><strong>Sustain Build:</strong> 30 minutes demands healing and survivability</li>
+        <li><strong>Consistent DPS:</strong> Don't rely on burst cooldowns over long duration</li>
+        <li><strong>Defensive Stats:</strong> High chest counts require tanky builds</li>
+        <li><strong>Vampire Preparation:</strong> Save cooldowns for boss encounter</li>
+      </ul>
+
+      <h3>Score Maximization</h3>
+      <div class="special-box">
+        <strong>10,000 Score Strategy:</strong> Requires opening all 10 chests (+2,000), clearing all rooms quickly
+        (high base score), and finishing with 15+ minutes remaining. Only achievable with optimized endgame builds!
+      </div>
+
+      <h3>Soulstone Farming</h3>
+      <ul class="feature-list">
+        <li><strong>Guaranteed Drop:</strong> Vampire always drops 1 Soulstone</li>
+        <li><strong>Expected Value:</strong> ~1-3 Soulstones per run from all sources</li>
+        <li><strong>MiniBoss Priority:</strong> 8 rooms at 2% each = best non-boss source</li>
+        <li><strong>Pillar Bonus:</strong> 3 required pillars at 5% each = ~15% total</li>
+      </ul>
+
+      <h3>Time Management</h3>
+      <ul class="feature-list">
+        <li><strong>30-Minute Window:</strong> More than enough for methodical runs</li>
+        <li><strong>No Rush Needed:</strong> Time bonus favors speed but completion matters more</li>
+        <li><strong>Death Recovery:</strong> Respawn quickly, continue run - time is forgiving</li>
+        <li><strong>Exploration Phase:</strong> First 15-20 minutes finding pillars and clearing</li>
+        <li><strong>Boss Phase:</strong> Final 5-10 minutes for Vampire encounter</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Cooldown & Frequency</h2>
+      <p>
+        The Crypt has a 930-second (15.5 minute) cooldown between runs. This is relatively short considering the
+        30-minute duration, allowing frequent farming.
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>Free Entry:</strong> No resource cost to enter</li>
+        <li><strong>Short Cooldown:</strong> 930 seconds = 15.5 minutes</li>
+        <li><strong>Unlimited Runs:</strong> Farm as often as cooldown permits</li>
+        <li><strong>Guaranteed Value:</strong> Always get at least 1 Soulstone from boss</li>
+      </ul>
+
+      <p class="highlight-box">
+        <strong>Farming Priority:</strong> The Crypt should be run on cooldown for consistent Soulstone income
+        and Crypt Ring upgrades. The free entry and guaranteed boss drop make it incredibly efficient!
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

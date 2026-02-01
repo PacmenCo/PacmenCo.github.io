@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Companion Data Loading</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #0a0e1a;
+      color: #f3f4f6;
+    }
+    .test-result {
+      margin: 10px 0;
+      padding: 10px;
+      background: #1a1f35;
+      border-left: 3px solid #10b981;
+    }
+    .error {
+      border-left-color: #ef4444;
+    }
+    .success {
+      color: #10b981;
+    }
+    .fail {
+      color: #ef4444;
+    }
+    a {
+      color: #06b6d4;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Companion Data Loading Test</h1>
+  <div id="test-results"></div>
+
+  <h2 style="margin-top: 30px;">Test Links:</h2>
+  <div>
+    <a href="companion.html?id=jindo" target="_blank">Jindo</a>
+    <a href="companion.html?id=ember" target="_blank">Ember</a>
+    <a href="companion.html?id=mystikat" target="_blank">Mystikat</a>
+    <a href="companion.html?id=hootini" target="_blank">Hootini</a>
+    <a href="companion.html?id=globbie" target="_blank">Globbie</a>
+    <a href="companion.html?id=acornelius" target="_blank">Acornelius</a>
+    <a href="companion.html?id=florence" target="_blank">Florence</a>
+    <a href="companion.html?id=mechabird" target="_blank">MechaBird</a>
+    <a href="companion.html?id=snekles" target="_blank">Snekles</a>
+  </div>
+
+  <script src="companions-data.js"></script>
+  <script>
+    const resultsDiv = document.getElementById('test-results');
+
+    function addResult(message, isSuccess = true) {
+      const div = document.createElement('div');
+      div.className = `test-result ${isSuccess ? '' : 'error'}`;
+      div.innerHTML = `<span class="${isSuccess ? 'success' : 'fail'}">${isSuccess ? '✓' : '✗'}</span> ${message}`;
+      resultsDiv.appendChild(div);
+    }
+
+    // Test 1: Check if companionsData is defined
+    if (typeof companionsData !== 'undefined') {
+      addResult('companionsData object is defined');
+    } else {
+      addResult('companionsData object is NOT defined!', false);
+    }
+
+    // Test 2: Check companion count
+    const companionCount = Object.keys(companionsData).length;
+    if (companionCount === 9) {
+      addResult(`Found all 9 companions (${companionCount})`);
+    } else {
+      addResult(`Expected 9 companions, found ${companionCount}`, false);
+    }
+
+    // Test 3: Check each companion
+    const expectedCompanions = ['jindo', 'ember', 'mystikat', 'hootini', 'globbie', 'acornelius', 'florence', 'mechabird', 'snekles'];
+
+    expectedCompanions.forEach(id => {
+      const companion = companionsData[id];
+      if (!companion) {
+        addResult(`Companion "${id}" is missing!`, false);
+        return;
+      }
+
+      // Check required fields
+      const hasName = companion.name ? '✓' : '✗';
+      const hasIcon = companion.icon ? '✓' : '✗';
+      const hasStats = companion.baseStats ? '✓' : '✗';
+      const hasContent = companion.contentSections && companion.contentSections.length > 100 ? '✓' : '✗';
+      const contentSize = companion.contentSections ? (companion.contentSections.length / 1024).toFixed(1) : '0';
+
+      const allGood = hasName === '✓' && hasIcon === '✓' && hasStats === '✓' && hasContent === '✓';
+
+      addResult(
+        `<strong>${id}:</strong> Name${hasName} Icon${hasIcon} Stats${hasStats} Content${hasContent} (${contentSize}KB)`,
+        allGood
+      );
+    });
+
+    // Test 4: Check if contentSections are template literals
+    const firstCompanion = companionsData.jindo;
+    if (firstCompanion && typeof firstCompanion.contentSections === 'string') {
+      addResult('contentSections are strings (correct format)');
+    } else {
+      addResult('contentSections format issue', false);
+    }
+
+    // Summary
+    const successCount = document.querySelectorAll('.test-result:not(.error)').length;
+    const totalTests = document.querySelectorAll('.test-result').length;
+
+    const summaryDiv = document.createElement('div');
+    summaryDiv.style.marginTop = '20px';
+    summaryDiv.style.padding = '15px';
+    summaryDiv.style.background = successCount === totalTests ? '#10b98120' : '#ef444420';
+    summaryDiv.style.borderLeft = `3px solid ${successCount === totalTests ? '#10b981' : '#ef4444'}`;
+    summaryDiv.innerHTML = `<h3>Summary: ${successCount}/${totalTests} tests passed</h3>`;
+    resultsDiv.appendChild(summaryDiv);
+  </script>
+</body>
+</html>

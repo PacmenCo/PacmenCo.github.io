@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Ruined Tower – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "🗼";
+      margin-right: 0.75rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(124, 58, 237, 0.05);
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-orange);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+      margin: 1rem 0;
+    }
+
+    .highlight-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent-orange);
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .highlight-box strong {
+      color: var(--accent-orange);
+    }
+
+    .special-box {
+      background: rgba(124, 58, 237, 0.15);
+      border: 2px solid var(--accent-purple);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .special-box strong {
+      color: var(--accent-purple);
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    thead {
+      background: rgba(124, 58, 237, 0.2);
+    }
+
+    th {
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--accent-orange);
+      font-weight: 600;
+      border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+    }
+
+    td {
+      padding: 0.75rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    tr:hover {
+      background: rgba(124, 58, 237, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .content-section h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .container {
+        padding: 5rem 0.75rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .content-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .content-section h3 {
+        font-size: 1rem;
+      }
+
+      .content-section p {
+        font-size: 0.9rem;
+      }
+
+      table {
+        font-size: 0.8rem;
+      }
+
+      th,
+      td {
+        padding: 0.4rem;
+      }
+
+      .feature-list li {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🗼 The Ruined Tower</h1>
+      <p class="page-subtitle">Endless wave survival with 3% Soulstone drops from Evil Eyes - the best farmable source
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>
+        The Ruined Tower is an endless wave survival challenge where you face increasingly powerful enemies. The raid
+        itself is located in
+        <strong>Ruined Tower - Zone 1</strong>. Entry
+        requires a Tower Key.
+        The Tower is the best location for Soulstone farming, with Evil Eyes (every 6th kill) dropping Soulstones at a
+        3% rate. The Ruined Tower can be a decent place to farm experience and loot as well.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Location:</strong> Ruined Tower - Zone 1</li>
+        <li><strong>Entry Requirement:</strong> 1 Tower Key per run</li>
+        <li><strong>Best Soulstone Farm:</strong> Evil Eyes (every 6th kill) offers a 3% drop rate</li>
+        <li><strong>Endless Survival:</strong> Fight until you can no longer survive (but beware not to die and lose
+          rank experience)</li>
+        <li><strong>Fast Spawning:</strong> New enemies appear almost instantly and each kill extends the timer by 5
+          seconds (max 60s)</li>
+      </ul>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Entry Cost</div>
+          <div class="stat-value">1 Tower Key</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Max Keys</div>
+          <div class="stat-value">3</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Starting Time</div>
+          <div class="stat-value">60 seconds</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Time Per Kill</div>
+          <div class="stat-value">+5s (max 60s)</div>
+        </div>
+      </div>
+
+      <div class="special-box">
+        <strong>Tower Exclusive:</strong> Evil Eyes (every 6th enemy) have a 3% Soulstone drop rate - the highest
+        farmable
+        rate in the game. Combined with fast enemy spawning, this possibly makes the Tower the best location for
+        Soulstone
+        farming.
+      </div>
+    </div>
+
+
+
+    <div class="content-section">
+      <h2>Enemy Types</h2>
+      <p>
+        The Tower spawns two types of enemies in a predictable pattern:
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Regular Enemy</div>
+          <div class="stat-value">Eyeballs</div>
+          <div class="stat-label" style="margin-top: 0.5rem;">Kills 1-5, 7-11, 13-17...</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Elite Enemy</div>
+          <div class="stat-value">Evil Eyes</div>
+          <div class="stat-label" style="margin-top: 0.5rem;">Every 6th kill</div>
+        </div>
+      </div>
+
+      <p>
+        <strong>Only Evil Eyes drop Soulstones at increased odds</strong> (3% chance). Evil Eyes appear every 6th kill
+        (kills 6, 12, 18,
+        24, etc.)
+        and are significantly tougher than regular Eyeballs. Regular Eyeballs do not drop Soulstones.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Enemy Scaling</h2>
+      <p>
+        Each kill increases enemy stats exponentially. The scaling continues indefinitely, making survival increasingly
+        difficult:
+      </p>
+
+      <h3>Scaling Formulas</h3>
+      <div class="formula-box">
+        Level = Base Level + (0.1 × kills)<br><br>
+        Attack = Base Attack × 1.0204^kills<br><br>
+        Defense = Base Defense × 1.0041^kills<br><br>
+        Health = Base Health × 1.0145^kills
+      </div>
+
+      <h3>Scaling Analysis</h3>
+      <ul class="feature-list">
+        <li><strong>Attack:</strong> Scales fastest at 2.04% per kill - damage becomes lethal quickly</li>
+        <li><strong>Health:</strong> 1.45% per kill - enemies become increasingly tanky</li>
+        <li><strong>Defense:</strong> 0.41% per kill - slowest scaling, less impactful</li>
+        <li><strong>Level:</strong> Linear +0.1 per kill affects accuracy/evasion calculations</li>
+      </ul>
+
+      <p class="highlight-box">
+        <strong>Survival Tip:</strong> Attack scaling is the deadliest factor. Prioritize defensive stats and
+        damage mitigation to survive longer runs.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Scoring & Rewards</h2>
+      <p>
+        Your score is simply your total kill count. Higher kills mean better rewards and more Soulstone opportunities.
+      </p>
+
+      <div class="formula-box">
+        Score = Total Kills
+      </div>
+
+      <h3>Reward Breakdown</h3>
+      <ul class="feature-list">
+        <li><strong>Soulstones:</strong> 3% drop chance from Evil Eyes only (every 6th kill)</li>
+        <li><strong>Experience:</strong> Scales with enemy level and number of kills</li>
+        <li><strong>Loot:</strong> Quick kills and faster spawnrate means frequent loot drops</li>
+      </ul>
+
+      <div class="special-box">
+        <strong>Soulstone Farming:</strong> With 3% drop rate from Evil Eyes (every 6th kill), expect roughly 1
+        Soulstone per ~200 total kills on average.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Guide</h2>
+      <h3>Build Requirements</h3>
+      <ul class="feature-list">
+        <li><strong>Sustain Damage:</strong> Focus on consistent DPS rather than burst</li>
+        <li><strong>Survivability:</strong> High HP, defense, and healing to outlast scaling damage</li>
+        <li><strong>Loot modifier:</strong> Make sure your loot modifiers are high - maximize how many potions drop
+          during the run!
+        </li>
+      </ul>
+
+      <h3>Combat Strategy</h3>
+      <ul class="feature-list">
+        <li><strong>Aggressive Killing:</strong> Don't let timer run low - kill constantly</li>
+        <li><strong>Save Cooldowns for Evil Eyes:</strong> Every 6th kill is tougher, be ready</li>
+        <li><strong>Heal Efficiently:</strong> Don't waste healing when unnecessary</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Tower Key Crafting</h2>
+      <p>
+        Tower Keys are crafted using pixels and voxels. Like Cave Keys, they use a penalty system that increases
+        cost but decays over time.
+      </p>
+
+      <h3>Penalty System</h3>
+      <ul class="feature-list">
+        <li><strong>Penalty per purchase:</strong> 100 penalty per key crafted</li>
+        <li><strong>Result:</strong> Faster decay than Cave Keys - costs normalize quicker</li>
+      </ul>
+
+      <p class="formula-box">
+        Decay per tick: 1 + penalty/80<br>
+        Applied every 30 seconds
+      </p>
+
+      <h3>Decay Examples</h3>
+      <ul class="feature-list">
+        <li><strong>At 80 penalty:</strong> Decay = 1 + (80/80) = 2 per tick</li>
+        <li><strong>At 160 penalty:</strong> Decay = 1 + (160/80) = 3 per tick</li>
+        <li><strong>At 400 penalty:</strong> Decay = 1 + (400/80) = 6 per tick</li>
+      </ul>
+
+      <p>
+        <strong>Conclusion:</strong> Higher penalties decay significantly faster. Tower Keys decay faster than Cave Keys
+        (divider of 80 vs 115), making it easier to return to free key costs.
+      </p>
+
+      <h3>Key Cost Tiers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Penalty Range</th>
+            <th>Pixels</th>
+            <th>Voxels</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-9</td>
+            <td>Free</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td>10-114</td>
+            <td>500</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>115-214</td>
+            <td>1,250</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>215-314</td>
+            <td>2,750</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>315-414</td>
+            <td>4,500</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>415+</td>
+            <td>7,500</td>
+            <td>25</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="highlight-box">
+        <strong>Strategy Tip:</strong> Be sure the grap the free keys from the shop when your penalty is low!
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Unlock Requirement</h2>
+      <p>
+        The Ruined Tower unlocks after defeating the <strong>Mordots boss</strong> in the main campaign. Once unlocked,
+        it becomes a permanent endgame activity for Soulstone farming.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

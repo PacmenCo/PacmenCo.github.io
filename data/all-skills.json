@@ -1,0 +1,634 @@
+{
+  "skills": [
+    {
+      "id": "auto_attack",
+      "name": "Auto Attack",
+      "icon": "⚙️",
+      "category": "Basic Combat",
+      "type": "Auto Attack",
+      "description": "Automatic basic attack during idle combat. 15% damage reduction but faster speed for consistent DPS.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": -0.15
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.18,
+        "damageMod": -0.15,
+        "critChance": 0,
+        "critDamage": 0,
+        "isAutoAttack": true
+      },
+      "notes": [
+        "Always available",
+        "Activates automatically when idle",
+        "15% damage penalty for automation convenience"
+      ]
+    },
+    {
+      "id": "speed_attack",
+      "name": "Speed Attack",
+      "icon": "⚡",
+      "category": "Basic Combat",
+      "type": "Basic Attack",
+      "description": "Quick rapid strikes with increased frequency for consistent DPS.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 8,
+        "duration": null,
+        "damageMultiplier": -0.1
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.5,
+        "damageMod": -0.1,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "notes": [
+        "Starter skill",
+        "Fast attack speed for sustained damage",
+        "Low mana cost"
+      ]
+    },
+    {
+      "id": "heavy_attack",
+      "name": "Heavy Attack",
+      "icon": "💥",
+      "category": "Basic Combat",
+      "type": "Basic Attack",
+      "description": "Massive single-hit damage with slower animation.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 10,
+        "duration": null,
+        "damageMultiplier": 0.5
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 0.6,
+        "damageMod": 0.5,
+        "critChance": 0,
+        "critDamage": 0.2
+      },
+      "notes": [
+        "Starter skill",
+        "Slow but powerful",
+        "Good for burst damage"
+      ]
+    },
+    {
+      "id": "poison_attack",
+      "name": "Poison Attack",
+      "icon": "☠️",
+      "category": "Basic Combat",
+      "type": "Basic Attack",
+      "description": "Applies poison DoT and reduces enemy health regeneration.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 9,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Poison",
+            "description": "Reduces enemy health regeneration and applies damage over time"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "notes": [
+        "Starter skill",
+        "Counters high-regen enemies",
+        "DoT effect"
+      ]
+    },
+    {
+      "id": "break_armor",
+      "name": "Break Armor",
+      "icon": "🛡️",
+      "category": "Basic Combat",
+      "type": "Debuff Attack",
+      "description": "Reduces enemy armor making them take significantly more damage.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 11,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Armor Break",
+            "description": "Reduces enemy armor/defense"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "notes": [
+        "Unlockable",
+        "Essential for high-armor enemies",
+        "Stacks with other debuffs"
+      ]
+    },
+    {
+      "id": "rupture",
+      "name": "Rupture",
+      "icon": "🩸",
+      "category": "Basic Combat",
+      "type": "DoT Attack",
+      "description": "Progressive bleeding damage with stacking effect (5-10 stacks).",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 10,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Bleed",
+            "description": "Stacking bleed effect (5-10 stacks)"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "notes": [
+        "Unlockable",
+        "Stacks for increased damage",
+        "Good for long fights"
+      ]
+    },
+    {
+      "id": "witherstrike",
+      "name": "Witherstrike",
+      "icon": "⚔️",
+      "category": "Basic Combat",
+      "type": "Debuff Attack",
+      "description": "Weakens enemy offensive capability by reducing attack damage.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 10,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Attack Reduction",
+            "description": "Reduces enemy attack damage"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "notes": [
+        "Unlockable",
+        "Defensive utility",
+        "Reduces incoming damage"
+      ]
+    },
+    {
+      "id": "cleave",
+      "name": "Cleave",
+      "icon": "🪓",
+      "category": "Advanced Combat",
+      "type": "AoE Attack",
+      "description": "Hits multiple enemies with INCREASING damage per enemy (+15% per hit, max 10).",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 15,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Cleave",
+            "description": "+15% damage per enemy hit (max 10 stacks)"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 0.8,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "cleaveStackBonus": 0.15,
+        "maxPierceOrCleaveStacks": 10
+      },
+      "notes": [
+        "Unlockable",
+        "Scales with number of enemies",
+        "Devastating in multi-enemy fights"
+      ]
+    },
+    {
+      "id": "execute",
+      "name": "Execute",
+      "icon": "🗡️",
+      "category": "Advanced Combat",
+      "type": "Execute Attack",
+      "description": "2x damage to enemies below 30% HP. Button glows when ready!",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 14,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "execute": {
+          "enabled": true,
+          "threshold": 0.3,
+          "damageMultiplier": 2.0
+        },
+        "effects": [
+          {
+            "type": "Execute Threshold",
+            "description": "2x damage below 30% HP"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "showButtonGlow": true,
+        "executeMechanic": true,
+        "executeThreshold": 0.3,
+        "executeDamageMultiplier": 2.0
+      },
+      "notes": [
+        "Unlockable",
+        "Button glows when enemy below threshold",
+        "Finisher ability"
+      ]
+    },
+    {
+      "id": "charged_strike",
+      "name": "Charged Strike",
+      "icon": "⚡",
+      "category": "High-Risk Attack",
+      "type": "Charge-Based Attack",
+      "description": "A powerful attack that builds charges on hit. Charges can be consumed for massive bonus damage, creating a feedback loop for aggressive play.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 12,
+        "duration": null,
+        "damageMultiplier": -0.2
+      },
+      "mechanics": {
+        "instantCast": false,
+        "chargeSystem": {
+          "enabled": true,
+          "consumptionMode": "Optional",
+          "maxCharges": 200,
+          "buildsCharges": true,
+          "chargesPerHit": "3",
+          "chargesPerCrit": "3 (guaranteed max)",
+          "consumptionAmount": 200,
+          "bonusDamageMultiplier": 1.75,
+          "chargeDescription": "Builds 3 charges per hit. Can consume up to 200 charges for +175% bonus damage.",
+          "critGivesMaxCharges": true
+        },
+        "effects": [
+          {
+            "type": "Build Charges",
+            "description": "Generates 3 charges on hit. Critical hits guarantee maximum charges."
+          },
+          {
+            "type": "Charge Consumption",
+            "description": "Consumes up to 200 charges for 1.75x damage multiplier (optional)"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 0.75,
+        "damageMod": -0.2,
+        "critChance": 0.25,
+        "critDamage": 0.5,
+        "critDamageMultiplier": 1.1,
+        "showButtonGlow": true
+      },
+      "notes": [
+        "High-Risk category",
+        "No cooldown - can be used repeatedly to build charges",
+        "Charges persist until consumed",
+        "With 200 charges: Total damage = Base × 2.75",
+        "Speed: 0.75 (25% slower than normal attacks)"
+      ]
+    },
+    {
+      "id": "static_discharge",
+      "name": "Static Discharge",
+      "icon": "⚡",
+      "category": "High-Risk Attack",
+      "type": "Chain Attack",
+      "description": "Electrical chain lightning that spreads to nearby enemies.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 16,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Chain Lightning",
+            "description": "Damage spreads to nearby enemies"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0.1,
+        "critDamage": 0
+      },
+      "notes": [
+        "High-Risk category",
+        "Excellent for grouped enemies",
+        "Chain effect"
+      ]
+    },
+    {
+      "id": "final_judgement",
+      "name": "Final Judgement",
+      "icon": "⚖️",
+      "category": "High-Risk Attack",
+      "type": "Ultimate Attack",
+      "description": "Ultimate devastating finisher ability.",
+      "stats": {
+        "cooldown": 60,
+        "manaCost": 50,
+        "duration": null,
+        "damageMultiplier": 2.0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 0.5,
+        "damageMod": 2.0,
+        "critChance": 0.2,
+        "critDamage": 1.0
+      },
+      "notes": [
+        "High-Risk category",
+        "Long cooldown",
+        "Massive damage",
+        "Ultimate ability"
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "name": "Sacrifice",
+      "icon": "❤️‍🔥",
+      "category": "High-Risk",
+      "type": "Self-Damage Attack",
+      "description": "Trade health for damage. Cannot reduce below 1 HP.",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": 1.5
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": [
+          {
+            "type": "Health Cost",
+            "description": "Costs HP instead of mana. Cannot kill yourself."
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 1.5,
+        "critChance": 0,
+        "critDamage": 0,
+        "healthCostPercent": 0.1
+      },
+      "notes": [
+        "High-Risk category",
+        "Costs health instead of mana",
+        "Cannot reduce HP below 1",
+        "Synergizes with life steal"
+      ]
+    },
+    {
+      "id": "vengeance",
+      "name": "Vengeance",
+      "icon": "😤",
+      "category": "High-Risk",
+      "type": "Low-Health Attack",
+      "description": "Up to 2x damage based on missing health (1 + missing%²).",
+      "stats": {
+        "cooldown": 0,
+        "manaCost": 12,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": false,
+        "effects": []
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "critChance": 0,
+        "critDamage": 0,
+        "lowHealthDamageMultiplier": 1.0,
+        "maxLowHealthBonus": 2.0
+      },
+      "notes": [
+        "High-Risk category",
+        "Scales with missing health",
+        "Quadratic scaling: 1 + (missing%)²",
+        "Maximum 2x damage at low health"
+      ]
+    },
+    {
+      "id": "shield",
+      "name": "Shield",
+      "icon": "🛡️",
+      "category": "Defensive",
+      "type": "Instant Cast",
+      "description": "Blocks incoming attacks temporarily.",
+      "stats": {
+        "cooldown": 45,
+        "manaCost": 20,
+        "duration": 10,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "Shield",
+            "description": "Blocks a number of incoming attacks"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "isInstantCast": true
+      },
+      "notes": [
+        "Defensive category",
+        "Instant cast",
+        "Blocks multiple attacks",
+        "Does not interrupt current skill"
+      ]
+    },
+    {
+      "id": "last_stand",
+      "name": "Last Stand",
+      "icon": "🛡️",
+      "category": "Defensive",
+      "type": "Instant Cast",
+      "description": "Temporarily reduces incoming damage for a short duration. Perfect for surviving burst damage or difficult encounters.",
+      "stats": {
+        "cooldown": 48,
+        "manaCost": 18,
+        "duration": 10,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "damageReduction": true,
+        "effects": [
+          {
+            "type": "Damage Reduction",
+            "description": "Reduces incoming damage by a percentage"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "isInstantCast": true
+      },
+      "notes": [
+        "Does not reduce player attack speed or damage output",
+        "Does not deactivate current active combat skill",
+        "Shows cooldown countdown on button"
+      ]
+    },
+    {
+      "id": "fortify",
+      "name": "Fortify",
+      "icon": "🛡️",
+      "category": "Defensive",
+      "type": "Instant Cast",
+      "description": "Temporarily increases armor/defense.",
+      "stats": {
+        "cooldown": 40,
+        "manaCost": 16,
+        "duration": 12,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "Defense Buff",
+            "description": "Temporarily increases armor"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "isInstantCast": true
+      },
+      "notes": [
+        "Defensive category",
+        "Instant cast",
+        "Armor buff",
+        "Good for tanking"
+      ]
+    },
+    {
+      "id": "clarity",
+      "name": "Clarity",
+      "icon": "💙",
+      "category": "Utility",
+      "type": "Instant Cast",
+      "description": "Instantly restores mana (flat + % max mana).",
+      "stats": {
+        "cooldown": 30,
+        "manaCost": 0,
+        "duration": null,
+        "damageMultiplier": 0
+      },
+      "mechanics": {
+        "instantCast": true,
+        "effects": [
+          {
+            "type": "Mana Regeneration",
+            "description": "Restores mana instantly"
+          }
+        ]
+      },
+      "combatAttributes": {
+        "speed": 1.0,
+        "damageMod": 0,
+        "isInstantCast": true
+      },
+      "notes": [
+        "Utility category",
+        "No mana cost",
+        "Instant mana restore",
+        "Essential for mana management"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "lastUpdated": "2026-01-31",
+    "totalSkills": 19
+  }
+}

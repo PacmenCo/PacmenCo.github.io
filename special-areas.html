@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Areas – Idle Adventure</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .intro-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .intro-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .intro-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Raid Cards Grid */
+    .raids-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .raid-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .raid-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .raid-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-purple);
+      box-shadow: 0 12px 40px rgba(124, 58, 237, 0.3);
+    }
+
+    .raid-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .raid-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .raid-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .raid-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .raid-highlights {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .raid-highlights li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .raid-highlights li:before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--accent-orange);
+    }
+
+    .raid-cta {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--accent-purple) 0%, #6366f1 100%);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .raid-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
+      }
+
+      .intro-section {
+        padding: 1.5rem;
+      }
+
+      .raids-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .raid-card {
+        padding: 1.5rem;
+      }
+
+      .raid-icon {
+        font-size: 2.5rem;
+      }
+
+      .raid-card h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🗝️ Special Areas</h1>
+      <p class="page-subtitle">Elite challenges with exclusive rewards and high-stakes combat</p>
+    </div>
+
+    <div class="intro-section">
+      <p>
+        Special Areas are high-difficulty challenge zones that offer unique rewards and test your combat mastery.
+        Unlike normal world areas, these special locations feature distinct mechanics, entry requirements, and
+        exclusive loot systems designed to provide endgame progression and replayability.
+      </p>
+      <p>
+        Each special area has its own entry system (keys or cooldowns), unique gameplay mechanics, and specialized
+        rewards. From boss rushes to endless survival and roguelike dungeons, these challenges cater to different
+        playstyles while offering substantial rewards including rare orbs, unique equipment, and massive experience
+        gains.
+      </p>
+    </div>
+
+    <!-- Raid Cards -->
+    <div class="raids-grid">
+      <!-- Cosy Cave -->
+      <a href="cosy-cave.html" class="raid-card">
+        <span class="raid-icon">🏔️</span>
+        <h3>The Cosy Cave</h3>
+        <p class="raid-description">
+          A timed boss rush where you face a gauntlet of powerful enemies against the clock.
+        </p>
+        <ul class="raid-highlights">
+          <li>305-second boss gauntlet</li>
+          <li>Sequential boss battles</li>
+          <li>Difficulty-scaled scoring</li>
+          <li>Massive XP and loot rewards</li>
+        </ul>
+        <span class="raid-cta">Explore the Cave →</span>
+      </a>
+
+      <!-- Ruined Tower -->
+      <a href="ruined-tower.html" class="raid-card">
+        <span class="raid-icon">🗼</span>
+        <h3>The Ruined Tower</h3>
+        <p class="raid-description">
+          Endless wave survival with rapidly spawning enemies and exponential scaling.
+        </p>
+        <ul class="raid-highlights">
+          <li>Fast enemy spawning</li>
+          <li>Timer extends with kills</li>
+          <li>High chance of finding Soulstones</li>
+          <li>Exponential stat scaling</li>
+        </ul>
+        <span class="raid-cta">Ascend the Tower →</span>
+      </a>
+
+      <!-- Mouse Hole Raid -->
+      <a href="mouse-hole.html" class="raid-card">
+        <span class="raid-icon">🐭</span>
+        <h3>The Mouse Hole Raid</h3>
+        <p class="raid-description">
+          Two-phase combat with special mechanics and treasure chest that drops a magical ring.
+        </p>
+        <ul class="raid-highlights">
+          <li>5-minute combat phase</li>
+          <li>Treasure room with 25% orb drop</li>
+          <li>Score-scaled Magic Ring reward</li>
+          <li>Multiple runs per saw (key)</li>
+        </ul>
+        <span class="raid-cta">Enter the Raid →</span>
+      </a>
+
+      <!-- The Crypt -->
+      <a href="crypt.html" class="raid-card">
+        <span class="raid-icon">⚰️</span>
+        <h3>The Crypt</h3>
+        <p class="raid-description">
+          Procedurally-generated roguelike dungeon with 37 rooms, 3 pillar puzzle, 10 treasure chests, and
+          guaranteed Soulstone from the vampire boss.
+        </p>
+        <ul class="raid-highlights">
+          <li>6×6 procedural maze</li>
+          <li>100% Soulstone from boss</li>
+          <li>Score-scaled Crypt Ring</li>
+        </ul>
+        <span class="raid-cta">Explore the Crypt →</span>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
