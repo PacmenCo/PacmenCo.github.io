@@ -292,7 +292,9 @@
     <div class="content-section">
       <h2>What is Enchanting?</h2>
       <p>
-        Enchanting allows you to add powerful stat bonuses to your equipment using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Each item can have up to level 2 enchantments, with different enchantment types available based on the item slot.
+        Enchanting allows you to add powerful stat bonuses to your equipment using <span
+          class="stat-highlight">Pixels</span> and <span class="stat-highlight">Crystals</span>. On each itemtype you
+        have 2 unique enchants to pick from - choose wisely.
       </p>
 
       <h3>How Enchanting Works</h3>
@@ -302,48 +304,39 @@
       <ul class="feature-list">
         <li><strong>New Enchant:</strong> Add an enchantment to an item for the first time (level 0 → level 1)</li>
         <li><strong>Upgrade Enchant:</strong> Increase an existing enchantment by one level (level 1 → level 2)</li>
-        <li><strong>Change Enchant:</strong> Replace an existing enchantment with a different one (keeps the same level!)</li>
+        <li><strong>Change Enchant:</strong> Replace an existing enchantment with a different one (Cheaper and keeps the
+          same
+          level!)</li>
       </ul>
 
       <div class="info-box">
-        <strong>Guaranteed Success:</strong> Enchanting has a 100% success rate - there is no chance of failure!
+        <strong>Guaranteed Success:</strong> Enchanting has a 100% success rate
       </div>
 
       <div class="info-box">
-        <strong>Level Preservation:</strong> When you switch from one enchantment to another, the new enchantment inherits the level from the old one! For example, if you have Deadly Strike level 2 and switch to Piercing, you'll get Piercing level 2 immediately. This makes experimenting with different enchantments much less costly!
+        <strong>Level Preservation:</strong> When you switch from one enchantment to another, the new enchantment
+        inherits the level from the old one! For example, if you have Deadly Strike level 2 and switch to Piercing,
+        you'll get Piercing level 2 immediately. This makes experimenting with different enchantments much less costly!
       </div>
 
-      <h3>Enchanting Materials</h3>
+      <h3>Crystals</h3>
       <p>
-        <span class="stat-highlight">Crystals</span> (enchanting materials) are obtained by defeating enemies. The amount dropped is based on:
+        <span class="stat-highlight">Crystals</span> can be obtained by defeating enemies, but the fastest way to farm
+        crystals
+        is in, you guessed it, the mine!
       </p>
-      <ul class="feature-list">
-        <li>Enemy level (higher level enemies drop more)</li>
-        <li>Level difference between you and the enemy (fighting enemies 8+ levels below you reduces drops)</li>
-        <li>Random variation in loot rolls</li>
-      </ul>
-
-      <div class="formula-box">
-        Base Amount = 0-2 + 0-2 + Random(1, max_roll+1)<br>
-        Where: max_roll = (int)(2.76 × (enemyLevel/levelsPerRealLevel + 15) / 20)
-      </div>
-
-      <p>
-        If you are 8+ levels above the enemy, Crystal drops are reduced by the formula:
-      </p>
-      <div class="formula-box">
-        Reduction = (levelDiff^0.9 + 34) / (levelDiff^0.9 + 14) - 1<br>
-        (Minimum 55% reduction)
-      </div>
     </div>
 
     <div class="content-section">
       <h2>Enchantment Types</h2>
       <p>
-        Enchantments are <span class="stat-highlight">restricted by equipment type</span>. Each item slot has access to exactly <span class="stat-highlight">two specific enchantments</span> - you cannot apply any other enchantment types to that item.
+        Enchantments are <span class="stat-highlight">restricted by equipment type</span>. Each item slot has access to
+        exactly <span class="stat-highlight">two specific enchantments</span> - you cannot apply any other enchantment
+        types to that item.
       </p>
       <p>
-        For example, weapons can ONLY have Deadly Strike or Piercing. You cannot add Life Steal or any other enchantment to a weapon.
+        For example, weapons can ONLY have Deadly Strike or Piercing. You cannot add Life Steal or any other enchantment
+        to a weapon.
       </p>
 
       <table>
@@ -365,18 +358,11 @@
             <td>17.5% armor ignore chance</td>
           </tr>
           <tr>
-            <td>RWeapon</td>
-            <td>Deadly Strike</td>
-            <td>2.5% chance for 1.5x damage</td>
-            <td>Piercing</td>
-            <td>17.5% armor ignore chance</td>
-          </tr>
-          <tr>
             <td>Armor</td>
             <td>Endurance</td>
-            <td>+3% damage reduction</td>
+            <td>+3% resist</td>
             <td>Blocking</td>
-            <td>15% block chance</td>
+            <td>15% chance to block 33% damage</td>
           </tr>
           <tr>
             <td>Helm</td>
@@ -388,44 +374,41 @@
           <tr>
             <td>Legs</td>
             <td>Mana Absorb</td>
-            <td>6% mana on hit chance</td>
+            <td>6% chance to gain 20 mana when struck</td>
             <td>Mana Leech</td>
-            <td>4% mana steal chance</td>
+            <td>4% chance to gain 10 mana on attack</td>
           </tr>
           <tr>
             <td>Boots</td>
             <td>Swiftness</td>
-            <td>+2% movement speed</td>
+            <td>+2% attack speed</td>
             <td>Reflect</td>
             <td>+10% damage reflection</td>
           </tr>
           <tr>
             <td>Gloves</td>
             <td>Open Wounds</td>
-            <td>+3% DoT damage</td>
+            <td>+3% chance of Open Wounds</td>
             <td>Crushing Blows</td>
-            <td>+3% crushing blow</td>
+            <td>+3% Crushing Blow</td>
           </tr>
         </tbody>
       </table>
 
       <p>
-        <strong>Example:</strong> A weapon with Deadly Strike level 2 grants a 5% chance (2.5% × 2) to deal 1.5x damage on each attack.
+        <strong>Example:</strong> A weapon with Deadly Strike level 2 grants a 5% chance (2.5% × 2) to deal 1.5x damage
+        on attack.
       </p>
 
-      <div class="info-box">
-        <strong>Additional Enchantment Types:</strong> There are also two rare/legacy enchantment types that may appear on certain items:
-        <ul style="margin: 0.5rem 0 0 1.5rem; list-style: disc;">
-          <li><strong>Life Steal 2:</strong> +0.4% life steal per level (variant of Life Steal)</li>
-          <li><strong>Damage Percent:</strong> +0.1% damage per level (generic damage bonus)</li>
-        </ul>
-      </div>
+
     </div>
 
     <div class="content-section">
       <h2>Enchanting Costs</h2>
       <p>
-        Enchanting requires both <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Costs scale based on item quality, item type, and enchantment level.
+        Enchanting requires both <span class="stat-highlight">Pixels</span> and <span
+          class="stat-highlight">Crystals</span>. Costs scale based on item quality, item type,
+        and enchantment level.
       </p>
 
       <h3>Pixel Cost Formula</h3>
@@ -437,7 +420,9 @@
       </div>
 
       <p>
-        <strong>Note on Change Enchant:</strong> The cost uses the current enchantment level in the formula because the new enchantment will keep the same level. This means changing a level 2 enchantment costs more than changing a level 1 enchantment, but you get to keep the level 2 on the new enchant!
+        <strong>Note on Change Enchant:</strong> The cost uses the current enchantment level in the formula because the
+        new enchantment will keep the same level. This means changing a level 2 enchantment costs more than changing a
+        level 1 enchantment, but you get to keep the level 2 on the new enchant!
       </p>
 
       <h3>Item Type Multipliers (Pixel Cost)</h3>
@@ -449,13 +434,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>RWeapon</td><td>0.65x (cheapest)</td></tr>
-          <tr><td>Weapon</td><td>0.7x</td></tr>
-          <tr><td>Legs</td><td>0.59x</td></tr>
-          <tr><td>Boots</td><td>0.8x</td></tr>
-          <tr><td>Helm</td><td>1.25x</td></tr>
-          <tr><td>Armor</td><td>1.4x</td></tr>
-          <tr><td>Gloves</td><td>1.57x (most expensive)</td></tr>
+
+          <tr>
+            <td>Weapon</td>
+            <td>0.7x</td>
+          </tr>
+          <tr>
+            <td>Legs</td>
+            <td>0.59x</td>
+          </tr>
+          <tr>
+            <td>Boots</td>
+            <td>0.8x</td>
+          </tr>
+          <tr>
+            <td>Helm</td>
+            <td>1.25x</td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td>1.4x</td>
+          </tr>
+          <tr>
+            <td>Gloves</td>
+            <td>1.57x (most expensive)</td>
+          </tr>
         </tbody>
       </table>
 
@@ -477,31 +480,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Boots</td><td>0.51x (cheapest)</td></tr>
-          <tr><td>Gloves</td><td>0.60x</td></tr>
-          <tr><td>Helm</td><td>0.72x</td></tr>
-          <tr><td>Legs</td><td>0.90x</td></tr>
-          <tr><td>Armor</td><td>1.07x</td></tr>
-          <tr><td>Weapon</td><td>1.95x</td></tr>
-          <tr><td>RWeapon</td><td>2.09x (most expensive)</td></tr>
+          <tr>
+            <td>Boots</td>
+            <td>0.51x (cheapest)</td>
+          </tr>
+          <tr>
+            <td>Gloves</td>
+            <td>0.60x</td>
+          </tr>
+          <tr>
+            <td>Helm</td>
+            <td>0.72x</td>
+          </tr>
+          <tr>
+            <td>Legs</td>
+            <td>0.90x</td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td>1.07x</td>
+          </tr>
+          <tr>
+            <td>Weapon</td>
+            <td>2.09x (most expensive)</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="content-section">
-      <h2>Max Enchant Level</h2>
-      <p>
-        The maximum enchantment level you can apply increases with your player level and ascension bonuses.
-      </p>
-
-      <div class="formula-box">
-        Max Enchant Level = (int)AscensionEnchantingBonus + 1 + playerLevel / (15 × levelsPerRealLevel)
-      </div>
-
-      <p>
-        Higher levels and ascension skills unlock the ability to enchant items to level 2 and beyond.
-      </p>
-    </div>
   </div>
 </body>
 

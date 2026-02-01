@@ -166,7 +166,8 @@
       const filterTypeContainer = document.createElement('div');
       filterTypeContainer.className = 'filter-type-tabs';
       filterTypeContainer.innerHTML = `
-        <button class="filter-type-btn active" data-type="stat">By Stat Bonus</button>
+        <button class="filter-type-btn active" data-type="stat">By Permanent Stat Bonus</button>
+        <button class="filter-type-btn" data-type="equipped">By Equipped Stats</button>
         <button class="filter-type-btn" data-type="acquisition">By Acquisition</button>
         <button class="filter-type-btn" data-type="level">By Level Tier</button>
       `;
@@ -244,6 +245,24 @@
           btn.textContent = method;
           container.appendChild(btn);
         });
+      } else if (filterType === 'equipped') {
+        // Extract unique equipped bonus types (normalized)
+        const bonusTypes = new Set();
+        allPets.forEach(pet => {
+          if (pet.bonuses) {
+            Object.keys(pet.bonuses).forEach(bonusType => {
+              bonusTypes.add(normalizeStatName(bonusType));
+            });
+          }
+        });
+
+        Array.from(bonusTypes).sort().forEach(bonusType => {
+          const btn = document.createElement('button');
+          btn.className = 'filter-btn';
+          btn.dataset.filter = bonusType;
+          btn.textContent = formatStatTypeName(bonusType);
+          container.appendChild(btn);
+        });
       } else if (filterType === 'level') {
         // Level tiers based on base level
         const tiers = [
@@ -265,8 +284,19 @@
       displayPetGrid(allPets);
     }
 
+    function normalizeStatName(statType) {
+      // Normalize stat names to be consistent
+      const normalizations = {
+        'CriticalChance': 'CritChance',
+        'CriticalDamage': 'CritDamage'
+      };
+      return normalizations[statType] || statType;
+    }
+
     function formatStatTypeName(statType) {
-      return statType
+      // Normalize first, then format
+      const normalized = normalizeStatName(statType);
+      return normalized
         .replace(/([A-Z])/g, ' $1')
         .replace(/Percent/g, '%')
         .trim();
@@ -305,12 +335,21 @@
 
       if (currentFilterType === 'stat') {
         return allPets.filter(pet => pet.permanentStat.type === currentFilterValue);
+      } else if (currentFilterType === 'equipped') {
+        // Check if pet has this bonus (with normalization)
+        return allPets.filter(pet => {
+          if (!pet.bonuses) return false;
+          // Check both the original and normalized names
+          return Object.keys(pet.bonuses).some(bonusType =>
+            normalizeStatName(bonusType) === currentFilterValue
+          );
+        });
       } else if (currentFilterType === 'acquisition') {
         return allPets.filter(pet => pet.acquisition.method === currentFilterValue);
       } else if (currentFilterType === 'level') {
         const [_, min, max] = currentFilterValue.split('-').map(Number);
         return allPets.filter(pet => {
-          const level = pet.baseStats.level;
+          const level = pet.baseLevel;
           return level >= min && level <= max;
         });
       }
@@ -332,29 +371,41 @@
       const permanentStatLevel1 = (pet.permanentStat.value * 0.2).toFixed(1);
       const percentSuffix = isPercentageStat(pet.permanentStat.type) ? '%' : '';
 
-      const statInfo = pet.permanentStat.type !== 'None' && pet.permanentStat.type !== 'XpModifier' || (pet.permanentStat.type === 'XpModifier' && pet.id !== 0)
-        ? `<div class="pet-stat">
-             <span class="stat-type">${formatStatTypeName(pet.permanentStat.type)}</span>
-             <span class="stat-value">+${permanentStatLevel1}${percentSuffix}</span>
+      // Build equipped stats (blue badges)
+      const bonuses = pet.bonuses || {};
+      const bonusesDisplay = Object.entries(bonuses).length > 0
+        ? `<div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+             ${Object.entries(bonuses).map(([stat, value]) => {
+               const level1Value = (value * 1.2).toFixed(1);
+               const sign = value >= 0 ? '+' : '';
+               const percentSuffix = isPercentageStat(stat) ? '%' : '';
+               return `<span style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.4); color: var(--accent-cyan); padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.75rem; white-space: nowrap;">
+                 ${formatStatTypeName(stat)}: ${sign}${level1Value}${percentSuffix}
+               </span>`;
+             }).join('')}
            </div>`
+        : '';
+
+      // Build permanent stat (purple badge)
+      const permanentStatDisplay = pet.permanentStat.type !== 'None' && pet.permanentStat.type !== 'XpModifier' || (pet.permanentStat.type === 'XpModifier' && pet.id !== 0)
+        ? `<span style="background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: var(--accent-purple); padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.8rem; display: inline-block;">
+             ${formatStatTypeName(pet.permanentStat.type)}: +${permanentStatLevel1}${percentSuffix}
+           </span>`
         : '';
 
       return `
         <a href="?pet=${pet.id}"
            class="pet-card"
            onclick="navigateToPet(event, ${pet.id})">
-          <div class="pet-header">
-            ${getPetIcon(pet, 'small')}
-            <div class="pet-info">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <div>
               <div class="pet-name">${pet.name}</div>
-              <div class="pet-id">ID: ${pet.id} • Lvl ${pet.baseLevel}</div>
+              <div class="pet-id" style="margin-top: 0.25rem;">ID: ${pet.id} • Lvl ${pet.baseLevel}</div>
             </div>
+            ${getPetIcon(pet, 'small')}
           </div>
-          ${statInfo}
-          <div class="pet-acquisition">
-            <span class="method">${pet.acquisition.method}</span>
-            <span class="requirement">${pet.acquisition.requirement}</span>
-          </div>
+          ${bonusesDisplay}
+          ${permanentStatDisplay}
         </a>
       `;
     }

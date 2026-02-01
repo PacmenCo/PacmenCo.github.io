@@ -292,43 +292,48 @@
     <div class="content-section">
       <h2>What is Item Upgrading?</h2>
       <p>
-        Item Upgrading is a system that allows you to permanently increase an item's base stats using <span class="stat-highlight">Pixels</span> (coins) and <span class="stat-highlight">Crystals</span> (enchanting materials). Each upgrade level increases the item's damage or armor by <span class="stat-highlight">5%</span>, making it significantly more powerful.
+        Item Upgrading is a system that allows you to permanently increase an item's base stats using <span
+          class="stat-highlight">Pixels</span> and <span class="stat-highlight">Crystals</span>. Each upgrade level
+        increases the item's damage or armor by <span class="stat-highlight">5%</span>, making it significantly more
+        powerful.
       </p>
 
       <h3>How Upgrading Works</h3>
       <p>
-        Each item has an <span class="stat-highlight">itemStrength</span> value that represents its upgrade level. When you upgrade an item:
+        When you upgrade an item:
       </p>
       <ul class="feature-list">
         <li>The item's upgrade level (itemStrength) increases by 1</li>
-        <li>Damage or armor increases by 5% of the base value</li>
+        <li>Damage and armor increases by 5% of the base value</li>
         <li>Enchantments are preserved during upgrades</li>
-        <li>Cost increases exponentially with each level</li>
       </ul>
 
       <div class="info-box">
-        <strong>Guaranteed Success:</strong> Item upgrades have a 100% success rate. Your enchantments and item properties are always preserved!
+        <strong>Guaranteed Success:</strong> Item upgrades have a 100% success rate. Your enchantments and item
+        properties are always preserved!
       </div>
 
       <h3>Stat Scaling Formula</h3>
       <div class="formula-box">
         Final Stat = Base Stat × Item Quality × (1 + itemStrength × 0.05)<br><br>
         Example:<br>
-        Base Damage: 100<br>
+        Base Attack: 100<br>
         Item Quality: 1.5 (Epic)<br>
         Upgrade Level: 4<br>
-        Final Damage = 100 × 1.5 × (1 + 4 × 0.05) = 100 × 1.5 × 1.2 = 180
+        Final Attack = 100 × 1.5 × (1 + 4 × 0.05) = 100 × 1.5 × 1.2 = 180
       </div>
 
       <p>
-        Each upgrade level adds <span class="stat-highlight">+5%</span> multiplicative bonus. At upgrade level 10, your item deals <span class="stat-highlight">+50%</span> more damage/armor!
+        Each upgrade level adds <span class="stat-highlight">+5%</span> multiplicative bonus. At upgrade level 10, your
+        item has <span class="stat-highlight">+50%</span> more attack/armor!
       </p>
     </div>
 
     <div class="content-section">
       <h2>Item Upgrade Costs</h2>
       <p>
-        Upgrade costs scale exponentially with upgrade level, item quality, and item rarity. Higher quality and rarer items cost significantly more to upgrade.
+        Upgrade costs scale exponentially with upgrade level, item quality, and item rarity. Higher quality and rarer
+        items cost significantly more to upgrade.
       </p>
 
       <h3>Pixel Cost Formula</h3>
@@ -361,7 +366,7 @@
       </p>
       <ul class="feature-list">
         <li>Item level (higher level = more crystals)</li>
-        <li>Item rarity (exponential scaling)</li>
+        <li>Item rarity </li>
         <li>Current upgrade level (power of 1.55)</li>
         <li>Item type (weapon vs armor multipliers)</li>
       </ul>
@@ -375,18 +380,40 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Broken/Poor</td><td>Treated as 2</td></tr>
-          <tr><td>Common</td><td>2</td></tr>
-          <tr><td>Uncommon</td><td>3</td></tr>
-          <tr><td>Rare</td><td>4</td></tr>
-          <tr><td>Epic</td><td>5</td></tr>
-          <tr><td>Legendary</td><td>7 (instead of 6)</td></tr>
-          <tr><td>Artifact</td><td>10 (instead of 7)</td></tr>
+          <tr>
+            <td>Broken/Poor</td>
+            <td>Treated as 2</td>
+          </tr>
+          <tr>
+            <td>Common</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Uncommon</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Rare</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Epic</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Legendary</td>
+            <td>7 (instead of 6)</td>
+          </tr>
+          <tr>
+            <td>Artifact</td>
+            <td>10 (instead of 7)</td>
+          </tr>
         </tbody>
       </table>
 
       <div class="warning-box">
-        <strong>Exponential Cost Scaling:</strong> Upgrade costs increase rapidly with each level. Plan your resources carefully before upgrading high-level items!
+        <strong>Cost Scaling:</strong> Upgrade costs increase rapidly with each level. Plan your resources
+        carefully before upgrading high-level items!
       </div>
     </div>
 
@@ -420,21 +447,41 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>1-74</td><td>1</td><td>+5%</td></tr>
-          <tr><td>75-149</td><td>2</td><td>+10%</td></tr>
-          <tr><td>150-224</td><td>3</td><td>+15%</td></tr>
-          <tr><td>225-299</td><td>4</td><td>+20%</td></tr>
-          <tr><td>300-301</td><td>5</td><td>+25%</td></tr>
+          <tr>
+            <td>1-74</td>
+            <td>1</td>
+            <td>+5%</td>
+          </tr>
+          <tr>
+            <td>75-149</td>
+            <td>2</td>
+            <td>+10%</td>
+          </tr>
+          <tr>
+            <td>150-224</td>
+            <td>3</td>
+            <td>+15%</td>
+          </tr>
+          <tr>
+            <td>225-299</td>
+            <td>4</td>
+            <td>+20%</td>
+          </tr>
+          <tr>
+            <td>300-301</td>
+            <td>5</td>
+            <td>+25%</td>
+          </tr>
         </tbody>
       </table>
 
       <div class="info-box">
-        <strong>Post-Prestige Players:</strong> After your first ascension, the game always uses max level (301) for this calculation, giving you max upgrade level 5 (or 6 with the Enchanting ascension skill). This means you can fully upgrade items immediately after ascending!
+        <strong>Post-Prestige Players:</strong> After your first ascension, the game always uses max level (301) for
+        this calculation, giving you max upgrade level 5 (or 6 with the Enchanting ascension skill). This means you can
+        fully upgrade items immediately after ascending!
       </div>
 
-      <p>
-        <em>Note: Assumes no ascension bonuses. Add +1 if you have the Enchanting ascension skill.</em>
-      </p>
+
     </div>
   </div>
 </body>
