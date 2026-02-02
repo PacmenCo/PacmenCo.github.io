@@ -619,13 +619,12 @@
       </h4>
       <p
         style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Base Mana Regen = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen%)<br><br>
-        Flat Mana Regen = Mana regen from Pets<br><br>
-        Mana Regen per Tick = (Base Mana Regen × Combat Multiplier) + Flat Mana Regen
+        Base Mana Regen per Tick = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen%)<br><br>
+        Mana Regen per Second = ((Base Mana Regen × Combat Multiplier) + Flat Mana Regen from Pets) / 0.2
       </p>
 
       <p>
-        Your base mana regen starts at 1.45 per tick (every 0.2 seconds) at 100 max mana, and scales linearly with each additional point of max mana. Talent bonuses multiply this base rate, while pets provide flat regen that's added on top. The combat multiplier (explained below) determines what percentage of your base regen actually applies based on how recently you've cast spells.
+        Mana regenerates in ticks every 0.2 seconds. Your base regen starts at 1.45 per tick (7.25/sec) at 100 max mana and scales linearly with each additional point of max mana. Talent bonuses multiply this base rate, while pets provide flat regen that's added on top. The combat multiplier (explained below) determines what percentage of your base regen actually applies based on how recently you've cast spells. To convert per-tick values to per-second, divide by 0.2 (or multiply by 5).
       </p>
 
       <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Out-of-Combat
