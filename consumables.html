@@ -252,6 +252,51 @@
         font-size: 0.85rem;
       }
     }
+
+    /* Tooltip styles */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      border-bottom: 1px dotted var(--accent-cyan);
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 320px;
+      background-color: rgba(10, 14, 26, 0.98);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 12px;
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -160px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border: 1px solid var(--accent-cyan);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 
@@ -319,11 +364,11 @@
         </div>
         <div class="potion-card">
           <h4>Potion of Luck</h4>
-          <p>Grants the Lucky Strike buff, which rolls for critical hits twice and crits if either roll succeeds.
-            This effectively increases your critical hit chance, with the benefit scaling based on your base crit chance.
-            For example, 50% base crit chance becomes 75% effective crit chance (1 - 0.5²), while 10% becomes 19% (1 - 0.9²).</p>
+          <p>Grants the Lucky Strike buff, increasing critical hit chance.</p>
           <div class="potion-meta">
-            <span>Effect: <span class="value">Lucky Strike (Double Roll)</span></span>
+            <span>Effect: <span class="value tooltip">Lucky Strike
+              <span class="tooltiptext">Rolls for critical hits twice and crits if either roll succeeds. This effectively increases your crit chance based on the formula: 1 - (1 - baseCrit)². For example, 50% base crit becomes 75% effective (1 - 0.5²), while 10% becomes 19% (1 - 0.9²).</span>
+            </span></span>
             <span>Duration: <span class="value">630 seconds</span></span>
             <span>Stackable: <span class="value">Yes</span></span>
           </div>
