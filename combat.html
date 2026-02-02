@@ -477,14 +477,31 @@
       </ul>
 
       <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Mana Regeneration</h3>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Mana Regen = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen)
+      <p>
+        Mana regenerates every 0.2 seconds with a unique out-of-combat mechanic. The longer you go without casting spells, the faster your mana regenerates.
       </p>
 
+      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Base Mana Regen</h4>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Base Mana Regen = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen%)<br><br>
+        Flat Mana Regen = Mana regen from Pets<br><br>
+        Mana Regen per Tick = (Base Mana Regen × Combat Multiplier) + Flat Mana Regen
+      </p>
+
+      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Out-of-Combat Scaling</h4>
       <p>
-        Mana regenerates every 0.2 seconds. Higher maximum mana increases your regeneration rate, creating
-        a synergy between mana investment and ability usage. Talent bonuses further multiply your regeneration.
+        Mana regeneration is affected by how recently you cast a spell:
+      </p>
+      <ul class="feature-list">
+        <li><strong>0-2 seconds since last spell:</strong> 0% regen (no regeneration in active combat)</li>
+        <li><strong>2-3.5 seconds:</strong> 20% regen (minimal recovery)</li>
+        <li><strong>3.5-5 seconds:</strong> 50% regen (moderate recovery)</li>
+        <li><strong>5+ seconds:</strong> 100% regen (full out-of-combat regeneration)</li>
+      </ul>
+
+      <p style="margin-top: 1rem;">
+        Higher maximum mana increases your regeneration rate linearly, creating a synergy between mana investment and sustained ability usage. This encourages strategic timing—waiting a few seconds between bursts of spells allows for faster mana recovery.
       </p>
 
       <p
