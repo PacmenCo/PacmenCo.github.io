@@ -409,6 +409,42 @@
         <strong style="color: var(--accent-orange);">Note:</strong> The heal spell works differently in certain areas of
         the game.
       </p>
+
+      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">HP Regeneration</h3>
+      <p>
+        Your character passively regenerates HP every second. Regeneration scales with your level, rank, and various bonuses, but has a unique mechanic where it's most effective at low-to-medium HP levels.
+      </p>
+
+      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Base Regen Calculation</h4>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        Base Amount = (7 × Rank × Ascension Modifier) + (Level^1.85) + Pixel Sink Regen + 19<br><br>
+        Regen % = 0.5% × (1 + HP Regen from Items%) × HP Regen Buffs × (1 + HP Regen from Pets%)<br><br>
+        Base HP Regen = Base Amount × Regen %
+      </p>
+
+      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Current HP Scaling</h4>
+      <p>
+        HP regeneration is <strong>scaled based on your current HP percentage</strong>, making it most effective when you're injured:
+      </p>
+      <p
+        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+        x = Current HP / Max HP<br>
+        Scaling Factor = 3.4 × (√x - 0.85 × x)<br><br>
+        Final HP Regen/sec = (Base HP Regen × Scaling Factor + Flat Regen from Pets) × 2
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>At 100% HP:</strong> Regen is at ~51% effectiveness (lower maintenance regen)</li>
+        <li><strong>At 50% HP:</strong> Regen is at ~96% effectiveness (near maximum recovery)</li>
+        <li><strong>At 25% HP:</strong> Regen is at ~98% effectiveness (maximum recovery rate)</li>
+        <li><strong>Near 0% HP:</strong> Regen drops significantly</li>
+      </ul>
+
+      <p style="margin-top: 1rem;">
+        This scaling encourages active combat management—regeneration helps you recover quickly from moderate damage, but won't save you at critically low HP.
+      </p>
+
       <p>
         While HP does not help you directly in obtaining XP faster, you should not underestimate its importance.
         Higher max HP means stronger healing, better survivability, and fewer deaths.
