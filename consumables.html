@@ -319,9 +319,11 @@
         </div>
         <div class="potion-card">
           <h4>Potion of Luck</h4>
-          <p>Grants the Lucky Strike buff, increasing critical hit chance and damage.</p>
+          <p>Grants the Lucky Strike buff, which rolls for critical hits twice and crits if either roll succeeds.
+            This effectively increases your critical hit chance, with the benefit scaling based on your base crit chance.
+            For example, 50% base crit chance becomes 75% effective crit chance (1 - 0.5²), while 10% becomes 19% (1 - 0.9²).</p>
           <div class="potion-meta">
-            <span>Effect: <span class="value">Lucky Strike</span></span>
+            <span>Effect: <span class="value">Lucky Strike (Double Roll)</span></span>
             <span>Duration: <span class="value">630 seconds</span></span>
             <span>Stackable: <span class="value">Yes</span></span>
           </div>
@@ -529,11 +531,9 @@
       <ul class="buff-list">
         <li>Buff icon and name</li>
         <li>Remaining duration (for timed buffs)</li>
-        <li>Stack count (for stackable buffs)</li>
-        <li>Buff strength and effect</li>
+
       </ul>
-      <div class="info-box"><strong>Pro Tip:</strong> Stack multiple potions before challenging difficult content. The
-        combined effects can make a huge difference!</div>
+
     </div>
   </div>
 </body>
