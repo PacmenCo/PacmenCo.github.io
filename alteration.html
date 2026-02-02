@@ -292,11 +292,14 @@
     <div class="content-section">
       <h2>What is Item Alteration?</h2>
       <p>
-        Item Alteration is an advanced crafting system that allows you to modify item properties using <span class="stat-highlight">Alteration Orbs</span>. Unlike enchanting, alteration can reroll stats, add/remove affixes, upgrade rarity, and improve item quality.
+        Item Alteration is an advanced crafting system that allows you to modify item properties using <span
+          class="stat-highlight">Alteration Orbs</span>. Unlike enchanting, alteration can reroll stats, add/remove
+        affixes, upgrade rarity, and improve item quality.
       </p>
 
       <div class="warning-box">
-        <strong>High Risk, High Reward:</strong> Some alteration types can break your item, reducing it to Broken rarity. Use with caution on valuable equipment!
+        <strong>High Risk, High Reward:</strong> Some alteration types can break your item, reducing it to Broken
+        rarity. Use with caution on valuable equipment!
       </div>
 
       <h3>Alteration vs Enchanting</h3>
@@ -332,7 +335,7 @@
           <tr>
             <td>Cost</td>
             <td>Moderate</td>
-            <td>Expensive for powerful operations</td>
+            <td>Expensive</td>
           </tr>
         </tbody>
       </table>
@@ -341,7 +344,8 @@
     <div class="content-section">
       <h2>Alteration Orb Types</h2>
       <p>
-        There are 11 different alteration orbs, each with unique effects and drop rates. Orbs are looted from enemies during combat.
+        There are 11 different alteration orbs, each with unique effects and drop rates. Orbs are looted from enemies
+        during combat.
       </p>
 
       <table>
@@ -349,82 +353,108 @@
           <tr>
             <th>Orb Name</th>
             <th>Effect</th>
+            <th>Usage Requirements</th>
+            <th>Downside/Risk</th>
             <th>Drop Rate</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Orb of Alteration (Cyan)</td>
+            <td>Orb of Alteration</td>
             <td>Rerolls ONE random affix</td>
-            <td>11%</td>
+            <td>Requires: 1-2 affixes on item</td>
+            <td>New roll might be worse than original</td>
+            <td>12.36%</td>
           </tr>
           <tr>
-            <td>Orb of Transformation (Green)</td>
+            <td>Orb of Transformation</td>
             <td>Adds ONE new affix</td>
-            <td>22.1% (most common)</td>
+            <td>Requires: Less than 3 affixes on item</td>
+            <td>Random affix - might get unwanted stat type</td>
+            <td>24.83% (most common)</td>
           </tr>
           <tr>
-            <td>Orb of Reversal (Purple)</td>
+            <td>Orb of Reversal</td>
             <td>Removes ONE random affix</td>
-            <td>19.7%</td>
+            <td>Requires: 1-3 affixes on item</td>
+            <td>Might remove your best affix</td>
+            <td>22.13%</td>
           </tr>
           <tr>
-            <td>Armor Plate (Legendary)</td>
+            <td>Armor Plate</td>
             <td>+1% armor quality</td>
-            <td>19.7%</td>
+            <td>Requires: Armor, Boots, Gloves, Helm, or Legs</td>
+            <td>None - safe upgrade</td>
+            <td>22.13%</td>
           </tr>
           <tr>
-            <td>Sharpening Stone (Light Purple)</td>
+            <td>Sharpening Stone</td>
             <td>+1% weapon quality</td>
-            <td>6.1%</td>
+            <td>Requires: Weapon, Ranged Weapon, or Mining Pick</td>
+            <td>None - safe upgrade</td>
+            <td>6.85%</td>
           </tr>
           <tr>
-            <td>Orb of Revision (Blue)</td>
+            <td>Orb of Revision</td>
             <td>Rerolls ALL affixes</td>
-            <td>3.7%</td>
+            <td>Requires: 1-3 affixes on item</td>
+            <td>All affixes rerolled - could get much worse</td>
+            <td>4.16%</td>
           </tr>
           <tr>
-            <td>Orb of Nullification (Black)</td>
+            <td>Orb of Nullification</td>
             <td>Removes ALL affixes</td>
-            <td>2.4%</td>
+            <td>Requires: At least 1 affix on item</td>
+            <td>Intentionally removes all affixes permanently</td>
+            <td>2.70%</td>
           </tr>
           <tr>
-            <td>Orb of Fortune (Gold)</td>
+            <td>Orb of Fortune</td>
             <td>Rerolls item quality/rarity</td>
-            <td>1.8%</td>
+            <td>Cannot be used on Artifact rarity items</td>
+            <td>50% chance to BREAK item! (5% upgrade, 45% quality reroll)</td>
+            <td>2.02%</td>
           </tr>
           <tr>
-            <td>Orb of Divination (Yellow)</td>
+            <td>Orb of Divination</td>
             <td>Adds 1-3 new affixes</td>
-            <td>1.5%</td>
+            <td>Requires: Exactly 2 affixes on item</td>
+            <td>Random affixes - might get unwanted stat types</td>
+            <td>1.69%</td>
           </tr>
           <tr>
-            <td>Radiant Orb (Red)</td>
+            <td>Radiant Orb</td>
             <td>Upgrades rarity by 1 tier</td>
-            <td>0.9%</td>
+            <td>Cannot be used on Legendary or Artifact rarity</td>
+            <td>10-20% chance to BREAK item (varies by rarity)</td>
+            <td>1.01%</td>
           </tr>
           <tr>
-            <td>Soulstone (Purple)</td>
+            <td>Soulstone</td>
             <td>Adds +1 max soul level</td>
-            <td>0.1% (rarest)</td>
+            <td>Cannot be used if item is at max soul level</td>
+            <td>None - safe upgrade</td>
+            <td>0.11%</td>
           </tr>
         </tbody>
       </table>
+
+      <div class="info-box">
+        <strong>Orb of Divination Special Property:</strong> Normal crafted items usually have a maximum of 3 affixes
+        (Legendary rarity) or 3-4 affixes (Artifact rarity). However, Orb of Divination can make items have up to <span
+          class="stat-highlight">5 affixes</span>! This makes it the only way to craft truly
+        exceptional items that exceed natural limits. The orb adds 1-3 affixes to an item with exactly 2 affixes:
+        65% for 1 affix (3 total), 31% for 2 affixes (4 total), or 4% for 3 affixes (5 total).
+      </div>
     </div>
 
     <div class="content-section">
       <h2>Alteration Costs</h2>
       <p>
-        Alteration requires <span class="stat-highlight">Pixels</span>, <span class="stat-highlight">Crystals</span>, and the specific <span class="stat-highlight">Orb type</span>. Costs vary dramatically based on the alteration type and item properties.
+        Alteration requires <span class="stat-highlight">Pixels</span>, <span class="stat-highlight">Crystals</span>,
+        and the specific <span class="stat-highlight">Orb type</span>. Costs vary dramatically based on the alteration
+        type and item properties.
       </p>
-
-      <h3>Orb Quantity Required</h3>
-      <div class="formula-box">
-        Orb Cost = (itemRarity - 1) + extraCost<br><br>
-        Where extraCost:<br>
-        - Legendary: +3 orbs<br>
-        - Artifact: +14 orbs
-      </div>
 
       <table>
         <thead>
@@ -434,70 +464,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Broken/Poor</td><td>1 orb</td></tr>
-          <tr><td>Common</td><td>2 orbs</td></tr>
-          <tr><td>Uncommon</td><td>3 orbs</td></tr>
-          <tr><td>Rare</td><td>4 orbs</td></tr>
-          <tr><td>Epic</td><td>5 orbs</td></tr>
-          <tr><td>Legendary</td><td>8 orbs (5 + 3 extra)</td></tr>
-          <tr><td>Artifact</td><td>20 orbs (6 + 14 extra)</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Price Modifiers by Alteration Type</h3>
-      <table>
-        <thead>
           <tr>
-            <th>Alteration Type</th>
-            <th>Price Modifier</th>
+            <td>Broken/Poor/Common</td>
+            <td>1 orb</td>
           </tr>
-        </thead>
-        <tbody>
-          <tr><td>Remove Random Affix</td><td>0.5x (cheapest)</td></tr>
-          <tr><td>Remove All Affixes</td><td>0.6x</td></tr>
-          <tr><td>Reroll One Affix</td><td>0.6x</td></tr>
-          <tr><td>Reroll All Affixes</td><td>0.75x</td></tr>
-          <tr><td>Upgrade Quality (Armor/Weapon)</td><td>0.8x</td></tr>
-          <tr><td>Add New Affix</td><td>1.15x</td></tr>
-          <tr><td>Reroll Item Quality</td><td>1.4x</td></tr>
-          <tr><td>Add Soul Level</td><td>1.9x</td></tr>
-          <tr><td>Upgrade Rarity</td><td>2.2x</td></tr>
-          <tr><td>Fill With Affixes</td><td>3.15x (most expensive!)</td></tr>
+          <tr>
+            <td>Uncommon</td>
+            <td>2 orbs</td>
+          </tr>
+          <tr>
+            <td>Rare</td>
+            <td>3 orbs</td>
+          </tr>
+          <tr>
+            <td>Epic</td>
+            <td>4 orbs</td>
+          </tr>
+          <tr>
+            <td>Legendary</td>
+            <td>8 orbs</td>
+          </tr>
+          <tr>
+            <td>Artifact</td>
+            <td>20 orbs</td>
+          </tr>
         </tbody>
       </table>
 
-      <h3>Pixel & Crystal Cost Formulas</h3>
-      <div class="formula-box">
-        Pixel Cost = (int)((priceModifier + 1) / 2 × (itemCoinCost × (rarity + 1)) / 3.5)<br>
-        - Weapons: ×1.5 multiplier<br><br>
-        Crystal Cost = (int)(priceModifier × itemLevel × (rarity + 1) / 6) + 1<br>
-        - Weapons: ×1.6 multiplier
-      </div>
     </div>
 
-    <div class="content-section">
-      <h2>Affix System</h2>
-      <p>
-        Items can have 0-3 affixes maximum. Affixes are additional stat modifiers that enhance your equipment beyond base stats and enchantments.
-      </p>
-
-      <h3>Affix Rules</h3>
-      <ul class="feature-list">
-        <li><strong>Maximum:</strong> 3 affixes per item</li>
-        <li><strong>Reroll One Affix:</strong> Requires at least 1 affix, max 2 affixes on item</li>
-        <li><strong>Reroll All Affixes:</strong> Requires at least 1 affix, max 3 affixes on item</li>
-        <li><strong>Remove Random Affix:</strong> Requires at least 1 affix to remove</li>
-        <li><strong>Add New Affix:</strong> Can add if item has fewer than 3 affixes</li>
-        <li><strong>Fill With Affixes:</strong> Requires exactly 2 affixes, adds 1-3 more</li>
-      </ul>
-
-      <div class="info-box">
-        <strong>Fill With Affixes Distribution:</strong><br>
-        - 65% chance: Add 1 affix<br>
-        - 31% chance: Add 2 affixes<br>
-        - 4% chance: Add 3 affixes
-      </div>
-    </div>
 
     <div class="content-section">
       <h2>Quality & Rarity Upgrades</h2>
@@ -514,7 +509,14 @@
       </ul>
 
       <div class="warning-box">
-        <strong>High Risk:</strong> Orb of Fortune has a 50% chance to break your item! Only use on items you're willing to lose.
+        <strong>High Risk:</strong> Orb of Fortune has a 50% chance to break your item! Only use on items you're
+        willing
+        to lose.
+      </div>
+
+      <div class="info-box">
+        <strong>Creating Artifacts:</strong> Orb of Fortune is the <span class="stat-highlight">only way</span> to
+        upgrade a Legendary item to Artifact rarity through alteration. Radiant Orbs cannot be used on Legendary items.
       </div>
 
       <h3>Radiant Orb (Upgrade Rarity)</h3>
@@ -530,11 +532,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Uncommon</td><td>Rare</td><td>10%</td></tr>
-          <tr><td>Rare</td><td>Epic</td><td>15%</td></tr>
-          <tr><td>Epic</td><td>Legendary</td><td>20%</td></tr>
-          <tr><td>Legendary</td><td>-</td><td>Cannot be used</td></tr>
-          <tr><td>Artifact</td><td>-</td><td>Cannot be used</td></tr>
+          <tr>
+            <td>Uncommon</td>
+            <td>Rare</td>
+            <td>10%</td>
+          </tr>
+          <tr>
+            <td>Rare</td>
+            <td>Epic</td>
+            <td>15%</td>
+          </tr>
+          <tr>
+            <td>Epic</td>
+            <td>Legendary</td>
+            <td>20%</td>
+          </tr>
+          <tr>
+            <td>Legendary</td>
+            <td>-</td>
+            <td>Cannot be used</td>
+          </tr>
+          <tr>
+            <td>Artifact</td>
+            <td>-</td>
+            <td>Cannot be used</td>
+          </tr>
         </tbody>
       </table>
 
@@ -559,11 +581,11 @@
         <li>Use <span class="stat-highlight">Soulstones</span> to add +1 max soul level per use</li>
         <li>Only items with soul levels can gain experience and level up</li>
         <li>Leveling items can grant additional affixes and stat bonuses</li>
-        <li>Soulstones are the rarest orb type (0.1% drop rate)</li>
       </ul>
 
       <div class="info-box">
-        <strong>Pro Tip:</strong> Reserve Soulstones for your best Legendary or Artifact items to maximize their long-term potential.
+        <strong>Pro Tip:</strong> Reserve Soulstones for your best Legendary or Artifact items to maximize their
+        long-term potential.
       </div>
     </div>
 
@@ -572,12 +594,9 @@
 
       <h3>Alteration Strategy</h3>
       <ul class="feature-list">
-        <li>Use cheap alterations (Remove/Reroll Affix) on common items to experiment</li>
-        <li>Save expensive alterations (Fill With Affixes, Upgrade Rarity) for rare items</li>
+        <li>Save rare Orbs (Orb of Divination, Upgrade Rarity) for the best items</li>
         <li>Never use Orb of Fortune on items you can't afford to lose</li>
-        <li>Upgrade quality with Armor Plates/Sharpening Stones early - no risk and permanent benefit</li>
         <li>Soulstones are extremely rare - use them only on Legendary/Artifact items you plan to keep</li>
-        <li>Artifact items cost 20 orbs per alteration - alteration is prohibitively expensive</li>
       </ul>
     </div>
   </div>

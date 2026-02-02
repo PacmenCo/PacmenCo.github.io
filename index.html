@@ -364,6 +364,24 @@
       font-size: 1.15rem;
     }
 
+    /* About Section */
+    .about-section {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      border: 2px solid rgba(124, 58, 237, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-section p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      line-height: 1.9;
+      text-align: center;
+    }
+
     /* Features Grid */
     .features-grid {
       display: grid;
@@ -689,6 +707,16 @@
       .section-subtitle {
         font-size: 1rem;
       }
+
+      .about-section {
+        padding: 1.5rem;
+        margin: 2rem auto;
+      }
+
+      .about-section p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
     }
   </style>
 </head>
@@ -863,6 +891,32 @@
     </div>
   </div>
 
+  <!-- About Section -->
+  <div class="container">
+    <div class="about-section">
+      <p>
+        Welcome to the official <span style="color: var(--accent-orange); font-weight: 600;">Idle
+          Adventure</span> homepage! <br>
+        Battle fierce enemies with a team of <a href="companions.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">companions</a>
+        and <a href="pets-viewer.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">pets</a>,
+        each bringing their own unique powers to the fight.
+        Customize your character through deep <a href="talents.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">talent
+          trees</a>, unlock devastating <a href="skills-viewer.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">skill
+          combinations</a>, and <a href="enchanting.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">craft</a>
+        increasingly powerful equipment. Join <a href="guild.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">guilds</a>
+        to take on epic bosses alongside other players, or adventure at
+        your own pace.<br><br>
+        <em style="color: var(--accent-cyan); font-size: 1.25rem;">Start your journey today!</em>
+      </p>
+    </div>
+  </div>
+
   <!-- Features Section -->
   <section data-section-bg>
     <div class="container">
@@ -949,6 +1003,14 @@
             <div class="feature-icon">📊</div>
             <h3>Progress Bar</h3>
             <p>Automatic rewards with powerful perks</p>
+          </div>
+        </a>
+
+        <a href="special-areas.html" style="text-decoration: none; color: inherit;">
+          <div class="feature-card">
+            <div class="feature-icon">🗺️</div>
+            <h3>Special Areas</h3>
+            <p>Unique zones with exclusive challenges and rewards</p>
           </div>
         </a>
       </div>

@@ -244,43 +244,34 @@
 
   <div class="container">
     <div class="hero-section">
-      <h1 class="page-title">🏰 Guilds</h1>
-      <p class="page-subtitle">Cooperative guild boss battles with powerful rewards</p>
+      <h1 class="page-title">🏰 Guild Bosses</h1>
+      <p class="page-subtitle">Cooperative boss battles with powerful rewards</p>
     </div>
 
     <div class="content-section">
-      <h2>Guild Boss Events</h2>
+      <h2>What Are Guild Bosses?</h2>
       <p>
         Guild bosses are time-limited cooperative challenges where all guild members work together to defeat powerful
-        bosses. The entire guild shares a common HP pool that all members damage during their individual runs.
+        bosses. The entire guild shares a common HP pool that all members chip away at during their individual 2-minute runs.
       </p>
 
-      <h3>Event Schedule</h3>
+      <h3>Key Features</h3>
       <ul class="feature-list">
-        <li><strong>Event Duration:</strong> 108 hours (4.5 days)</li>
-        <li><strong>Cooldown Between Bosses:</strong> 9.5 hours</li>
-        <li><strong>Total Cycle:</strong> ~117.5 hours (~5 days per boss rotation)</li>
-        <li><strong>Boss Rotation:</strong> Boss 1 → Boss 2 → Boss 3 → Boss 4 → Repeat</li>
-      </ul>
-
-      <h3>Boss HP Pools</h3>
-      <p>Each boss type has a different shared HP pool that the entire guild damages together:</p>
-      <ul class="feature-list">
-        <li><strong>Boss 1:</strong> 1,000,000 HP (shared)</li>
-        <li><strong>Boss 2:</strong> 2,000,000 HP (shared)</li>
-        <li><strong>Boss 3:</strong> 3,000,000 HP (shared)</li>
-        <li><strong>Boss 4:</strong> 1,500,000 HP (shared)</li>
+        <li><strong>Cooperative Gameplay:</strong> All guild members attack the same boss with a shared HP pool</li>
+        <li><strong>Individual Runs:</strong> Each player fights the boss alone for 2 minutes using tickets</li>
+        <li><strong>Equal Rewards:</strong> All participants receive the same rewards based on guild performance</li>
+        <li><strong>Scaling Difficulty:</strong> Boss gets stronger each time you deplete one HP bar</li>
       </ul>
     </div>
 
     <div class="content-section">
-      <h2>Ticket System</h2>
+      <h2>How to Participate</h2>
       <p>
-        Players use tickets to participate in guild boss runs. Each run lasts 2 minutes, during which you fight
-        the boss to deal as much damage as possible.
+        Players use tickets to start guild boss runs. Each run lasts 2 minutes, during which you fight
+        the boss to deal as much damage as possible to the shared HP pool.
       </p>
 
-      <h3>Ticket Mechanics</h3>
+      <h3>Ticket System</h3>
       <ul class="feature-list">
         <li><strong>Maximum Tickets:</strong> 3 per player</li>
         <li><strong>Regeneration Time:</strong> 8.5 hours per ticket</li>
@@ -295,10 +286,10 @@
     </div>
 
     <div class="content-section">
-      <h2>Boss Difficulty & Progression</h2>
+      <h2>Combat Mechanics</h2>
       <p>
-        Guild bosses feature a dynamic difficulty system where each time you defeat the boss (deplete one HP bar),
-        the difficulty increases and the boss becomes stronger with a refilled HP bar.
+        Guild bosses feature a dynamic difficulty system where the boss becomes stronger each time you defeat it
+        (deplete one HP bar). Your starting difficulty is based on your previous performance.
       </p>
 
       <h3>Starting Difficulty</h3>
@@ -315,6 +306,9 @@
       <p>
         Each difficulty level multiplies the boss's stats by the following factors:
       </p>
+      <div class="formula-box">
+        Boss Stat = Base Stat × Phase Multiplier × (Scale Per Difficulty)^(Difficulty - 1)
+      </div>
       <ul class="feature-list">
         <li><strong>Health:</strong> ×1.05 (5% increase per level)</li>
         <li><strong>Attack:</strong> ×1.05 (5% increase per level)</li>
@@ -322,10 +316,6 @@
         <li><strong>HP Regeneration:</strong> ×1.005 (0.5% increase per level)</li>
         <li><strong>Attack Speed:</strong> ×1.005 (0.5% increase per level)</li>
       </ul>
-
-      <div class="formula-box">
-        Boss Stat = Base Stat × Phase Multiplier × (Scale Per Difficulty)^(Difficulty - 1)
-      </div>
 
       <h3>Damage Reduction</h3>
       <p>
@@ -359,6 +349,10 @@
       <div class="formula-box">
         Damage Cap Enrage = Total Damage > (Remaining Shared HP × 0.02)
       </div>
+      <p>
+        The damage cap enrage prevents individual players from contributing too much damage relative to the
+        guild's progress, encouraging balanced participation from all guild members.
+      </p>
 
       <h3>Enrage Effects</h3>
       <ul class="feature-list">
@@ -370,21 +364,16 @@
         <strong>Warning:</strong> Both enrage types can be active simultaneously! If both trigger, the boss's attack
         is multiplied by 4× and damage reduction is applied twice, making the boss extremely difficult to defeat.
       </div>
-
-      <p>
-        The damage cap enrage prevents individual players from contributing too much damage relative to the
-        guild's progress, encouraging balanced participation from all guild members.
-      </p>
     </div>
 
     <div class="content-section">
-      <h2>Valor (Player Currency)</h2>
+      <h2>Rewards System</h2>
       <p>
-        Valor is the personal currency earned from guild boss participation. It can be spent in the Valor Shop
-        on companions, skills, and powerful guild buffs.
+        Guild boss participation earns three types of rewards: personal Valor points, guild Sigils, and guild XP.
+        All rewards are based on your guild's performance, not individual contribution.
       </p>
 
-      <h3>Earning Valor</h3>
+      <h3>Valor (Player Currency)</h3>
       <div class="formula-box">
         Valor = (Guild HP Removed ÷ 5%) + Kill Bonus
       </div>
@@ -394,19 +383,43 @@
         <li><strong>Maximum:</strong> 25 Valor (20 from damage + 5 bonus)</li>
       </ul>
 
-      <h3>Valor Examples</h3>
-      <ul class="feature-list">
-        <li>100% HP removed (boss killed): <span class="stat-highlight">25 Valor</span> (20 + 5 bonus)</li>
-        <li>95% HP removed: <span class="stat-highlight">19 Valor</span></li>
-        <li>50% HP removed: <span class="stat-highlight">10 Valor</span></li>
-        <li>25% HP removed: <span class="stat-highlight">5 Valor</span></li>
-        <li>No participation: <span class="stat-highlight">0 Valor</span></li>
-      </ul>
-
       <div class="info-box">
         <strong>Important:</strong> Rewards are identical for all participants! Whether you dealt 1 damage or 1 million
         damage, everyone who attacked receives the same Valor based on the guild's total performance.
       </div>
+
+      <h3>Sigils (Guild Currency)</h3>
+      <div class="formula-box">
+        Sigils = (Guild HP Removed ÷ 10%) + Kill Bonus
+      </div>
+      <ul class="feature-list">
+        <li><strong>1 Sigil</strong> per 10% of boss HP removed</li>
+        <li><strong>5 Bonus Sigils</strong> if the boss is killed</li>
+        <li><strong>Maximum:</strong> 15 Sigils (10 from damage + 5 bonus)</li>
+        <li><strong>Minimum:</strong> 1 Sigil if any damage was dealt (even 1%)</li>
+      </ul>
+      <p>
+        Sigils belong to the entire guild and are likely used for guild upgrades and features.
+      </p>
+
+      <h3>Guild XP (Separate System)</h3>
+      <div class="formula-box">
+        Guild XP = (Guild HP Removed ÷ 1%) + Kill Bonus
+      </div>
+      <ul class="feature-list">
+        <li><strong>1 Guild XP</strong> per 1% of boss HP removed</li>
+        <li><strong>25 Bonus Guild XP</strong> if the boss is killed</li>
+        <li><strong>Maximum:</strong> 125 Guild XP (100 from damage + 25 bonus)</li>
+      </ul>
+
+      <h3>Reward Examples</h3>
+      <ul class="feature-list">
+        <li>100% HP removed (boss killed): <span class="stat-highlight">25 Valor, 15 Sigils, 125 Guild XP</span></li>
+        <li>95% HP removed: <span class="stat-highlight">19 Valor, 9 Sigils, 95 Guild XP</span></li>
+        <li>50% HP removed: <span class="stat-highlight">10 Valor, 5 Sigils, 50 Guild XP</span></li>
+        <li>25% HP removed: <span class="stat-highlight">5 Valor, 2 Sigils, 25 Guild XP</span></li>
+        <li>1% HP removed: <span class="stat-highlight">0 Valor, 1 Sigil, 1 Guild XP</span></li>
+      </ul>
 
       <h3>Claiming Rewards</h3>
       <p>
@@ -417,11 +430,15 @@
         <li>Click the "Claim!" button</li>
         <li>Valor is added to your spendable balance</li>
       </ul>
+    </div>
 
-      <h3>Valor Shop</h3>
+    <div class="content-section">
+      <h2>Valor Shop</h2>
       <p>
-        Spend your Valor on:
+        Spend your Valor on permanent upgrades and temporary guild buffs.
       </p>
+
+      <h3>Available Purchases</h3>
       <ul class="feature-list">
         <li><strong>Companions:</strong> Permanent unlocks that fight alongside you</li>
         <li><strong>Skills:</strong> Permanent new abilities for your character</li>
@@ -444,47 +461,29 @@
     </div>
 
     <div class="content-section">
-      <h2>Sigils (Guild Currency)</h2>
-      <p>
-        Sigils are the guild-wide currency earned from boss participation. While Valor is personal, Sigils
-        belong to the entire guild and are likely used for guild upgrades and features.
-      </p>
+      <h2>Event Schedule & Boss Rotation</h2>
 
-      <h3>Earning Sigils</h3>
-      <div class="formula-box">
-        Sigils = (Guild HP Removed ÷ 10%) + Kill Bonus
-      </div>
+      <h3>Event Timing</h3>
       <ul class="feature-list">
-        <li><strong>1 Sigil</strong> per 10% of boss HP removed</li>
-        <li><strong>5 Bonus Sigils</strong> if the boss is killed</li>
-        <li><strong>Minimum:</strong> 1 Sigil if any damage was dealt (even 1%)</li>
+        <li><strong>Event Duration:</strong> 108 hours (4.5 days)</li>
+        <li><strong>Cooldown Between Bosses:</strong> 9.5 hours</li>
+        <li><strong>Total Cycle:</strong> ~117.5 hours (~5 days per boss rotation)</li>
+        <li><strong>Boss Rotation:</strong> Boss 1 → Boss 2 → Boss 3 → Boss 4 → Repeat</li>
       </ul>
 
-      <h3>Sigil Examples</h3>
+      <h3>Boss HP Pools</h3>
+      <p>Each boss type has a different shared HP pool that the entire guild damages together:</p>
       <ul class="feature-list">
-        <li>100% HP removed (boss killed): <span class="stat-highlight">15 Sigils</span> (10 + 5 bonus)</li>
-        <li>95% HP removed: <span class="stat-highlight">9 Sigils</span></li>
-        <li>50% HP removed: <span class="stat-highlight">5 Sigils</span></li>
-        <li>25% HP removed: <span class="stat-highlight">2 Sigils</span></li>
-        <li>1% HP removed: <span class="stat-highlight">1 Sigil</span> (guaranteed minimum)</li>
-      </ul>
-
-      <h3>Guild XP (Separate System)</h3>
-      <p>
-        In addition to Sigils, guilds also earn Guild XP:
-      </p>
-      <div class="formula-box">
-        Guild XP = (Guild HP Removed ÷ 1%) + Kill Bonus
-      </div>
-      <ul class="feature-list">
-        <li><strong>1 Guild XP</strong> per 1% of boss HP removed</li>
-        <li><strong>25 Bonus Guild XP</strong> if the boss is killed</li>
-        <li><strong>Maximum:</strong> 125 Guild XP (100 from damage + 25 bonus)</li>
+        <li><strong>Boss 1:</strong> 1,000,000 HP (shared)</li>
+        <li><strong>Boss 2:</strong> 2,000,000 HP (shared)</li>
+        <li><strong>Boss 3:</strong> 3,000,000 HP (shared)</li>
+        <li><strong>Boss 4:</strong> 1,500,000 HP (shared)</li>
       </ul>
     </div>
 
     <div class="content-section">
       <h2>Strategy Tips</h2>
+
       <h3>Maximize Your Contribution</h3>
       <ul class="feature-list">
         <li>Start your run at a difficulty you can handle - going too high means less time actually damaging the boss</li>
