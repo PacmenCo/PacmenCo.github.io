@@ -4,7 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Idle Adventure – Pixel RPG by PacmenCo</title>
+  <title>Idle Adventure – Pixel RPG by PacmenCo | Complete Game Guide</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete guide to Idle Adventure - a pixel RPG idle game featuring guilds, companions, boss raids, enchanting, and special areas. Learn strategies, mechanics, and tips.">
+  <meta name="keywords" content="Idle Adventure, idle RPG, pixel RPG, mobile RPG, guild bosses, companions, PacmenCo, incremental game, idle game guide">
+  <meta name="author" content="PacmenCo">
+  <meta name="theme-color" content="#0a0e1a">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://pacmenco.github.io/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pacmenco.github.io/">
+  <meta property="og:title" content="Idle Adventure – Complete Pixel RPG Guide">
+  <meta property="og:description" content="Master Idle Adventure with our complete guide covering guilds, companions, boss raids, enchanting, and more. Official game documentation.">
+  <meta property="og:site_name" content="Idle Adventure Guide">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://pacmenco.github.io/">
+  <meta name="twitter:title" content="Idle Adventure – Complete Pixel RPG Guide">
+  <meta name="twitter:description" content="Master Idle Adventure with our complete guide covering guilds, companions, boss raids, enchanting, and more.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +34,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
+  <!-- Shared Navigation Component -->
+  <script src="nav.js"></script>
 
   <style>
     * {
@@ -40,134 +65,6 @@
       overflow-x: hidden;
     }
 
-    /* Sticky Navigation */
-    .nav-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(10, 14, 26, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
-    }
-
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-logo {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1rem;
-      color: var(--accent-orange);
-      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-    }
-
-    .burger-menu {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      z-index: 1001;
-    }
-
-    .burger-menu span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background: var(--accent-orange);
-      transition: all 0.3s ease;
-    }
-
-    .burger-menu.active span:nth-child(1) {
-      transform: rotate(45deg) translateY(7px);
-    }
-
-    .burger-menu.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .burger-menu.active span:nth-child(3) {
-      transform: rotate(-45deg) translateY(-7px);
-    }
-
-    .menu-overlay {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 100%;
-      max-width: 400px;
-      height: 100vh;
-      background: var(--bg-card);
-      border-left: 2px solid var(--accent-purple);
-      padding: 5rem 2rem 2rem;
-      transition: right 0.3s ease;
-      z-index: 999;
-      overflow-y: auto;
-      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .menu-overlay.active {
-      right: 0;
-    }
-
-    .menu-overlay h3 {
-      color: var(--accent-orange);
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1rem;
-    }
-
-    .menu-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .menu-items li {
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .menu-link {
-      display: block;
-      padding: 1rem;
-      background: rgba(124, 58, 237, 0.1);
-      border-radius: 8px;
-      border-left: 3px solid var(--accent-purple);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .menu-link:hover {
-      background: rgba(124, 58, 237, 0.2);
-      border-left-color: var(--accent-orange);
-      transform: translateX(5px);
-    }
-
-    .menu-items .feature-name {
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .menu-items .feature-desc {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
 
     /* Header Image Section */
     .header-image {
@@ -722,90 +619,7 @@
 </head>
 
 <body>
-  <!-- Sticky Navigation -->
-  <nav class="nav-bar">
-    <div class="nav-content">
-      <div class="nav-logo">IDLE ADVENTURE</div>
-      <button class="burger-menu" id="burgerMenu" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Menu Overlay -->
-  <div class="menu-overlay" id="menuOverlay">
-    <h3>FEATURES</h3>
-    <ul class="menu-items">
-      <li>
-        <a href="combat.html" class="menu-link">
-          <span class="feature-name">⚔️ Combat Mechanics</span>
-          <span class="feature-desc">Explore combat systems and mechanics in depth</span>
-        </a>
-      </li>
-      <li>
-        <a href="companions.html" class="menu-link">
-          <span class="feature-name">🐾 Loyal Companions</span>
-          <span class="feature-desc">Recruit unique companions with special abilities</span>
-        </a>
-      </li>
-      <li>
-        <a href="pets-viewer.html" class="menu-link">
-          <span class="feature-name">🦊 Pet Database</span>
-          <span class="feature-desc">Discover all 93 pets and their unique bonuses</span>
-        </a>
-      </li>
-      <li>
-        <a href="skills.html" class="menu-link">
-          <span class="feature-name">⚡ Skills</span>
-          <span class="feature-desc">Master powerful skills and devastating combos</span>
-        </a>
-      </li>
-      <li>
-        <a href="guild.html" class="menu-link">
-          <span class="feature-name">🏰 Guilds</span>
-          <span class="feature-desc">Battle guild bosses together with other players</span>
-        </a>
-      </li>
-      <li>
-        <a href="special-areas.html" class="menu-link">
-          <span class="feature-name">🗝️ Special Areas</span>
-          <span class="feature-desc">Elite challenges with exclusive rewards and high scores</span>
-        </a>
-      </li>
-      <li>
-        <a href="talents.html" class="menu-link">
-          <span class="feature-name">✨ Talents</span>
-          <span class="feature-desc">Customize your character with powerful passives</span>
-        </a>
-      </li>
-      <li>
-        <a href="ascensions.html" class="menu-link">
-          <span class="feature-name">🌟 Ascensions</span>
-          <span class="feature-desc">Prestige for permanent power and Dream Points</span>
-        </a>
-      </li>
-      <li>
-        <a href="enchanting.html" class="menu-link">
-          <span class="feature-name">🔮 Enchanting System</span>
-          <span class="feature-desc">Upgrade and customize your equipment</span>
-        </a>
-      </li>
-      <li>
-        <a href="consumables.html" class="menu-link">
-          <span class="feature-name">🧪 Consumables & Buffs</span>
-          <span class="feature-desc">Potions and buffs to enhance your power</span>
-        </a>
-      </li>
-      <li>
-        <a href="progressbar.html" class="menu-link">
-          <span class="feature-name">📊 Progress Bar</span>
-          <span class="feature-desc">Automatic progression with powerful perks</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+  <!-- Navigation loaded from nav.js -->
 
   <script>
     // ======================================
@@ -840,22 +654,6 @@
         }
       });
 
-      // Burger menu toggle
-      const burgerMenu = document.getElementById('burgerMenu');
-      const menuOverlay = document.getElementById('menuOverlay');
-
-      burgerMenu.addEventListener('click', function () {
-        burgerMenu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-      });
-
-      // Close menu when clicking outside
-      menuOverlay.addEventListener('click', function (e) {
-        if (e.target === menuOverlay) {
-          burgerMenu.classList.remove('active');
-          menuOverlay.classList.remove('active');
-        }
-      });
     });
   </script>
 
@@ -895,23 +693,21 @@
   <div class="container">
     <div class="about-section">
       <p>
-        Welcome to the official <span style="color: var(--accent-orange); font-weight: 600;">Idle
-          Adventure</span> homepage! <br>
-        Battle fierce enemies with a team of <a href="companions.html"
+        Welcome to <span style="color: var(--accent-orange); font-weight: 600;">Idle
+          Adventure</span>! <br>
+        - A pixel style idle RPG where you battle fierce enemies with your team of <a href="companions.html"
           style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">companions</a>
         and <a href="pets-viewer.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">pets</a>,
-        each bringing their own unique powers to the fight.
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">pets!</a>
         Customize your character through deep <a href="talents.html"
           style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">talent
           trees</a>, unlock devastating <a href="skills-viewer.html"
           style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">skill
           combinations</a>, and <a href="enchanting.html"
           style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">craft</a>
-        increasingly powerful equipment. Join <a href="guild.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">guilds</a>
-        to take on epic bosses alongside other players, or adventure at
-        your own pace.<br><br>
+        increasingly powerful equipment. Join a <a href="guild.html"
+          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan);">guild</a>
+        to defeat epic bosses, or embark on a solo adventure!<br><br>
         <em style="color: var(--accent-cyan); font-size: 1.25rem;">Start your journey today!</em>
       </p>
     </div>

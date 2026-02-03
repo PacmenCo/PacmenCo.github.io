@@ -4,7 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guilds – Idle Adventure</title>
+  <title>Guild System Guide – Idle Adventure | Bosses, Buffs & Progression</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Idle Adventure guild guide: Learn about guild creation, roles, boss raids, buffs, progression, and rewards. Master cooperative gameplay and earn Valor points.">
+  <meta name="keywords" content="Idle Adventure guilds, guild bosses, guild buffs, Valor points, Sigils, guild progression, cooperative gameplay, guild system">
+  <meta name="author" content="PacmenCo">
+  <meta name="theme-color" content="#0a0e1a">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://pacmenco.github.io/guild.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pacmenco.github.io/guild.html">
+  <meta property="og:title" content="Idle Adventure Guild System Complete Guide">
+  <meta property="og:description" content="Master guilds in Idle Adventure: guild creation, boss raids, buffs, roles, and progression systems. Learn strategies for maximizing Valor and Sigils.">
+  <meta property="og:site_name" content="Idle Adventure Guide">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://pacmenco.github.io/guild.html">
+  <meta name="twitter:title" content="Idle Adventure Guild System Guide">
+  <meta name="twitter:description" content="Complete guide to guilds: creation, bosses, buffs, roles, and progression. Master cooperative gameplay in Idle Adventure.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +34,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
+  <!-- Shared Navigation Component -->
+  <script src="nav.js"></script>
 
   <style>
     * {
@@ -235,30 +260,245 @@
 </head>
 
 <body>
-  <nav class="nav-bar">
-    <div class="nav-content">
-      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
-      <a href="index.html" class="back-link">← Back to Home</a>
-    </div>
-  </nav>
+  <!-- Navigation loaded from nav.js -->
 
   <div class="container">
     <div class="hero-section">
-      <h1 class="page-title">🏰 Guild Bosses</h1>
-      <p class="page-subtitle">Cooperative boss battles with powerful rewards</p>
+      <h1 class="page-title">🏰 Guilds</h1>
+      <p class="page-subtitle">Collaborative organizations for cooperative progression and powerful rewards</p>
     </div>
 
     <div class="content-section">
-      <h2>What Are Guild Bosses?</h2>
+      <h2>What Are Guilds?</h2>
       <p>
-        Guild bosses are time-limited cooperative challenges where all guild members work together to defeat powerful
-        bosses. The entire guild shares a common HP pool that all members chip away at during their individual 2-minute runs.
+        Guilds are collaborative player organizations that bring together up to 5 adventurers to participate in
+        cooperative activities, earn shared rewards, and benefit from powerful guild-wide buffs. Guilds provide
+        a structured social experience with progression systems, real-time communication, and exclusive cooperative
+        content like guild boss raids.
+      </p>
+
+      <h3>Core Guild Features</h3>
+      <ul class="feature-list">
+        <li><strong>Cooperative Progression:</strong> Guilds have their own leveling system separate from player levels</li>
+        <li><strong>Guild Bosses:</strong> Time-limited cooperative boss raids with shared HP pools and rewards</li>
+        <li><strong>Guild Buffs:</strong> Purchase temporary bonuses that benefit all guild members</li>
+        <li><strong>Real-Time Chat:</strong> Communicate with guild members instantly</li>
+        <li><strong>Activity Tracking:</strong> See when members are active and their contributions</li>
+        <li><strong>Hierarchical Roles:</strong> Leader, Officer, and Member roles with different permissions</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Creating & Joining Guilds</h2>
+
+      <h3>Creating a Guild</h3>
+      <p>
+        Any player can create their own guild by paying the creation cost and choosing a unique guild name.
+      </p>
+      <div class="formula-box">
+        Creation Cost = 500 Voxels + 500 Gems
+      </div>
+      <ul class="feature-list">
+        <li><strong>Guild Name:</strong> Must be unique (3-24 characters)</li>
+        <li><strong>Guild Tag:</strong> Short identifier (2-5 characters)</li>
+        <li><strong>Emblem Color:</strong> Customize your guild's appearance</li>
+        <li><strong>Privacy Setting:</strong> Choose Open or Closed (can be changed later)</li>
+      </ul>
+
+      <h3>Joining an Existing Guild</h3>
+      <p>
+        Players can search for guilds and request to join.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Open Guilds:</strong> Instant auto-join when you click "Join" (no approval needed)</li>
+        <li><strong>Closed Guilds:</strong> Cannot currently be joined</li>
+        <li><strong>Guild Search:</strong> Filter by name, privacy status, or sort by member count and creation date</li>
+        <li><strong>Member Limit:</strong> Guilds can have a maximum of 5 members</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Note:</strong> You can only be a member of one guild at a time. To join a different guild,
+        you must leave your current guild first.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Guild Roles & Permissions</h2>
+      <p>
+        Guilds use a 3-tier hierarchical role system with different permissions at each level.
+      </p>
+
+      <h3>Leader (1 per guild)</h3>
+      <ul class="feature-list">
+        <li>Rename the guild and update description</li>
+        <li>Change privacy settings (Open ↔ Closed)</li>
+        <li>Promote members to Officer or demote Officers to Member</li>
+        <li>Kick members from the guild</li>
+        <li>Transfer guild ownership to another member</li>
+      </ul>
+      <div class="warning-box">
+        <strong>Important:</strong> Leaders cannot leave the guild without first transferring ownership to another member!
+      </div>
+
+      <h3>Officer (multiple allowed)</h3>
+      <ul class="feature-list">
+        <li>Assist with guild management (elevated privileges)</li>
+        <li>Help coordinate guild activities</li>
+        <li>Participate in all guild features</li>
+      </ul>
+
+      <h3>Member (multiple allowed)</h3>
+      <ul class="feature-list">
+        <li>Participate in guild boss raids</li>
+        <li>Use guild chat and view activity logs</li>
+        <li>Benefit from active guild buffs</li>
+        <li>Contribute to guild progression</li>
+        <li>Leave the guild at any time</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Guild Progression & Currency</h2>
+
+      <h3>Guild Leveling System</h3>
+      <p>
+        Guilds have their own progression system separate from player levels. As your guild defeats bosses
+        and completes activities, it earns Guild XP and levels up.
+      </p>
+      <div class="formula-box">
+        XP Required to Level = Current Level × 250
+      </div>
+      <ul class="feature-list">
+        <li><strong>Level 1 → 2:</strong> 250 XP required</li>
+        <li><strong>Level 2 → 3:</strong> 500 XP required</li>
+        <li><strong>Level 5 → 6:</strong> 1,250 XP required</li>
+        <li><strong>Level 10 → 11:</strong> 2,500 XP required</li>
+      </ul>
+      <p>
+        Guild XP is earned primarily through guild boss participation (1 XP per 1% boss HP removed).
+      </p>
+      <div class="info-box">
+        <strong>Note:</strong> Guild levels currently track progression but do not provide bonuses yet.
+        Future updates will add meaningful rewards and unlocks for higher guild levels.
+      </div>
+
+      <h3>Sigils (Guild Currency)</h3>
+      <p>
+        Sigils are the guild's shared currency, earned by all members during guild boss raids.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Earned From:</strong> Guild boss damage contributions (1 Sigil per 10% HP removed)</li>
+        <li><strong>Lifetime Sigils:</strong> Total Sigils ever earned by the guild</li>
+        <li><strong>Shared Resource:</strong> Sigils belong to the entire guild, not individual players</li>
+      </ul>
+      <div class="warning-box">
+        <strong>Future Feature:</strong> Sigils are currently tracked but cannot be spent yet. Future updates
+        will add guild upgrades, perks, and other purchases available with Sigils.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Guild Buffs</h2>
+      <p>
+        Guild members can purchase temporary buffs using Valor Points (personal currency earned from guild bosses).
+        These buffs apply to all guild members and significantly enhance gameplay.
+      </p>
+
+      <h3>Available Guild Buffs</h3>
+      <ul class="feature-list">
+        <li><strong>Attack Bonus:</strong> Increased damage output</li>
+        <li><strong>Defense Bonus:</strong> Reduced damage taken</li>
+        <li><strong>XP Bonus:</strong> Faster player leveling</li>
+        <li><strong>Loot Bonus:</strong> Better drop rates</li>
+        <li><strong>Health Bonus:</strong> Increased maximum HP</li>
+        <li><strong>Mana Bonus:</strong> Increased maximum mana</li>
+        <li><strong>Companion Speed & Range:</strong> Faster and longer-range companion attacks</li>
+        <li><strong>Companion Damage & Stamina:</strong> More powerful companions with higher stamina</li>
+        <li><strong>Companion XP Bonus:</strong> Faster companion leveling</li>
+        <li><strong>Guild Boss Killer:</strong> Extra damage specifically against guild bosses</li>
+      </ul>
+
+      <h3>Buff Mechanics</h3>
+      <ul class="feature-list">
+        <li><strong>Duration:</strong> +12 hours per purchase</li>
+        <li><strong>Maximum Duration:</strong> 72 hours (3 days) per buff type</li>
+        <li><strong>Stacking:</strong> Multiple purchases extend duration, not magnitude</li>
+        <li><strong>Decay:</strong> Buff duration decreases in real-time</li>
+        <li><strong>Cost:</strong> Paid with Valor Points (earned from guild boss participation)</li>
+        <li><strong>Benefit:</strong> All guild members receive the buff, not just the purchaser</li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Coordinate with your guild!</strong> While purchased individually with your Valor Points,
+        buffs benefit all guild members. Communicate to avoid duplicate purchases and maximize coverage.
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Guild Communication</h2>
+
+      <h3>Guild Chat</h3>
+      <p>
+        Every guild has a real-time chat system for instant communication between members.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Message Length:</strong> Maximum 200 characters per message</li>
+        <li><strong>Rate Limit:</strong> 30-second cooldown between messages</li>
+        <li><strong>Message History:</strong> Last 120 messages stored</li>
+        <li><strong>Color-Coded Names:</strong> Leaders (gold), Officers (purple), Members (white)</li>
+        <li><strong>Timestamps:</strong> Shows how long ago each message was sent</li>
+      </ul>
+
+      <h3>Guild Activity Log</h3>
+      <p>
+        The activity log tracks important guild events and member actions.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Tracked Events:</strong> Guild creation, joins, leaves, kicks, promotions, demotions</li>
+        <li><strong>Boss Events:</strong> Boss spawns, defeats, and failures</li>
+        <li><strong>Management:</strong> Privacy changes, renames, ownership transfers</li>
+        <li><strong>Buffs:</strong> Guild buff purchases and activations</li>
+        <li><strong>History Limit:</strong> Last 30 events stored</li>
+        <li><strong>Color-Coded:</strong> Different event types use different colors for easy scanning</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Member Activity & Statistics</h2>
+      <p>
+        Guild members can view detailed information about other members, including activity status and contributions.
+      </p>
+
+      <h3>Activity Status Indicators</h3>
+      <ul class="feature-list">
+        <li><strong class="stat-highlight" style="color: var(--accent-green);">Green:</strong> Currently online</li>
+        <li><strong class="stat-highlight" style="color: #bef264;">Lime:</strong> Active today</li>
+        <li><strong class="stat-highlight" style="color: var(--accent-orange);">Amber:</strong> Active 2-6 days ago</li>
+        <li><strong class="stat-highlight" style="color: var(--text-secondary);">Gray:</strong> Inactive for 7+ days</li>
+      </ul>
+
+      <h3>Member Statistics</h3>
+      <ul class="feature-list">
+        <li><strong>Player Level:</strong> Current character level</li>
+        <li><strong>Guild Rank:</strong> Relative position within guild</li>
+        <li><strong>Lifetime Contribution:</strong> Total damage dealt to all guild bosses</li>
+        <li><strong>Valor Earned:</strong> Personal currency earned from boss participation</li>
+        <li><strong>Guild Role:</strong> Leader, Officer, or Member designation</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Guild Bosses</h2>
+      <p>
+        Guild bosses are the primary cooperative feature of guilds. These are time-limited challenges where all
+        guild members work together to defeat powerful bosses with shared HP pools.
       </p>
 
       <h3>Key Features</h3>
       <ul class="feature-list">
         <li><strong>Cooperative Gameplay:</strong> All guild members attack the same boss with a shared HP pool</li>
         <li><strong>Individual Runs:</strong> Each player fights the boss alone for 2 minutes using tickets</li>
+        <li><strong>Global Synchronization:</strong> All guilds fight the same boss type during each period</li>
         <li><strong>Equal Rewards:</strong> All participants receive the same rewards based on guild performance</li>
         <li><strong>Scaling Difficulty:</strong> Boss gets stronger each time you deplete one HP bar</li>
       </ul>
