@@ -203,7 +203,7 @@
       <div class="nav-content">
         <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
         <div class="nav-right">
-          <a href="faq.html" class="faq-link">❓ FAQ</a>
+          <a href="faq.html" class="faq-link">FAQ</a>
           <button class="burger-menu" id="burgerMenu" aria-label="Menu">
             <span></span>
             <span></span>
