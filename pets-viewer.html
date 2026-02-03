@@ -57,7 +57,7 @@
     .filter-btn.active { background: var(--accent-purple); border-color: var(--accent-orange); }
 
     /* Pets Grid */
-    .pets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .pets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
 
     /* Pet Card */
     .pet-card { background: var(--bg-card); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(124, 58, 237, 0.2); transition: all 0.3s; cursor: pointer; text-decoration: none; display: block; }
@@ -101,7 +101,16 @@
 
     @media (max-width: 768px) {
       .container { padding: 5rem 1rem 2rem; }
-      .pets-grid { grid-template-columns: 1fr; }
+      .pets-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .pet-card { padding: 0.75rem; }
+      .compact-icon { font-size: 2rem; width: 48px; height: 48px; }
+      .compact-icon img { width: 48px; height: 48px; }
+      .pet-name { font-size: 0.9rem; }
+      .pet-id { font-size: 0.7rem; }
+      .pet-stat { padding: 0.5rem; font-size: 0.75rem; }
+      .stat-type { font-size: 0.8rem; }
+      .method { font-size: 0.7rem; padding: 0.2rem 0.5rem; }
+      .requirement { font-size: 0.75rem; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .filter-section { padding: 1rem; }
       .detail-card { padding: 1.5rem; }
