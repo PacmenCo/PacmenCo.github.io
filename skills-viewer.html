@@ -859,7 +859,7 @@
             </div>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            ${skill.categories.map(cat => `<span class="compact-category">${cat}</span>`).join('')}
+            ${skill.categories ? skill.categories.map(cat => `<span class="compact-category">${cat}</span>`).join('') : ''}
           </div>
           ${quickStats.length > 0 ? `<div class="compact-stats">${quickStats.join('')}</div>` : ''}
         </a>
