@@ -7,17 +7,25 @@
   // Inject CSS styles
   const styles = `
     <style>
+      /* Prevent horizontal scrolling */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
       /* Sticky Navigation */
       .nav-bar {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        max-width: 100vw;
         background: rgba(10, 14, 26, 0.95);
         backdrop-filter: blur(10px);
         padding: 1rem 2rem;
         z-index: 1000;
         border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+        box-sizing: border-box;
       }
 
       .nav-content {
