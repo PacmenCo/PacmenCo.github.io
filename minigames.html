@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Games – Idle Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #0a0e1a; --bg-card: #1a1f35;
+      --accent-purple: #7c3aed; --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
+      --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+    }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+    .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
+    .back-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .back-link:hover { color: var(--accent-orange); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem 3rem; }
+    .hero-section { text-align: center; margin-bottom: 4rem; }
+    .page-title { font-size: clamp(2.5rem, 6vw, 4rem); background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+    .page-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; }
+    .content-section { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; border: 2px solid rgba(124, 58, 237, 0.2); }
+    .content-section h2 { color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.75rem; }
+    .content-section p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+    .minigames-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .minigame-card { background: rgba(20, 24, 41, 0.6); border: 2px solid rgba(124, 58, 237, 0.3); border-radius: 16px; padding: 2rem; text-decoration: none; color: inherit; display: block; transition: all 0.3s; }
+    .minigame-card:hover { border-color: var(--accent-cyan); transform: translateY(-5px); box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3); }
+    .minigame-icon { font-size: 4rem; text-align: center; margin-bottom: 1rem; }
+    .minigame-card h3 { color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.5rem; text-align: center; }
+    .minigame-card p { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; text-align: center; }
+    .info-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .info-box strong { color: var(--accent-green); }
+    @media (max-width: 768px) {
+      .container { padding: 5rem 1rem 2rem; }
+      .minigames-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🎮 Mini Games</h1>
+      <p class="page-subtitle">Take a break from adventuring and enjoy these skill-based mini games</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Mini games offer a fun diversion from the main adventure while providing valuable rewards. Each mini game has its own unique mechanics, progression systems, and reward structures. Perfect for when you want to actively engage with the game in a different way!</p>
+      <div class="info-box"><strong>Access:</strong> The mini games panel unlocks at level 5. Fishing spots can be found in specific zones throughout your adventure.</div>
+    </div>
+
+    <div class="minigames-grid">
+      <a href="fishing.html" class="minigame-card">
+        <div class="minigame-icon">🎣</div>
+        <h3>Fishing</h3>
+        <p>A skill-based fishing system with levels, combos, upgradeable rods, and three types of catches. Master the throw and reel mechanics to catch rare treasures and level up your fishing skill.</p>
+      </a>
+
+      <a href="frogger.html" class="minigame-card">
+        <div class="minigame-icon">🐸</div>
+        <h3>Crossy Cube</h3>
+        <p>Navigate through dangerous roads and rivers in this classic arcade-style game. Collect pixels, crystals, voxels, and gems while avoiding obstacles. Difficulty increases as you progress!</p>
+      </a>
+
+      <a href="spaceinvaders.html" class="minigame-card">
+        <div class="minigame-icon">👾</div>
+        <h3>Space Invaders</h3>
+        <p>A classic arcade shooter hidden as an Easter egg. Find and click the Atari console five times to unlock this retro mini game with highscore tracking.</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

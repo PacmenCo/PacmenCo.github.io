@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Invaders Mini Game – Idle Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #0a0e1a; --bg-card: #1a1f35;
+      --accent-purple: #7c3aed; --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
+      --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+    }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+    .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
+    .back-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .back-link:hover { color: var(--accent-orange); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem 3rem; }
+    .hero-section { text-align: center; margin-bottom: 4rem; }
+    .page-title { font-size: clamp(2.5rem, 6vw, 4rem); background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+    .page-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; }
+    .content-section { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; border: 2px solid rgba(124, 58, 237, 0.2); }
+    .content-section h2 { color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.75rem; }
+    .content-section h3 { color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+    .content-section p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+    .info-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .info-box strong { color: var(--accent-green); }
+    .warning-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent-red); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .warning-box strong { color: var(--accent-red); }
+    .formula-box { background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; margin: 1rem 0; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    th { background: rgba(124, 58, 237, 0.2); color: var(--accent-orange); font-weight: 600; }
+    td { color: var(--text-secondary); }
+    .stat-highlight { color: var(--accent-orange); font-weight: 600; }
+    ul.feature-list { list-style: none; padding: 0; }
+    ul.feature-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(124, 58, 237, 0.1); }
+    ul.feature-list li strong { color: var(--accent-orange); }
+    @media (max-width: 768px) {
+      .container { padding: 5rem 1rem 2rem; }
+      table { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="minigames.html" class="back-link">← Back to Mini Games</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">👾 Space Invaders</h1>
+      <p class="page-subtitle">Classic arcade shooter with highscore tracking and pet rewards</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Space Invaders is a hidden Easter egg mini game that pays tribute to the classic arcade shooter. Defend against waves of descending alien invaders, destroy the mysterious UFO, and rack up high scores. This retro mini game features authentic arcade mechanics with a special pet unlock reward for skilled players!</p>
+      <div class="warning-box"><strong>Easter Egg:</strong> Space Invaders is hidden! To unlock it, find the Atari console decoration in the game and click it 5 times. The mini game will then become available from the mini games panel.</div>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Play</h2>
+
+      <h3>Controls</h3>
+      <p>Classic arcade controls for movement and shooting:</p>
+      <ul class="feature-list">
+        <li><strong>Left/Right Arrow Keys:</strong> Move your ship horizontally</li>
+        <li><strong>Spacebar:</strong> Fire projectiles at the invaders</li>
+      </ul>
+      <p>You can only have one projectile on screen at a time, so aim carefully!</p>
+
+      <h3>Objective</h3>
+      <p>Destroy all invaders before they reach the bottom of the screen. Each level gets progressively harder as enemies move faster. Survive as long as possible and beat your high score!</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Enemy Types</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Enemy Type</th>
+            <th>Point Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Top Row Invader</td>
+            <td>30 points</td>
+            <td>Smallest aliens in the top row - worth the most points</td>
+          </tr>
+          <tr>
+            <td>Middle Row Invader</td>
+            <td>20 points</td>
+            <td>Medium aliens in the middle rows</td>
+          </tr>
+          <tr>
+            <td>Bottom Row Invader</td>
+            <td>10 points</td>
+            <td>Larger aliens in the bottom rows - worth the least</td>
+          </tr>
+          <tr>
+            <td>UFO (Mystery Ship)</td>
+            <td>Variable</td>
+            <td>Special enemy that flies across the top of the screen - see UFO section below</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box"><strong>Scoring Formula:</strong> Your score increases by the enemy's point value × 5. So a top row invader gives 30 × 5 = 150 points!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Level Progression</h2>
+      <p>Each level spawns exactly 30 invaders arranged in rows. When you destroy all invaders, you advance to the next level with a fresh wave of enemies.</p>
+
+      <h3>Difficulty Scaling</h3>
+      <p>The game becomes progressively harder as you destroy more enemies within a level:</p>
+      <ul class="feature-list">
+        <li><strong>27-30 enemies alive:</strong> Base speed (slowest)</li>
+        <li><strong>21-26 enemies alive:</strong> 25% speed increase</li>
+        <li><strong>11-20 enemies alive:</strong> 40% speed increase</li>
+        <li><strong>6-10 enemies alive:</strong> 45% speed increase</li>
+        <li><strong>2-5 enemies alive:</strong> 75% speed increase</li>
+        <li><strong>1 enemy alive:</strong> 100% speed increase (maximum difficulty!)</li>
+      </ul>
+
+      <div class="warning-box"><strong>The Last Enemy:</strong> The final invader moves at double speed, making it the most dangerous! Don't let it reach the bottom.</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Pet Unlocks</h2>
+      <p>Space Invaders offers three companion pets as permanent rewards based on your performance:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pet Name</th>
+            <th>Unlock Requirement</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Crap</td>
+            <td>Reach highscore of 1500</td>
+            <td>First milestone pet - achieve a score of 1500 or higher</td>
+          </tr>
+          <tr>
+            <td>Invader</td>
+            <td>Reach highscore of 4000</td>
+            <td>Advanced milestone pet - achieve a score of 4000 or higher</td>
+          </tr>
+          <tr>
+            <td>Cool Invader</td>
+            <td>Destroy 10 UFOs in one game</td>
+            <td>UFO hunting specialist - destroy 10 UFOs total during a single game session</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box"><strong>UFO Kills Carry Over:</strong> The UFO counter doesn't reset if a UFO escapes off-screen. You just need to destroy 10 UFOs total before the game ends - they don't need to be consecutive!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>UFO System</h2>
+      <p>The UFO (mystery ship) is a special enemy that occasionally flies across the top of the screen. UFOs are worth bonus points and are key to unlocking the Cool Invader pet.</p>
+
+      <h3>UFO Mechanics</h3>
+      <ul class="feature-list">
+        <li><strong>Spawn Rate:</strong> Up to 3 UFOs can spawn per level with random timing</li>
+        <li><strong>Movement:</strong> UFOs fly horizontally across the screen and escape if not shot</li>
+        <li><strong>Points:</strong> UFOs have variable point values</li>
+        <li><strong>Escape Penalty:</strong> None! Missing a UFO doesn't reset your kill counter</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Protection Blocks</h2>
+      <p>Four protective barriers are positioned at the bottom of the screen between you and the invaders. These blocks provide cover but can be destroyed:</p>
+      <ul class="feature-list">
+        <li><strong>Defense:</strong> Blocks absorb both enemy projectiles and your own shots</li>
+        <li><strong>Destructible:</strong> Each hit removes a piece of the block</li>
+        <li><strong>Strategic Positioning:</strong> Use blocks as cover but be aware they deteriorate over time</li>
+        <li><strong>No Regeneration:</strong> Once destroyed, blocks don't come back until the next level</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Lives & Game Over</h2>
+      <p>You start with 3 lives. Lose a life when:</p>
+      <ul class="feature-list">
+        <li>An enemy projectile hits your ship</li>
+        <li>An invader reaches the bottom of the screen</li>
+      </ul>
+      <p>When you lose all 3 lives, the game ends and your final score is recorded if it beats your previous high score.</p>
+
+      <h3>Highscore System</h3>
+      <p>Your best score is permanently saved and displayed each time you play. Can you beat your record and climb to new heights?</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Tips</h2>
+      <ul class="feature-list">
+        <li><strong>Prioritize Top Rows:</strong> Top row invaders are worth more points - focus on them first</li>
+        <li><strong>Stay Mobile:</strong> Keep moving to dodge enemy projectiles</li>
+        <li><strong>Use Cover Wisely:</strong> Protection blocks are valuable early on but deteriorate quickly</li>
+        <li><strong>Watch Enemy Speed:</strong> As you destroy more invaders, the remaining ones speed up dramatically</li>
+        <li><strong>UFO Timing:</strong> Don't waste shots on UFOs if you're under heavy fire - survival comes first</li>
+        <li><strong>UFO Streak Focus:</strong> If you're going for the Chicken pet, dedicate runs to UFO hunting and prioritize them above all else</li>
+        <li><strong>One Shot at a Time:</strong> Remember you can only have one projectile active - wait for it to hit or miss before firing again</li>
+        <li><strong>The Final Enemy:</strong> When only one invader remains, be extra cautious as it moves at maximum speed</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Unlock</h2>
+      <p>Space Invaders is a hidden Easter egg. To unlock access:</p>
+      <ol style="color: var(--text-secondary); line-height: 2; margin-left: 2rem;">
+        <li>Find the Atari console decoration somewhere in the game world</li>
+        <li>Click on the Atari console 5 times</li>
+        <li>The mini game will unlock and become available from the mini games panel (unlocks at level 5)</li>
+      </ol>
+      <div class="info-box"><strong>Permanent Unlock:</strong> Once unlocked, Space Invaders remains available forever on your account!</div>
+    </div>
+  </div>
+</body>
+</html>

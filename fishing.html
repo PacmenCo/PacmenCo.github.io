@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fishing Mini Game – Idle Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #0a0e1a; --bg-card: #1a1f35;
+      --accent-purple: #7c3aed; --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
+      --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+    }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+    .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
+    .back-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .back-link:hover { color: var(--accent-orange); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem 3rem; }
+    .hero-section { text-align: center; margin-bottom: 4rem; }
+    .page-title { font-size: clamp(2.5rem, 6vw, 4rem); background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+    .page-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; }
+    .content-section { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; border: 2px solid rgba(124, 58, 237, 0.2); }
+    .content-section h2 { color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.75rem; }
+    .content-section h3 { color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+    .content-section p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+    .info-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .info-box strong { color: var(--accent-green); }
+    .warning-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent-red); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .warning-box strong { color: var(--accent-red); }
+    .formula-box { background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; margin: 1rem 0; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    th { background: rgba(124, 58, 237, 0.2); color: var(--accent-orange); font-weight: 600; }
+    td { color: var(--text-secondary); }
+    .stat-highlight { color: var(--accent-orange); font-weight: 600; }
+    ul.feature-list { list-style: none; padding: 0; }
+    ul.feature-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(124, 58, 237, 0.1); }
+    ul.feature-list li strong { color: var(--accent-orange); }
+    @media (max-width: 768px) {
+      .container { padding: 5rem 1rem 2rem; }
+      table { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="minigames.html" class="back-link">← Back to Mini Games</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🎣 Fishing</h1>
+      <p class="page-subtitle">Skill-based fishing with levels, combos, and upgradeable rods</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Fishing is a comprehensive mini game with two phases: throwing and reeling. Master both mechanics to catch valuable fish, treasure, and level up your fishing skill. The system features seven upgradeable rods, combo multipliers, and three types of catches.</p>
+      <div class="info-box"><strong>Where to Fish:</strong> Find fishing spots in specific zones throughout your adventure. Look for barrels near water!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Fish</h2>
+
+      <h3>Throwing Phase</h3>
+      <p>A marker moves across the screen. Release when the marker is in the center for a Perfect throw! There are 7 accuracy levels:</p>
+      <ul class="feature-list">
+        <li><strong>Perfect:</strong> Best accuracy - lowest patience cost (2), highest treasure chance</li>
+        <li><strong>Awesome:</strong> Excellent - low patience cost (5), good treasure chance</li>
+        <li><strong>Great:</strong> Good - moderate patience cost (7)</li>
+        <li><strong>Good:</strong> Average - higher patience cost (9)</li>
+        <li><strong>Ok:</strong> Below average - high patience cost (10)</li>
+        <li><strong>Bad:</strong> Poor - very high patience cost (11)</li>
+        <li><strong>Ouch:</strong> Worst - maximum patience cost (12)</li>
+      </ul>
+
+      <h3>Reeling Phase</h3>
+      <p>Keep the fish within the accuracy box by controlling your reel. The fish moves randomly, and you must maintain contact with it. A Perfect Reel (keeping the fish in the box the entire time) grants a 1.5× experience bonus!</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Patience System</h2>
+      <p>Patience is your fishing resource that depletes with each throw. Run out, and you can't fish anymore until it regenerates.</p>
+      <div class="formula-box">Maximum Patience = 40 + (2 × Fishing Level)</div>
+      <p>Better throws use less patience. Perfect throws only cost 2 patience, while Ouch throws cost 12. Patience regenerates passively over time (+15 per cycle).</p>
+      <div class="info-box"><strong>Rod of Tranquility:</strong> This upgradeable rod has a chance to make throws cost zero patience!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Leveling & Experience</h2>
+      <div class="formula-box">XP Required = (Level + 1)^1.47 × 100</div>
+      <p>Gain experience by successfully reeling in fish. Experience is affected by:</p>
+      <ul class="feature-list">
+        <li><strong>Base Multiplier:</strong> 1.5× for all successful reels</li>
+        <li><strong>Perfect Reel Bonus:</strong> Additional 1.5× if fish stays in box entire time</li>
+        <li><strong>Rod of Impatience:</strong> Multiplies XP gain by up to 1.44× at max level</li>
+      </ul>
+      <p>Higher fishing levels increase your maximum patience and improve your chances of catching better fish.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Combo & Perfect Streak</h2>
+
+      <h3>Combo System</h3>
+      <p>Build combos by landing Awesome or Perfect throws. Only Perfect throws increase the combo significantly (+3), while Awesome gives +1. Any other accuracy breaks your combo.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Combo Range</th>
+            <th>Modifier</th>
+            <th>Effect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-9</td>
+            <td>+0</td>
+            <td>No bonus</td>
+          </tr>
+          <tr>
+            <td>10-24</td>
+            <td>+1</td>
+            <td>Better fish chances, slight treasure boost</td>
+          </tr>
+          <tr>
+            <td>25-49</td>
+            <td>+2</td>
+            <td>Improved fish quality, good treasure boost</td>
+          </tr>
+          <tr>
+            <td>50+</td>
+            <td>+3</td>
+            <td>Best fish chances, maximum treasure boost</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Perfect Streak</h3>
+      <p>Track consecutive Perfect throws separately. This streak only increases with Perfect accuracy and provides additional bonuses to treasure chances. Your best streak is saved!</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Fish Types</h2>
+      <p>There are three categories of catches, each with different purposes:</p>
+
+      <h3>Regular Fish</h3>
+      <p>Various fish species that provide pixels, experience, and fish weight. Better accuracy and higher combos increase your chances of catching rare fish species.</p>
+
+      <h3>Junk</h3>
+      <p>Boots, trash, and other unwanted catches. Easier to get with poor throws. Still provides some rewards but less valuable than fish.</p>
+
+      <h3>Treasure</h3>
+      <p>The most valuable catches! Treasure has a higher chance with Perfect and Awesome throws, especially with high combos:</p>
+      <ul class="feature-list">
+        <li><strong>Copper Treasure:</strong> Pixels (currency)</li>
+        <li><strong>Silver Treasure:</strong> Voxels (crafting materials)</li>
+        <li><strong>Crystal Treasure:</strong> Crystals (enchanting materials)</li>
+        <li><strong>Voxel Treasure:</strong> Large voxel amounts</li>
+        <li><strong>Gold Treasure:</strong> Gems and mixed rewards</li>
+        <li><strong>Legendary Treasure:</strong> Special high-value rewards</li>
+      </ul>
+
+      <div class="info-box"><strong>Treasure Chances:</strong> Perfect throws have the best treasure chance, followed by Awesome. Combo multipliers significantly increase these odds!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Fishing Rods</h2>
+      <p>Seven rods can be upgraded in the fishing shop, each with unique effects:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Rod Name</th>
+            <th>Effect</th>
+            <th>Max Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Beginner's Rod</td>
+            <td>Standard rod with no bonuses</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Fisher's Rod</td>
+            <td>Increases fish catch chance</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Great Rod</td>
+            <td>Slows fish movement during reeling</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Rod of Tranquility</td>
+            <td>Chance to use zero patience per throw</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Rod of Impatience</td>
+            <td>Multiplies XP gain (1.25× to 1.44×)</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Precise Rod</td>
+            <td>Increases throw accuracy zone size</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Golden Rod</td>
+            <td>Significantly increases treasure chance</td>
+            <td>4</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box"><strong>Upgrade Costs:</strong> Rod upgrades require pixels, fish, voxels, crystals, or gems depending on the rod. Costs increase substantially at higher levels.</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Tips</h2>
+      <ul class="feature-list">
+        <li><strong>Prioritize Perfect Throws:</strong> They use the least patience, build combos fastest, and have the best treasure chances</li>
+        <li><strong>Upgrade Rod of Tranquility Early:</strong> Free throws save patience and let you fish much longer</li>
+        <li><strong>Build High Combos:</strong> Combo modifiers dramatically improve treasure chances and fish quality</li>
+        <li><strong>Golden Rod for Treasure:</strong> If you're hunting treasures, upgrade the Golden Rod for massive treasure boosts</li>
+        <li><strong>Great Rod for Learning:</strong> Slower fish movement makes Perfect Reels much easier to achieve</li>
+        <li><strong>Watch Your Patience:</strong> Don't waste throws with poor accuracy - it's better to wait for good positioning</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

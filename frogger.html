@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crossy Cube Mini Game – Idle Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-dark: #0a0e1a; --bg-card: #1a1f35;
+      --accent-purple: #7c3aed; --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
+      --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+    }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+    .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
+    .back-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .back-link:hover { color: var(--accent-orange); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem 3rem; }
+    .hero-section { text-align: center; margin-bottom: 4rem; }
+    .page-title { font-size: clamp(2.5rem, 6vw, 4rem); background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+    .page-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; }
+    .content-section { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; border: 2px solid rgba(124, 58, 237, 0.2); }
+    .content-section h2 { color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.75rem; }
+    .content-section h3 { color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+    .content-section p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+    .info-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .info-box strong { color: var(--accent-green); }
+    .warning-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent-red); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+    .warning-box strong { color: var(--accent-red); }
+    .formula-box { background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; margin: 1rem 0; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
+    th { background: rgba(124, 58, 237, 0.2); color: var(--accent-orange); font-weight: 600; }
+    td { color: var(--text-secondary); }
+    .stat-highlight { color: var(--accent-orange); font-weight: 600; }
+    ul.feature-list { list-style: none; padding: 0; }
+    ul.feature-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(124, 58, 237, 0.1); }
+    ul.feature-list li strong { color: var(--accent-orange); }
+    @media (max-width: 768px) {
+      .container { padding: 5rem 1rem 2rem; }
+      table { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+      <a href="minigames.html" class="back-link">← Back to Mini Games</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">🐸 Crossy Cube</h1>
+      <p class="page-subtitle">Classic arcade action with scaling difficulty and loot rewards</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Crossy Cube is a tribute to the classic arcade game where you guide a frog through dangerous roads and rivers. Navigate through traffic, jump on logs to cross water, and collect valuable loot while the game gets progressively harder. How far can you make it?</p>
+      <div class="info-box"><strong>Access:</strong> Crossy Cube is available from the mini games panel, which unlocks at level 5.</div>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Play</h2>
+
+      <h3>Controls</h3>
+      <p>Use arrow keys or WASD to move:</p>
+      <ul class="feature-list">
+        <li><strong>Up (W):</strong> Move forward</li>
+        <li><strong>Down (S):</strong> Move backward</li>
+        <li><strong>Left (A):</strong> Move left</li>
+        <li><strong>Right (D):</strong> Move right</li>
+      </ul>
+      <p>Movement is grid-based - you move one tile at a time with each key press. All movements are animated with a smooth jump.</p>
+
+      <h3>Objective</h3>
+      <p>Move forward as far as possible while avoiding hazards and collecting loot. Your score is based on how far forward you travel. Beat your high score and earn valuable resources!</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Terrain Types</h2>
+
+      <h3>Grass (Safe)</h3>
+      <p>Green tiles where you can safely stand and rest. No hazards here!</p>
+
+      <h3>Roads (Dangerous)</h3>
+      <p>Roads spawn moving obstacles (Evil Cubes) that travel left or right at varying speeds. Getting hit means instant death! Watch the traffic patterns and time your crossing carefully.</p>
+
+      <h3>Water (Requires Logs)</h3>
+      <p>You cannot swim! Water sections have floating logs you must jump onto. Stay on the logs to cross safely - falling in the water means death. Logs move left or right, so position yourself carefully.</p>
+
+      <h3>Rails</h3>
+      <p>Less common terrain type. Safe to cross like grass.</p>
+
+      <div class="warning-box"><strong>Boundary Deaths:</strong> Moving too far left or right (beyond the play area) will also result in death!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Difficulty Scaling</h2>
+      <p>The game gets progressively harder as you advance:</p>
+      <div class="formula-box">Difficulty = 1.05 + (Distance - 5) × 0.008<br>Maximum Difficulty = 5.0×</div>
+      <p>Difficulty affects:</p>
+      <ul class="feature-list">
+        <li><strong>Obstacle Speed:</strong> Cars and logs move faster at higher difficulties</li>
+        <li><strong>Spawn Rate:</strong> Hazards appear more frequently</li>
+        <li><strong>Loot Value:</strong> Higher difficulty means better rewards!</li>
+      </ul>
+      <div class="info-box"><strong>Starting Safe:</strong> The first 5 tiles have low difficulty to help you get started. Difficulty caps at 5.0× for balance.</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Loot System</h2>
+      <p>Collectible loot spawns every 7 tiles. Run over it to collect! Loot amounts scale with difficulty, so pushing further yields better rewards.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Loot Type</th>
+            <th>Drop Rate</th>
+            <th>Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pixels (Coins)</td>
+            <td>80%</td>
+            <td>7 + 1.35 × difficulty^1.45 × random(1.15, 2.25)</td>
+          </tr>
+          <tr>
+            <td>Crystals</td>
+            <td>8%</td>
+            <td>difficulty × random(15, 31)</td>
+          </tr>
+          <tr>
+            <td>Voxels</td>
+            <td>7%</td>
+            <td>sqrt(difficulty^1.35) × random(3, 7)</td>
+          </tr>
+          <tr>
+            <td>Gems</td>
+            <td>1%</td>
+            <td>random(3, 6) - fixed amount</td>
+          </tr>
+          <tr>
+            <td>Chicken Pet</td>
+            <td>Rare</td>
+            <td>Only if score > 100 and you don't own it</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box"><strong>Pet Unlock:</strong> After reaching score 100, the Chicken companion pet has a chance to spawn as loot! It's a one-time reward.</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Pet Unlocks</h2>
+      <p>Crossy Cube offers three companion pets as permanent rewards:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pet Name</th>
+            <th>Unlock Requirement</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Egg</td>
+            <td>Reach highscore of 100</td>
+            <td>First milestone pet - achieve a score of 100 or higher</td>
+          </tr>
+          <tr>
+            <td>Chick</td>
+            <td>Reach highscore of 200</td>
+            <td>Advanced milestone pet - achieve a score of 200 or higher</td>
+          </tr>
+          <tr>
+            <td>Chicken</td>
+            <td>Loot drop (score > 100)</td>
+            <td>Rare loot drop that has a chance to spawn after reaching score 100</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box"><strong>Highscore Pets:</strong> The Egg and Chick pets unlock automatically when you reach their required highscore thresholds. The Chicken pet is a random loot drop that requires both luck and skill!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Scoring</h2>
+      <p>Your score equals your furthest forward position. Moving backward doesn't decrease your score - only forward progress counts!</p>
+
+      <h3>High Score System</h3>
+      <p>Your best score is permanently saved. Each run displays both your current score and your all-time high score. Can you beat your record?</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Death & Restart</h2>
+      <p>Death occurs when you:</p>
+      <ul class="feature-list">
+        <li>Get hit by an obstacle on a road</li>
+        <li>Fall into water (not on a log)</li>
+        <li>Move too far left or right beyond the boundary</li>
+      </ul>
+      <p>When you die, a death animation plays, and after a brief delay, you're returned to the menu. You keep any loot collected during that run! Start a new game to try again.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Log Mechanics</h2>
+      <p>Logs are critical for crossing water safely:</p>
+      <ul class="feature-list">
+        <li><strong>Boarding:</strong> Jump onto a log to ride it safely across water</li>
+        <li><strong>Movement:</strong> While on a log, you move with it automatically</li>
+        <li><strong>Log Sizes:</strong> Logs come in small (1 tile), medium (2 tiles), and large (3 tiles)</li>
+        <li><strong>Direction:</strong> Logs move left or right at varying speeds</li>
+        <li><strong>Repositioning:</strong> You can move left/right while on a log to adjust your position</li>
+      </ul>
+      <div class="warning-box"><strong>Stay On the Log:</strong> Moving off a log while over water = instant death!</div>
+    </div>
+
+    <div class="content-section">
+      <h2>Strategy Tips</h2>
+      <ul class="feature-list">
+        <li><strong>Watch Patterns:</strong> Obstacles move in predictable patterns - study them before crossing</li>
+        <li><strong>Stay Centered:</strong> Don't move too far left or right - you'll hit the boundary</li>
+        <li><strong>Time Your Jumps:</strong> Wait for gaps in traffic rather than trying to squeeze through</li>
+        <li><strong>Log Planning:</strong> Look ahead at log positions before you commit to crossing water</li>
+        <li><strong>Loot vs. Safety:</strong> Don't risk death for loot - staying alive for higher difficulty gives better rewards</li>
+        <li><strong>Use Grass Tiles:</strong> Stop on grass to study the next few obstacles before proceeding</li>
+        <li><strong>Push for High Scores:</strong> The further you go, the better the loot multipliers become</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
