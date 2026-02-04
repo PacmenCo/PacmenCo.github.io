@@ -2335,9 +2335,9 @@ const companionsData = {
           },
           {
             "type": "formula-box",
-            "label": "Base Speed Modifier",
-            "formula": "-0.15 + 0.025 × (SPECIAL - 12)",
-            "details": "At 12 SPECIAL: -15% speed (slow start)\nAt 20 SPECIAL: +5% speed\nAt 32 SPECIAL: +35% speed"
+            "label": "Starting Attack Speed (Before Stacking)",
+            "formula": "2.5% per SPECIAL above 12<br><br>Starting Speed = -15% + 2.5% × (SPECIAL - 12)",
+            "details": "This is your initial attack speed when Pecking Overdrive activates, before hit stacking begins.<br><br>Examples:<br>• 12 SPECIAL (base): Start at -15% speed<br>• 20 SPECIAL: Start at +5% speed<br>• 32 SPECIAL: Start at +35% speed<br><br>Higher SPECIAL eliminates the slow start and lets you ramp faster."
           },
           {
             "type": "formula-box",
@@ -2475,15 +2475,15 @@ const companionsData = {
           },
           {
             "type": "formula-box",
-            "formula": "Speed Modifier = -0.15 + 0.025 × (SPECIAL - 12)"
+            "formula": "Starting Attack Speed = -15% + 2.5% per SPECIAL above 12"
           },
           {
             "type": "formula-box",
-            "formula": "Stamina Bonus = SPECIAL × 0.025 × 2.5 = SPECIAL × 0.0625"
+            "formula": "Stamina Bonus = SPECIAL × 0.0625"
           },
           {
             "type": "paragraph",
-            "text": "Each point of SPECIAL adds <span class=\"stat-highlight\">2.5% to base speed modifier</span> during Pecking Overdrive and <span class=\"stat-highlight\">0.0625 max stamina</span>. High SPECIAL eliminates the initial speed penalty and provides a strong starting boost before stacks ramp up."
+            "text": "Each point of SPECIAL above 12 adds <span class=\"stat-highlight\">2.5% initial attack speed</span> when Pecking Overdrive activates and <span class=\"stat-highlight\">0.0625 max stamina</span>. At 12 SPECIAL, you start with -15% speed. At 20 SPECIAL, you start with +5% speed. High SPECIAL eliminates the slow start and lets you reach max stacks faster."
           }
         ]
       },
