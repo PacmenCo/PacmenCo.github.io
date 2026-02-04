@@ -23,7 +23,6 @@ const companionsData = {
       "luck": 9,
       "special": 8
     },
-    "statsDescription": "Jindo has balanced STR and CON (both 11) for solid damage and survivability. Good base SPECIAL (8) provides decent Alpha Rush scaling. Low DEX (6) means slower attack speed. Moderate LUCK (9) offers fair crit potential.",
     "sections": [
       {
         "title": "Special Ability: Alpha Rush!",
@@ -296,7 +295,6 @@ const companionsData = {
       "luck": 8,
       "special": 9
     },
-    "statsDescription": "Ember has balanced stats across the board with high CON (12) for stamina capacity. Moderate STR (9) and SPECIAL (9) provide decent damage and burn scaling. Fair DEX (7) and LUCK (8) offer reasonable attack speed and crit chance.",
     "sections": [
       {
         "title": "🔥 PyroMantic Ability",
@@ -581,7 +579,6 @@ const companionsData = {
       "luck": 9,
       "special": 13
     },
-    "statsDescription": "Mystikat has the highest base CON (14) for excellent stamina capacity and regeneration, paired with high SPECIAL (13) for powerful healing scaling. Low STR and DEX mean lower damage and attack speed, but the focus is on survivability rather than offense.",
     "sections": [
       {
         "title": "🌸 Vital Bloom Ability",
@@ -884,7 +881,6 @@ const companionsData = {
       "luck": 15,
       "special": 4
     },
-    "statsDescription": "Hootini has the highest base LUCK (15) of all companions, making it naturally inclined toward critical hit builds. Low SPECIAL (4) means mark bonuses start weak but scale significantly with investment. Balanced CON (12) provides decent stamina for multiple marks.",
     "sections": [
       {
         "title": "✨ Runic Mark Ability",
@@ -1228,7 +1224,6 @@ const companionsData = {
       "luck": 10,
       "special": 4
     },
-    "statsDescription": "Globbie has the highest base STR (17) of all companions, making it naturally powerful despite being a control specialist. The very low DEX (5) means slow attack speed, but the guaranteed crit and massive slow make up for it. Low SPECIAL (4) means control effects start weak but scale well with investment.",
     "sections": [
       {
         "title": "Special Ability: Sticky Ruin!",
@@ -1572,7 +1567,6 @@ const companionsData = {
       "luck": 5,
       "special": 12
     },
-    "statsDescription": "Acornelius has balanced STR and CON (both 11) for solid damage and survivability. High base SPECIAL (12) provides good starting values for buff duration and damage boost. Very low LUCK (5) means minimal crit chance, making this companion focused on consistent damage rather than burst crits.",
     "sections": [
       {
         "title": "🛡️ Squirrel Defense Ability",
@@ -1660,7 +1654,7 @@ const companionsData = {
           },
           {
             "type": "info-box",
-            "text": "<strong>Key Mechanic:</strong> The damage reduction lasts for the full duration, but the damage boost only applies to a specific number of attacks. With high attack speed, you might use all boosted attacks before the defensive buff expires. With low attack speed, the defensive buff might outlast your damage boost."
+            "text": "<strong>Key Mechanic:</strong> The damage reduction lasts for the full duration, but the damage boost only applies to a specific number of attacks."
           }
         ]
       },
@@ -1692,7 +1686,7 @@ const companionsData = {
           },
           {
             "type": "info-box",
-            "text": "<strong>Pro Tip:</strong> The 32-second cooldown is relatively long, so timing your activation is crucial. Activate before or during dangerous encounters, not after taking heavy damage. The defensive buff gives you breathing room to heal or reposition while dealing increased damage."
+            "text": "<strong>Pro Tip:</strong> The 32-second cooldown is relatively long, so timing your activation is crucial. Activate before or during dangerous encounters, not after taking heavy damage. The defensive buff gives you breathing room to regain control and/or reduce anticipated duration of high incoming damage."
           }
         ]
       },
@@ -1903,7 +1897,6 @@ const companionsData = {
       "luck": 15,
       "special": 2
     },
-    "statsDescription": "Florence has the second-highest base LUCK (15, tied with Hootini) for excellent crit potential. High CON (12) provides decent base stamina. Very low SPECIAL (2, lowest among all companions) means root duration starts weak but the damage boost is still strong. Balanced STR and DEX provide consistent damage output.",
     "sections": [
       {
         "title": "🌿 Grasping Roots Ability",
@@ -2307,7 +2300,6 @@ const companionsData = {
       "luck": 9,
       "special": 12
     },
-    "statsDescription": "MechaBird has moderate base stats with STR (11) for decent damage and SPECIAL (12) for ability effectiveness. Low DEX (5) means slow initial attack speed, but the ramping mechanic compensates. Low CON (8) requires stamina management for sustained ability usage.",
     "sections": [
       {
         "title": "Special Ability: Pecking Overdrive!",
@@ -2582,7 +2574,6 @@ const companionsData = {
       "luck": 23,
       "special": 7
     },
-    "statsDescription": "Snekles has the most extreme stat distribution of any companion. With LUCK=23 (highest base) but STR=3 and DEX=3 (both lowest), this creates a feast-or-famine playstyle where critical hits are frequent but base damage is weak. Moderate CON (9) and SPECIAL (7) provide utility support.",
     "sections": [
       {
         "title": "Special Ability: Neurotoxin",

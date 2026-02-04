@@ -204,14 +204,8 @@
       <img id="companion-image" class="companion-image" alt="Companion Image" />
       <h1 class="companion-title" id="companion-title"></h1>
       <p class="companion-subtitle" id="companion-subtitle"></p>
+      <div id="base-stats-grid" style="margin: 1.5rem auto 1rem auto;"></div>
       <div class="unlock-badge" id="unlock-badge"></div>
-    </div>
-
-    <!-- Base Statistics Section -->
-    <div class="content-section" id="base-stats-section" style="display: none;">
-      <h2>📊 Base Statistics</h2>
-      <div class="stats-grid" id="base-stats-grid"></div>
-      <p id="stats-description" style="color: var(--text-secondary); line-height: 1.8; margin-top: 1.5rem;"></p>
     </div>
 
     <!-- Dynamic Content Sections -->
@@ -348,58 +342,45 @@
 
       document.getElementById('companion-subtitle').textContent = companion.subtitle;
 
+      // Populate base stats in hero section
+      const statsGrid = document.getElementById('base-stats-grid');
+      const stats = companion.baseStats;
+      statsGrid.innerHTML = `
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; max-width: 400px; margin: 0 auto;">
+          <div class="stat-card" style="padding: 0.5rem; min-height: auto;">
+            <div class="stat-label" style="font-size: 0.65rem; margin-bottom: 0.25rem;">STR</div>
+            <div class="stat-value" style="font-size: 1.1rem;">${stats.str}</div>
+          </div>
+          <div class="stat-card" style="padding: 0.5rem; min-height: auto;">
+            <div class="stat-label" style="font-size: 0.65rem; margin-bottom: 0.25rem;">DEX</div>
+            <div class="stat-value" style="font-size: 1.1rem;">${stats.dex}</div>
+          </div>
+          <div class="stat-card" style="padding: 0.5rem; min-height: auto;">
+            <div class="stat-label" style="font-size: 0.65rem; margin-bottom: 0.25rem;">CON</div>
+            <div class="stat-value" style="font-size: 1.1rem;">${stats.con}</div>
+          </div>
+          <div class="stat-card" style="padding: 0.5rem; min-height: auto;">
+            <div class="stat-label" style="font-size: 0.65rem; margin-bottom: 0.25rem;">LUCK</div>
+            <div class="stat-value" style="font-size: 1.1rem;">${stats.luck}</div>
+          </div>
+          <div class="stat-card" style="padding: 0.5rem; min-height: auto;">
+            <div class="stat-label" style="font-size: 0.65rem; margin-bottom: 0.25rem;">SPECIAL</div>
+            <div class="stat-value" style="font-size: 1.1rem;">${stats.special}</div>
+          </div>
+        </div>
+      `;
+
       const badgeElement = document.getElementById('unlock-badge');
       badgeElement.textContent = `Special: Unlocks at Lv. ${companion.unlockLevel} | Cost: ${companion.cost} Gems`;
       badgeElement.style.background = companion.theme.abilityBg;
       badgeElement.style.borderColor = companion.theme.abilityBorder;
 
-      // Populate base stats
-      const baseStatsSection = document.getElementById('base-stats-section');
-      baseStatsSection.style.display = 'block';
-
-      const statsGrid = document.getElementById('base-stats-grid');
-      const stats = companion.baseStats;
-      statsGrid.innerHTML = `
-        <div class="stat-card">
-          <div class="stat-label">STR</div>
-          <div class="stat-value">${stats.str}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">DEX</div>
-          <div class="stat-value">${stats.dex}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">CON</div>
-          <div class="stat-value">${stats.con}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">LUCK</div>
-          <div class="stat-value">${stats.luck}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">SPECIAL</div>
-          <div class="stat-value">${stats.special}</div>
-        </div>
-      `;
-
-      document.getElementById('stats-description').textContent = companion.statsDescription;
-
-      // Render content sections in order:
-      // 1. Special Ability
-      // 2. How to Activate
-      // 3. Base Statistics (inserted here)
-      // 4. Stat Scaling
-      // 5. Combat Strategy
-      // 6. Recommended Builds
+      // Render content sections
       const contentContainer = document.getElementById('content-sections');
 
+      // Render all companion sections
       companion.sections.forEach((section, index) => {
         contentContainer.appendChild(renderSection(section, companion.theme));
-
-        // Insert Base Statistics after section index 1 (after "How to Activate")
-        if (index === 1) {
-          contentContainer.appendChild(baseStatsSection);
-        }
       });
     }
 
