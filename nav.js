@@ -4,6 +4,11 @@
 (function() {
   'use strict';
 
+  // Inject Lunr.js library
+  const lunrScript = document.createElement('script');
+  lunrScript.src = 'https://unpkg.com/lunr@2.3.9/lunr.min.js';
+  document.head.appendChild(lunrScript);
+
   // Inject CSS styles
   const styles = `
     <style>
@@ -34,6 +39,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 1.5rem;
       }
 
       .nav-logo {
@@ -48,6 +54,103 @@
         display: flex;
         align-items: center;
         gap: 1.5rem;
+      }
+
+      /* Search Bar */
+      .search-container {
+        position: relative;
+        flex: 1;
+        max-width: 400px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.6rem 1rem 0.6rem 2.5rem;
+        background: rgba(26, 31, 53, 0.8);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .search-input:focus {
+        border-color: var(--accent-purple);
+        box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+      }
+
+      .search-input::placeholder {
+        color: var(--text-secondary);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--accent-cyan);
+        pointer-events: none;
+      }
+
+      .search-results {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        border: 2px solid rgba(124, 58, 237, 0.4);
+        border-radius: 8px;
+        max-height: 400px;
+        overflow-y: auto;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 1002;
+      }
+
+      .search-results.active {
+        display: block;
+      }
+
+      .search-result-item {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: block;
+      }
+
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+
+      .search-result-item:hover {
+        background: rgba(124, 58, 237, 0.2);
+        transform: translateX(3px);
+      }
+
+      .search-result-title {
+        color: var(--accent-cyan);
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+
+      .search-result-item:hover .search-result-title {
+        color: var(--accent-orange);
+      }
+
+      .search-result-desc {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .search-no-results {
+        padding: 1.5rem;
+        text-align: center;
+        color: var(--text-secondary);
       }
 
       .faq-link {
@@ -175,6 +278,15 @@
           font-size: 0.75rem;
         }
 
+        .search-container {
+          max-width: 200px;
+        }
+
+        .search-input {
+          font-size: 0.85rem;
+          padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+        }
+
         .faq-link {
           font-size: 0.85rem;
         }
@@ -191,6 +303,20 @@
       @media (max-width: 375px) {
         .nav-logo {
           font-size: 0.65rem;
+        }
+
+        .search-container {
+          max-width: 150px;
+        }
+
+        .search-input {
+          font-size: 0.75rem;
+          padding: 0.4rem 0.5rem 0.4rem 2rem;
+        }
+
+        .search-icon {
+          left: 0.5rem;
+          font-size: 0.85rem;
         }
 
         .faq-link {
@@ -210,6 +336,17 @@
     <nav class="nav-bar">
       <div class="nav-content">
         <a href="index.html" class="nav-logo">IDLE ADVENTURE</a>
+        <div class="search-container">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search guides..."
+            autocomplete="off"
+          />
+          <div class="search-results" id="searchResults"></div>
+        </div>
         <div class="nav-right">
           <a href="faq.html" class="faq-link">FAQ</a>
           <button class="burger-menu" id="burgerMenu" aria-label="Menu">
@@ -325,6 +462,183 @@
           menuOverlay.classList.remove('active');
         }
       });
+    }
+
+    // Initialize search functionality
+    initSearch();
+  }
+
+  // Search functionality
+  let searchIndex;
+  let searchData = [
+    {"id":"ascensions","title":"Ascensions","url":"ascensions.html","description":"Prestige system for permanent power increases and Dream Points","keywords":"ascension prestige dream points talents reset hardcore normal hard permanent bonuses blacksmithing legend quality enchanting moreskill skillquality strongpets beastmaster idlemaster bosseater counterattack quicklearner battlebrainy luckseeker greed defender bank sink"},
+    {"id":"combat","title":"Combat Mechanics","url":"combat.html","description":"Combat systems and mechanics in depth","keywords":"combat fight battle damage mechanics hp health attack defense magic physical crit critical hit dodge block parry resist mana mana cost mana usage mana management mp status effects debuffs stun ministun root slow poison burn bleed damage over time dot armor break weaken attack reduction runic mark hp regeneration mana regeneration accuracy evasion hit chance miss chance damage formula damage calculation armor resistance mana absorb mana leech lifesteal life steal reflect penetration pierce"},
+    {"id":"companions","title":"Loyal Companions","url":"companions.html","description":"Recruit unique companions with special abilities","keywords":"companions pets allies followers recruit special abilities bonuses loyal companion summon jindo ember mystikat hootini globbie acornelius florence mechabird snekles"},
+    {"id":"pets","title":"Pet Database","url":"pets-viewer.html","description":"Discover all 93 pets and their unique bonuses","keywords":"pets animals database collection bonuses stats passive companion dog cat bird dragon phoenix pet stone small stone sleeping stone happy stone king stone vampire stone"},
+    {"id":"skills","title":"Skills","url":"skills.html","description":"Master powerful skills and devastating combos","keywords":"skills abilities powers talents combos active passive cooldown mana cost damage aoe single target buff debuff auto attack break armor charged strike clarity cleave execute final judgement heavy attack last stand normal attack poison attack quick attack rupture sacrifice shield static discharge stone skin vengeance witherstrike armorbreak"},
+    {"id":"guild","title":"Guilds","url":"guild.html","description":"Battle guild bosses together with other players","keywords":"guild guilds multiplayer bosses cooperative social raid contribution rewards guild boss guild shop guild levels"},
+    {"id":"special-areas","title":"Special Areas","url":"special-areas.html","description":"Elite challenges with exclusive rewards and high scores","keywords":"special areas dungeons raids challenges elite rewards keys mouse hole ruined tower cosy cave crypt"},
+    {"id":"talents","title":"Talents","url":"talents.html","description":"Customize your character with powerful passives","keywords":"talents passive skills tree character build customization talent points respec reset"},
+    {"id":"items-crafting","title":"Items & Crafting","url":"items-crafting.html","description":"Craft powerful equipment with voxel infusion","keywords":"items crafting equipment gear weapons armor voxel infusion blacksmith legendary epic rare common quality stats materials recipe"},
+    {"id":"enchanting","title":"Enchanting System","url":"enchanting.html","description":"Upgrade and customize your equipment","keywords":"enchanting upgrade enhancement equipment gear improve stats enchant level up crystals pixels voxels"},
+    {"id":"consumables","title":"Consumables & Buffs","url":"consumables.html","description":"Potions and buffs to enhance your power","keywords":"consumables potions buffs elixirs food temporary boost health mana damage defense speed duration"},
+    {"id":"progressbar","title":"Progress Bar","url":"progressbar.html","description":"Automatic progression with powerful perks","keywords":"progress bar passive idle perks rewards automatic double progress power charge health burst speed boost luckseeker"},
+    {"id":"mouse-hole","title":"Mouse Hole Raid","url":"mouse-hole.html","description":"The Mouse Hole raid dungeon with treasure chests and magic rings","keywords":"mouse hole raid dungeon saw treasure chest magic ring combat orbs zone difficulty score rank experience"},
+    {"id":"ruined-tower","title":"Ruined Tower","url":"ruined-tower.html","description":"The Ruined Tower special area with Evil Eyes and powerful loot","keywords":"ruined tower dungeon evil eyes tower key special area raid orbs zone difficulty score loot chest"},
+    {"id":"cosy-cave","title":"Cosy Cave","url":"cosy-cave.html","description":"The Cosy Cave special area with orbs and exclusive rewards","keywords":"cosy cave dungeon cave key orbs special area rewards free chest loot zone difficulty"},
+    {"id":"crypt","title":"The Crypt","url":"crypt.html","description":"The Crypt dungeon with vampire boss and soulstones","keywords":"crypt dungeon vampire boss soulstones treasure special area crypt ring undead skeleton zombie"},
+    {"id":"minigames","title":"Minigames","url":"minigames.html","description":"Fun minigames with unique rewards","keywords":"minigames games arcade rewards fun fishing frogger space invaders casual"},
+    {"id":"fishing","title":"Fishing","url":"fishing.html","description":"Fishing minigame to catch fish and earn rewards","keywords":"fishing minigame fish catch rod lure rewards bait water lake ocean river"},
+    {"id":"faq","title":"FAQ","url":"faq.html","description":"Frequently asked questions about Idle Adventure","keywords":"faq questions answers help guide tips tutorial beginner how to"},
+    {"id":"alteration","title":"Alteration System","url":"alteration.html","description":"Modify and improve your equipment with alterations and orbs","keywords":"alteration modify equipment gear stats improve customize orb orbs health orb mana orb speed orb damage orb defense orb critical orb magic orb physical orb fire orb ice orb lightning orb poison orb holy orb dark orb chaos orb nature orb sharpening stone whetstone soulstone armor plate radiant orb fortune orb stone stones"},
+    {"id":"upgrading","title":"Upgrading System","url":"upgrading.html","description":"Upgrade your equipment to increase power","keywords":"upgrading upgrade equipment enhance improve level up stats upgrade level max level enhancement"}
+  ];
+  let lunrReady = false;
+
+  function initSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    if (!searchInput || !searchResults) {
+      console.error('Search elements not found');
+      return;
+    }
+
+    console.log('Initializing search...');
+    console.log('Search index loaded:', searchData.length, 'pages');
+
+    // Wait for Lunr.js to load
+    let attempts = 0;
+    const waitForLunr = setInterval(() => {
+      attempts++;
+      if (typeof lunr !== 'undefined') {
+        clearInterval(waitForLunr);
+        console.log('Lunr.js loaded, building search index...');
+
+        try {
+          // Build Lunr index
+          searchIndex = lunr(function() {
+            this.ref('id');
+            this.field('title', { boost: 10 });
+            this.field('keywords', { boost: 5 });
+            this.field('description', { boost: 2 });
+
+            searchData.forEach(doc => {
+              this.add(doc);
+            });
+          });
+
+          lunrReady = true;
+          console.log('Search index built successfully');
+        } catch (error) {
+          console.error('Error building search index:', error);
+        }
+      } else if (attempts > 50) {
+        // Stop trying after 5 seconds
+        clearInterval(waitForLunr);
+        console.error('Lunr.js failed to load after 5 seconds');
+      }
+    }, 100);
+
+    // Handle search input
+    let searchTimeout;
+    searchInput.addEventListener('input', function(e) {
+      console.log('Search input event fired, value:', e.target.value);
+      clearTimeout(searchTimeout);
+      const query = e.target.value.trim();
+
+      if (query.length < 2) {
+        searchResults.classList.remove('active');
+        return;
+      }
+
+      searchTimeout = setTimeout(() => {
+        performSearch(query);
+      }, 200);
+    });
+
+    // Close search results when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.classList.remove('active');
+      }
+    });
+
+    // Show results when focusing search input with existing query
+    searchInput.addEventListener('focus', function() {
+      if (searchInput.value.trim().length >= 2) {
+        performSearch(searchInput.value.trim());
+      }
+    });
+  }
+
+  function performSearch(query) {
+    const searchResults = document.getElementById('searchResults');
+
+    if (!lunrReady || !searchIndex || !searchData || searchData.length === 0) {
+      console.log('Search not ready yet. lunrReady:', lunrReady, 'searchData:', searchData.length);
+      searchResults.innerHTML = '<div class="search-no-results">Loading search...</div>';
+      searchResults.classList.add('active');
+      return;
+    }
+
+    console.log('Searching for:', query);
+
+    try {
+      let results = [];
+
+      // Try multiple search strategies for better matching
+      // 1. Wildcard search (matches partial words)
+      results = searchIndex.search(query + '*');
+
+      // 2. If no results, try exact term search
+      if (results.length === 0) {
+        results = searchIndex.search(query);
+      }
+
+      // 3. If still no results, try fuzzy search (allows typos)
+      if (results.length === 0) {
+        results = searchIndex.search(query + '~1');
+      }
+
+      // 4. If still no results, try each word individually
+      if (results.length === 0 && query.includes(' ')) {
+        const words = query.split(' ');
+        results = searchIndex.search(words.join(' OR '));
+      }
+
+      // Limit to top 8 results
+      results = results.slice(0, 8);
+
+      console.log('Search results:', results.length);
+
+      if (results.length === 0) {
+        searchResults.innerHTML = '<div class="search-no-results">No results found</div>';
+        searchResults.classList.add('active');
+        return;
+      }
+
+      // Build results HTML
+      const resultsHTML = results
+        .map(result => {
+          const page = searchData.find(p => p.id === result.ref);
+          if (!page) return '';
+
+          return `
+            <a href="${page.url}" class="search-result-item">
+              <span class="search-result-title">${page.title}</span>
+              <span class="search-result-desc">${page.description}</span>
+            </a>
+          `;
+        })
+        .join('');
+
+      searchResults.innerHTML = resultsHTML;
+      searchResults.classList.add('active');
+    } catch (error) {
+      console.error('Search error:', error);
+      searchResults.innerHTML = '<div class="search-no-results">Search error occurred</div>';
+      searchResults.classList.add('active');
     }
   }
 

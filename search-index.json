@@ -1,0 +1,149 @@
+[
+  {
+    "id": "ascensions",
+    "title": "Ascensions",
+    "url": "ascensions.html",
+    "description": "Prestige system for permanent power increases and Dream Points",
+    "keywords": "ascension prestige dream points talents reset hardcore normal hard permanent bonuses"
+  },
+  {
+    "id": "combat",
+    "title": "Combat Mechanics",
+    "url": "combat.html",
+    "description": "Combat systems and mechanics in depth",
+    "keywords": "combat fight battle damage mechanics hp health attack defense"
+  },
+  {
+    "id": "companions",
+    "title": "Loyal Companions",
+    "url": "companions.html",
+    "description": "Recruit unique companions with special abilities",
+    "keywords": "companions pets allies followers recruit special abilities bonuses"
+  },
+  {
+    "id": "pets",
+    "title": "Pet Database",
+    "url": "pets-viewer.html",
+    "description": "Discover all 93 pets and their unique bonuses",
+    "keywords": "pets animals database collection bonuses stats"
+  },
+  {
+    "id": "skills",
+    "title": "Skills",
+    "url": "skills.html",
+    "description": "Master powerful skills and devastating combos",
+    "keywords": "skills abilities powers talents combos active passive"
+  },
+  {
+    "id": "guild",
+    "title": "Guilds",
+    "url": "guild.html",
+    "description": "Battle guild bosses together with other players",
+    "keywords": "guild guilds multiplayer bosses cooperative social raid"
+  },
+  {
+    "id": "special-areas",
+    "title": "Special Areas",
+    "url": "special-areas.html",
+    "description": "Elite challenges with exclusive rewards and high scores",
+    "keywords": "special areas dungeons raids challenges elite rewards keys"
+  },
+  {
+    "id": "talents",
+    "title": "Talents",
+    "url": "talents.html",
+    "description": "Customize your character with powerful passives",
+    "keywords": "talents passive skills tree character build customization"
+  },
+  {
+    "id": "items-crafting",
+    "title": "Items & Crafting",
+    "url": "items-crafting.html",
+    "description": "Craft powerful equipment with voxel infusion",
+    "keywords": "items crafting equipment gear weapons armor voxel infusion blacksmith"
+  },
+  {
+    "id": "enchanting",
+    "title": "Enchanting System",
+    "url": "enchanting.html",
+    "description": "Upgrade and customize your equipment",
+    "keywords": "enchanting upgrade enhancement equipment gear improve stats"
+  },
+  {
+    "id": "consumables",
+    "title": "Consumables & Buffs",
+    "url": "consumables.html",
+    "description": "Potions and buffs to enhance your power",
+    "keywords": "consumables potions buffs elixirs food temporary boost"
+  },
+  {
+    "id": "progressbar",
+    "title": "Progress Bar",
+    "url": "progressbar.html",
+    "description": "Automatic progression with powerful perks",
+    "keywords": "progress bar passive idle perks rewards automatic"
+  },
+  {
+    "id": "mouse-hole",
+    "title": "Mouse Hole Raid",
+    "url": "mouse-hole.html",
+    "description": "The Mouse Hole raid dungeon with treasure chests and magic rings",
+    "keywords": "mouse hole raid dungeon saw treasure chest magic ring combat"
+  },
+  {
+    "id": "ruined-tower",
+    "title": "Ruined Tower",
+    "url": "ruined-tower.html",
+    "description": "The Ruined Tower special area with Evil Eyes and powerful loot",
+    "keywords": "ruined tower dungeon evil eyes tower key special area raid"
+  },
+  {
+    "id": "cosy-cave",
+    "title": "Cosy Cave",
+    "url": "cosy-cave.html",
+    "description": "The Cosy Cave special area with orbs and exclusive rewards",
+    "keywords": "cosy cave dungeon cave key orbs special area rewards"
+  },
+  {
+    "id": "crypt",
+    "title": "The Crypt",
+    "url": "crypt.html",
+    "description": "The Crypt dungeon with vampire boss and soulstones",
+    "keywords": "crypt dungeon vampire boss soulstones treasure special area"
+  },
+  {
+    "id": "minigames",
+    "title": "Minigames",
+    "url": "minigames.html",
+    "description": "Fun minigames with unique rewards",
+    "keywords": "minigames games arcade rewards fun fishing frogger space invaders"
+  },
+  {
+    "id": "fishing",
+    "title": "Fishing",
+    "url": "fishing.html",
+    "description": "Fishing minigame to catch fish and earn rewards",
+    "keywords": "fishing minigame fish catch rod lure rewards"
+  },
+  {
+    "id": "faq",
+    "title": "FAQ",
+    "url": "faq.html",
+    "description": "Frequently asked questions about Idle Adventure",
+    "keywords": "faq questions answers help guide tips"
+  },
+  {
+    "id": "alteration",
+    "title": "Alteration System",
+    "url": "alteration.html",
+    "description": "Modify and improve your equipment with alterations",
+    "keywords": "alteration modify equipment gear stats improve customize"
+  },
+  {
+    "id": "upgrading",
+    "title": "Upgrading System",
+    "url": "upgrading.html",
+    "description": "Upgrade your equipment to increase power",
+    "keywords": "upgrading upgrade equipment enhance improve level up stats"
+  }
+]
