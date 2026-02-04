@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Items & Crafting Guide – Idle Adventure | Complete Equipment System</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Master Idle Adventure's crafting system in 2026: Complete guide to item crafting, voxel infusion, affixes, rarity tiers, rating stats, and equipment optimization strategies.">
+  <meta name="keywords"
+    content="Idle Adventure items, item crafting, voxel infusion, crafting guide, item affixes, crit rating, evasion, accuracy, item rarity, crafting costs, equipment system 2026">
+  <meta name="author" content="PacmenCo">
+  <meta name="theme-color" content="#0a0e1a">
+  <link rel="canonical" href="https://pacmenco.github.io/items-crafting.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Items & Crafting Guide – Idle Adventure | Complete Equipment System">
+  <meta property="og:description"
+    content="Master Idle Adventure's item crafting system: voxel infusion, affixes, rarity tiers, and equipment optimization.">
+  <meta property="og:site_name" content="Idle Adventure Guide">
+  <meta property="og:url" content="https://pacmenco.github.io/items-crafting.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Items & Crafting Guide – Idle Adventure | Complete Equipment System">
+  <meta name="twitter:description"
+    content="Master item crafting with voxel infusion, affixes, and rarity optimization strategies.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Items & Crafting Guide – Idle Adventure",
+    "description": "Complete guide to item crafting, voxel infusion, affixes, rarity tiers, rating stats, and equipment optimization in Idle Adventure",
+    "author": {
+      "@type": "Person",
+      "name": "PacmenCo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PacmenCo",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pacmenco.github.io/images/logo.png"
+      }
+    },
+    "datePublished": "2026-02-04",
+    "dateModified": "2026-02-04",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pacmenco.github.io/items-crafting.html"
+    },
+    "keywords": "Idle Adventure, items, crafting, voxel infusion, affixes, item rarity, rating stats, equipment system",
+    "articleSection": "Game Guide",
+    "about": {
+      "@type": "VideoGame",
+      "name": "Idle Adventure"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Craft Items in Idle Adventure",
+    "description": "Learn how to craft equipment, use voxel infusion, understand item costs, affixes, and optimize your gear in Idle Adventure",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Access the Crafting Screen",
+        "text": "Visit the Snail NPC to access the crafting interface and browse available items from the Item Database."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Select Your Item",
+        "text": "Choose the item type and level you want to craft based on your character level and equipment needs."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set Voxel Infusion",
+        "text": "Use 0-10 voxels to increase odds of higher rarity items. Each voxel adds 1 Voxels to the cost but significantly improves rarity chances."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose Quantity",
+        "text": "Select how many items to craft (1-10) to batch craft multiple items at once."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Craft the Item",
+        "text": "Pay Pixels and Voxels to craft. The item will have random quality, rarity, and affixes based on the crafting calculations."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What currencies are needed for crafting items?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Item crafting requires Pixels (standard currency) and Voxels. Higher level items cost more of both currencies. Using voxel infusion increases Voxels cost by 1 per voxel (maximum 10 voxels)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does voxel infusion work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Voxel infusion lets you spend voxels (0-10) when crafting to dramatically increase odds of higher rarity items. Each voxel adds 1 Voxels to the cost. Using 10 voxels maximizes your chances of getting Epic, Legendary, or Artifact rarity items."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are item affixes and how many can an item have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Item affixes are bonus stats like Critical Strike Rating, Evasion Rating, Accuracy Rating, Speed Rating, Extra HP, HP Boost %, Critical Damage %, Mana, and HP Regen %. Items can have 0-3 affixes depending on rarity: Common items have 0, Uncommon has 0-1, Rare has 1-2, Epic has 2-3, and Legendary/Artifact have guaranteed 3 affixes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between Common and Legendary rarity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rarity determines item quality multiplier and affixes. Common items have 0.90-1.10x base stats with no affixes. Legendary items have 1.79-2.07x base stats with guaranteed 3 affixes. Artifact is the highest rarity with 2.35-2.70x stats and 3 affixes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use voxel infusion when crafting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use voxel infusion when crafting important gear you plan to keep long-term. Skip infusion for temporary gear or when voxels are scarce. Using 5-10 voxels significantly improves your odds of getting Rare, Epic, or Legendary items, which have better stats and more affixes."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Shared Navigation Component -->
+  <script src="nav.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .reading-time {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .content-section h3 {
+      color: var(--accent-cyan);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .content-section a:hover {
+      color: var(--accent-orange);
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li:before {
+      content: "✨";
+      margin-right: 0.75rem;
+    }
+
+    .stat-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .formula-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid var(--accent-cyan);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-cyan);
+    }
+
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: #10b981;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent-orange);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .warning-box strong {
+      color: var(--accent-orange);
+    }
+
+    .table-of-contents {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(245, 158, 11, 0.05));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      border: 2px solid rgba(124, 58, 237, 0.4);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+    }
+
+    .table-of-contents h2 {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .toc-list li a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: rgba(10, 14, 26, 0.6);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .toc-list li a:before {
+      content: "→";
+      margin-right: 0.75rem;
+      color: var(--accent-orange);
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .toc-list li a:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .toc-list li a:hover {
+      color: var(--accent-orange);
+      background: rgba(124, 58, 237, 0.2);
+      border-color: var(--accent-orange);
+      transform: translateX(5px);
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+    }
+
+    .toc-list li a:hover:before {
+      transform: translateX(5px);
+    }
+
+    .toc-list li a:hover:after {
+      transform: scaleX(1);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    .data-table table {
+      width: 100%;
+      min-width: 600px;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .data-table th {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .data-table td {
+      color: var(--text-secondary);
+    }
+
+    .data-table tr:hover {
+      background: rgba(124, 58, 237, 0.1);
+    }
+
+    .rarity-broken {
+      color: #6b7280;
+    }
+
+    .rarity-poor {
+      color: #9ca3af;
+    }
+
+    .rarity-common {
+      color: #ffffff;
+    }
+
+    .rarity-uncommon {
+      color: #10b981;
+    }
+
+    .rarity-rare {
+      color: #3b82f6;
+    }
+
+    .rarity-epic {
+      color: #a855f7;
+    }
+
+    .rarity-legendary {
+      color: #f59e0b;
+    }
+
+    .rarity-artifact {
+      color: #ef4444;
+    }
+
+    .faq-section {
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      background: rgba(10, 14, 26, 0.4);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      list-style: none;
+      user-select: none;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary:hover {
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--accent-orange);
+    }
+
+    .faq-item summary::before {
+      content: "▶";
+      display: inline-block;
+      margin-right: 0.75rem;
+      transition: transform 0.3s ease;
+      color: var(--accent-orange);
+    }
+
+    .faq-item[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1rem 3.25rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-section {
+        margin-bottom: 2rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
+
+      .data-table {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <article>
+      <header class="hero-section">
+        <h1 class="page-title">🔨 Items & Crafting</h1>
+        <p class="page-subtitle">Master the art of equipment crafting with voxel infusion and item optimization</p>
+        <p class="reading-time">📖 Reading time: 8 minutes | Last updated: February 4, 2026</p>
+      </header>
+
+      <nav class="table-of-contents">
+        <h2>📋 Table of Contents</h2>
+        <ul class="toc-list">
+          <li><a href="#how-crafting-works">How Crafting Works</a></li>
+          <li><a href="#crafting-costs">Crafting Costs</a></li>
+          <li><a href="#voxel-infusion">Voxel Infusion</a></li>
+          <li><a href="#item-rarity">Item Rarity Tiers</a></li>
+          <li><a href="#item-affixes">Item Affixes</a></li>
+          <li><a href="#rating-stats">Rating Stats Explained</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <section class="content-section" id="how-crafting-works">
+        <h2>How Crafting Works</h2>
+        <p>
+          Item crafting in Idle Adventure is handled by the <strong>Snail NPC</strong>. The crafting system lets you
+          create equipment with random quality, rarity, and affixes based
+          on both investment and luck.
+        </p>
+
+        <h3>Crafting Process</h3>
+        <ul class="feature-list">
+          <li><strong>Access the Crafting Screen:</strong> Visit the Snail NPC and open the craft screen to browse
+            available items</li>
+          <li><strong>Set Voxel Infusion:</strong> Optionally use voxels to improve rarity odds</li>
+          <li><strong>Choose Quantity:</strong> Craft 1-10 items at once for batch crafting (requires bulk crafting
+            unlocked)</li>
+          <li><strong>Craft the Item:</strong> Pay the costs and receive your randomized equipment</li>
+        </ul>
+
+        <p>
+          After crafting, your item will have:
+        </p>
+        <ul class="feature-list">
+          <li>Random <strong>rarity tier</strong> (Broken to Artifact) based on voxel infusion</li>
+          <li>Random <strong>affixes</strong> (0-3 bonus stats) based on rarity tier</li>
+          <li><strong>An internal quality roll</strong> that affects the item's base stats</li>
+        </ul>
+      </section>
+
+      <section class="content-section" id="crafting-costs">
+        <h2>Crafting Costs</h2>
+        <p>
+          Item crafting requires <strong>two currencies</strong>: Pixels and Voxels. The base cost is determined by the
+          item's level and type, and the voxels you use for infusion (more on that in the next section).
+        </p>
+
+        <h3>Currency Requirements</h3>
+        <div class="formula-box">
+          Final Cost = Pixels + Base Voxel Cost + Voxels used for infusion
+        </div>
+
+
+        <div class="info-box">
+          <strong>Cost Example:</strong> If an item costs 5,000 Pixels + 20 Voxels, using 10 voxel infusion
+          increases the cost to 5,000 Pixels + 30 Voxels (20 base + 10 voxels).
+        </div>
+      </section>
+
+      <section class="content-section" id="voxel-infusion">
+        <h2>Voxel Infusion System</h2>
+        <p>
+          <strong>Voxel infusion</strong> is the most powerful tool for crafting high-quality items. By spending voxels
+          (maximum 10 per craft), you dramatically increase your chances of crafting Rare, Epic, Legendary, or Artifact
+          rarity items.
+        </p>
+
+        <h3>How Voxel Infusion Works</h3>
+        <p>
+          When crafting, you can add 0-10 voxels to "imbue" the item. Each voxel
+          significantly improves the odds of obtaining a better rarity tier from the craft.
+        </p>
+
+
+        <h3>Voxel Impact on Rarity</h3>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Voxels Used</th>
+                <th>Cost Impact</th>
+                <th>Effect on Rarity Odds</th>
+                <th>Best Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="stat-highlight">0 voxels</span></td>
+                <td>No extra cost</td>
+                <td>Standard distribution (50% Common)</td>
+                <td>Temporary or low-level gear</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">5 voxels</span></td>
+                <td>+5 Voxels</td>
+                <td>Significantly better Rare/Epic odds</td>
+                <td>Mid-tier equipment</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">10 voxels</span></td>
+                <td>+10 Voxels</td>
+                <td>Maximized Legendary/Artifact odds</td>
+                <td>Endgame gear you'll keep long-term</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="warning-box">
+          <strong>Strategy Tip:</strong> Save your voxels for important gear pieces you plan to keep and enhance with
+          <a href="upgrading.html">Item Upgrading</a>, <a href="enchanting-details.html">Enchanting</a>, and
+          <a href="alteration.html">Alteration Orbs</a>. Skip voxel infusion when crafting temporary gear or when voxels
+          are scarce.
+        </div>
+      </section>
+
+      <section class="content-section" id="item-rarity">
+        <h2>Item Rarity Tiers</h2>
+        <p>
+          Item rarity determines the <strong>quality multiplier</strong> applied to base stats and the number of
+          affixes the item can have. There are <strong>8 rarity tiers</strong> in Idle Adventure, ranging from Broken
+          (worst) to Artifact (best).
+        </p>
+
+        <h3>Rarity Tier Breakdown</h3>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Rarity</th>
+                <th>Quality Multiplier Range</th>
+                <th>Affixes</th>
+                <th>Base Drop Chance (0 Voxels)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="rarity-broken">Broken</span></td>
+                <td>0.30x - 0.50x</td>
+                <td>0</td>
+                <td>1.2%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-poor">Poor</span></td>
+                <td>0.60x - 0.80x</td>
+                <td>0</td>
+                <td>3.0%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-common">Common</span></td>
+                <td>0.90x - 1.10x</td>
+                <td>0</td>
+                <td>50.0%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-uncommon">Uncommon</span></td>
+                <td>1.16x - 1.28x</td>
+                <td>0-1</td>
+                <td>31.2%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-rare">Rare</span></td>
+                <td>1.30x - 1.45x</td>
+                <td>1-2</td>
+                <td>12.5%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-epic">Epic</span></td>
+                <td>1.50x - 1.68x</td>
+                <td>2-3</td>
+                <td>1.8%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-legendary">Legendary</span></td>
+                <td>1.79x - 2.07x</td>
+                <td>3</td>
+                <td>0.3%</td>
+              </tr>
+              <tr>
+                <td><span class="rarity-artifact">Artifact</span></td>
+                <td>2.35x - 2.70x</td>
+                <td>3</td>
+                <td>?? ?%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Understanding Quality Multipliers</h3>
+        <p>
+          The quality multiplier directly affects your item's combat power. For example:
+        </p>
+        <ul class="feature-list">
+          <li>A weapon with 100 base damage and <span class="rarity-common">Common</span> rarity (1.00x) = 100 damage
+          </li>
+          <li>The same weapon with <span class="rarity-rare">Rare</span> rarity (1.40x) = 140 damage</li>
+          <li>The same weapon with <span class="rarity-legendary">Legendary</span> rarity (2.00x) = 200 damage</li>
+          <li>The same weapon with <span class="rarity-artifact">Artifact</span> rarity (2.60x) = 260 damage</li>
+        </ul>
+
+        <div class="info-box">
+          <strong>Quality Improvement:</strong> Items can have their quality improved further through
+          <a href="upgrading.html">Item Upgrading</a> (+5% per level) and <a href="alteration.html">Item Alteration</a>
+          using Armor Plates or Sharpening Stones (+0.01 quality per use, max 15 uses).
+        </div>
+      </section>
+
+      <section class="content-section" id="item-affixes">
+        <h2>Item Affixes</h2>
+        <p>
+          Item affixes are <strong>bonus stats</strong> that roll randomly on equipment based on rarity. Items can have
+          0-3 affixes depending on their rarity tier. The same affix cannot appear twice on one item.
+        </p>
+
+        <h3>Complete Affix List (Combat Items)</h3>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Affix Name</th>
+                <th>Effect</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="stat-highlight">Critical Strike Rating</span></td>
+                <td>Increases critical hit chance when converted via rating formula</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Extra Critical Damage %</span></td>
+                <td>Multiplies critical hit damage (direct percentage bonus)</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Extra HP</span></td>
+                <td>Adds flat health points to your maximum health</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">HP Boost %</span></td>
+                <td>Increases maximum health by a percentage</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Evasion Rating</span></td>
+                <td>Increases dodge chance when converted via rating formula</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Accuracy Rating</span></td>
+                <td>Increases hit chance when converted via rating formula</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Extra Mana</span></td>
+                <td>Adds flat mana points to your maximum mana pool</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Faster Health Regen %</span></td>
+                <td>Increases health regeneration speed by a percentage</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Speed Rating</span></td>
+                <td>Increases attack speed when converted via rating formula</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <strong>Mining Items:</strong> Mining pickaxes have different affixes including Critical Strike Chance % and
+          Extra Speed % instead of rating-based stats. These affixes directly increase mining efficiency.
+        </div>
+
+        <h3>How Many Affixes Can Items Have?</h3>
+        <p>
+          The number of affixes rolled depends entirely on item rarity:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Broken/Poor/Common:</strong> 0 affixes (no bonus stats)</li>
+          <li><strong>Uncommon:</strong> 10% chance for 1 affix</li>
+          <li><strong>Rare:</strong> 1-2 affixes (random)</li>
+          <li><strong>Epic:</strong> 2-3 affixes (random)</li>
+          <li><strong>Legendary:</strong> Guaranteed 3 affixes</li>
+          <li><strong>Artifact:</strong> Guaranteed 3 affixes + best quality rolls</li>
+        </ul>
+      </section>
+
+      <section class="content-section" id="rating-stats">
+        <h2>Rating Stats Explained</h2>
+        <p>
+          Items can provide stats as <strong>direct bonuses</strong> (like "+5% Critical Chance") or as
+          <strong>rating values</strong> (like "+15 Critical Rating"). Ratings convert to actual stats using
+          your character level.
+        </p>
+
+        <h3>Converting Rating to Percentages</h3>
+        <div class="formula-box">
+          Rating Multiplier = (1 / 2^(Player Level × 0.0111 + 1)) × (50 / Player Level)<br><br>
+          Critical Chance % = Critical Rating × Rating Multiplier
+        </div>
+
+        <p>
+          <strong>Example:</strong> If you have 200 Critical Rating at level 50, your rating multiplier is approximately
+          0.275, giving you 200 × 0.275 = 55% critical chance from that rating.
+        </p>
+
+        <h3>How Rating Scales</h3>
+        <p>
+          The rating multiplier <strong>decreases</strong> as you level up, meaning the same amount of rating provides
+          less benefit at higher levels. However, higher level items roll higher rating values, maintaining progression
+          balance.
+        </p>
+
+        <h3>Rating Types</h3>
+        <ul class="feature-list">
+          <li><strong>Critical Rating:</strong> Converts to Critical Chance %</li>
+          <li><strong>Speed Rating:</strong> Converts to Speed % (faster attacks)</li>
+          <li><strong>Evasion Rating:</strong> Converts to Evasion points (dodge chance)</li>
+          <li><strong>Accuracy Rating:</strong> Converts to Accuracy points (hit chance)</li>
+        </ul>
+      </section>
+
+      <section class="content-section" id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+          Idle Adventure's crafting system offers deep customization through voxel infusion, random affixes, and rarity
+          tiers. Understanding how to optimize your crafting investments is crucial for endgame progression.
+        </p>
+
+        <p><strong>Key Takeaways:</strong></p>
+        <ul class="feature-list">
+          <li>Use <strong>voxel infusion</strong> (5-10 voxels) when crafting important long-term gear</li>
+          <li>Aim for <strong>Rare or better</strong> rarity to guarantee valuable affixes</li>
+          <li><strong>Rating stats</strong> become more valuable on higher level items</li>
+          <li>Combine crafting with <a href="upgrading.html">Item Upgrading</a>,
+            <a href="enchanting-details.html">Enchanting</a>, and <a href="alteration.html">Item Alteration</a> for
+            maximum power
+          </li>
+          <li>Save voxels for crafting <strong>level-appropriate gear</strong> you'll keep for extended progression</li>
+        </ul>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+
+        <details class="faq-item">
+          <summary>What currencies are needed for crafting items?</summary>
+          <div class="faq-answer">
+            Item crafting requires Pixels (standard currency) and Voxels. Higher level items cost more of both
+            currencies. Using voxel infusion increases Voxels cost by 1 per voxel (maximum 10 voxels).
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does voxel infusion work?</summary>
+          <div class="faq-answer">
+            Voxel infusion lets you spend voxels (0-10) when crafting to dramatically increase odds of higher rarity
+            items. Each voxel adds 1 Voxels to the cost. Using 10 voxels maximizes your chances of getting Epic,
+            Legendary, or Artifact rarity items.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What are item affixes and how many can an item have?</summary>
+          <div class="faq-answer">
+            Item affixes are bonus stats like Critical Strike Rating, Evasion Rating, Accuracy Rating, Speed Rating,
+            Extra HP, HP Boost %, Critical Damage %, Mana, and HP Regen %. Items can have 0-3 affixes depending on
+            rarity: Common items have 0, Uncommon has 0-1, Rare has 1-2, Epic has 2-3, and Legendary/Artifact have
+            guaranteed 3 affixes.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between Common and Legendary rarity?</summary>
+          <div class="faq-answer">
+            Rarity determines item quality multiplier and affixes. Common items have 0.90-1.10x base stats with no
+            affixes. Legendary items have 1.79-2.07x base stats with guaranteed 3 affixes. Artifact is the highest
+            rarity with 2.35-2.70x stats and 3 affixes.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Should I use voxel infusion when crafting?</summary>
+          <div class="faq-answer">
+            Use voxel infusion when crafting important gear you plan to keep long-term. Skip infusion for temporary gear
+            or when voxels are scarce. Using 5-10 voxels significantly improves your odds of getting Rare, Epic, or
+            Legendary items, which have better stats and more affixes.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I improve an item's rarity after crafting?</summary>
+          <div class="faq-answer">
+            Yes! You can use a Radiant Orb from the <a href="alteration.html">Item Alteration</a> system to attempt
+            upgrading an item's rarity. However, this has a 5-50% chance to break the item, so only use it on items
+            you're
+            willing to risk losing.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between affixes and enchantments?</summary>
+          <div class="faq-answer">
+            Affixes are random bonus stats that roll during crafting (0-3 per item based on rarity). Enchantments are
+            separate magical effects you add after crafting via the <a href="enchanting-details.html">Enchanting
+              system</a>. Items can have both affixes AND enchantments for maximum power.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do rating stats convert to percentages?</summary>
+          <div class="faq-answer">
+            Rating stats convert to percentages using a formula based on your character level. The conversion rate
+            decreases as you level up, but higher level items roll more rating to compensate. At level 50, the
+            multiplier is approximately 0.275, meaning 100 rating = 27.5% bonus.
+          </div>
+        </details>
+      </section>
+    </article>
+  </div>
+</body>
+
+</html>

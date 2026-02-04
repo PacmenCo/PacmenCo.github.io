@@ -273,6 +273,12 @@
           </a>
         </li>
         <li>
+          <a href="items-crafting.html" class="menu-link">
+            <span class="feature-name">🔨 Items & Crafting</span>
+            <span class="feature-desc">Craft powerful equipment with voxel infusion</span>
+          </a>
+        </li>
+        <li>
           <a href="enchanting.html" class="menu-link">
             <span class="feature-name">🔮 Enchanting System</span>
             <span class="feature-desc">Upgrade and customize your equipment</span>
