@@ -187,6 +187,7 @@
       --accent-green: #10b981;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+      --valor-color: #FFD700;
     }
 
     body {
@@ -194,6 +195,12 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .nav-bar {
@@ -345,6 +352,11 @@
 
     .stat-highlight {
       color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .valor-highlight {
+      color: var(--valor-color);
       font-weight: 600;
     }
 
@@ -555,7 +567,7 @@
         <h2>What Are Guilds?</h2>
         <p>
           Guilds are collaborative player organizations that bring together up to 5 adventurers to participate in
-          cooperative activities, earn guild (Sigils) and individual (Valor Points) rewards, and benefit from powerful
+          cooperative activities, earn guild (Sigils) and individual (<span class="valor-highlight">Valor Points</span>) rewards, and benefit from powerful
           guild-wide buffs. Guilds provide
           a structured social experience with progression systems, communication, and exclusive cooperative
           content like guild boss raids.
@@ -569,7 +581,6 @@
           <li><strong>Guild Buffs:</strong> Purchase temporary bonuses that benefit all guild members</li>
           <li><strong>Private Guild Chat:</strong> Communicate with guild members</li>
           <li><strong>Activity Tracking:</strong> See when members are active and their contributions</li>
-          <li><strong>Hierarchical Roles:</strong> Leader, Officer, and Member roles with different permissions</li>
         </ul>
       </section>
 
@@ -583,12 +594,7 @@
         <div class="formula-box">
           Creation Cost = 500 Voxels + 500 Gems
         </div>
-        <ul class="feature-list">
-          <li><strong>Guild Name:</strong> Must be unique (3-24 characters)</li>
-          <li><strong>Guild Tag:</strong> Short identifier (2-5 characters)</li>
-          <li><strong>Emblem Color:</strong> Customize your guild's appearance</li>
-          <li><strong>Privacy Setting:</strong> Choose Open or Closed (can be changed later)</li>
-        </ul>
+
 
         <h3>Joining an Existing Guild</h3>
         <p>
@@ -597,8 +603,6 @@
         <ul class="feature-list">
           <li><strong>Open Guilds:</strong> Instant auto-join when you click "Join" (no approval needed)</li>
           <li><strong>Closed Guilds:</strong> Cannot currently be joined</li>
-          <li><strong>Guild Search:</strong> Filter by name, privacy status, or sort by member count and creation date
-          </li>
           <li><strong>Member Limit:</strong> Guilds can have a maximum of 5 members</li>
         </ul>
 
@@ -686,7 +690,7 @@
       <section class="content-section" id="guild-buffs">
         <h2>Guild Buffs</h2>
         <p>
-          Guild members can purchase temporary buffs using Valor Points (personal currency earned from guild bosses).
+          Guild members can purchase temporary buffs using <span class="valor-highlight">Valor Points</span> (personal currency earned from guild bosses).
           These buffs apply to all guild members and significantly enhance gameplay.
         </p>
 
@@ -704,12 +708,12 @@
           <li><strong>Maximum Duration:</strong> 72 hours (3 days) per buff type</li>
           <li><strong>Stacking:</strong> Multiple purchases extend duration, not magnitude</li>
           <li><strong>Decay:</strong> Buff duration decreases in real-time</li>
-          <li><strong>Cost:</strong> Paid with Valor Points (earned from guild boss participation)</li>
+          <li><strong>Cost:</strong> Paid with <span class="valor-highlight">Valor Points</span> (earned from guild boss participation)</li>
           <li><strong>Benefit:</strong> All guild members receive the buff, not just the purchaser</li>
         </ul>
 
         <div class="info-box">
-          <strong>Coordinate with your guild!</strong> While purchased individually with your Valor Points,
+          <strong>Coordinate with your guild!</strong> While purchased individually with your <span class="valor-highlight">Valor Points</span>,
           buffs benefit all guild members. Communicate to avoid duplicate purchases and maximize coverage.
         </div>
       </section>
@@ -734,14 +738,19 @@
       <section class="content-section">
         <h2>How to Participate</h2>
         <p>
-          To participate in guild boss raids, <strong>click the boss icon</strong> at the top of the home area screen. This will open the guild boss interface where you can view the current boss, your available tickets, and start your run.
+          To participate in guild boss raids, <strong>click the boss icon</strong> at the top of the home area screen.
+          This will open the guild boss interface where you can view the current boss, your available tickets, and start
+          your run.
         </p>
 
         <style>
           @keyframes bounce-arrow {
-            0%, 100% {
+
+            0%,
+            100% {
               transform: translateX(-50%) translateY(0);
             }
+
             50% {
               transform: translateX(-50%) translateY(10px);
             }
@@ -750,26 +759,32 @@
 
         <div style="text-align: center; margin: 1.5rem auto;">
           <div style="position: relative; display: inline-block;">
-            <img src="images/guild-boss-icon.png" alt="Guild boss icon location in the home area - click the bull head icon at the top center of the screen to access guild boss raids in Idle Adventure" width="550" height="413" loading="lazy" style="border-radius: 8px; border: 2px solid rgba(124, 58, 237, 0.3);">
+            <img src="images/guild-boss-icon.png"
+              alt="Guild boss icon location in the home area - click the bull head icon at the top center of the screen to access guild boss raids in Idle Adventure"
+              width="550" height="413" loading="lazy"
+              style="border-radius: 8px; border: 2px solid rgba(124, 58, 237, 0.3);">
 
             <!-- Arrow pointing to boss icon (right side) -->
-            <svg style="position: absolute; top: -50px; left: 65%; transform: translateX(-50%); animation: bounce-arrow 1.5s ease-in-out infinite;" width="100" height="80" viewBox="0 0 100 80">
+            <svg
+              style="position: absolute; top: -50px; left: 65%; transform: translateX(-50%); animation: bounce-arrow 1.5s ease-in-out infinite;"
+              width="100" height="80" viewBox="0 0 100 80">
               <defs>
                 <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
                   <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
               </defs>
               <!-- Arrow shaft -->
-              <line x1="50" y1="10" x2="50" y2="60" stroke="#f59e0b" stroke-width="4" filter="url(#glow)"/>
+              <line x1="50" y1="10" x2="50" y2="60" stroke="#f59e0b" stroke-width="4" filter="url(#glow)" />
               <!-- Arrow head -->
-              <polygon points="50,70 40,50 60,50" fill="#f59e0b" filter="url(#glow)"/>
+              <polygon points="50,70 40,50 60,50" fill="#f59e0b" filter="url(#glow)" />
             </svg>
           </div>
-          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Click the boss head icon at the top of the home area to access guild boss raids</p>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Click the boss head icon at
+            the top of the home area to access guild boss raids</p>
         </div>
 
         <p>
@@ -875,7 +890,7 @@
       <section class="content-section" id="rewards">
         <h2>Rewards System</h2>
         <p>
-          Guild boss participation earns three types of rewards: personal Valor points, guild Sigils, and guild XP.
+          Guild boss participation earns three types of rewards: personal <span class="valor-highlight">Valor Points</span>, guild Sigils, and guild XP.
           All rewards are based on your guild's performance, not individual contribution.
         </p>
 
@@ -884,15 +899,15 @@
           Valor = (Guild HP Removed ÷ 5%) + Kill Bonus
         </div>
         <ul class="feature-list">
-          <li><strong>1 Valor Point</strong> per 5% of boss HP removed by your guild</li>
-          <li><strong>5 Bonus Valor Points</strong> if the boss is killed (100% HP removed)</li>
-          <li><strong>Maximum:</strong> 25 Valor (20 from damage + 5 bonus)</li>
+          <li><strong><span class="valor-highlight">1 Valor Point</span></strong> per 5% of boss HP removed by your guild</li>
+          <li><strong><span class="valor-highlight">5 Bonus Valor Points</span></strong> if the boss is killed (100% HP removed)</li>
+          <li><strong>Maximum:</strong> <span class="valor-highlight">25 Valor</span> (20 from damage + 5 bonus)</li>
         </ul>
 
         <div class="info-box">
           <strong>Important:</strong> Rewards are identical for all participants! Whether you dealt 1 damage or 1
           million
-          damage, everyone who attacked receives the same Valor based on the guild's total performance.
+          damage, everyone who attacked receives the same <span class="valor-highlight">Valor</span> based on the guild's total performance.
         </div>
 
         <h3>Sigils (Guild Currency)</h3>
@@ -921,32 +936,32 @@
 
         <h3>Reward Examples</h3>
         <ul class="feature-list">
-          <li>100% HP removed (boss killed): <span class="stat-highlight">25 Valor, 15 Sigils, 125 Guild XP</span></li>
-          <li>95% HP removed: <span class="stat-highlight">19 Valor, 9 Sigils, 95 Guild XP</span></li>
-          <li>50% HP removed: <span class="stat-highlight">10 Valor, 5 Sigils, 50 Guild XP</span></li>
-          <li>25% HP removed: <span class="stat-highlight">5 Valor, 2 Sigils, 25 Guild XP</span></li>
-          <li>1% HP removed: <span class="stat-highlight">0 Valor, 1 Sigil, 1 Guild XP</span></li>
+          <li>100% HP removed (boss killed): <span class="valor-highlight">25 Valor</span>, <span class="stat-highlight">15 Sigils, 125 Guild XP</span></li>
+          <li>95% HP removed: <span class="valor-highlight">19 Valor</span>, <span class="stat-highlight">9 Sigils, 95 Guild XP</span></li>
+          <li>50% HP removed: <span class="valor-highlight">10 Valor</span>, <span class="stat-highlight">5 Sigils, 50 Guild XP</span></li>
+          <li>25% HP removed: <span class="valor-highlight">5 Valor</span>, <span class="stat-highlight">2 Sigils, 25 Guild XP</span></li>
+          <li>1% HP removed: <span class="valor-highlight">0 Valor</span>, <span class="stat-highlight">1 Sigil, 1 Guild XP</span></li>
         </ul>
 
         <h3>Claiming Rewards</h3>
         <p>
-          Valor rewards are not automatic. You must:
+          <span class="valor-highlight">Valor</span> rewards are not automatic. You must:
         </p>
         <ul class="feature-list">
           <li>Navigate to the Guild Boss Rewards panel after the event</li>
           <li>Click the "Claim!" button</li>
-          <li>Valor is added to your spendable balance</li>
+          <li><span class="valor-highlight">Valor</span> is added to your spendable balance</li>
         </ul>
       </section>
 
       <section class="content-section">
         <h2>Valor Shop</h2>
         <p>
-          Spend your Valor on permanent upgrades and temporary guild buffs.
+          Spend your <span class="valor-highlight">Valor</span> on permanent upgrades and temporary guild buffs.
         </p>
         <p>
-          The Valor Shop offers exclusive <strong>skills</strong> that can only be purchased with <strong>Valor
-            Points</strong>. These unique abilities are not available through normal progression. See the <a
+          The Valor Shop offers exclusive <strong>skills</strong> that can only be purchased with <strong><span class="valor-highlight">Valor
+            Points</span></strong>. These unique abilities are not available through normal progression. See the <a
             href="skills.html" style="color: var(--accent-cyan); text-decoration: underline;">Skills Guide</a> for
           details on which skills are available in the Valor Shop.
         </p>
@@ -1012,8 +1027,8 @@
 
         <h3>Valor Point Spending</h3>
         <p>
-          It's a good idea to <strong>spend Valor Points on guild buffs</strong>, since high-tier skills
-          require you to have spent a significant amount of Valor Points before you can unlock them.
+          It's a good idea to <strong>spend <span class="valor-highlight">Valor Points</span> on guild buffs</strong>, since high-tier skills
+          require you to have spent a significant amount of <span class="valor-highlight">Valor Points</span> before you can unlock them.
         </p>
 
         <h3>Coordinate Guild Boss Killer Buff</h3>
@@ -1028,7 +1043,7 @@
         <p>
           <strong>Guilds</strong> are the only <strong>cooperative feature</strong> in Idle Adventure. By understanding
           <strong>guild boss mechanics</strong>, <strong>enrage systems</strong>, and <strong>reward
-            calculations</strong>, you can maximize your Valor earnings and contribute effectively to your guild's
+            calculations</strong>, you can maximize your <span class="valor-highlight">Valor</span> earnings and contribute effectively to your guild's
           success.
         </p>
         <p>
@@ -1037,9 +1052,9 @@
         <ul class="feature-list">
           <li><strong>Coordinate with Members:</strong> Communication is key for timing boss attempts and purchasing
             guild buffs efficiently</li>
-          <li><strong>Spend Valor Points:</strong> Don't hoard Valor - spending it on guild buffs unlocks higher-tier
+          <li><strong>Spend <span class="valor-highlight">Valor Points</span>:</strong> Don't hoard <span class="valor-highlight">Valor</span> - spending it on guild buffs unlocks higher-tier
             items in the Valor Shop and other valuable upgrades throughout the game</li>
-          <li><strong>Active Participation:</strong> Consistent participation earns more Valor and helps your guild
+          <li><strong>Active Participation:</strong> Consistent participation earns more <span class="valor-highlight">Valor</span> and helps your guild
             defeat bosses for maximum rewards</li>
         </ul>
         <p>
@@ -1056,7 +1071,7 @@
           <summary>What are guilds in Idle Adventure?</summary>
           <div class="faq-answer">
             Guilds are cooperative groups where players team up to fight powerful guild bosses, earn rewards, and access
-            guild buffs. Guilds have their own progression system with Valor points (personal currency) and Sigils
+            guild buffs. Guilds have their own progression system with <span class="valor-highlight">Valor Points</span> (personal currency) and Sigils
             (permanent guild currency) that can be spent in the Valor Shop for exclusive skills and guild buffs.
           </div>
         </details>
@@ -1071,10 +1086,10 @@
         </details>
 
         <details class="faq-item">
-          <summary>What are Valor points and Sigils?</summary>
+          <summary>What are <span class="valor-highlight">Valor Points</span> and Sigils?</summary>
           <div class="faq-answer">
-            Valor is personal currency earned by defeating guild bosses. Sigils are permanent guild currency earned from
-            guild participation. Both are earned based on your guild's performance (not individual contribution). Valor
+            <span class="valor-highlight">Valor</span> is personal currency earned by defeating guild bosses. Sigils are permanent guild currency earned from
+            guild participation. Both are earned based on your guild's performance (not individual contribution). <span class="valor-highlight">Valor</span>
             can be spent in the Valor Shop for exclusive skills and guild buffs.
           </div>
         </details>
@@ -1094,7 +1109,7 @@
           <div class="faq-answer">
             Guild buffs are temporary passive bonuses that benefit all guild members. Available buffs are: Companion
             Speed & Range, Damage & Stamina, Companion XP, and Guild Boss Killer. Buffs are purchased individually with
-            Valor Points but benefit the entire guild for 12 hours per purchase (up to 72 hours maximum per buff type).
+            <span class="valor-highlight">Valor Points</span> but benefit the entire guild for 12 hours per purchase (up to 72 hours maximum per buff type).
           </div>
         </details>
 

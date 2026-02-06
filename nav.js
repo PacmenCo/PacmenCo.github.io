@@ -374,9 +374,9 @@
           </a>
         </li>
         <li>
-          <a href="pets-viewer.html" class="menu-link">
-            <span class="feature-name">🦊 Pet Database</span>
-            <span class="feature-desc">Discover all 93 pets and their unique bonuses</span>
+          <a href="pets.html" class="menu-link">
+            <span class="feature-name">🦊 Pets</span>
+            <span class="feature-desc">Level pets for permanent bonuses and equipped stats</span>
           </a>
         </li>
         <li>
@@ -474,7 +474,7 @@
     {"id":"ascensions","title":"Ascensions","url":"ascensions.html","description":"Prestige system for permanent power increases and Dream Points","keywords":"ascension prestige dream points talents reset hardcore normal hard permanent bonuses blacksmithing legend quality enchanting moreskill skillquality strongpets beastmaster idlemaster bosseater counterattack quicklearner battlebrainy luckseeker greed defender bank sink"},
     {"id":"combat","title":"Combat Mechanics","url":"combat.html","description":"Combat systems and mechanics in depth","keywords":"combat fight battle damage mechanics hp health attack defense magic physical crit critical hit dodge block parry resist mana mana cost mana usage mana management mp status effects debuffs stun ministun root slow poison burn bleed damage over time dot armor break weaken attack reduction runic mark hp regeneration mana regeneration accuracy evasion hit chance miss chance damage formula damage calculation armor resistance mana absorb mana leech lifesteal life steal reflect penetration pierce"},
     {"id":"companions","title":"Loyal Companions","url":"companions.html","description":"Recruit unique companions with special abilities","keywords":"companions pets allies followers recruit special abilities bonuses loyal companion summon jindo ember mystikat hootini globbie acornelius florence mechabird snekles"},
-    {"id":"pets","title":"Pet Database","url":"pets-viewer.html","description":"Discover all 93 pets and their unique bonuses","keywords":"pets animals database collection bonuses stats passive companion pet stone musclebob sunflower snake emerald golem vampire stone ruby golem sapphire golem skeleton magi lady bug ladybug butterfly shroom small tree red frog crying ghost ratigan blackmailer arachnid xp modifier mana hp health armor evasion accuracy damage boss damage loot chance hp regen health regen cosy cave crypt garden fishing defeat idle unlock requirements viewer all pets pet list sleeping stone happy stone king stone small stone dragon phoenix dog cat bird golem stone"},
+    {"id":"pets","title":"Pets","url":"pets.html","description":"Level pets for permanent bonuses and equipped stats","keywords":"pets animals database collection bonuses stats passive companion pet leveling pet food permanent stats equipped stats only one pet max level ascension pet stone musclebob sunflower snake emerald golem vampire stone ruby golem sapphire golem skeleton magi lady bug ladybug butterfly shroom small tree red frog crying ghost ratigan blackmailer arachnid xp modifier mana hp health armor evasion accuracy damage boss damage loot chance hp regen health regen cosy cave crypt garden fishing defeat idle unlock requirements viewer all pets pet list sleeping stone happy stone king stone small stone dragon phoenix dog cat bird golem stone"},
     {"id":"skills","title":"Skills","url":"skills.html","description":"Master powerful skills and devastating combos","keywords":"skills abilities powers talents combos active passive cooldown mana cost damage aoe single target buff debuff auto attack break armor charged strike clarity cleave execute final judgement heavy attack last stand normal attack poison attack quick attack rupture sacrifice shield static discharge stone skin vengeance witherstrike armorbreak"},
     {"id":"guild","title":"Guilds","url":"guild.html","description":"Battle guild bosses together with other players","keywords":"guild guilds multiplayer bosses cooperative social raid contribution rewards guild boss guild shop guild levels"},
     {"id":"special-areas","title":"Special Areas","url":"special-areas.html","description":"Elite challenges with exclusive rewards and high scores","keywords":"special areas dungeons raids challenges elite rewards keys mouse hole ruined tower cosy cave crypt"},

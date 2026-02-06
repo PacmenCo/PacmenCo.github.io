@@ -160,6 +160,7 @@
       --accent-green: #10b981;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+      --valor-color: #FFD700;
     }
 
     body {
@@ -167,6 +168,12 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .nav-bar {
@@ -516,6 +523,11 @@
       transform: scaleX(1);
     }
 
+    .valor-highlight {
+      color: var(--valor-color);
+      font-weight: 600;
+    }
+
     .faq-section {
       margin-top: 3rem;
     }
@@ -614,7 +626,7 @@
           can be refreshed.</p>
         <div class="potion-grid">
           <div class="potion-card">
-            <h4>Elixir of Strength</h4>
+            <h4><img src="images/consumables/Potion1.png" alt="Elixir of Strength icon" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Elixir of Strength</h4>
             <p>Increases your damage output by 20%, making combat faster and more efficient.</p>
             <div class="potion-meta">
               <span>Effect: <span class="value">+20% Damage</span></span>
@@ -623,7 +635,7 @@
             </div>
           </div>
           <div class="potion-card">
-            <h4>Elixir of Endurance</h4>
+            <h4><img src="images/consumables/Potion2.png" alt="Elixir of Endurance icon" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Elixir of Endurance</h4>
             <p>Boosts your maximum health by 20%, providing better survivability in tough fights.</p>
             <div class="potion-meta">
               <span>Effect: <span class="value">+20% Max HP</span></span>
@@ -632,7 +644,7 @@
             </div>
           </div>
           <div class="potion-card">
-            <h4>Elixir of Vigor</h4>
+            <h4><img src="images/consumables/Potion3.png" alt="Elixir of Vigor icon" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Elixir of Vigor</h4>
             <p>Dramatically increases health regeneration by 35%, keeping you in the fight longer.</p>
             <div class="potion-meta">
               <span>Effect: <span class="value">+35% Health Regen</span></span>
@@ -641,7 +653,7 @@
             </div>
           </div>
           <div class="potion-card">
-            <h4>Elixir of Agility</h4>
+            <h4><img src="images/consumables/Potion4.png" alt="Elixir of Agility icon" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Elixir of Agility</h4>
             <p>Improves both accuracy and evasion, making you harder to hit while landing more attacks.</p>
             <div class="potion-meta">
               <span>Effect: <span class="value">+5 Accuracy & Evasion</span></span>
@@ -650,7 +662,7 @@
             </div>
           </div>
           <div class="potion-card">
-            <h4>Elixir of Luck</h4>
+            <h4><img src="images/consumables/Potion5.png" alt="Elixir of Luck icon" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Elixir of Luck</h4>
             <p>Grants the Lucky Strike buff, increasing critical hit chance.</p>
             <div class="potion-meta">
               <span>Effect: <span class="value tooltip">Lucky Strike
@@ -672,7 +684,7 @@
           debuffs. All effects have an equal 12.5% chance of occurring.</p>
         <div class="potion-grid">
           <div class="potion-card">
-            <h4>Experimental Mixture</h4>
+            <h4><img src="images/consumables/Potion6.png" alt="Experimental Mixture potion icon - random buff or debuff" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Experimental Mixture</h4>
             <p>This chaotic mixture can either greatly enhance your abilities or hinder your performance. Choose your
               moment wisely!</p>
             <div class="potion-meta">
@@ -771,7 +783,7 @@
         <h2>⚡ Instant Consumables</h2>
         <div class="potion-grid">
           <div class="potion-card">
-            <h4>Health Potion</h4>
+            <h4><img src="images/consumables/HealthPotion.png" alt="Health Potion icon - restores HP" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Health Potion</h4>
             <p>Restores 65% of your maximum HP in two phases: 40% instantly (26% of max HP) and 60% over 6 seconds (39%
               of max HP). Scales with your health pool.</p>
             <div class="potion-meta">
@@ -780,7 +792,7 @@
             </div>
           </div>
           <div class="potion-card">
-            <h4>Mana Potion</h4>
+            <h4><img src="images/consumables/ManaPotion.png" alt="Mana Potion icon - restores mana" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Mana Potion</h4>
             <p>Restores 175% of your maximum mana in two phases: 25% instantly (43.75% of max mana) and 75% over 32
               seconds (131.25% of max mana). Scales with your mana pool.</p>
             <div class="potion-meta">
@@ -797,7 +809,7 @@
           events, or the shop.</p>
         <div class="potion-grid">
           <div class="potion-card">
-            <h4>Experience Scroll (XP Scroll)</h4>
+            <h4><img src="images/consumables/Scroll.png" alt="Experience Scroll icon - XP boost" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Experience Scroll (XP Scroll)</h4>
             <p>Reading this ancient scroll grants enhanced learning, boosting both level and rank experience gains.
               Perfect for accelerating your progression!</p>
             <div class="potion-meta">
@@ -807,7 +819,7 @@
             </div>
           </div>
           <div class="potion-card">
-            <h4>Drop Booster (Loot Buff)</h4>
+            <h4><img src="images/consumables/LootBag.png" alt="Drop Booster icon - increases loot drops" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Drop Booster (Loot Buff)</h4>
             <p>Using this booster increases the drop rate from all monsters, helping you find better loot and rare items
               more quickly.</p>
             <div class="potion-meta">
@@ -823,38 +835,50 @@
       </section>
 
       <section class="content-section" id="guild-buffs">
-        <h2>🏰 Guild Buffs</h2>
-        <p>Guild buffs are powerful bonuses that affect both you and your companions. These buffs are managed through
-          your
-          guild and can significantly enhance your effectiveness.</p>
+        <h2><img src="images/consumables/GuildBuff.png" alt="Guild Buffs icon - guild bonuses" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Guild Buffs</h2>
+        <p>Guild buffs are powerful bonuses purchased through your guild's Valor Shop. These buffs affect both you and your companions and can significantly enhance your effectiveness.</p>
 
-        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 1rem;">Guild Buff Categories</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Buff Category</th>
-              <th>Examples</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Player Stat Buffs</td>
-              <td>Coming in an a later update!</td>
-            </tr>
-            <tr>
-              <td>Companion Buffs</td>
-              <td>Companion Damage, Companion Defense, Companion experience</td>
-            </tr>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 1rem;">Companion Buffs</h3>
+        <div class="potion-grid">
+          <div class="potion-card">
+            <h4><img src="images/consumables/CompanionSpeed.png" alt="Companion Speed buff icon - increases companion attack speed and range" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Companion Speed & Range</h4>
+            <p>Increases companion attack speed and attack range.</p>
+            <div class="potion-meta">
+              <span>Effect: <span class="value">+20% Speed & Range</span></span>
+              <span>Target: <span class="value">Companions</span></span>
+            </div>
+          </div>
+          <div class="potion-card">
+            <h4><img src="images/consumables/BeastMaster.png" alt="Beast Master buff icon - increases companion damage and stamina" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Companion Damage & Stamina</h4>
+            <p>Increases companion damage and stamina regeneration.</p>
+            <div class="potion-meta">
+              <span>Effect: <span class="value">+15% Damage & Stamina</span></span>
+              <span>Target: <span class="value">Companions</span></span>
+            </div>
+          </div>
+          <div class="potion-card">
+            <h4><img src="images/consumables/CompanionXP.png" alt="Companion XP buff icon - increases companion experience gain" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Companion XP Bonus</h4>
+            <p>Increases companion experience gain rate.</p>
+            <div class="potion-meta">
+              <span>Effect: <span class="value">+25% Companion XP</span></span>
+              <span>Target: <span class="value">Companions</span></span>
+            </div>
+          </div>
+        </div>
 
-            <tr>
-              <td>Special Buffs</td>
-              <td>Increased damage vs specific monster types</td>
-            </tr>
-          </tbody>
-        </table>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 1rem;">Special Buffs</h3>
+        <div class="potion-grid">
+          <div class="potion-card">
+            <h4><img src="images/consumables/BossKiller.png" alt="Guild Boss Killer buff icon - increases damage against guild bosses" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Guild Boss Killer</h4>
+            <p>Significantly increases damage against guild bosses.</p>
+            <div class="potion-meta">
+              <span>Effect: <span class="value">+30% Boss Damage</span></span>
+              <span>Target: <span class="value">Player</span></span>
+            </div>
+          </div>
+        </div>
 
-        <div class="info-box"><strong>Guild Power:</strong> Guild buffs can help ease progression
-          in the game. Join an active guild for maximum benefits!</div>
+        <div class="info-box"><strong>Guild Power:</strong> Guild buffs are purchased using <span class="valor-highlight">Valor Points</span> earned from guild boss participation. Active buffs last for a set duration and can be extended. Join an active guild for maximum benefits!</div>
       </section>
 
       <section class="content-section" id="other-mentions">
@@ -868,7 +892,7 @@
         <h2>📊 Buff Management</h2>
         <p>Active buffs are displayed in the UI, showing:</p>
         <ul class="buff-list">
-          <li>Buff icon and name</li>
+          <li>Buff icon</li>
           <li>Remaining duration (for timed buffs)</li>
         </ul>
       </section>

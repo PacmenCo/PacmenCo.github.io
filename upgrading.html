@@ -161,6 +161,9 @@
       --accent-cyan: #06b6d4;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+      --pixel-color: #FBFF00;
+      --voxel-color: #E18700;
+      --crystal-color: #00FF00;
     }
 
     body {
@@ -168,6 +171,12 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .nav-bar {
@@ -263,6 +272,131 @@
       margin-bottom: 1rem;
     }
 
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Rarity Highlighting */
+    .rarity-broken {
+      color: #6b7280;
+    }
+
+    .rarity-poor {
+      color: #9ca3af;
+    }
+
+    .rarity-common {
+      color: #ffffff;
+    }
+
+    .rarity-uncommon {
+      color: #10b981;
+    }
+
+    .rarity-rare {
+      color: #3b82f6;
+    }
+
+    .rarity-epic {
+      color: #a855f7;
+    }
+
+    .rarity-legendary {
+      color: #f59e0b;
+    }
+
+    .rarity-artifact {
+      color: #ef4444;
+    }
+
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .content-section a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .info-box a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .info-box a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .warning-box a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .warning-box a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .faq-answer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .faq-answer a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
     .feature-list {
       list-style: none;
       padding: 0;
@@ -319,6 +453,21 @@
 
     .stat-highlight {
       color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .pixel-highlight {
+      color: var(--pixel-color);
+      font-weight: 600;
+    }
+
+    .voxel-highlight {
+      color: var(--voxel-color);
+      font-weight: 600;
+    }
+
+    .crystal-highlight {
+      color: var(--crystal-color);
       font-weight: 600;
     }
 
@@ -592,7 +741,7 @@
       <h2>What is Item Upgrading?</h2>
       <p>
         <strong>Item Upgrading</strong> is a system that allows you to permanently increase an item's <strong>base stats</strong> using <span
-          class="stat-highlight">Pixels</span> and <span class="stat-highlight">Crystals</span>. Each <strong>upgrade level</strong>
+          class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. Each <strong>upgrade level</strong>
         increases the item's damage or armor by <span class="stat-highlight">5%</span>, making it significantly more
         powerful. This <strong>equipment enhancement system</strong> provides permanent stat boosts.
       </p>
@@ -609,10 +758,10 @@
 
       <h3>Stat Scaling Formula</h3>
       <div class="formula-box">
-        Final Stat = Base Stat × Item Quality × (1 + upgrade level × 0.05)<br><br>
+        Final Stat = Base Stat × <strong><span class="tooltip" data-tooltip="quality">Item Quality</span></strong> × (1 + upgrade level × 0.05)<br><br>
         Example:<br>
         Base Attack: 100<br>
-        Item Quality: 1.5 (Epic)<br>
+        <strong><span class="tooltip" data-tooltip="quality">Item Quality</span></strong>: 1.5 (Epic)<br>
         Upgrade Level: 4<br>
         Final Attack = 100 × 1.5 × (1 + 4 × 0.05) = 100 × 1.5 × 1.2 = 180
       </div>
@@ -626,8 +775,8 @@
     <section class="content-section" id="upgrade-costs">
       <h2>Item Upgrade Costs</h2>
       <p>
-        <strong>Upgrading requires</strong> both <span class="stat-highlight">Pixels</span> and <span
-          class="stat-highlight">Crystals</span>.
+        <strong>Upgrading requires</strong> both <span class="pixel-highlight">Pixels</span> and <span
+          class="crystal-highlight">Crystals</span>.
       </p>
 
       <h3>What Affects Costs?</h3>
@@ -635,11 +784,11 @@
         <strong>Upgrade costs increase</strong> with:
       </p>
       <ul class="feature-list">
-        <li><strong>Higher Item Rarity:</strong> Legendary and Artifact items cost significantly more to upgrade than Common items</li>
+        <li><strong>Higher <span class="tooltip" data-tooltip="rarity">Item Rarity</span>:</strong> Legendary and Artifact items cost significantly more to upgrade than Common items</li>
         <li><strong>Higher Item Level:</strong> Level 50 items cost more than level 10 items</li>
-        <li><strong>Better Item Quality:</strong> Items with higher quality percentage cost more</li>
+        <li><strong>Better <span class="tooltip" data-tooltip="quality">Item Quality</span>:</strong> Items with higher <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> percentage cost more</li>
         <li><strong>Higher Upgrade Level:</strong> Each successive upgrade becomes exponentially more expensive</li>
-        <li><strong>Item Type:</strong> Different equipment slots have different base costs</li>
+        <li><strong><span class="tooltip" data-tooltip="item-types">Item Type</span>:</strong> Different equipment slots have different base costs</li>
       </ul>
 
       <div class="warning-box">
@@ -739,7 +888,7 @@
         <summary class="faq-question">What is item upgrading in Idle Adventure?</summary>
         <div class="faq-answer">
           <p>
-            <strong>Item upgrading</strong> permanently increases an item's base stats using <strong>Pixels and Crystals</strong>. Each <strong>upgrade level</strong> increases damage or armor by <strong>5% multiplicatively</strong>. Enchantments are preserved during upgrades.
+            <strong>Item upgrading</strong> permanently increases an item's base stats using <span class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. Each <strong>upgrade level</strong> increases damage or armor by <strong>5% multiplicatively</strong>. Enchantments are preserved during upgrades.
           </p>
         </div>
       </details>
@@ -748,7 +897,7 @@
         <summary class="faq-question">How much does each upgrade level increase stats?</summary>
         <div class="faq-answer">
           <p>
-            Each <strong>upgrade level</strong> adds a <strong>5% multiplicative bonus</strong> to your item's stats. The bonus stacks with item quality for powerful results.
+            Each <strong>upgrade level</strong> adds a <strong>5% multiplicative bonus</strong> to your item's stats. The bonus stacks with item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> for powerful results.
           </p>
         </div>
       </details>
@@ -757,7 +906,7 @@
         <summary class="faq-question">What currencies does upgrading require?</summary>
         <div class="faq-answer">
           <p>
-            <strong>Upgrading requires Pixels and Crystals</strong>. Costs increase based on upgrade level, item quality, item level, rarity, and item type. Higher rarity items are significantly more expensive to upgrade.
+            <strong>Upgrading requires</strong> <span class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. Costs increase based on upgrade level, item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>, item level, <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>, and <strong><span class="tooltip" data-tooltip="item-types">item type</span></strong>. Higher <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> items are significantly more expensive to upgrade.
           </p>
         </div>
       </details>
@@ -782,6 +931,7 @@
     </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

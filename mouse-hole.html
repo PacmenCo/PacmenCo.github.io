@@ -175,6 +175,89 @@
       line-height: 1.6;
     }
 
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Rarity Highlighting */
+    .rarity-broken {
+      color: #6b7280;
+    }
+
+    .rarity-poor {
+      color: #9ca3af;
+    }
+
+    .rarity-common {
+      color: #ffffff;
+    }
+
+    .rarity-uncommon {
+      color: #10b981;
+    }
+
+    .rarity-rare {
+      color: #3b82f6;
+    }
+
+    .rarity-epic {
+      color: #a855f7;
+    }
+
+    .rarity-legendary {
+      color: #f59e0b;
+    }
+
+    .rarity-artifact {
+      color: #ef4444;
+    }
+
     /* Main Content */
     .container {
       max-width: 1200px;
@@ -227,6 +310,18 @@
       color: var(--text-secondary);
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .content-section a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
     }
 
     .feature-list {
@@ -856,14 +951,14 @@
         <h3>Ring Quality Goals</h3>
         <p>
           Aim for high scores to maximize your Magic Ring's Speed% bonus. Pray for a good random enchantment and nice
-          rarity roll!
+          <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> roll!
         </p>
       </section>
 
       <section class="content-section" id="saw-crafting">
         <h2>Saw Crafting</h2>
         <p>
-          Saws are crafted using pixels and voxels. The cost increases with each saw crafted but also decays over time.
+          Saws are crafted using Pixels and Voxels. The cost increases with each saw crafted but also decays over time.
         </p>
 
         <h3>Penalty System</h3>
@@ -936,7 +1031,7 @@
         <p class="highlight-box">
           <strong>Note:</strong> Unlike Cave and Tower keys, Mouse Hole saws have no free tier - the minimum cost is
           always
-          125 pixels and 2 voxels, even at 0 penalty.
+          125 Pixels and 2 Voxels, even at 0 penalty.
         </p>
       </section>
 
@@ -954,7 +1049,7 @@
           <summary>How do I unlock The Mouse Hole Raid?</summary>
           <div class="faq-answer">
             The Mouse Hole Raid unlocks at level 125. It is located in The Cottage (House). You need to craft Saws using
-            pixels and voxels to enter the raid. Each Saw opens a 6 minute 30 second window where you can complete
+            Pixels and Voxels to enter the raid. Each Saw opens a 6 minute 30 second window where you can complete
             multiple combat runs and open treasure chests.
           </div>
         </details>
@@ -999,6 +1094,7 @@
       </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

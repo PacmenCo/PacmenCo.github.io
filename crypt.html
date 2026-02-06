@@ -175,6 +175,89 @@
       line-height: 1.6;
     }
 
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Rarity Highlighting */
+    .rarity-broken {
+      color: #6b7280;
+    }
+
+    .rarity-poor {
+      color: #9ca3af;
+    }
+
+    .rarity-common {
+      color: #ffffff;
+    }
+
+    .rarity-uncommon {
+      color: #10b981;
+    }
+
+    .rarity-rare {
+      color: #3b82f6;
+    }
+
+    .rarity-epic {
+      color: #a855f7;
+    }
+
+    .rarity-legendary {
+      color: #f59e0b;
+    }
+
+    .rarity-artifact {
+      color: #ef4444;
+    }
+
     /* Main Content */
     .container {
       max-width: 1200px;
@@ -227,6 +310,18 @@
       color: var(--text-secondary);
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .content-section a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
     }
 
     .feature-list {
@@ -843,8 +938,8 @@
         <ul class="feature-list">
           <li><strong>Fixed Enchantment:</strong> LifeSteal (always present)</li>
           <li><strong>Critical Rating:</strong> Scaled by your score</li>
-          <li><strong>Critical Damage:</strong> 31% chance to roll 10-27 Critical Damage (+1 rarity)</li>
-          <li><strong>Rarity Bonus:</strong> Higher rarity at extreme scores</li>
+          <li><strong>Critical Damage:</strong> 31% chance to roll 10-27 Critical Damage (+1 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>)</li>
+          <li><strong>Rarity Bonus:</strong> Higher <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> at extreme scores</li>
         </ul>
 
         <h3>Critical Rating Formula</h3>
@@ -859,12 +954,12 @@
         <ul class="feature-list">
           <li><strong>Drop Chance:</strong> 31% on every ring</li>
           <li><strong>Critical Damage Range:</strong> 10-27</li>
-          <li><strong>Bonus Rarity:</strong> +1 rarity tier if Critical Damage rolls</li>
-          <li><strong>Stacks with Score Rarity:</strong> Can get +3 total rarity (10,000+ score + crit damage)</li>
+          <li><strong>Bonus Rarity:</strong> +1 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tier if Critical Damage rolls</li>
+          <li><strong>Stacks with Score Rarity:</strong> Can get +3 total <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> (10,000+ score + crit damage)</li>
         </ul>
 
         <p class="highlight-box">
-          <strong>God Roll:</strong> A 10,000+ score ring with Critical Damage gets +3 rarity tiers total,
+          <strong>God Roll:</strong> A 10,000+ score ring with Critical Damage gets +3 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tiers total,
           resulting in an incredibly powerful endgame item with high armor, lifesteal, and crit synergy!
         </p>
 
@@ -938,13 +1033,13 @@
 
         <h3>Score-Based Bonuses</h3>
         <ul class="feature-list">
-          <li><strong>Score 1,250+:</strong> +1 rarity tier (Increases armor of the ring by 20%)</li>
-          <li><strong>Score 10,000+:</strong> +2 rarity tiers (Increases armor of the ring by an additional 20%)</li>
+          <li><strong>Score 1,250+:</strong> +1 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tier (Increases armor of the ring by 20%)</li>
+          <li><strong>Score 10,000+:</strong> +2 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tiers (Increases armor of the ring by an additional 20%)</li>
         </ul>
 
         <p class="highlight-box">
           <strong>Elite Ring Threshold:</strong> Achieving 10,000+ score grants incredible ring bonuses with
-          +2 rarity. Do this and be lucky with a crit damage drop for a truly elite item!
+          +2 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>. Do this and be lucky with a crit damage drop for a truly elite item!
         </p>
       </section>
 
@@ -1152,8 +1247,8 @@
             <summary>How does the Crypt Ring scale with score?</summary>
             <div class="faq-answer">
               The Crypt Ring has LifeSteal enchantment and Critical Rating based on your score. Scores of 1,250+
-              grant +1 rarity tier, while 10,000+ scores grant +2 rarity tiers. The ring also has a 31% chance to roll
-              Critical Damage (10-27), which adds another +1 rarity tier for incredibly powerful endgame rings.
+              grant +1 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tier, while 10,000+ scores grant +2 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tiers. The ring also has a 31% chance to roll
+              Critical Damage (10-27), which adds another +1 <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tier for incredibly powerful endgame rings.
             </div>
           </details>
 
@@ -1180,6 +1275,7 @@
         </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

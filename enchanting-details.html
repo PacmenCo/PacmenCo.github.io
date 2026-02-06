@@ -157,6 +157,34 @@
       --accent-cyan: #06b6d4;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+
+      /* Currencies */
+      --pixel-color: #FBFF00;
+      --voxel-color: #E18700;
+      --crystal-color: #00FF00;
+
+      /* Alteration Orbs */
+      --orb-alteration-color: #00D6FF;
+      --orb-revision-color: #0800DB;
+      --orb-reversal-color: #D728FF;
+      --orb-nullification-color: #141414;
+      --orb-transformation-color: #00FFAA;
+      --orb-divination-color: #CAFF00;
+      --orb-fortune-color: #FFFC00;
+      --orb-radiant-color: #FF0300;
+      --orb-armor-plate-color: #FFA500;
+      --orb-sharpening-stone-color: #e3e0f5;
+      --orb-soulstone-color: #a21b90;
+
+      /* Item Rarities */
+      --rarity-broken-color: #C0C0C0;
+      --rarity-poor-color: #B6B6B4;
+      --rarity-common-color: #FFFFFF;
+      --rarity-uncommon-color: #00FF00;
+      --rarity-rare-color: #0000FF;
+      --rarity-epic-color: #800080;
+      --rarity-legendary-color: #FFA500;
+      --rarity-artifact-color: #FF0000;
     }
 
     body {
@@ -164,6 +192,12 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .nav-bar {
@@ -259,6 +293,42 @@
       margin-bottom: 1rem;
     }
 
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .content-section a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .info-box a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .info-box a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .faq-answer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .faq-answer a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
     .feature-list {
       list-style: none;
       padding: 0;
@@ -318,10 +388,111 @@
       font-weight: 600;
     }
 
+    .pixel-highlight {
+      color: var(--pixel-color);
+      font-weight: 600;
+    }
+
+    .voxel-highlight {
+      color: var(--voxel-color);
+      font-weight: 600;
+    }
+
+    .crystal-highlight {
+      color: var(--crystal-color);
+      font-weight: 600;
+    }
+
+    /* Rarity Highlighting */
+    .rarity-broken {
+      color: var(--rarity-broken-color);
+      font-weight: 600;
+    }
+
+    .rarity-poor {
+      color: var(--rarity-poor-color);
+      font-weight: 600;
+    }
+
+    .rarity-common {
+      color: var(--rarity-common-color);
+      font-weight: 600;
+    }
+
+    .rarity-uncommon {
+      color: var(--rarity-uncommon-color);
+      font-weight: 600;
+    }
+
+    .rarity-rare {
+      color: var(--rarity-rare-color);
+      font-weight: 600;
+    }
+
+    .rarity-epic {
+      color: var(--rarity-epic-color);
+      font-weight: 600;
+    }
+
+    .rarity-legendary {
+      color: var(--rarity-legendary-color);
+      font-weight: 600;
+    }
+
+    .rarity-artifact {
+      color: var(--rarity-artifact-color);
+      font-weight: 600;
+    }
+
+    /* Orb Highlighting */
     .reading-time {
       color: var(--text-secondary);
       font-size: 0.9rem;
       margin-top: 0.5rem;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
     }
 
     .table-of-contents {
@@ -588,9 +759,9 @@
       <section class="content-section" id="what-is-enchanting">
         <h2>What is Enchanting?</h2>
         <p>
-          <strong>Enchanting</strong> allows you to add powerful stat bonuses to your <strong>equipment</strong> using
-          <span class="stat-highlight">Pixels</span> and <span class="stat-highlight">Crystals</span>. On each
-          <strong>item type</strong> you
+          <strong>Enchanting</strong> allows you to add powerful stat bonuses to your equipment using
+          <span class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. On each
+          <strong><span class="tooltip" data-tooltip="item-types">item type</span></strong> you
           have <strong>2 unique enchantments</strong> to pick from - choose wisely. This <strong>equipment enhancement
             system</strong> provides guaranteed magical bonuses with 100% success rate.
         </p>
@@ -622,9 +793,9 @@
 
         <h3>Crystals</h3>
         <p>
-          <span class="stat-highlight">Crystals</span> can be obtained by defeating enemies, but the fastest way to
-          <strong>farm
-            crystals</strong> is in the mine! <strong>Crystal farming</strong> in mining areas provides the most
+          <span class="crystal-highlight">Crystals</span> can be obtained by defeating enemies, but the fastest way to
+          farm
+            <span class="crystal-highlight">crystals</span> is in the mine! <strong class="crystal-highlight">Crystal</strong> farming in mining areas provides the most
           efficient resource gathering for enchanting.
         </p>
       </section>
@@ -710,9 +881,9 @@
       <section class="content-section" id="enchanting-costs">
         <h2>Enchanting Costs</h2>
         <p>
-          <strong>Enchanting requires</strong> both <span class="stat-highlight">Pixels</span> and <span
-            class="stat-highlight">Crystals</span>. <strong>Costs scale</strong> based on item quality, item level,
-          rarity, item type,
+          <strong>Enchanting requires</strong> both <span class="pixel-highlight">Pixels</span> and <span
+            class="crystal-highlight">Crystals</span>. <strong>Costs scale</strong> based on item quality, item level,
+          <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>, <strong><span class="tooltip" data-tooltip="item-types">item type</span></strong>,
           and enchantment level.
         </p>
 
@@ -721,13 +892,13 @@
           <strong>Enchanting costs increase</strong> with:
         </p>
         <ul class="feature-list">
-          <li><strong>Higher Item Rarity:</strong> Legendary and Artifact items cost more to enchant than Common items
+          <li><strong>Higher <strong><span class="tooltip" data-tooltip="rarity">Item Rarity</span></strong>:</strong> <span class="rarity-legendary">Legendary</span> and <span class="rarity-artifact">Artifact</span> items cost more to enchant than <span class="rarity-common">Common</span> items
           </li>
           <li><strong>Higher Item Level:</strong> Level 50 items cost more than level 10 items</li>
-          <li><strong>Better Item Quality:</strong> Items with higher quality percentage cost more</li>
+          <li><strong>Better <span class="tooltip" data-tooltip="quality">Item Quality</span>:</strong> Items with higher <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> percentage cost more</li>
           <li><strong>Higher Enchantment Level:</strong> Upgrading to level 2 costs more than the initial level 1
             enchant</li>
-          <li><strong>Item Type:</strong> Different equipment slots have different base costs</li>
+          <li><strong><span class="tooltip" data-tooltip="item-types">Item Type</span>:</strong> Different equipment slots have different base costs</li>
         </ul>
 
         <div class="info-box">
@@ -754,6 +925,11 @@
           about enhancing your gear. Experiment with different enchantments to find the combinations that work best for
           your build!
         </p>
+        <p>
+          <strong>Next Steps:</strong> Combine enchanting with <a href="items-crafting.html"><strong>Item Crafting</strong></a>,
+          <a href="upgrading.html"><strong>Item Upgrading</strong></a>, and <a href="alteration.html"><strong>Item Alteration</strong></a>
+          to maximize your equipment power and create the ultimate gear setup.
+        </p>
       </section>
 
       <section class="faq-section" id="faq">
@@ -763,8 +939,8 @@
           <summary class="faq-question">What is enchanting in Idle Adventure?</summary>
           <div class="faq-answer">
             <p>
-              <strong>Enchanting</strong> allows you to add magical stat bonuses to equipment using <strong>Pixels and
-                Crystals</strong>. Each item slot has access to exactly <strong>two specific enchantments</strong>.
+              <strong>Enchanting</strong> allows you to add magical stat bonuses to equipment using <span class="pixel-highlight">Pixels</span> and
+                <span class="crystal-highlight">Crystals</span>. Each item slot has access to exactly <strong>two specific enchantments</strong>.
               Enchanting has <strong>100% success rate</strong> and enchantments can be upgraded to level 2 for
               increased effectiveness.
             </p>
@@ -799,8 +975,8 @@
           <summary class="faq-question">What currencies do enchantments require?</summary>
           <div class="faq-answer">
             <p>
-              <strong>Enchanting requires Pixels and Crystals</strong>. Costs scale based on item quality, item level,
-              rarity, and enchantment level. <strong>Changing enchantments</strong> is the cheapest option, making it
+              Enchanting requires <span class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. Costs scale based on item quality, item level,
+              <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>, and enchantment level. <strong>Changing enchantments</strong> is the cheapest option, making it
               cost-effective to experiment with different bonuses.
             </p>
           </div>
@@ -808,6 +984,7 @@
       </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

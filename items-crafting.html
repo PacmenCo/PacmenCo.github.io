@@ -13,6 +13,7 @@
     content="Idle Adventure items, item crafting, voxel infusion, crafting guide, item affixes, crit rating, evasion, accuracy, item rarity, crafting costs, equipment system 2026">
   <meta name="author" content="PacmenCo">
   <meta name="theme-color" content="#0a0e1a">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://pacmenco.github.io/items-crafting.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Items & Crafting Guide – Idle Adventure | Complete Equipment System">
@@ -144,6 +145,27 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pacmenco.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Items & Crafting Guide",
+        "item": "https://pacmenco.github.io/items-crafting.html"
+      }
+    ]
+  }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +193,8 @@
       --accent-green: #10b981;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+      --pixel-color: #FBFF00;
+      --voxel-color: #E18700;
     }
 
     body {
@@ -178,6 +202,56 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
     }
 
     .container {
@@ -272,6 +346,30 @@
 
     .stat-highlight {
       color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    /* Orb color classes (copied from alteration page for consistency) */
+    :root {
+      --orb-armor-plate-color: #FFA500;
+      --orb-sharpening-stone-color: #e3e0f5;
+    }
+    .orb-armor-plate {
+      color: var(--orb-armor-plate-color);
+      font-weight: 600;
+    }
+    .orb-sharpening-stone {
+      color: var(--orb-sharpening-stone-color);
+      font-weight: 600;
+    }
+
+    .pixel-highlight {
+      color: var(--pixel-color);
+      font-weight: 600;
+    }
+
+    .voxel-highlight {
+      color: var(--voxel-color);
       font-weight: 600;
     }
 
@@ -532,7 +630,7 @@
     <article>
       <header class="hero-section">
         <h1 class="page-title">🔨 Items & Crafting</h1>
-        <p class="page-subtitle">Master the art of equipment crafting with voxel infusion and item optimization</p>
+        <p class="page-subtitle">Master item crafting with Voxel infusion, rarity tiers, <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, and equipment optimization</p>
         <p class="reading-time">📖 Reading time: 8 minutes | Last updated: February 4, 2026</p>
       </header>
 
@@ -543,7 +641,7 @@
           <li><a href="#crafting-costs">Crafting Costs</a></li>
           <li><a href="#voxel-infusion">Voxel Infusion</a></li>
           <li><a href="#item-rarity">Item Rarity Tiers</a></li>
-          <li><a href="#item-affixes">Item Affixes</a></li>
+          <li><a href="#item-affixes">Item <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></a></li>
           <li><a href="#rating-stats">Rating Stats Explained</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -554,17 +652,15 @@
         <h2>How Crafting Works</h2>
         <p>
           Item crafting in Idle Adventure is handled by the <strong>Snail NPC</strong>. The crafting system lets you
-          create equipment with random quality, rarity, and affixes based
+          create equipment with random <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>, <strong>rarity</strong>, and <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> based
           on both investment and luck.
         </p>
 
         <h3>Crafting Process</h3>
         <ul class="feature-list">
-          <li><strong>Access the Crafting Screen:</strong> Visit the Snail NPC and open the craft screen to browse
+          <li><strong>Access the Crafting Screen:</strong> Visit the <strong>Snail NPC</strong> and open the craft screen to browse
             available items</li>
-          <li><strong>Set Voxel Infusion:</strong> Optionally use voxels to improve rarity odds</li>
-          <li><strong>Choose Quantity:</strong> Craft 1-10 items at once for batch crafting (requires bulk crafting
-            unlocked)</li>
+          <li><strong>Set Voxel Infusion:</strong> Optionally use <strong>Voxels</strong> to improve <strong>rarity</strong> odds</li>
           <li><strong>Craft the Item:</strong> Pay the costs and receive your randomized equipment</li>
         </ul>
 
@@ -572,42 +668,46 @@
           After crafting, your item will have:
         </p>
         <ul class="feature-list">
-          <li>Random <strong>rarity tier</strong> (Broken to Artifact) based on voxel infusion</li>
-          <li>Random <strong>affixes</strong> (0-3 bonus stats) based on rarity tier</li>
-          <li><strong>An internal quality roll</strong> that affects the item's base stats</li>
+          <li>Random <strong>rarity tier</strong> (Broken to Artifact) based on <strong>Voxel infusion</strong></li>
+          <li>Random <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (0-3 bonus stats) based on <strong>rarity tier</strong></li>
+          <li><strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> roll</strong> that affects the item's base stats via the <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier</li>
         </ul>
       </section>
 
       <section class="content-section" id="crafting-costs">
         <h2>Crafting Costs</h2>
         <p>
-          Item crafting requires <strong>two currencies</strong>: Pixels and Voxels. The base cost is determined by the
-          item's level and type, and the voxels you use for infusion (more on that in the next section).
+          Item crafting requires <strong>two currencies</strong>: <strong class="pixel-highlight">Pixels</strong> and <strong class="voxel-highlight">Voxels</strong>. The cost is determined by the
+          item's level and type, and the <strong class="voxel-highlight">Voxels</strong> you use for <strong>infusion</strong> (more on that in the next section).
         </p>
 
         <h3>Currency Requirements</h3>
         <div class="formula-box">
-          Final Cost = Pixels + Base Voxel Cost + Voxels used for infusion
+          Final Cost = Pixels (Base cost) + Voxels (Base cost) + Voxels (Infusion amount)
         </div>
 
 
         <div class="info-box">
-          <strong>Cost Example:</strong> If an item costs 5,000 Pixels + 20 Voxels, using 10 voxel infusion
-          increases the cost to 5,000 Pixels + 30 Voxels (20 base + 10 voxels).
+          <strong>Cost Example:</strong> If an item costs <span class="pixel-highlight">5,000 Pixels</span> + <span class="voxel-highlight">20 Voxels</span>, using 10 Voxel infusion
+          increases the cost to <span class="pixel-highlight">5,000 Pixels</span> + <span class="voxel-highlight">30 Voxels</span> (<span class="voxel-highlight">20</span> base + <span class="voxel-highlight">10</span> infusion).
         </div>
       </section>
 
       <section class="content-section" id="voxel-infusion">
         <h2>Voxel Infusion System</h2>
         <p>
-          <strong>Voxel infusion</strong> is the most powerful tool for crafting high-quality items. By spending voxels
-          (maximum 10 per craft), you dramatically increase your chances of crafting Rare, Epic, Legendary, or Artifact
+          <strong>Voxel infusion</strong> is the most powerful tool for crafting high-quality items. By spending <strong class="voxel-highlight">Voxels</strong>
+          (maximum <span class="voxel-highlight">10</span> per craft), you dramatically increase your chances of crafting
+          <span class="rarity-rare"><strong>Rare</strong></span>,
+          <span class="rarity-epic"><strong>Epic</strong></span>,
+          <span class="rarity-legendary"><strong>Legendary</strong></span>, or
+          <span class="rarity-artifact"><strong>Artifact</strong></span>
           rarity items.
         </p>
 
         <h3>How Voxel Infusion Works</h3>
         <p>
-          When crafting, you can add 0-10 voxels to "imbue" the item. Each voxel
+          When crafting, you can add <strong class="voxel-highlight">0-10 Voxels</strong> to "imbue" the item. Each <strong class="voxel-highlight">Voxel</strong>
           significantly improves the odds of obtaining a better rarity tier from the craft.
         </p>
 
@@ -625,20 +725,20 @@
             </thead>
             <tbody>
               <tr>
-                <td><span class="stat-highlight">0 voxels</span></td>
+                <td><span class="voxel-highlight">0 Voxels</span></td>
                 <td>No extra cost</td>
                 <td>Standard distribution (50% Common)</td>
                 <td>Temporary or low-level gear</td>
               </tr>
               <tr>
-                <td><span class="stat-highlight">5 voxels</span></td>
-                <td>+5 Voxels</td>
+                <td><span class="voxel-highlight">5 Voxels</span></td>
+                <td><span class="voxel-highlight">+5 Voxels</span></td>
                 <td>Significantly better Rare/Epic odds</td>
                 <td>Mid-tier equipment</td>
               </tr>
               <tr>
-                <td><span class="stat-highlight">10 voxels</span></td>
-                <td>+10 Voxels</td>
+                <td><span class="voxel-highlight">10 Voxels</span></td>
+                <td><span class="voxel-highlight">+10 Voxels</span></td>
                 <td>Maximized Legendary/Artifact odds</td>
                 <td>Endgame gear you'll keep long-term</td>
               </tr>
@@ -647,9 +747,9 @@
         </div>
 
         <div class="warning-box">
-          <strong>Strategy Tip:</strong> Save your voxels for important gear pieces you plan to keep and enhance with
+          <strong>Strategy Tip:</strong> Save your <strong class="voxel-highlight">Voxels</strong> for important gear pieces you plan to keep and enhance with
           <a href="upgrading.html">Item Upgrading</a>, <a href="enchanting-details.html">Enchanting</a>, and
-          <a href="alteration.html">Alteration Orbs</a>. Skip voxel infusion when crafting temporary gear or when voxels
+          <a href="alteration.html">Alteration Orbs</a>. Skip Voxel infusion when crafting temporary gear or when <strong class="voxel-highlight">Voxels</strong>
           are scarce.
         </div>
       </section>
@@ -657,9 +757,9 @@
       <section class="content-section" id="item-rarity">
         <h2>Item Rarity Tiers</h2>
         <p>
-          Item rarity determines the <strong>quality multiplier</strong> applied to base stats and the number of
-          affixes the item can have. There are <strong>8 rarity tiers</strong> in Idle Adventure, ranging from Broken
-          (worst) to Artifact (best).
+          <strong>Item rarity</strong> determines the <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier applied to base stats and the number of
+          <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> the item can have. There are <strong>8 rarity tiers</strong> in Idle Adventure, ranging from <span class="rarity-broken"><strong>Broken</strong></span>
+          (worst) to <span class="rarity-artifact"><strong>Artifact</strong></span> (best).
         </p>
 
         <h3>Rarity Tier Breakdown</h3>
@@ -668,9 +768,9 @@
             <thead>
               <tr>
                 <th>Rarity</th>
-                <th>Quality Multiplier Range</th>
+                <th><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Multiplier Range</th>
                 <th>Affixes</th>
-                <th>Base Drop Chance (0 Voxels)</th>
+                <th>Base Chance (0 Voxels)</th>
               </tr>
             </thead>
             <tbody>
@@ -726,9 +826,9 @@
           </table>
         </div>
 
-        <h3>Understanding Quality Multipliers</h3>
+        <h3>Understanding <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Multipliers</h3>
         <p>
-          The quality multiplier directly affects your item's combat power. For example:
+          The <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier directly affects your item's combat power. For example:
         </p>
         <ul class="feature-list">
           <li>A weapon with 100 base damage and <span class="rarity-common">Common</span> rarity (1.00x) = 100 damage
@@ -739,17 +839,19 @@
         </ul>
 
         <div class="info-box">
-          <strong>Quality Improvement:</strong> Items can have their quality improved further through
+          <strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Improvement:</strong> Items can have their <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> improved further through
           <a href="upgrading.html">Item Upgrading</a> (+5% per level) and <a href="alteration.html">Item Alteration</a>
-          using Armor Plates or Sharpening Stones (+0.01 quality per use, max 15 uses).
+          using <strong><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor Plates</span></strong> or
+          <strong><span class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stones</span></strong>
+          (+0.01 <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> per use, max 15 uses).
         </div>
       </section>
 
       <section class="content-section" id="item-affixes">
         <h2>Item Affixes</h2>
         <p>
-          Item affixes are <strong>bonus stats</strong> that roll randomly on equipment based on rarity. Items can have
-          0-3 affixes depending on their rarity tier. The same affix cannot appear twice on one item.
+          Item <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> are <strong>bonus stats</strong> that roll randomly on equipment based on rarity. Items can have
+          0-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> depending on their rarity tier. The same <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> cannot appear twice on one item.
         </p>
 
         <h3>Complete Affix List (Combat Items)</h3>
@@ -764,60 +866,60 @@
             <tbody>
               <tr>
                 <td><span class="stat-highlight">Critical Strike Rating</span></td>
-                <td>Increases critical hit chance when converted via rating formula</td>
+                <td>Increases <strong>critical hit</strong> chance when converted via <strong>rating formula</strong></td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Extra Critical Damage %</span></td>
-                <td>Multiplies critical hit damage (direct percentage bonus)</td>
+                <td>Multiplies <strong>critical hit</strong> damage (direct percentage bonus)</td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Extra HP</span></td>
-                <td>Adds flat health points to your maximum health</td>
+                <td>Adds flat <strong>health points</strong> to your maximum health</td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">HP Boost %</span></td>
-                <td>Increases maximum health by a percentage</td>
+                <td>Increases maximum <strong>health</strong> by a percentage</td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Evasion Rating</span></td>
-                <td>Increases dodge chance when converted via rating formula</td>
+                <td>Increases <strong>dodge chance</strong> when converted via <strong>rating formula</strong></td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Accuracy Rating</span></td>
-                <td>Increases hit chance when converted via rating formula</td>
+                <td>Increases <strong>hit chance</strong> when converted via <strong>rating formula</strong></td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Extra Mana</span></td>
-                <td>Adds flat mana points to your maximum mana pool</td>
+                <td>Adds flat <strong>mana points</strong> to your maximum mana pool</td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Faster Health Regen %</span></td>
-                <td>Increases health regeneration speed by a percentage</td>
+                <td>Increases <strong>health regeneration</strong> speed by a percentage</td>
               </tr>
               <tr>
                 <td><span class="stat-highlight">Speed Rating</span></td>
-                <td>Increases attack speed when converted via rating formula</td>
+                <td>Increases <strong>attack speed</strong> when converted via <strong>rating formula</strong></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="info-box">
-          <strong>Mining Items:</strong> Mining pickaxes have different affixes including Critical Strike Chance % and
-          Extra Speed % instead of rating-based stats. These affixes directly increase mining efficiency.
+          <strong>Mining Items:</strong> Mining pickaxes have different <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> including Critical Strike Chance % and
+          Extra Speed % instead of rating-based stats. These <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> directly increase mining efficiency.
         </div>
 
         <h3>How Many Affixes Can Items Have?</h3>
         <p>
-          The number of affixes rolled depends entirely on item rarity:
+          The number of <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> rolled depends entirely on item rarity:
         </p>
         <ul class="feature-list">
-          <li><strong>Broken/Poor/Common:</strong> 0 affixes (no bonus stats)</li>
-          <li><strong>Uncommon:</strong> 10% chance for 1 affix</li>
-          <li><strong>Rare:</strong> 1-2 affixes (random)</li>
-          <li><strong>Epic:</strong> 2-3 affixes (random)</li>
-          <li><strong>Legendary:</strong> Guaranteed 3 affixes</li>
-          <li><strong>Artifact:</strong> Guaranteed 3 affixes + best quality rolls</li>
+          <li><strong><span class="rarity-broken">Broken</span>/<span class="rarity-poor">Poor</span>/<span class="rarity-common">Common</span>:</strong> 0 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (no bonus stats)</li>
+          <li><strong><span class="rarity-uncommon">Uncommon:</span></strong> 10% chance for 1 <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong></li>
+          <li><strong><span class="rarity-rare">Rare:</span></strong> 1-2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (random)</li>
+          <li><strong><span class="rarity-epic">Epic:</span></strong> 2-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (random)</li>
+          <li><strong><span class="rarity-legendary">Legendary:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></li>
+          <li><strong><span class="rarity-artifact">Artifact:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> + best quality rolls</li>
         </ul>
       </section>
 
@@ -825,54 +927,58 @@
         <h2>Rating Stats Explained</h2>
         <p>
           Items can provide stats as <strong>direct bonuses</strong> (like "+5% Critical Chance") or as
-          <strong>rating values</strong> (like "+15 Critical Rating"). Ratings convert to actual stats using
-          your character level.
+          <strong>rating values</strong> (like "+15 Critical Rating"). <strong>Ratings</strong> convert to actual stats using
+          your <strong>character level</strong>.
         </p>
 
         <h3>Converting Rating to Percentages</h3>
         <div class="formula-box">
-          Rating Multiplier = (1 / 2^(Player Level × 0.0111 + 1)) × (50 / Player Level)<br><br>
-          Critical Chance % = Critical Rating × Rating Multiplier
+          <strong>Rating Multiplier</strong> = (1 / 2^(Player Level × 0.0111 + 1)) × (50 / Player Level)<br><br>
+          Critical Chance % = <strong>Critical Rating</strong> × <strong>Rating Multiplier</strong>
         </div>
 
         <p>
-          <strong>Example:</strong> If you have 200 Critical Rating at level 50, your rating multiplier is approximately
+          <strong>Example:</strong> If you have 200 <strong>Critical Rating</strong> at level 50, your <strong>rating multiplier</strong> is approximately
           0.275, giving you 200 × 0.275 = 55% critical chance from that rating.
         </p>
 
         <h3>How Rating Scales</h3>
         <p>
-          The rating multiplier <strong>decreases</strong> as you level up, meaning the same amount of rating provides
-          less benefit at higher levels. However, higher level items roll higher rating values, maintaining progression
+          The <strong>rating multiplier</strong> <strong>decreases</strong> as you level up, meaning the same amount of <strong>rating</strong> provides
+          less benefit at higher levels. However, higher level items roll higher <strong>rating values</strong>, maintaining progression
           balance.
         </p>
 
         <h3>Rating Types</h3>
         <ul class="feature-list">
-          <li><strong>Critical Rating:</strong> Converts to Critical Chance %</li>
-          <li><strong>Speed Rating:</strong> Converts to Speed % (faster attacks)</li>
-          <li><strong>Evasion Rating:</strong> Converts to Evasion points (dodge chance)</li>
-          <li><strong>Accuracy Rating:</strong> Converts to Accuracy points (hit chance)</li>
+          <li><strong>Critical Rating:</strong> Converts to <strong>Critical Chance %</strong></li>
+          <li><strong>Speed Rating:</strong> Converts to <strong>Speed %</strong> (faster attacks)</li>
+          <li><strong>Evasion Rating:</strong> Converts to <strong>Evasion points</strong> (dodge chance)</li>
+          <li><strong>Accuracy Rating:</strong> Converts to <strong>Accuracy points</strong> (hit chance)</li>
         </ul>
       </section>
 
       <section class="content-section" id="conclusion">
         <h2>Conclusion</h2>
         <p>
-          Idle Adventure's crafting system offers deep customization through voxel infusion, random affixes, and rarity
-          tiers. Understanding how to optimize your crafting investments is crucial for endgame progression.
+          The number of <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> and the items internal <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> are determined by the random <strong>rarity tier</strong> rolled during
+          crafting.
+          The <strong>rarity tier</strong> is primarily determined by luck, but can be somewhat manipulated through <strong>Voxel
+          infusion</strong>.
         </p>
 
         <p><strong>Key Takeaways:</strong></p>
         <ul class="feature-list">
-          <li>Use <strong>voxel infusion</strong> (5-10 voxels) when crafting important long-term gear</li>
-          <li>Aim for <strong>Rare or better</strong> rarity to guarantee valuable affixes</li>
+          <li>Use <strong>Voxel infusion</strong> (<span class="voxel-highlight">5-10 Voxels</span>) when crafting important long-term gear</li>
+          <li>Aim for <span class="rarity-rare"><strong>Rare</strong></span> or better in the beginning of your first playthrough. Later go for <span class="rarity-epic"><strong>Epic</strong></span> or
+            <span class="rarity-legendary"><strong>Legendary</strong></span>. This way you will have more <strong class="pixel-highlight">Pixels</strong> to upgrade other more permanent features, like the <strong>Autolooter</strong>
+            and <strong>Progress Bar</strong> etc. </li>
           <li><strong>Rating stats</strong> become more valuable on higher level items</li>
-          <li>Combine crafting with <a href="upgrading.html">Item Upgrading</a>,
-            <a href="enchanting-details.html">Enchanting</a>, and <a href="alteration.html">Item Alteration</a> for
+          <li>Combine crafting with <a href="upgrading.html"><strong>Item Upgrading</strong></a>,
+            <a href="enchanting-details.html"><strong>Enchanting</strong></a>, and <a href="alteration.html"><strong>Item Alteration</strong></a> for
             maximum power
           </li>
-          <li>Save voxels for crafting <strong>level-appropriate gear</strong> you'll keep for extended progression</li>
+          <li>Save <strong class="voxel-highlight">Voxels</strong> for crafting <strong>level-appropriate gear</strong> you'll keep for extended progression</li>
         </ul>
       </section>
 
@@ -882,16 +988,16 @@
         <details class="faq-item">
           <summary>What currencies are needed for crafting items?</summary>
           <div class="faq-answer">
-            Item crafting requires Pixels (standard currency) and Voxels. Higher level items cost more of both
-            currencies. Using voxel infusion increases Voxels cost by 1 per voxel (maximum 10 voxels).
+            Item crafting requires <span class="pixel-highlight">Pixels</span> (standard currency) and <span class="voxel-highlight">Voxels</span>. Higher level items cost more of both
+            currencies. Using Voxel infusion increases <span class="voxel-highlight">Voxels</span> cost by <span class="voxel-highlight">1</span> per <span class="voxel-highlight">Voxel</span> (maximum <span class="voxel-highlight">10 Voxels</span>).
           </div>
         </details>
 
         <details class="faq-item">
-          <summary>How does voxel infusion work?</summary>
+          <summary>How does Voxel infusion work?</summary>
           <div class="faq-answer">
-            Voxel infusion lets you spend voxels (0-10) when crafting to dramatically increase odds of higher rarity
-            items. Each voxel adds 1 Voxels to the cost. Using 10 voxels maximizes your chances of getting Epic,
+            Voxel infusion lets you spend <span class="voxel-highlight">Voxels (0-10)</span> when crafting to dramatically increase odds of higher rarity
+            items. Each <span class="voxel-highlight">Voxel</span> adds <span class="voxel-highlight">1 Voxels</span> to the cost. Using <span class="voxel-highlight">10 Voxels</span> maximizes your chances of getting Epic,
             Legendary, or Artifact rarity items.
           </div>
         </details>
@@ -899,35 +1005,35 @@
         <details class="faq-item">
           <summary>What are item affixes and how many can an item have?</summary>
           <div class="faq-answer">
-            Item affixes are bonus stats like Critical Strike Rating, Evasion Rating, Accuracy Rating, Speed Rating,
-            Extra HP, HP Boost %, Critical Damage %, Mana, and HP Regen %. Items can have 0-3 affixes depending on
+            Item <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> are bonus stats like Critical Strike Rating, Evasion Rating, Accuracy Rating, Speed Rating,
+            Extra HP, HP Boost %, Critical Damage %, Mana, and HP Regen %. Items can have 0-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> depending on
             rarity: Common items have 0, Uncommon has 0-1, Rare has 1-2, Epic has 2-3, and Legendary/Artifact have
-            guaranteed 3 affixes.
+            guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What's the difference between Common and Legendary rarity?</summary>
           <div class="faq-answer">
-            Rarity determines item quality multiplier and affixes. Common items have 0.90-1.10x base stats with no
-            affixes. Legendary items have 1.79-2.07x base stats with guaranteed 3 affixes. Artifact is the highest
-            rarity with 2.35-2.70x stats and 3 affixes.
+            Rarity determines item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier and <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>. Common items have 0.90-1.10x base stats with no
+            <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>. Legendary items have 1.79-2.07x base stats with guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>. Artifact is the highest
+            rarity with 2.35-2.70x stats and 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>.
           </div>
         </details>
 
         <details class="faq-item">
-          <summary>Should I use voxel infusion when crafting?</summary>
+          <summary>Should I use Voxel infusion when crafting?</summary>
           <div class="faq-answer">
-            Use voxel infusion when crafting important gear you plan to keep long-term. Skip infusion for temporary gear
-            or when voxels are scarce. Using 5-10 voxels significantly improves your odds of getting Rare, Epic, or
-            Legendary items, which have better stats and more affixes.
+            Use Voxel infusion when crafting important gear you plan to keep long-term. Skip infusion for temporary gear
+            or when <span class="voxel-highlight">Voxels</span> are scarce. Using <span class="voxel-highlight">5-10 Voxels</span> significantly improves your odds of getting Rare, Epic, or
+            Legendary items, which have better stats and more <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>Can I improve an item's rarity after crafting?</summary>
           <div class="faq-answer">
-            Yes! You can use a Radiant Orb from the <a href="alteration.html">Item Alteration</a> system to attempt
+            Yes! You can use a Orbs from the <a href="alteration.html">Item Alteration</a> system to attempt
             upgrading an item's rarity. However, this has a 5-50% chance to break the item, so only use it on items
             you're
             willing to risk losing.
@@ -937,9 +1043,9 @@
         <details class="faq-item">
           <summary>What's the difference between affixes and enchantments?</summary>
           <div class="faq-answer">
-            Affixes are random bonus stats that roll during crafting (0-3 per item based on rarity). Enchantments are
+            <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> are random bonus stats that roll during crafting (0-3 per item based on rarity). Enchantments are
             separate magical effects you add after crafting via the <a href="enchanting-details.html">Enchanting
-              system</a>. Items can have both affixes AND enchantments for maximum power.
+              system</a>. Items can have both <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> AND enchantments for maximum power.
           </div>
         </details>
 
@@ -947,13 +1053,13 @@
           <summary>How do rating stats convert to percentages?</summary>
           <div class="faq-answer">
             Rating stats convert to percentages using a formula based on your character level. The conversion rate
-            decreases as you level up, but higher level items roll more rating to compensate. At level 50, the
-            multiplier is approximately 0.275, meaning 100 rating = 27.5% bonus.
+            decreases as you level up, but higher level items roll more rating to compensate.
           </div>
         </details>
       </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

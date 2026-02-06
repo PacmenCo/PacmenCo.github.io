@@ -35,6 +35,12 @@ body {
   line-height: 1.6;
 }
 
+/* Game Name Styling */
+.game-name {
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
 /* Navigation Bar */
 .nav-bar {
   position: fixed;

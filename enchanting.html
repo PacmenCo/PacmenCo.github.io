@@ -17,9 +17,11 @@
   <meta property="og:title" content="Enchanting Guide – Idle Adventure | Equipment Upgrades & Bonuses">
   <meta property="og:description" content="Master Idle Adventure's equipment enhancement in 2026: Complete guide to upgrading, enchanting, and item alteration systems.">
   <meta property="og:site_name" content="Idle Adventure Guide">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://pacmenco.github.io/images/landing/1.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Enchanting Guide – Idle Adventure | Equipment Upgrades & Bonuses">
   <meta name="twitter:description" content="Master equipment enhancement: upgrading, enchanting, and item alteration systems for optimal gear.">
+  <meta name="twitter:image" content="https://pacmenco.github.io/images/landing/1.png">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -28,6 +30,8 @@
     "@type": "Article",
     "headline": "Enchanting Guide – Idle Adventure Equipment Enhancement",
     "description": "Complete overview of Idle Adventure's three equipment enhancement systems: upgrading, enchanting, and item alteration",
+    "image": "https://pacmenco.github.io/images/landing/1.png",
+    "inLanguage": "en",
     "author": {
       "@type": "Person",
       "name": "PacmenCo"
@@ -131,6 +135,11 @@
       --accent-green: #10b981;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+
+      /* Currencies */
+      --pixel-color: #FBFF00;
+      --voxel-color: #E18700;
+      --crystal-color: #00FF00;
     }
 
     body {
@@ -138,6 +147,12 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .nav-bar {
@@ -244,6 +259,18 @@
       margin-bottom: 1.5rem;
     }
 
+    .system-card a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .system-card a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
+    }
+
     .learn-more-btn {
       display: inline-block;
       background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
@@ -291,6 +318,111 @@
       color: var(--text-secondary);
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Rarity Highlighting */
+    .rarity-broken {
+      color: #6b7280;
+    }
+
+    .rarity-poor {
+      color: #9ca3af;
+    }
+
+    .rarity-common {
+      color: #ffffff;
+    }
+
+    .rarity-uncommon {
+      color: #10b981;
+    }
+
+    .rarity-rare {
+      color: #3b82f6;
+    }
+
+    .rarity-epic {
+      color: #a855f7;
+    }
+
+    .rarity-legendary {
+      color: #f59e0b;
+    }
+
+    .rarity-artifact {
+      color: #ef4444;
+    }
+
+    /* Currency Highlighting */
+    .pixel-highlight {
+      color: var(--pixel-color);
+      font-weight: 600;
+    }
+
+    .voxel-highlight {
+      color: var(--voxel-color);
+      font-weight: 600;
+    }
+
+    .crystal-highlight {
+      color: var(--crystal-color);
+      font-weight: 600;
+    }
+
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .content-section a:hover {
+      color: var(--accent-orange);
+      border-bottom-color: var(--accent-orange);
     }
 
     .feature-list {
@@ -382,7 +514,7 @@
           multiplicative bonus to damage or armor, making your equipment significantly more powerful as you progress.
         </p>
         <p>
-          <strong>Currency:</strong> Pixels + Crystals
+          <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span>
         </p>
         <a href="upgrading.html" class="learn-more-btn">Learn More →</a>
       </div>
@@ -392,12 +524,12 @@
         <div class="system-icon">✨</div>
         <h2>Enchanting</h2>
         <p>
-          Add magical effects to your equipment through enchantments. Choose from two enchantment types per item slot,
+          Add magical effects to your equipment through enchantments. Choose from two enchantment types per <strong><span class="tooltip" data-tooltip="item-types">item slot</span></strong>,
           with effects ranging from damage bonuses to life steal and mana restoration. Enchantments can be upgraded to
           level 2 or swapped freely.
         </p>
         <p>
-          <strong>Currency:</strong> Pixels + Crystals
+          <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span>
         </p>
         <a href="enchanting-details.html" class="learn-more-btn">Learn More →</a>
       </div>
@@ -407,18 +539,21 @@
         <div class="system-icon">🔮</div>
         <h2>Item Alteration</h2>
         <p>
-          Advanced item modification using special Alteration Orbs. Reroll affixes, upgrade rarity, improve quality, or
+          Advanced item modification using special Alteration Orbs. Reroll <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, upgrade <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>, improve <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>, or
           add soul levels to your equipment. High risk, high reward - some operations can break your items, but the
           potential gains are substantial.
         </p>
         <p>
-          <strong>Currency:</strong> Pixels + Crystals + Orbs<br>
+          <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span> + Orbs<br>
           <strong>Success Rate:</strong> Varies by operation
         </p>
         <a href="alteration.html" class="learn-more-btn">Learn More →</a>
       </div>
     </div>
+    </article>
   </div>
+
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

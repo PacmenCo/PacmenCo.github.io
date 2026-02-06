@@ -237,6 +237,7 @@
       --accent-green: #10b981;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+      --valor-color: #FFD700;
     }
 
     body {
@@ -244,6 +245,12 @@
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
     }
 
     .nav-bar {
@@ -384,6 +391,11 @@
       margin: 0.25rem 0;
     }
 
+    .valor-highlight {
+      color: var(--valor-color);
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       .nav-bar {
         padding: 0.75rem 1rem;
@@ -428,7 +440,7 @@
       <div class="faq-item">
         <div class="faq-question">What is Idle Adventure?</div>
         <div class="faq-answer">
-          Idle Adventure is a pixel RPG idle game featuring automatic combat, companions, guild systems, skill trees,
+          <span class="game-name">Idle Adventure</span> is a pixel RPG idle game featuring automatic combat, companions, guild systems, skill trees,
           and special areas. Progress through zones, defeat bosses, unlock companions, and join guilds to participate in
           cooperative boss raids.
         </div>
@@ -437,7 +449,7 @@
       <div class="faq-item">
         <div class="faq-question">How do I start playing?</div>
         <div class="faq-answer">
-          Download Idle Adventure from the Google Play Store. The game features automatic combat, so your character will
+          Download <span class="game-name">Idle Adventure</span> from the Google Play Store. The game features automatic combat, so your character will
           fight enemies automatically. Focus on managing your equipment, skills, and companions to progress further.
         </div>
       </div>
@@ -445,7 +457,7 @@
       <div class="faq-item">
         <div class="faq-question">Is Idle Adventure free to play?</div>
         <div class="faq-answer">
-          Yes! Idle Adventure is free to play with optional in-app purchases.
+          Yes! <span class="game-name">Idle Adventure</span> is free to play with optional in-app purchases.
         </div>
       </div>
 
@@ -476,7 +488,6 @@
           setting (Open or Closed).<br><br>
           <strong>To join a guild:</strong> Search for open guilds and click "Join" for instant access. Closed guilds
           cannot currently be joined.<br><br>
-          See our <a href="guild.html">complete guild guide</a> for more details.
         </div>
       </div>
 
@@ -492,8 +503,8 @@
       <div class="faq-item">
         <div class="faq-question">What's the difference between Valor and Sigils?</div>
         <div class="faq-answer">
-          <strong>Valor Points:</strong> Personal currency earned from guild boss participation. Used to purchase guild
-          buffs and unlock companions/skills from the Valor Shop.<br><br>
+          <strong><span class="valor-highlight">Valor Points:</span></strong> Personal currency earned from guild boss participation. Used to purchase guild
+          buffs and unlock skills.<br><br>
           <strong>Sigils:</strong> Guild currency earned from boss damage. Currently tracked but cannot be spent yet
           (future feature).
         </div>
@@ -533,7 +544,7 @@
         <div class="faq-answer">
           Companions can be unlocked through:
           <ul>
-            <li>Valor Shop (using Valor Points from guild bosses)</li>
+            <li>Valor Shop (using <span class="valor-highlight">Valor Points</span> from guild bosses)</li>
             <li>Special area rewards</li>
             <li>Progression milestones</li>
             <li>Game events</li>
@@ -557,7 +568,7 @@
       <div class="faq-item">
         <div class="faq-question">What are ascensions?</div>
         <div class="faq-answer">
-          Ascensions are the prestige system in Idle Adventure. You reset your progress in exchange for permanent
+          Ascensions are the prestige system in <span class="game-name">Idle Adventure</span>. You reset your progress in exchange for permanent
           bonuses that make future runs faster and stronger. See the <a href="ascensions.html">ascension guide</a>.
         </div>
       </div>
@@ -566,7 +577,7 @@
         <div class="faq-question">When should I ascend?</div>
         <div class="faq-answer">
           Ascend when your progression slows significantly and you've earned enough ascension currency to make
-          meaningful permanent upgrades. Check the ascension guide for specific milestones.
+          meaningful permanent upgrades. See the <a href="ascensions.html">ascension guide</a> for details.
         </div>
       </div>
 
@@ -608,7 +619,7 @@
       <div class="faq-item">
         <div class="faq-question">What's the difference between upgrading, enchanting, and alteration?</div>
         <div class="faq-answer">
-          <strong>Upgrading:</strong> Increases the base level and stats of equipment.<br>
+          <strong>Upgrading:</strong> Increases the base stats of equipment (<strong>Attack</strong> and <strong>Armor</strong>).<br>
           <strong>Enchanting:</strong> Adds bonus effects and stat multipliers to equipment.<br>
           <strong>Alteration:</strong> Rerolls existing stats to try for better values or different properties.
         </div>
@@ -644,7 +655,7 @@
       <div class="faq-item">
         <div class="faq-question">What mini games are available?</div>
         <div class="faq-answer">
-          Idle Adventure features several mini games for variety and rewards:
+          <span class="game-name">Idle Adventure</span> features several mini games for variety and rewards:
           <ul>
             <li><a href="fishing.html">Fishing</a> - Catch fish for rewards</li>
             <li><a href="frogger.html">Crossy Cube</a> - Frogger-style arcade game</li>
@@ -661,7 +672,7 @@
       <div class="faq-item">
         <div class="faq-question">How does combat work?</div>
         <div class="faq-answer">
-          Combat in Idle Adventure is automatic. Your character and companions fight enemies automatically based on
+          Combat in <span class="game-name">Idle Adventure</span> is automatic. Your character and companions fight enemies automatically based on
           their stats, skills, and AI. You can improve performance by managing equipment, skills, and formations. See
           the <a href="combat.html">combat guide</a> for detailed mechanics.
         </div>
@@ -714,8 +725,8 @@
       <div class="faq-item">
         <div class="faq-question">Where can I get help or report bugs?</div>
         <div class="faq-answer">
-          For support, bug reports, or feedback, please contact PacmenCo through the in-game support system or the
-          game's Google Play Store page.
+          For support, bug reports, or feedback, please join <a href="https://discord.gg/2XMMFHY" target="_blank"
+            rel="noopener">Discord</a>.
         </div>
       </div>
     </div>

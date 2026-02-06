@@ -142,6 +142,89 @@
       line-height: 1.6;
     }
 
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Rarity Highlighting */
+    .rarity-broken {
+      color: #6b7280;
+    }
+
+    .rarity-poor {
+      color: #9ca3af;
+    }
+
+    .rarity-common {
+      color: #ffffff;
+    }
+
+    .rarity-uncommon {
+      color: #10b981;
+    }
+
+    .rarity-rare {
+      color: #3b82f6;
+    }
+
+    .rarity-epic {
+      color: #a855f7;
+    }
+
+    .rarity-legendary {
+      color: #f59e0b;
+    }
+
+    .rarity-artifact {
+      color: #ef4444;
+    }
+
     /* Main Content */
     .container {
       max-width: 1200px;
@@ -556,7 +639,7 @@
     <section class="content-section" id="battle-system">
       <h2>Battle System</h2>
       <p>
-        Idle Adventure features a dynamic combat system that focuses on both strategy and progression.
+        <span class="game-name">Idle Adventure</span> features a dynamic combat system that focuses on both strategy and progression.
         Engage in battles where timing, skill selection, companions, pets and equipment choices make the
         difference
         between victory and defeat.
@@ -838,7 +921,7 @@
       <ul class="feature-list">
         <li><strong>Base:</strong> 100 mana for all characters</li>
         <li><strong>Pets:</strong> Certain pets provide flat mana bonuses</li>
-        <li><strong>Equipment:</strong> Items with mana affixes</li>
+        <li><strong>Equipment:</strong> Items with mana <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></li>
         <li><strong>Talents:</strong> Talent points invested in mana</li>
         <li><strong>Buffs:</strong> Temporary mana multipliers</li>
       </ul>
@@ -1003,7 +1086,7 @@
         // Create image element with fallback to emoji
         const img = document.createElement('img');
         img.src = `images/debuffs/${imageFileName}.png`;
-        img.alt = debuff.name;
+        img.alt = `${debuff.name} debuff icon - ${debuff.description}`;
         img.className = 'debuff-image';
 
         // Fallback to emoji if image fails to load
@@ -1026,6 +1109,7 @@
       });
     });
   </script>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>
