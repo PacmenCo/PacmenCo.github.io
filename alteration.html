@@ -260,6 +260,23 @@
       opacity: 1;
     }
 
+    /* Tooltips in FAQ sections appear below to avoid clipping */
+    .faq-section .tooltip .tooltiptext,
+    .faq-item .tooltip .tooltiptext,
+    details .tooltip .tooltiptext {
+      bottom: auto;
+      top: 125%;
+      margin-top: 0;
+    }
+
+    .faq-section .tooltip .tooltiptext::after,
+    .faq-item .tooltip .tooltiptext::after,
+    details .tooltip .tooltiptext::after {
+      top: auto;
+      bottom: 100%;
+      border-color: transparent transparent var(--accent-cyan) transparent;
+    }
+
     .nav-bar {
       position: fixed;
       top: 0;
@@ -662,7 +679,7 @@
       border: 1px solid rgba(124, 58, 237, 0.3);
       border-radius: 8px;
       margin-bottom: 0.75rem;
-      overflow: hidden;
+      overflow: visible;
       transition: all 0.3s ease;
     }
 

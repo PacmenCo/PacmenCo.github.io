@@ -192,6 +192,23 @@
       opacity: 1;
     }
 
+    /* Tooltips in FAQ sections appear below to avoid clipping */
+    .faq-section .tooltip .tooltiptext,
+    .faq-item .tooltip .tooltiptext,
+    details .tooltip .tooltiptext {
+      bottom: auto;
+      top: 125%;
+      margin-top: 0;
+    }
+
+    .faq-section .tooltip .tooltiptext::after,
+    .faq-item .tooltip .tooltiptext::after,
+    details .tooltip .tooltiptext::after {
+      top: auto;
+      bottom: 100%;
+      border-color: transparent transparent var(--accent-cyan) transparent;
+    }
+
     /* Rarity Highlighting */
     .rarity-broken {
       color: #6b7280;
@@ -387,7 +404,7 @@
       border: 1px solid rgba(124, 58, 237, 0.2);
       border-radius: 8px;
       margin-bottom: 1rem;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .faq-item summary {

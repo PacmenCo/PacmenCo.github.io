@@ -368,7 +368,7 @@
       border: 1px solid rgba(124, 58, 237, 0.2);
       border-radius: 8px;
       margin-bottom: 1rem;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .faq-item summary {
@@ -561,6 +561,23 @@
       opacity: 1;
     }
 
+    /* Tooltips in FAQ sections appear below to avoid clipping */
+    .faq-section .tooltip .tooltiptext,
+    .faq-item .tooltip .tooltiptext,
+    details .tooltip .tooltiptext {
+      bottom: auto;
+      top: 125%;
+      margin-top: 0;
+    }
+
+    .faq-section .tooltip .tooltiptext::after,
+    .faq-item .tooltip .tooltiptext::after,
+    details .tooltip .tooltiptext::after {
+      top: auto;
+      bottom: 100%;
+      border-color: transparent transparent var(--accent-cyan) transparent;
+    }
+
     /* Rarity Highlighting */
     .rarity-broken {
       color: #6b7280;
@@ -632,7 +649,7 @@
         <li><a href="#pet-stats">Pet Stat Types</a></li>
         <li><a href="#unlocking-pets">How to Unlock Pets</a></li>
         <li><a href="#strategies">Optimization Strategies</a></li>
-        <li><a href="#faq">Frequently Asked Questions</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
 
@@ -780,7 +797,6 @@
         <li><strong>Scales with Level:</strong> Permanent bonuses benefit from the pet's level multiplier (Level 0: 0x, Level 1: 0.2x, up to 1.5x at Level 5)
         </li>
         <li><strong>One Per Pet:</strong> Each pet provides exactly one type of permanent bonus</li>
-        <li><strong>Cumulative Power:</strong> Collecting more pets creates increasingly powerful synergies</li>
       </ul>
 
       <div class="info-box">
@@ -941,7 +957,7 @@
     </section>
 
     <section class="faq-section" id="faq">
-      <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+      <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
       <details class="faq-item">
         <summary>What are pets in Idle Adventure?</summary>

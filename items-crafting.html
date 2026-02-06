@@ -254,6 +254,23 @@
       opacity: 1;
     }
 
+    /* Tooltips in FAQ sections appear below to avoid clipping */
+    .faq-section .tooltip .tooltiptext,
+    .faq-item .tooltip .tooltiptext,
+    details .tooltip .tooltiptext {
+      bottom: auto;
+      top: 125%;
+      margin-top: 0;
+    }
+
+    .faq-section .tooltip .tooltiptext::after,
+    .faq-item .tooltip .tooltiptext::after,
+    details .tooltip .tooltiptext::after {
+      top: auto;
+      bottom: 100%;
+      border-color: transparent transparent var(--accent-cyan) transparent;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -561,7 +578,7 @@
       border: 1px solid rgba(124, 58, 237, 0.2);
       border-radius: 8px;
       margin-bottom: 1rem;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .faq-item summary {
@@ -630,7 +647,7 @@
     <article>
       <header class="hero-section">
         <h1 class="page-title">🔨 Items & Crafting</h1>
-        <p class="page-subtitle">Master item crafting with Voxel infusion, rarity tiers, <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, and equipment optimization</p>
+        <p class="page-subtitle">Understand item crafting; <strong>Infusion</strong>, <strong>Rarity Tiers</strong>, <strong>Item Quality</strong> and <strong>Affixes</strong></p>
         <p class="reading-time">📖 Reading time: 8 minutes | Last updated: February 4, 2026</p>
       </header>
 
@@ -641,7 +658,7 @@
           <li><a href="#crafting-costs">Crafting Costs</a></li>
           <li><a href="#voxel-infusion">Voxel Infusion</a></li>
           <li><a href="#item-rarity">Item Rarity Tiers</a></li>
-          <li><a href="#item-affixes">Item <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></a></li>
+          <li><a href="#item-affixes">Item Affixes</a></li>
           <li><a href="#rating-stats">Rating Stats Explained</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -651,7 +668,7 @@
       <section class="content-section" id="how-crafting-works">
         <h2>How Crafting Works</h2>
         <p>
-          Item crafting in Idle Adventure is handled by the <strong>Snail NPC</strong>. The crafting system lets you
+          Item crafting in <span class="game-name">Idle Adventure</span> is handled by the <strong>Snail NPC</strong>. The crafting system lets you
           create equipment with random <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>, <strong>rarity</strong>, and <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> based
           on both investment and luck.
         </p>
@@ -758,7 +775,7 @@
         <h2>Item Rarity Tiers</h2>
         <p>
           <strong>Item rarity</strong> determines the <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier applied to base stats and the number of
-          <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> the item can have. There are <strong>8 rarity tiers</strong> in Idle Adventure, ranging from <span class="rarity-broken"><strong>Broken</strong></span>
+          <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> the item can have. There are <strong>8 rarity tiers</strong> in <span class="game-name">Idle Adventure</span>, ranging from <span class="rarity-broken"><strong>Broken</strong></span>
           (worst) to <span class="rarity-artifact"><strong>Artifact</strong></span> (best).
         </p>
 
@@ -919,7 +936,7 @@
           <li><strong><span class="rarity-rare">Rare:</span></strong> 1-2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (random)</li>
           <li><strong><span class="rarity-epic">Epic:</span></strong> 2-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (random)</li>
           <li><strong><span class="rarity-legendary">Legendary:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></li>
-          <li><strong><span class="rarity-artifact">Artifact:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> + best quality rolls</li>
+          <li><strong><span class="rarity-artifact">Artifact:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> + best <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> rolls</li>
         </ul>
       </section>
 
@@ -973,7 +990,6 @@
           <li>Aim for <span class="rarity-rare"><strong>Rare</strong></span> or better in the beginning of your first playthrough. Later go for <span class="rarity-epic"><strong>Epic</strong></span> or
             <span class="rarity-legendary"><strong>Legendary</strong></span>. This way you will have more <strong class="pixel-highlight">Pixels</strong> to upgrade other more permanent features, like the <strong>Autolooter</strong>
             and <strong>Progress Bar</strong> etc. </li>
-          <li><strong>Rating stats</strong> become more valuable on higher level items</li>
           <li>Combine crafting with <a href="upgrading.html"><strong>Item Upgrading</strong></a>,
             <a href="enchanting-details.html"><strong>Enchanting</strong></a>, and <a href="alteration.html"><strong>Item Alteration</strong></a> for
             maximum power
@@ -989,7 +1005,7 @@
           <summary>What currencies are needed for crafting items?</summary>
           <div class="faq-answer">
             Item crafting requires <span class="pixel-highlight">Pixels</span> (standard currency) and <span class="voxel-highlight">Voxels</span>. Higher level items cost more of both
-            currencies. Using Voxel infusion increases <span class="voxel-highlight">Voxels</span> cost by <span class="voxel-highlight">1</span> per <span class="voxel-highlight">Voxel</span> (maximum <span class="voxel-highlight">10 Voxels</span>).
+            currencies. Using Voxel infusion increases <span class="voxel-highlight">Voxels</span> cost (maximum <span class="voxel-highlight">10 Voxels</span>).
           </div>
         </details>
 
@@ -997,7 +1013,7 @@
           <summary>How does Voxel infusion work?</summary>
           <div class="faq-answer">
             Voxel infusion lets you spend <span class="voxel-highlight">Voxels (0-10)</span> when crafting to dramatically increase odds of higher rarity
-            items. Each <span class="voxel-highlight">Voxel</span> adds <span class="voxel-highlight">1 Voxels</span> to the cost. Using <span class="voxel-highlight">10 Voxels</span> maximizes your chances of getting Epic,
+            items. Using <span class="voxel-highlight">10 Voxels</span> maximizes your chances of getting Epic,
             Legendary, or Artifact rarity items.
           </div>
         </details>
