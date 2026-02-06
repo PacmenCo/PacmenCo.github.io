@@ -502,6 +502,50 @@
       color: var(--text-secondary);
     }
 
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
     @media (max-width: 768px) {
       .nav-bar {
         padding: 0.75rem 1rem;
@@ -553,6 +597,22 @@
       table {
         font-size: 0.75rem;
       }
+    }
+
+    /* Ascension Difficulty Colors */
+    .ascension-normal {
+      color: #00FF00;
+      font-weight: 600;
+    }
+
+    .ascension-hard {
+      color: #FF0000;
+      font-weight: 600;
+    }
+
+    .ascension-hardcore {
+      color: #800080;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -635,7 +695,7 @@
         </ul>
 
         <h3>Hardcore Ascension (Extreme)</h3>
-        <p><strong>Unlock Requirement:</strong> Must have completed at least 1 Hard Ascension</p>
+        <p><strong>Unlock Requirement:</strong> Must have completed at least 1 <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard Ascension</span></p>
         <p><strong>Reward:</strong> Permanent stat bonuses only (max 1 completion counts)</p>
         <p><em>Note: Additional rewards may be added in future updates</em></p>
 
@@ -666,9 +726,9 @@
             <thead>
               <tr>
                 <th>Modifier</th>
-                <th>Normal</th>
-                <th>Hard</th>
-                <th>Hardcore</th>
+                <th><span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span></th>
+                <th><span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span></th>
+                <th><span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span></th>
               </tr>
             </thead>
             <tbody>
@@ -790,21 +850,21 @@
 
         <h3>Earning Dream Points</h3>
         <ul class="feature-list">
-          <li><strong>Normal Ascension:</strong> 1 Dream Point per completion (unlimited)</li>
-          <li><strong>Hard Ascension:</strong> NO Dream Points (only permanent stat bonuses)</li>
-          <li><strong>Hardcore Ascension:</strong> NO Dream Points (only permanent stat bonuses)</li>
+          <li><strong><span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal Ascension</span>:</strong> 1 Dream Point per completion (unlimited)</li>
+          <li><strong><span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard Ascension</span>:</strong> NO Dream Points (only permanent stat bonuses)</li>
+          <li><strong><span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore Ascension</span>:</strong> NO Dream Points (only permanent stat bonuses)</li>
         </ul>
 
         <div class="info-box">
-          <strong>Important:</strong> Only Normal Ascensions grant Dream Points for unlocking ascension talents! Hard
+          <strong>Important:</strong> Only <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal Ascensions</span> grant Dream Points for unlocking ascension talents! <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span>
           and
-          Hardcore ascensions provide powerful permanent stat bonuses instead, but do not give Dream Points.
+          <span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span> ascensions provide powerful permanent stat bonuses instead, but do not give Dream Points.
         </div>
 
         <div class="warning-box">
-          <strong>Strategy Tip:</strong> If you need more Dream Points to unlock ascension talents, complete Normal
+          <strong>Strategy Tip:</strong> If you need more Dream Points to unlock ascension talents, complete <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span>
           ascensions.
-          If you want stronger permanent bonuses, tackle Hard and Hardcore ascensions (which are much more challenging).
+          If you want stronger permanent bonuses, tackle <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span> and <span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span> ascensions (which are much more challenging).
         </div>
       </section>
 
@@ -819,7 +879,7 @@
         <h3>Blacksmithing Talents</h3>
         <ul class="feature-list">
           <li><strong>BlacksmithingLegend:</strong> +1.6% legendary craft chance per level (max 3) - Cost: 3 DP</li>
-          <li><strong>BlacksmithingQuality:</strong> +4.5% item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> per level (max 2) - Cost: 2 DP</li>
+          <li><strong>BlacksmithingQuality:</strong> +4.5% item <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> per level (max 2) - Cost: 2 DP</li>
           <li><strong>Enchanting:</strong> +1 max upgrade level (max 1) - Cost: 1 DP</li>
         </ul>
 
@@ -874,7 +934,7 @@
       <section class="content-section" id="hardcore-rules">
         <h2>Hardcore Ascension Rules</h2>
         <p>
-          Hardcore mode is the ultimate test of skill and patience, featuring permadeath and the harshest difficulty
+          <span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span> mode is the ultimate test of skill and patience, featuring permadeath and the harshest difficulty
           modifiers.
         </p>
 
@@ -891,10 +951,10 @@
 
         <h3>Failing Hardcore</h3>
         <p>
-          When you die during a Hardcore Ascension:
+          When you die during a <span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore Ascension</span>:
         </p>
         <ul class="feature-list">
-          <li>Ascension immediately converts to Normal Ascension</li>
+          <li>Ascension immediately converts to <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal Ascension</span></li>
           <li>All locked items and currencies are restored</li>
           <li>You do NOT receive the permanent stat bonus reward</li>
           <li>Progress toward Hardcore completion is lost</li>
@@ -910,19 +970,19 @@
       <section class="content-section" id="resigning">
         <h2>Resigning from Ascension</h2>
         <p>
-          You can give up a Hard or Hardcore Ascension at any time.
+          You can give up a <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span> or <span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore Ascension</span> at any time.
         </p>
 
         <h3>What Happens When You Resign</h3>
         <ul class="feature-list">
-          <li>Converts to Normal Ascension immediately</li>
+          <li>Converts to <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal Ascension</span> immediately</li>
           <li>All locked items and currencies are restored</li>
           <li>Offline rewards and VIP chests re-enabled</li>
           <li><strong>You do NOT receive the permanent stat bonus reward</strong></li>
         </ul>
 
         <p>
-          Resigning is useful if you started a Hard/Hardcore run but realize you're not ready for the challenge. You
+          Resigning is useful if you started a <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span>/<span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span> run but realize you're not ready for the challenge. You
           keep
           your progress but lose the prestigious rewards.
         </p>
@@ -934,7 +994,7 @@
         <details class="faq-item">
           <summary>When should I do my first ascension?</summary>
           <div class="faq-answer">
-            Complete your first Normal ascension once you reach level 301 and have cleared any ascension-locked items or
+            Complete your first <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal Ascension</span> once you reach level 301 and have cleared any ascension-locked items or
             currencies. Your first ascension unlocks the <strong>Dream Point system</strong>, which provides permanent
             upgrades that significantly improve future runs. The permanent bonuses (+15 HP, +1% damage, +3% XP, +3%
             loot)
@@ -945,31 +1005,31 @@
         <details class="faq-item">
           <summary>Which ascension type should I choose?</summary>
           <div class="faq-answer">
-            Start with <strong>Normal ascensions</strong> to build up Dream Points and earn permanent bonuses (max 5
-            completions). Once comfortable with progression, attempt <strong>Hard ascensions</strong> for stronger
+            Start with <strong><span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> ascensions</strong> to build up Dream Points and earn permanent bonuses (max 5
+            completions). Once comfortable with progression, attempt <strong><span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span> ascensions</strong> for stronger
             bonuses
-            (max 3 completions). Save <strong>Hardcore</strong> for when you're experienced and ready for the permadeath
-            challenge (max 1 completion). Normal ascensions are the only way to earn Dream Points for the skill tree.
+            (max 3 completions). Save <strong><span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span></strong> for when you're experienced and ready for the permadeath
+            challenge (max 1 completion). <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> ascensions are the only way to earn Dream Points for the skill tree.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>Can I get Dream Points from Hard or Hardcore ascensions?</summary>
           <div class="faq-answer">
-            <strong>No.</strong> Only Normal ascensions grant Dream Points (1 per completion, unlimited). Hard and
-            Hardcore
+            <strong>No.</strong> Only <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> ascensions grant Dream Points (1 per completion, unlimited). <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span> and
+            <span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span>
             ascensions provide permanent stat bonuses instead, which are more powerful but limited in quantity. If you
             need
-            more Dream Points to unlock ascension talents, you must complete additional Normal ascensions.
+            more Dream Points to unlock ascension talents, you must complete additional <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> ascensions.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What happens to my items during ascensions?</summary>
           <div class="faq-answer">
-            <strong>Normal ascensions:</strong> You keep all items, currencies, pets, talents, and guild progress. Only
+            <strong><span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> ascensions:</strong> You keep all items, currencies, pets, talents, and guild progress. Only
             your level and area unlocks reset.<br><br>
-            <strong>Hard/Hardcore ascensions:</strong> All equipment, inventory, transmog, Pixels, Voxels, and Crystals
+            <strong><span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span>/<span class="tooltip ascension-hardcore" data-tooltip="ascension-hardcore">Hardcore</span> ascensions:</strong> All equipment, inventory, transmog, Pixels, Voxels, and Crystals
             are
             locked away until completion or resignation. You must progress through the game without your existing gear,
             forcing you to re-earn items from scratch. Everything is restored upon completion or resignation.
@@ -979,15 +1039,16 @@
         <details class="faq-item">
           <summary>Should I max Normal ascensions before trying Hard?</summary>
           <div class="faq-answer">
-            It's recommended to complete <strong>several Normal ascensions first</strong> to build up Dream Points and
-            permanent bonuses. This makes Hard ascensions more manageable. However, you don't need to max all 5 Normal
-            completions before attempting Hard. Completing 2-3 Normal runs and unlocking key ascension talents (like
-            QuickLearner or BattleBrainy) provides a good foundation for tackling Hard mode.
+            It's recommended to complete <strong>several <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> ascensions first</strong> to build up Dream Points and
+            permanent bonuses. This makes <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span> ascensions more manageable. However, you don't need to max all 5 <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span>
+            completions before attempting <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span>. Completing 2-3 <span class="tooltip ascension-normal" data-tooltip="ascension-normal">Normal</span> runs and unlocking key ascension talents (like
+            QuickLearner or BattleBrainy) provides a good foundation for tackling <span class="tooltip ascension-hard" data-tooltip="ascension-hard">Hard</span> mode.
           </div>
         </details>
       </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 
 </html>

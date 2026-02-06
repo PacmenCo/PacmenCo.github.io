@@ -11,6 +11,11 @@ This document defines the styling rules for Currencies, Orbs, and Rarities highl
 - **Crystals**: `#00FF00` (bright green) - from `Colors.enchantingMatsForShops`
 - **Valor Points**: `#FFD700` (gold) - from `ChooseVIPItem.cs` (Guild Boss currency)
 
+### Progression & Pet Items
+
+- **Experience**: `#00FF00` (bright green) - Progression/XP gains
+- **Pet Food**: `#D896FF` (light purple/pink) - Pet consumable item (grants 250 XP to pets)
+
 ### Alteration Orbs (from AlterationManager.cs)
 
 - **Orb of Alteration**: `#00D6FF` (cyan-blue)
@@ -47,6 +52,10 @@ Add these to your `:root` or CSS variables section:
   --voxel-color: #E18700;
   --crystal-color: #00FF00;
   --valor-color: #FFD700;
+
+  /* Progression & Pet Items */
+  --experience-color: #00FF00;
+  --pet-food-color: #D896FF;
 
   /* Alteration Orbs */
   --orb-alteration-color: #00D6FF;
@@ -96,6 +105,17 @@ Add these classes to your stylesheet:
 
 .valor-highlight {
   color: var(--valor-color);
+  font-weight: 600;
+}
+
+/* Progression & Pet Items */
+.experience {
+  color: var(--experience-color);
+  font-weight: 600;
+}
+
+.pet-food {
+  color: var(--pet-food-color);
   font-weight: 600;
 }
 
@@ -874,6 +894,75 @@ Welcome to <span class="game-name">Idle Adventure</span>!
 Master <span class="game-name">Idle Adventure</span> with our complete guide.
 ```
 
+## Experience & Pet Food Tooltips
+
+### Purpose
+Display interactive tooltips for progression and pet-related game elements with appropriate color coding.
+
+### Experience
+
+**Color:** `#00FF00` (bright green - same as Crystals to indicate progression)
+
+**Tooltip Content:**
+```
+Gain XP to level up your character and unlock new content
+```
+
+**Implementation:**
+```html
+<!-- In sentences -->
+Fishing grants <span class="tooltip experience" data-tooltip="experience">Experience</span> as you level your fishing skill.
+
+<!-- When referring to XP -->
+Feed <span class="tooltip pet-food" data-tooltip="pet-food">Pet Food</span> to pets for instant <span class="tooltip experience" data-tooltip="experience">Experience</span> boosts.
+```
+
+**Add to tooltips.js:**
+```javascript
+'experience': 'Gain XP to level up your character and unlock new content'
+```
+
+### Pet Food
+
+**Color:** `#D896FF` (light purple/pink - indicates pet-related item)
+
+**Tooltip Content:**
+```
+Feed to pets to instantly grant 250 XP - save for high-level pets!
+```
+
+**Implementation:**
+```html
+<!-- Basic usage -->
+<span class="tooltip pet-food" data-tooltip="pet-food">Pet Food</span>
+
+<!-- With bold (for emphasis) -->
+<strong><span class="tooltip pet-food" data-tooltip="pet-food">Pet Food</span></strong>
+
+<!-- In sentences -->
+Purchase <span class="tooltip pet-food" data-tooltip="pet-food">Pet Food</span> with accumulated fish weight.
+
+Feeding <span class="tooltip pet-food" data-tooltip="pet-food">Pet Food</span> to pets grants 250 XP instantly.
+```
+
+**Add to tooltips.js:**
+```javascript
+'pet-food': 'Feed to pets to instantly grant 250 XP - save for high-level pets!'
+```
+
+### When to Apply
+
+**Experience:**
+- Apply when mentioning XP gains from activities
+- Apply when discussing character progression
+- Apply in level-up contexts
+- Do NOT apply in meta tags, JSON-LD, or image alt text
+
+**Pet Food:**
+- Apply to ALL mentions of "Pet Food" across all pages
+- Apply in contexts discussing pet leveling, fish weight usage, or pet rewards
+- Do NOT apply in meta tags, JSON-LD, or image alt text
+
 ## Quick Reference Checklist
 
 When adding game element mentions to a page:
@@ -899,5 +988,7 @@ When adding game element mentions to a page:
 - [ ] Verified orb tooltips use correct format: `<span class="tooltip orb-[name]" data-tooltip="orb-[name]">Orb Name</span>`
 - [ ] Checked that `<strong>` tags are OUTSIDE orb spans (not inside) to prevent color override
 - [ ] Converted any rarity links to tooltips (removed `<a href="items-crafting.html#item-rarity">` wrappers)
+- [ ] Added Experience tooltips where XP/progression is mentioned
+- [ ] Added Pet Food tooltips to ALL mentions of "Pet Food" across all pages
 - [ ] Included tooltips.js script tag before closing `</body>`
-- [ ] Updated tooltips.js with all tooltip content (item-types, affixes, rarity, orbs)
+- [ ] Updated tooltips.js with all tooltip content (item-types, affixes, rarity, orbs, experience, pet-food)

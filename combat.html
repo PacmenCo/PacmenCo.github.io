@@ -653,428 +653,450 @@
         </ul>
       </nav>
 
-    <section class="content-section" id="battle-system">
-      <h2>Battle System</h2>
-      <p>
-        <span class="game-name">Idle Adventure</span> features a dynamic combat system that focuses on both strategy and progression.
-        Engage in battles where timing, skill selection, companions, pets and equipment choices make the
-        difference
-        between victory and defeat.
-      </p>
+      <section class="content-section" id="battle-system">
+        <h2>Battle System</h2>
+        <p>
+          <span class="game-name">Idle Adventure</span> features a dynamic combat system that focuses on both strategy
+          and progression.
+          Engage in battles where timing, skill selection, companions, pets and equipment choices make the
+          difference
+          between victory and defeat.
+        </p>
 
-    </section>
+      </section>
 
-    <section class="content-section" id="health">
-      <h2>Health (HP)</h2>
-      <p>
-        Your maximum HP determines how much damage you can take before dying. HP is calculated from multiple
-        sources that stack together:
-      </p>
+      <section class="content-section" id="health">
+        <h2>Health (HP)</h2>
+        <p>
+          Your maximum HP determines how much damage you can take before dying. HP is calculated from multiple
+          sources that stack together:
+        </p>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Flat HP Sources</h3>
-      <ul class="feature-list">
-        <li><strong>Level:</strong> The amount depends on your level (higher levels => more HP per level)</li>
-        <li><strong>Rank:</strong> +3 HP per rank</li>
-        <li><strong>Equipment:</strong> Items can provide flat HP bonuses</li>
-        <li><strong>Pets:</strong> Some Pets grant additional HP</li>
-        <li><strong>Talents:</strong> Flat HP-nodes</li>
-        <li><strong>Ascension:</strong> Permanent HP bonuses from ascensions (Easy, hard and hardcore!)</li>
-        <li><strong>Pixel Sink:</strong> HP purchased through pixel investments</li>
-      </ul>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Flat HP Sources</h3>
+        <ul class="feature-list">
+          <li><strong>Level:</strong> The amount depends on your level (higher levels => more HP per level)</li>
+          <li><strong>Rank:</strong> +3 HP per rank</li>
+          <li><strong>Equipment:</strong> Items can provide flat HP bonuses</li>
+          <li><strong>Pets:</strong> Some Pets grant additional HP</li>
+          <li><strong>Talents:</strong> Flat HP-nodes</li>
+          <li><strong>Ascension:</strong> Permanent HP bonuses from ascensions (Easy, hard and hardcore!)</li>
+          <li><strong>Pixel Sink:</strong> HP purchased through pixel investments</li>
+        </ul>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Percentage HP Multipliers</h3>
-      <p>
-        After calculating your flat HP, the total is multiplied by percentage bonuses from:
-      </p>
-      <ul class="feature-list">
-        <li><strong>Equipment:</strong> HP% stats on items</li>
-        <li><strong>Pets:</strong> HP% modifiers from Pets</li>
-        <li><strong>Talents:</strong> Percentage HP-nodes</li>
-        <li><strong>Buffs:</strong> Temporary HP buffs (Elixirs and adbuff)</li>
-        <li><strong>Guild Buffs:</strong> Guild-wide HP increases (Coming soon!)</li>
-      </ul>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Percentage HP Multipliers
+        </h3>
+        <p>
+          After calculating your flat HP, the total is multiplied by percentage bonuses from:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Equipment:</strong> HP% stats on items</li>
+          <li><strong>Pets:</strong> HP% modifiers from Pets</li>
+          <li><strong>Talents:</strong> Percentage HP-nodes</li>
+          <li><strong>Buffs:</strong> Temporary HP buffs (Elixirs and adbuff)</li>
+          <li><strong>Guild Buffs:</strong> Guild-wide HP increases (Coming soon!)</li>
+        </ul>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">HP Formula</h3>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Max HP = (Flat HP Sources) × (1 + All HP% Bonuses)
-      </p>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">HP Formula</h3>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Max HP = (Flat HP Sources) × (1 + All HP% Bonuses)
+        </p>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">HP Regeneration</h3>
-      <p>
-        Your character passively regenerates HP every second. Regeneration scales with your level, rank, and various
-        bonuses, and it's most effective at low-to-medium HP levels.
-      </p>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">HP Regeneration</h3>
+        <p>
+          Your character passively regenerates HP every second. Regeneration scales with your level, rank, and various
+          bonuses, and it's most effective at low-to-medium HP levels.
+        </p>
 
-      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Base Regen
-        Calculation</h4>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Base Amount = (7 × Rank × Ascension Modifier) + (Level^1.85) + Pixel Sink Regen + 19<br><br>
-        Regen % = 0.5% × (1 + HP Regen from Items%) × HP Regen Buffs × (1 + HP Regen from Pets%)<br><br>
-        Base HP Regen per Second = Base Amount × Regen %
-      </p>
+        <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Base Regen
+          Calculation</h4>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Base Amount = (7 × Rank × Ascension Modifier) + (Level^1.85) + Pixel Sink Regen + 19<br><br>
+          Regen % = 0.5% × (1 + HP Regen from Items%) × HP Regen Buffs × (1 + HP Regen from Pets%)<br><br>
+          Base HP Regen per Second = Base Amount × Regen %
+        </p>
 
-      <p>
-        HP regenerates continuously every frame. Your base regen is calculated from your level and rank, then multiplied
-        by percentage bonuses from equipment, talents, pets, and buffs. The base regen value is already in HP per
-        second.
-      </p>
+        <p>
+          HP regenerates continuously every frame. Your base regen is calculated from your level and rank, then
+          multiplied
+          by percentage bonuses from equipment, talents, pets, and buffs. The base regen value is already in HP per
+          second.
+        </p>
 
-      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Current HP
-        Scaling</h4>
-      <p>
-        HP regeneration is <strong>scaled based on your current HP percentage</strong>, making it most effective when
-        you're injured:
-      </p>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        x = Current HP / Max HP<br>
-        Scaling Factor = 3.4 × (√x - 0.85 × x)<br><br>
-        Final HP Regen per Second = (Base HP Regen × Scaling Factor + Flat Regen from Pets) × 2
-      </p>
+        <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Current HP
+          Scaling</h4>
+        <p>
+          HP regeneration is <strong>scaled based on your current HP percentage</strong>, making it most effective when
+          you're injured:
+        </p>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          x = Current HP / Max HP<br>
+          Scaling Factor = 3.4 × (√x - 0.85 × x)<br><br>
+          Final HP Regen per Second = (Base HP Regen × Scaling Factor + Flat Regen from Pets) × 2
+        </p>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0;">
-        <!-- High HP Range -->
-        <div>
-          <p style="text-align: center; color: var(--accent-orange); font-weight: bold; margin-bottom: 0.5rem;">High HP
-            (100-70%)</p>
-          <table
-            style="width: 100%; border-collapse: collapse; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); border-radius: 8px; overflow: hidden;">
-            <thead>
-              <tr style="background: rgba(6, 182, 212, 0.15);">
-                <th
-                  style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
-                  HP %</th>
-                <th
-                  style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
-                  Regen</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">100%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">51%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">90%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">63%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">80%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">73%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center;">70%</td>
-                <td style="padding: 0.4rem; text-align: center;">82%</td>
-              </tr>
-            </tbody>
-          </table>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0;">
+          <!-- High HP Range -->
+          <div>
+            <p style="text-align: center; color: var(--accent-orange); font-weight: bold; margin-bottom: 0.5rem;">High
+              HP
+              (100-70%)</p>
+            <table
+              style="width: 100%; border-collapse: collapse; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); border-radius: 8px; overflow: hidden;">
+              <thead>
+                <tr style="background: rgba(6, 182, 212, 0.15);">
+                  <th
+                    style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
+                    HP %</th>
+                  <th
+                    style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
+                    Regen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">100%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">51%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">90%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">63%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">80%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">73%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center;">70%</td>
+                  <td style="padding: 0.4rem; text-align: center;">82%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Optimal Range -->
+          <div>
+            <p style="text-align: center; color: var(--accent-green); font-weight: bold; margin-bottom: 0.5rem;">Optimal
+              (60-30%)</p>
+            <table
+              style="width: 100%; border-collapse: collapse; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); border-radius: 8px; overflow: hidden;">
+              <thead>
+                <tr style="background: rgba(6, 182, 212, 0.15);">
+                  <th
+                    style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
+                    HP %</th>
+                  <th
+                    style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
+                    Regen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">60%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">90%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">50%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">96%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">40%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">99%
+                  </td>
+                </tr>
+                <tr style="background: rgba(16, 185, 129, 0.15);">
+                  <td style="padding: 0.4rem; text-align: center; font-weight: bold;">30%</td>
+                  <td style="padding: 0.4rem; text-align: center; font-weight: bold; color: var(--accent-green);">100%
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Low HP Range -->
+          <div>
+            <p style="text-align: center; color: var(--accent-orange); font-weight: bold; margin-bottom: 0.5rem;">Low HP
+              (20-5%)</p>
+            <table
+              style="width: 100%; border-collapse: collapse; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); border-radius: 8px; overflow: hidden;">
+              <thead>
+                <tr style="background: rgba(6, 182, 212, 0.15);">
+                  <th
+                    style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
+                    HP %</th>
+                  <th
+                    style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
+                    Regen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">20%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">94%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">15%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">88%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">10%
+                  </td>
+                  <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">79%
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.4rem; text-align: center;">5%</td>
+                  <td style="padding: 0.4rem; text-align: center;">62%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <!-- Optimal Range -->
-        <div>
-          <p style="text-align: center; color: var(--accent-green); font-weight: bold; margin-bottom: 0.5rem;">Optimal
-            (60-30%)</p>
-          <table
-            style="width: 100%; border-collapse: collapse; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); border-radius: 8px; overflow: hidden;">
-            <thead>
-              <tr style="background: rgba(6, 182, 212, 0.15);">
-                <th
-                  style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
-                  HP %</th>
-                <th
-                  style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
-                  Regen</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">60%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">90%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">50%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">96%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">40%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">99%
-                </td>
-              </tr>
-              <tr style="background: rgba(16, 185, 129, 0.15);">
-                <td style="padding: 0.4rem; text-align: center; font-weight: bold;">30%</td>
-                <td style="padding: 0.4rem; text-align: center; font-weight: bold; color: var(--accent-green);">100%
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <p style="margin-top: 1rem;">
+          Your HP reneration rate increases as your current HP decreases, peaking at 30% HP where you receive the full
+          regeneration rate. Below 30% HP, the regeneration rate falls off relatively quickly!
+          This means that staying around 30% is beneficial for maximizing HP regen efficiency.
+        </p>
+
+        <div class="tip-box">
+          <strong>💡 Pro Tip:</strong> Drinking healing potions or using the Heal or Last Stand abilities too early can
+          be counterproductive!
         </div>
 
-        <!-- Low HP Range -->
-        <div>
-          <p style="text-align: center; color: var(--accent-orange); font-weight: bold; margin-bottom: 0.5rem;">Low HP
-            (20-5%)</p>
-          <table
-            style="width: 100%; border-collapse: collapse; background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); border-radius: 8px; overflow: hidden;">
-            <thead>
-              <tr style="background: rgba(6, 182, 212, 0.15);">
-                <th
-                  style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
-                  HP %</th>
-                <th
-                  style="padding: 0.5rem; text-align: center; color: var(--accent-cyan); border-bottom: 1px solid var(--accent-cyan); font-size: 0.9rem;">
-                  Regen</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">20%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">94%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">15%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">88%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">10%
-                </td>
-                <td style="padding: 0.4rem; text-align: center; border-bottom: 1px solid rgba(6, 182, 212, 0.2);">79%
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 0.4rem; text-align: center;">5%</td>
-                <td style="padding: 0.4rem; text-align: center;">62%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Heal Spell</h3>
+        <p>
+          The heal spell scales with both your base HP and maximum HP:
+        </p>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Heal Amount = (Base HP × 0.083) + (Max HP × 0.074)<br><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">Where:</span><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">Base HP = HP from Level + HP from Rank +
+            10</span><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">HP from Level = 0.41 × (Level +
+            Level^1.85)</span><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">HP from Rank = Rank × 3 × Ascension
+            Modifier</span>
+        </p>
+        <p>
+          Base HP represents your health from level and rank progression only, before equipment, pets, talents, and
+          other bonuses are applied. Max HP includes all sources, and is the value you will see in your HP bar.
+        </p>
+        <p
+          style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-orange); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+          <strong style="color: var(--accent-orange);">Note:</strong> The heal spell works differently in certain areas
+          of
+          the game.
+        </p>
 
-      <p style="margin-top: 1rem;">
-        Your HP reneration rate increases as your current HP decreases, peaking at 30% HP where you receive the full
-        regeneration rate. Below 30% HP, the regeneration rate falls off relatively quickly!
-        This means that staying around 30% is beneficial for maximizing HP regen efficiency.
-      </p>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Death Penalty</h3>
+        <p>
+          When your HP reaches zero, you die and suffer penalties:
+        </p>
+        <ul class="feature-list">
+          <li><strong>XP Loss:</strong> You lose a portion of your current Rank experience</li>
+          <li><strong>Teleported Home:</strong> You are transported back to the home area</li>
+        </ul>
 
-      <div class="tip-box">
-        <strong>💡 Pro Tip:</strong> Drinking healing potions or using the Heal or Last Stand spells too early can be counterproductive!
-      </div>
+        <p style="margin-top: 1rem;">
+          While HP does not help you directly in obtaining XP faster, you should not underestimate its importance.
+          Higher max HP means stronger healing, better survivability, and fewer deaths.
+        </p>
+        <p
+          style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+          <strong style="color: var(--accent-cyan);">💡 Hint:</strong> Health Potions scale with your maximum HP.
+          Increasing your max HP makes potions more effective. Read more on the <a href="consumables.html"
+            style="color: var(--accent-cyan); text-decoration: underline;">consumables</a> page.
+        </p>
+      </section>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Heal Spell</h3>
-      <p>
-        The heal spell scales with both your base HP and maximum HP:
-      </p>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Heal Amount = (Base HP × 0.083) + (Max HP × 0.074)<br><br>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">Where:</span><br>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">Base HP = HP from Level + HP from Rank +
-          10</span><br>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">HP from Level = 0.41 × (Level +
-          Level^1.85)</span><br>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">HP from Rank = Rank × 3 × Ascension
-          Modifier</span>
-      </p>
-      <p>
-        Base HP represents your health from level and rank progression only, before equipment, pets, talents, and
-        other bonuses are applied. Max HP includes all sources, and is the value you will see in your HP bar.
-      </p>
-      <p
-        style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-orange); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
-        <strong style="color: var(--accent-orange);">Note:</strong> The heal spell works differently in certain areas of
-        the game.
-      </p>
+      <section class="content-section" id="mana">
+        <h2>Mana</h2>
+        <p>
+          Mana is consumed when using abilities and skills. Your maximum mana and regeneration rate determine
+          how often you can use abilities in combat.
+        </p>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Death Penalty</h3>
-      <p>
-        When your HP reaches zero, you die and suffer penalties:
-      </p>
-      <ul class="feature-list">
-        <li><strong>XP Loss:</strong> You lose a portion of your current Rank experience</li>
-        <li><strong>Teleported Home:</strong> You are transported back to the home area</li>
-      </ul>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Maximum Mana</h3>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Max Mana = (100 + Mana from Pets + Mana from Items + Mana from Talents) × (Mana Buffs)
+        </p>
 
-      <p style="margin-top: 1rem;">
-        While HP does not help you directly in obtaining XP faster, you should not underestimate its importance.
-        Higher max HP means stronger healing, better survivability, and fewer deaths.
-      </p>
-      <p
-        style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
-        <strong style="color: var(--accent-cyan);">💡 Hint:</strong> Health Potions scale with your maximum HP.
-        Increasing your max HP makes potions more effective. Read more on the <a href="consumables.html"
-          style="color: var(--accent-cyan); text-decoration: underline;">consumables</a> page.
-      </p>
-    </section>
+        <ul class="feature-list">
+          <li><strong>Base:</strong> 100 mana for all characters</li>
+          <li><strong>Pets:</strong> Certain pets provide flat mana bonuses</li>
+          <li><strong>Equipment:</strong> Items with mana <strong><span class="tooltip"
+                data-tooltip="affixes">Affixes</span></strong></li>
+          <li><strong>Talents:</strong> Talent points invested in mana</li>
+          <li><strong>Buffs:</strong> Temporary mana multipliers</li>
+        </ul>
 
-    <section class="content-section" id="mana">
-      <h2>Mana</h2>
-      <p>
-        Mana is consumed when using abilities and skills. Your maximum mana and regeneration rate determine
-        how often you can cast spells in combat.
-      </p>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Mana Regeneration</h3>
+        <p>
+          Mana regenerates every 0.2 seconds. The longer you go without casting
+          spells, the faster your mana regenerates.
+        </p>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Maximum Mana</h3>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Max Mana = (100 + Mana from Pets + Mana from Items + Mana from Talents) × (Mana Buffs)
-      </p>
+        <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Base Mana
+          Regen
+        </h4>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Base Mana Regen per Tick = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen%)<br><br>
+          Mana Regen per Second = ((Base Mana Regen × Combat Multiplier) + Flat Mana Regen from Pets) / 0.2
+        </p>
 
-      <ul class="feature-list">
-        <li><strong>Base:</strong> 100 mana for all characters</li>
-        <li><strong>Pets:</strong> Certain pets provide flat mana bonuses</li>
-        <li><strong>Equipment:</strong> Items with mana <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></li>
-        <li><strong>Talents:</strong> Talent points invested in mana</li>
-        <li><strong>Buffs:</strong> Temporary mana multipliers</li>
-      </ul>
+        <p>
+          Mana regenerates in ticks every 0.2 seconds. Your base regen starts at 1.45 per tick (7.25/sec) at 100 max
+          mana
+          and scales linearly with each additional point of max mana. Talent bonuses multiply this base rate, while pets
+          provide flat regen that's added on top. The combat multiplier (explained below) determines what percentage of
+          your base regen actually applies based on how recently you have used mana.
+        </p>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Mana Regeneration</h3>
-      <p>
-        Mana regenerates every 0.2 seconds. The longer you go without casting
-        spells, the faster your mana regenerates.
-      </p>
+        <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Out-of-Combat
+          Scaling</h4>
+        <p>
+          Mana regeneration is affected by how recently you have used Mana:
+        </p>
+        <ul class="feature-list">
+          <li><strong>0-2 seconds since last spell:</strong> 0% regen (no regeneration in active combat)</li>
+          <li><strong>2-3.5 seconds:</strong> 20% regen (minimal recovery)</li>
+          <li><strong>3.5-5 seconds:</strong> 50% regen (moderate recovery)</li>
+          <li><strong>5+ seconds:</strong> 100% regen (max recovery)</li>
+        </ul>
 
-      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Base Mana Regen
-      </h4>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Base Mana Regen per Tick = (1.45 + 0.0073 × (Max Mana - 100)) × (1 + Talent Mana Regen%)<br><br>
-        Mana Regen per Second = ((Base Mana Regen × Combat Multiplier) + Flat Mana Regen from Pets) / 0.2
-      </p>
+        <p style="margin-top: 1rem;">
+          This encourages strategic timing—waiting between bursts allows for faster mana recovery.
+        </p>
 
-      <p>
-        Mana regenerates in ticks every 0.2 seconds. Your base regen starts at 1.45 per tick (7.25/sec) at 100 max mana
-        and scales linearly with each additional point of max mana. Talent bonuses multiply this base rate, while pets
-        provide flat regen that's added on top. The combat multiplier (explained below) determines what percentage of
-        your base regen actually applies based on how recently you have used mana.
-      </p>
+        <p
+          style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+          <strong style="color: var(--accent-cyan);">💡 Hint:</strong> Mana Potions scale with your maximum mana.
+          Increasing your max mana makes potions more effective. Read more on the <a href="consumables.html"
+            style="color: var(--accent-cyan); text-decoration: underline;">consumables</a> page.
+        </p>
 
-      <h4 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem;">Out-of-Combat
-        Scaling</h4>
-      <p>
-        Mana regeneration is affected by how recently you cast a spell:
-      </p>
-      <ul class="feature-list">
-        <li><strong>0-2 seconds since last spell:</strong> 0% regen (no regeneration in active combat)</li>
-        <li><strong>2-3.5 seconds:</strong> 20% regen (minimal recovery)</li>
-        <li><strong>3.5-5 seconds:</strong> 50% regen (moderate recovery)</li>
-        <li><strong>5+ seconds:</strong> 100% regen (max recovery)</li>
-      </ul>
+      </section>
 
-      <p style="margin-top: 1rem;">
-        This encourages strategic timing—waiting between bursts allows for faster mana recovery.
-      </p>
+      <section class="content-section" id="accuracy-evasion">
+        <h2>Hit Chance: Accuracy & Evasion</h2>
+        <p>
+          Every attack in combat must pass a hit chance calculation that determines whether it connects or misses.
+          This system creates strategic depth through the interplay of level, accuracy, and evasion.
+        </p>
 
-      <p
-        style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px; margin: 1rem 0;">
-        <strong style="color: var(--accent-cyan);">💡 Hint:</strong> Mana Potions scale with your maximum mana.
-        Increasing your max mana makes potions more effective. Read more on the <a href="consumables.html"
-          style="color: var(--accent-cyan); text-decoration: underline;">consumables</a> page.
-      </p>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Hit Chance Formula</h3>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Level Factor = 0.8 + (Attacker Level - Defender Level) × 0.0173<br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">(Capped between 0.4 and 0.9)</span><br><br>
+          Accuracy Factor = (Attacker Accuracy - Defender Evasion) × 0.012<br><br>
+          Final Hit Chance = Level Factor + Accuracy Factor<br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">(Minimum 5%, Maximum 99.8%)</span>
+        </p>
 
-    </section>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Understanding the Components
+        </h3>
+        <ul class="feature-list">
+          <li><strong>Level Advantage:</strong> Being higher level than your target provides a base hit chance boost (up
+            to +10%)</li>
+          <li><strong>Level Disadvantage:</strong> Lower level reduces your base hit chance (down to -40%)</li>
+          <li><strong>Accuracy:</strong> Increases your hit chance by 1.2% per point of net advantage</li>
+          <li><strong>Evasion:</strong> Reduces enemy hit chance against you by 1.2% per point</li>
+          <li><strong>Guaranteed Outcomes:</strong> You can never achieve 100% hit rate or 0% - minimum 5%, maximum
+            99.8%
+          </li>
+        </ul>
 
-    <section class="content-section" id="accuracy-evasion">
-      <h2>Hit Chance: Accuracy & Evasion</h2>
-      <p>
-        Every attack in combat must pass a hit chance calculation that determines whether it connects or misses.
-        This system creates strategic depth through the interplay of level, accuracy, and evasion.
-      </p>
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Strategic Implications</h3>
+        <p>
+          The net difference between accuracy and evasion determines combat reliability. When facing enemies with high
+          evasion, accuracy investment becomes crucial. Similarly, high evasion can make you significantly harder to
+          hit,
+          especially when combined with level advantage.
+        </p>
+      </section>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Hit Chance Formula</h3>
-      <p
-        style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
-        Level Factor = 0.8 + (Attacker Level - Defender Level) × 0.0173<br>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">(Capped between 0.4 and 0.9)</span><br><br>
-        Accuracy Factor = (Attacker Accuracy - Defender Evasion) × 0.012<br><br>
-        Final Hit Chance = Level Factor + Accuracy Factor<br>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">(Minimum 5%, Maximum 99.8%)</span>
-      </p>
+      <section class="content-section" id="status-effects">
+        <h2>Status Effects & Debuffs</h2>
+        <p>
+          Various abilities, skills, and enchantments can apply powerful debuffs to enemies. Understanding these
+          status effects is crucial for maximizing your damage and controlling the battlefield.
+        </p>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Understanding the Components
-      </h3>
-      <ul class="feature-list">
-        <li><strong>Level Advantage:</strong> Being higher level than your target provides a base hit chance boost (up
-          to +10%)</li>
-        <li><strong>Level Disadvantage:</strong> Lower level reduces your base hit chance (down to -40%)</li>
-        <li><strong>Accuracy:</strong> Increases your hit chance by 1.2% per point of net advantage</li>
-        <li><strong>Evasion:</strong> Reduces enemy hit chance against you by 1.2% per point</li>
-        <li><strong>Guaranteed Outcomes:</strong> You can never achieve 100% hit rate or 0% - minimum 5%, maximum 99.8%
-        </li>
-      </ul>
+        <div class="debuffs-grid" id="debuffs-grid"></div>
+      </section>
 
-      <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Strategic Implications</h3>
-      <p>
-        The net difference between accuracy and evasion determines combat reliability. When facing enemies with high
-        evasion, accuracy investment becomes crucial. Similarly, high evasion can make you significantly harder to hit,
-        especially when combined with level advantage.
-      </p>
-    </section>
+      <section class="faq-section" id="faq">
+        <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
 
-    <section class="content-section" id="status-effects">
-      <h2>Status Effects & Debuffs</h2>
-      <p>
-        Various abilities, skills, and enchantments can apply powerful debuffs to enemies. Understanding these
-        status effects is crucial for maximizing your damage and controlling the battlefield.
-      </p>
+        <details class="faq-item">
+          <summary>How does HP regeneration work in Idle Adventure?</summary>
+          <div class="faq-answer">
+            HP regeneration scales based on your current HP percentage. You receive maximum regeneration rate at 30% HP,
+            and the rate decreases as you get further from 30% (both higher and lower). Below 30% HP, regeneration falls
+            off quickly. This means staying around 30% HP is optimal for maximizing regeneration efficiency.
+          </div>
+        </details>
 
-      <div class="debuffs-grid" id="debuffs-grid"></div>
-    </section>
+        <details class="faq-item">
+          <summary>How is hit chance calculated in combat?</summary>
+          <div class="faq-answer">
+            Hit chance is determined by the difference between your Accuracy and the enemy's Evasion. Each point of net
+            advantage grants 1.2% hit chance. However, you can never achieve 100% hit rate or 0% miss rate - the minimum
+            is 5% and maximum is 99.8%. This applies to both player attacks and enemy attacks.
+          </div>
+        </details>
 
-    <section class="faq-section" id="faq">
-      <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+        <details class="faq-item">
+          <summary>What are status effects and debuffs in Idle Adventure?</summary>
+          <div class="faq-answer">
+            Status effects are temporary debuffs applied to enemies through skills, abilities, and enchantments. Common
+            debuffs include Stun (prevents all actions), Root (prevents movement), Slow (reduces speed), Poison, Burn,
+            Bleed (damage over time), Armor Break (reduces defense), and Weaken (reduces attack). Understanding these
+            effects is crucial for maximizing damage and controlling enemies.
+          </div>
+        </details>
 
-      <details class="faq-item">
-        <summary>How does HP regeneration work in Idle Adventure?</summary>
-        <div class="faq-answer">
-          HP regeneration scales based on your current HP percentage. You receive maximum regeneration rate at 30% HP, and the rate decreases as you get further from 30% (both higher and lower). Below 30% HP, regeneration falls off quickly. This means staying around 30% HP is optimal for maximizing regeneration efficiency.
-        </div>
-      </details>
+        <details class="faq-item">
+          <summary>How does mana regeneration work?</summary>
+          <div class="faq-answer">
+            Mana regenerates over time at a rate based on your mana regeneration stat. Skills and abilities consume mana
+            when used. Certain enchantments like Mana Absorb and Mana Leech can restore mana through combat, allowing
+            for more frequent skill usage.
+          </div>
+        </details>
 
-      <details class="faq-item">
-        <summary>How is hit chance calculated in combat?</summary>
-        <div class="faq-answer">
-          Hit chance is determined by the difference between your Accuracy and the enemy's Evasion. Each point of net advantage grants 1.2% hit chance. However, you can never achieve 100% hit rate or 0% miss rate - the minimum is 5% and maximum is 99.8%. This applies to both player attacks and enemy attacks.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What are status effects and debuffs in Idle Adventure?</summary>
-        <div class="faq-answer">
-          Status effects are temporary debuffs applied to enemies through skills, abilities, and enchantments. Common debuffs include Stun (prevents all actions), Root (prevents movement), Slow (reduces speed), Poison, Burn, Bleed (damage over time), Armor Break (reduces defense), and Weaken (reduces attack). Understanding these effects is crucial for maximizing damage and controlling enemies.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How does mana regeneration work?</summary>
-        <div class="faq-answer">
-          Mana regenerates over time at a rate based on your mana regeneration stat. Skills and abilities consume mana when used. Certain enchantments like Mana Absorb and Mana Leech can restore mana through combat, allowing for more frequent skill usage.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What's the difference between Accuracy and Evasion?</summary>
-        <div class="faq-answer">
-          Accuracy increases your hit chance against enemies, while Evasion reduces enemy hit chance against you. Both stats work together: net difference (Accuracy minus Evasion) determines actual hit chance at 1.2% per point. When facing high-evasion enemies, accuracy investment becomes crucial for reliable hits.
-        </div>
-      </details>
-    </section>
-  </article>
+        <details class="faq-item">
+          <summary>What's the difference between Accuracy and Evasion?</summary>
+          <div class="faq-answer">
+            Accuracy increases your hit chance against enemies, while Evasion reduces enemy hit chance against you. Both
+            stats work together: net difference (Accuracy minus Evasion) determines actual hit chance at 1.2% per point.
+            When facing high-evasion enemies, accuracy investment becomes crucial for reliable hits.
+          </div>
+        </details>
+      </section>
+    </article>
   </div>
 
   <!-- Load debuff data and render cards -->

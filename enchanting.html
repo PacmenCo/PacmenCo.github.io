@@ -7,20 +7,24 @@
   <title>Enchanting Guide – Idle Adventure | Equipment Upgrades & Bonuses</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Master Idle Adventure's equipment enhancement in 2026: Complete guide to upgrading, enchanting, and item alteration systems. Learn the best strategies for gear optimization.">
-  <meta name="keywords" content="Idle Adventure enchanting, enchantment guide, equipment upgrades, item upgrading, gear enhancement, item alteration, equipment modification, enchanting system 2026">
+  <meta name="description"
+    content="Master Idle Adventure's equipment enhancement in 2026: Complete guide to upgrading, enchanting, and item alteration systems. Learn the best strategies for gear optimization.">
+  <meta name="keywords"
+    content="Idle Adventure enchanting, enchantment guide, equipment upgrades, item upgrading, gear enhancement, item alteration, equipment modification, enchanting system 2026">
   <meta name="author" content="PacmenCo">
   <meta name="theme-color" content="#0a0e1a">
   <link rel="canonical" href="https://pacmenco.github.io/enchanting.html">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://pacmenco.github.io/enchanting.html">
   <meta property="og:title" content="Enchanting Guide – Idle Adventure | Equipment Upgrades & Bonuses">
-  <meta property="og:description" content="Master Idle Adventure's equipment enhancement in 2026: Complete guide to upgrading, enchanting, and item alteration systems.">
+  <meta property="og:description"
+    content="Master Idle Adventure's equipment enhancement in 2026: Complete guide to upgrading, enchanting, and item alteration systems.">
   <meta property="og:site_name" content="Idle Adventure Guide">
   <meta property="og:image" content="https://pacmenco.github.io/images/landing/1.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Enchanting Guide – Idle Adventure | Equipment Upgrades & Bonuses">
-  <meta name="twitter:description" content="Master equipment enhancement: upgrading, enchanting, and item alteration systems for optimal gear.">
+  <meta name="twitter:description"
+    content="Master equipment enhancement: upgrading, enchanting, and item alteration systems for optimal gear.">
   <meta name="twitter:image" content="https://pacmenco.github.io/images/landing/1.png">
 
   <!-- Structured Data -->
@@ -140,6 +144,9 @@
       --pixel-color: #FBFF00;
       --voxel-color: #E18700;
       --crystal-color: #00FF00;
+
+      /* Alteration Orbs */
+      --orb-alteration-color: #00D6FF;
     }
 
     body {
@@ -430,6 +437,11 @@
       font-weight: 600;
     }
 
+    .orbs {
+      color: var(--orb-alteration-color);
+      font-weight: 600;
+    }
+
     .content-section a {
       color: var(--accent-cyan);
       text-decoration: none;
@@ -505,68 +517,80 @@
 
   <div class="container">
     <article>
-    <header class="hero-section">
-      <h1 class="page-title">✨ Equipment Enhancement Systems</h1>
-      <p class="page-subtitle">Master three powerful systems to optimize and customize your equipment</p>
-      <p class="reading-time">📖 Reading time: 5 minutes | Last updated: February 3, 2026</p>
-    </header>
+      <header class="hero-section">
+        <h1 class="page-title">✨ Equipment Enhancement Systems</h1>
+        <p class="page-subtitle">Master three powerful systems to optimize and customize your equipment</p>
+        <p class="reading-time">📖 Reading time: 5 minutes | Last updated: February 3, 2026</p>
+      </header>
 
-    <section class="content-section" id="overview">
-      <h2>Equipment Enhancement Systems Overview</h2>
-      <p>
-        Idle Adventure features <strong>three distinct equipment enhancement systems</strong> that work together to create powerful gear. Each system serves a unique purpose in <strong>optimizing your equipment</strong> for endgame progression. Understanding when and how to use each system is crucial for <strong>maximizing your character's power</strong>.
-      </p>
-      <p>
-        <strong>All three systems can be combined</strong> on the same item, allowing you to create exceptionally powerful equipment by upgrading stats, adding magical enchantments, and using alteration orbs to perfect item properties.
-      </p>
-    </section>
-
-    <div class="system-grid" id="upgrading">
-      <!-- Item Upgrading -->
-      <div class="system-card">
-        <div class="system-icon">⬆️</div>
-        <h2>Item Upgrading</h2>
+      <section class="content-section" id="overview">
+        <h2>Equipment Enhancement Systems Overview</h2>
         <p>
-          Permanently increase your item's base stats by upgrading its strength level. Each upgrade grants a 5%
-          multiplicative bonus to damage or armor, making your equipment significantly more powerful as you progress.
+          <span class="game-name">Idle Adventure</span> features <strong>three distinct equipment enhancement
+            systems</strong> that work together to create powerful gear. Each system serves a unique purpose in
+          <strong>optimizing your equipment</strong> for endgame progression. Understanding when and how to use each
+          system is crucial for <strong>maximizing your character's power</strong>.
         </p>
         <p>
-          <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span>
+          <strong>All three systems can be combined</strong> on the same item, allowing you to create exceptionally
+          powerful equipment by upgrading stats, adding magical enchantments, and using <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong> to perfect item
+          properties.
         </p>
-        <a href="upgrading.html" class="learn-more-btn">Learn More →</a>
+      </section>
+
+      <div class="system-grid" id="upgrading">
+        <!-- Item Upgrading -->
+        <div class="system-card">
+          <div class="system-icon">⬆️</div>
+          <h2>Item Upgrading</h2>
+          <p>
+            Permanently increase your item's base stats by upgrading its strength level. Each upgrade grants a 5%
+            multiplicative bonus to damage or armor, making your equipment significantly more powerful as you progress.
+          </p>
+          <p>
+            <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span
+              class="crystal-highlight">Crystals</span>
+          </p>
+          <a href="upgrading.html" class="learn-more-btn">Learn More →</a>
+        </div>
+
+        <!-- Enchanting -->
+        <div class="system-card">
+          <div class="system-icon">✨</div>
+          <h2>Enchanting</h2>
+          <p>
+            Add magical effects to your equipment through enchantments. Choose from two enchantment types per
+            <strong><span class="tooltip" data-tooltip="item-types">Item Type</span></strong>,
+            with effects ranging from damage bonuses to life steal and mana restoration. Enchantments can be upgraded to
+            level 2 or swapped freely.
+          </p>
+          <p>
+            <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span
+              class="crystal-highlight">Crystals</span>
+          </p>
+          <a href="enchanting-details.html" class="learn-more-btn">Learn More →</a>
+        </div>
+
+        <!-- Item Alteration -->
+        <div class="system-card">
+          <div class="system-icon">🔮</div>
+          <h2>Item Alteration</h2>
+          <p>
+            Advanced item modification using special <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong>. Reroll <strong><span class="tooltip"
+                data-tooltip="affixes">Affixes</span></strong>, upgrade <strong><span class="tooltip"
+                data-tooltip="rarity">Rarity</span></strong>, improve <strong><span class="tooltip"
+                data-tooltip="quality">Quality</span></strong>, or
+            add soul levels to your equipment. High risk, high reward - some operations can break your items, but the
+            potential gains are substantial.
+          </p>
+          <p>
+            <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span
+              class="crystal-highlight">Crystals</span> + <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong><br>
+            <strong>Success Rate:</strong> Varies by operation
+          </p>
+          <a href="alteration.html" class="learn-more-btn">Learn More →</a>
+        </div>
       </div>
-
-      <!-- Enchanting -->
-      <div class="system-card">
-        <div class="system-icon">✨</div>
-        <h2>Enchanting</h2>
-        <p>
-          Add magical effects to your equipment through enchantments. Choose from two enchantment types per <strong><span class="tooltip" data-tooltip="item-types">item slot</span></strong>,
-          with effects ranging from damage bonuses to life steal and mana restoration. Enchantments can be upgraded to
-          level 2 or swapped freely.
-        </p>
-        <p>
-          <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span>
-        </p>
-        <a href="enchanting-details.html" class="learn-more-btn">Learn More →</a>
-      </div>
-
-      <!-- Item Alteration -->
-      <div class="system-card">
-        <div class="system-icon">🔮</div>
-        <h2>Item Alteration</h2>
-        <p>
-          Advanced item modification using special Alteration Orbs. Reroll <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, upgrade <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>, improve <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>, or
-          add soul levels to your equipment. High risk, high reward - some operations can break your items, but the
-          potential gains are substantial.
-        </p>
-        <p>
-          <strong>Currency:</strong> <span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span> + Orbs<br>
-          <strong>Success Rate:</strong> Varies by operation
-        </p>
-        <a href="alteration.html" class="learn-more-btn">Learn More →</a>
-      </div>
-    </div>
     </article>
   </div>
 

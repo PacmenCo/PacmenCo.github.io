@@ -548,6 +548,11 @@
       font-weight: 600;
     }
 
+    .orbs {
+      color: var(--orb-alteration-color);
+      font-weight: 600;
+    }
+
     /* Rarity Highlighting */
     .rarity-broken {
       color: var(--rarity-broken-color);
@@ -841,7 +846,7 @@
     <article>
       <header class="hero-section">
         <h1 class="page-title">🔮 Item Alteration</h1>
-        <p class="page-subtitle">Advanced item modification using Alteration Orbs</p>
+        <p class="page-subtitle">Advanced item modification using <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong></p>
         <p class="reading-time">📖 Reading time: 8 minutes | Last updated: February 3, 2026</p>
       </header>
 
@@ -863,15 +868,15 @@
         <h2>What is Item Alteration?</h2>
         <p>
           Item Alteration is an advanced crafting system and gear modification mechanic in <span class="game-name">Idle Adventure</span> that allows you to modify
-          equipment properties using <span class="stat-highlight">Alteration Orbs</span>. Unlike enchanting, this item
+          equipment properties using <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong>. Unlike enchanting, this item
           crafting system lets you reroll stats, add or remove
-          <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, upgrade <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tiers, and improve item quality through
-          strategic orb usage.
+          <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>, upgrade <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> tiers, and improve item quality through
+          strategic <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> usage.
         </p>
 
         <div class="warning-box">
-          <strong>High Risk, High Reward:</strong> Some Orbs can can break your item, reducing it to Broken
-          <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>. Use with caution on valuable equipment!
+          <strong>High Risk, High Reward:</strong> Some <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> can break your item, reducing it to Broken
+          <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>. Use with caution on valuable equipment!
         </div>
 
         <h3>Alteration vs Enchanting</h3>
@@ -897,7 +902,7 @@
             <tr>
               <td>Materials</td>
               <td><span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span></td>
-              <td><span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span> + Orbs
+              <td><span class="pixel-highlight">Pixels</span> + <span class="crystal-highlight">Crystals</span> + <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong>
               </td>
             </tr>
             <tr>
@@ -917,7 +922,7 @@
       <section class="content-section" id="orb-types">
         <h2>Alteration Orb Types</h2>
         <p>
-          There are 11 different alteration orbs for item crafting and gear modification, each with unique effects and
+          There are 11 different <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong> for item crafting and gear modification, each with unique effects and
           drop rates. These crafting materials are looted from enemies
           during combat and enable advanced equipment customization.
         </p>
@@ -939,8 +944,8 @@
                   alt="Orb of Alteration - rerolls one random affix on equipment in Idle Adventure" width="32"
                   height="32" loading="lazy"></td>
               <td><span class="tooltip orb-alteration" data-tooltip="orb-alteration">Orb of Alteration</span></td>
-              <td>Rerolls ONE random <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong></td>
-              <td>Requires: 1-2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> on item</td>
+              <td>Rerolls ONE random <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong></td>
+              <td>Requires: 1-2 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> on item</td>
               <td>New roll might be worse than original</td>
               <td>Common</td>
             </tr>
@@ -949,9 +954,9 @@
                   alt="Orb of Transformation - adds one new affix to gear in Idle Adventure" width="32" height="32"
                   loading="lazy"></td>
               <td><span class="tooltip orb-transformation" data-tooltip="orb-transformation">Orb of Transformation</span></td>
-              <td>Adds ONE new <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong></td>
-              <td>Requires: Less than 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> on item</td>
-              <td>Random <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> - might get unwanted stat type</td>
+              <td>Adds ONE new <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong></td>
+              <td>Requires: Less than 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> on item</td>
+              <td>Random <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> - might get unwanted stat type</td>
               <td>Common</td>
             </tr>
             <tr>
@@ -959,9 +964,9 @@
                   alt="Orb of Reversal - removes one random affix from items in Idle Adventure" width="32" height="32"
                   loading="lazy"></td>
               <td><span class="tooltip orb-reversal" data-tooltip="orb-reversal">Orb of Reversal</span></td>
-              <td>Removes ONE random <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong></td>
-              <td>Requires: 1-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> on item</td>
-              <td>Might remove your best <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong></td>
+              <td>Removes ONE random <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong></td>
+              <td>Requires: 1-3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> on item</td>
+              <td>Might remove your best <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong></td>
               <td>Common</td>
             </tr>
             <tr>
@@ -969,7 +974,7 @@
                   alt="Armor Plate - increases armor quality by 1% in Idle Adventure" width="32" height="32"
                   loading="lazy"></td>
               <td><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor Plate</span></td>
-              <td>+1% armor <strong><span class="tooltip" data-tooltip="quality">quality</span></strong></td>
+              <td>+1% armor <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong></td>
               <td>Requires: Armor, Boots, Gloves, Helm, or Legs</td>
               <td>None - safe upgrade</td>
               <td>Common</td>
@@ -979,7 +984,7 @@
                   alt="Sharpening Stone - increases weapon quality by 1% in Idle Adventure" width="32" height="32"
                   loading="lazy"></td>
               <td><span class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stone</span></td>
-              <td>+1% weapon <strong><span class="tooltip" data-tooltip="quality">quality</span></strong></td>
+              <td>+1% weapon <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong></td>
               <td>Requires: Weapon, Ranged Weapon, or Mining Pick</td>
               <td>None - safe upgrade</td>
               <td>Uncommon</td>
@@ -989,9 +994,9 @@
                   alt="Orb of Revision - rerolls all affixes on equipment in Idle Adventure" width="32" height="32"
                   loading="lazy"></td>
               <td><span class="tooltip orb-revision" data-tooltip="orb-revision">Orb of Revision</span></td>
-              <td>Rerolls ALL <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></td>
-              <td>Requires: 1-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> on item</td>
-              <td>All <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> rerolled - could get much worse</td>
+              <td>Rerolls ALL <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></td>
+              <td>Requires: 1-3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> on item</td>
+              <td>All <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> rerolled - could get much worse</td>
               <td>Rare</td>
             </tr>
             <tr>
@@ -999,9 +1004,9 @@
                   alt="Orb of Nullification - removes all affixes from items in Idle Adventure" width="32" height="32"
                   loading="lazy"></td>
               <td><span class="tooltip orb-nullification" data-tooltip="orb-nullification">Orb of Nullification</span></td>
-              <td>Removes ALL <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></td>
-              <td>Requires: At least 1 <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> on item</td>
-              <td>Intentionally removes all <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> permanently</td>
+              <td>Removes ALL <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></td>
+              <td>Requires: At least 1 <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> on item</td>
+              <td>Intentionally removes all <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> permanently</td>
               <td>Rare</td>
             </tr>
             <tr>
@@ -1009,9 +1014,9 @@
                   alt="Orb of Fortune - rerolls item quality and rarity with break chance in Idle Adventure" width="32"
                   height="32" loading="lazy"></td>
               <td><span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span></td>
-              <td>Rerolls item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>/rarity</td>
-              <td>Cannot be used on <span class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> items</td>
-              <td>50% chance to BREAK item! (5% upgrade, 45% <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> reroll)</td>
+              <td>Rerolls item <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong>/rarity</td>
+              <td>Cannot be used on <span class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> items</td>
+              <td>50% chance to BREAK item! (5% upgrade, 45% <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> reroll)</td>
               <td>Very Rare</td>
             </tr>
             <tr>
@@ -1019,9 +1024,9 @@
                   alt="Orb of Divination - adds 1-3 new affixes to create 5-affix items in Idle Adventure" width="32"
                   height="32" loading="lazy"></td>
               <td><span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span></td>
-              <td>Adds 1-3 new <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></td>
-              <td>Requires: Exactly 2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> on item</td>
-              <td>Random <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> - might get unwanted stat types</td>
+              <td>Adds 1-3 new <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></td>
+              <td>Requires: Exactly 2 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> on item</td>
+              <td>Random <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> - might get unwanted stat types</td>
               <td>Extremely Rare</td>
             </tr>
             <tr>
@@ -1031,7 +1036,7 @@
               <td><span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant Orb</span></td>
               <td>Upgrades rarity by 1 tier</td>
               <td>Cannot be used on <span class="rarity-legendary">Legendary</span> or <span
-                  class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong></td>
+                  class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong></td>
               <td>10-20% chance to BREAK item (varies by rarity)</td>
               <td>Extremely Rare</td>
             </tr>
@@ -1050,13 +1055,13 @@
 
         <div class="info-box">
           <strong><span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span> Special Property:</strong> Normal crafted items
-          usually have a maximum of 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>
-          (<span class="rarity-legendary">Legendary</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>) or 3-4
-          <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (<span class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>).
+          usually have a maximum of 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>
+          (<span class="rarity-legendary">Legendary</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>) or 3-4
+          <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (<span class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>).
           However, <span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span> can make items have up to
-          <span class="stat-highlight">5 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></span>! This makes it the only way to craft truly
-          exceptional items that exceed natural limits. The orb adds 1-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> to an item with exactly 2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>:
-          65% for 1 <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> (3 total), 31% for 2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (4 total), or 4% for 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (5 total).
+          <span class="stat-highlight">5 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></span>! This makes it the only way to craft truly
+          exceptional items that exceed natural limits. The orb adds 1-3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> to an item with exactly 2 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>:
+          65% for 1 <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> (3 total), 31% for 2 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (4 total), or 4% for 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (5 total).
         </div>
       </section>
 
@@ -1065,11 +1070,11 @@
         <p>
           <strong>Item alteration</strong> requires <span class="pixel-highlight">Pixels</span>, <span
             class="crystal-highlight">Crystals</span>,
-          and the specific <span class="stat-highlight">Orb type</span>. <strong>Costs vary dramatically</strong> based
+          and the specific <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> type. <strong>Costs vary dramatically</strong> based
           on the alteration
-          type, <strong><span class="tooltip" data-tooltip="rarity">item rarity</span></strong>, and whether it's a weapon or armor piece.
+          type, <strong><span class="tooltip" data-tooltip="rarity">Item Rarity</span></strong>, and whether it's a weapon or armor piece.
           Higher rarity items require significantly more
-          orbs.
+          <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong>.
         </p>
 
         <table>
@@ -1083,27 +1088,27 @@
             <tr>
               <td><span class="rarity-broken">Broken</span>/<span class="rarity-poor">Poor</span>/<span
                   class="rarity-common">Common</span></td>
-              <td><span class="stat-highlight">1</span> orb</td>
+              <td><span class="stat-highlight">1</span> <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong></td>
             </tr>
             <tr>
               <td><span class="rarity-uncommon">Uncommon</span></td>
-              <td><span class="stat-highlight">2</span> orbs</td>
+              <td><span class="stat-highlight">2</span> <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong></td>
             </tr>
             <tr>
               <td><span class="rarity-rare">Rare</span></td>
-              <td><span class="stat-highlight">3</span> orbs</td>
+              <td><span class="stat-highlight">3</span> <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong></td>
             </tr>
             <tr>
               <td><span class="rarity-epic">Epic</span></td>
-              <td><span class="stat-highlight">4</span> orbs</td>
+              <td><span class="stat-highlight">4</span> <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong></td>
             </tr>
             <tr>
               <td><span class="rarity-legendary">Legendary</span></td>
-              <td><span class="stat-highlight">8</span> orbs</td>
+              <td><span class="stat-highlight">8</span> <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong></td>
             </tr>
             <tr>
               <td><span class="rarity-artifact">Artifact</span></td>
-              <td><span class="stat-highlight">20</span> orbs</td>
+              <td><span class="stat-highlight">20</span> <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong></td>
             </tr>
           </tbody>
         </table>
@@ -1114,17 +1119,17 @@
       <section class="content-section" id="quality-rarity">
         <h2>Quality & Rarity Upgrades</h2>
         <p>
-          <strong>Alteration orbs</strong> can improve <strong>item quality</strong> and <strong>upgrade
-            <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong></strong>, but some operations carry significant risk.
-          Understanding which orbs are safe versus risky
+          <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong> can improve <strong>item quality</strong> and <strong>upgrade
+            <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong></strong>, but some operations carry significant risk.
+          Understanding which <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> are safe versus risky
           is crucial for <strong>optimizing your gear</strong> without losing valuable equipment.
         </p>
 
         <h3><span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span> (Reroll Quality/Rarity)</h3>
         <ul class="feature-list">
-          <li>5% chance: Increase <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> by 1 tier</li>
-          <li>50% chance: Item breaks (becomes <span class="rarity-broken">Broken</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>)</li>
-          <li>45% chance: Reroll item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> (stays same <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>)</li>
+          <li>5% chance: Increase <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> by 1 tier</li>
+          <li>50% chance: Item breaks (becomes <span class="rarity-broken">Broken</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>)</li>
+          <li>45% chance: Reroll item <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> (stays same <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>)</li>
           <li>Cannot be used on <span class="rarity-artifact">Artifact</span> items</li>
         </ul>
 
@@ -1136,19 +1141,19 @@
         </div>
 
         <div class="info-box">
-          <strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Reroll Benefit:</strong> The 45% <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> reroll can significantly improve your item! Each
-          <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> tier has a <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> range that determines stat values.
-          Rerolling <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> gives you another chance to get
-          higher values within your item's <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> bounds, potentially
+          <strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Reroll Benefit:</strong> The 45% <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> reroll can significantly improve your item! Each
+          <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> tier has a <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> range that determines stat values.
+          Rerolling <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> gives you another chance to get
+          higher values within your item's <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> bounds, potentially
           turning a low-roll <span class="rarity-legendary">Legendary</span> into a high-roll one
-          without changing its <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>.
+          without changing its <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>.
         </div>
 
         <div class="info-box">
           <strong>Creating Artifacts:</strong> <span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span> is the <span
             class="stat-highlight">only way</span> to
           upgrade a <span class="rarity-legendary">Legendary</span> item to <span
-            class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> through
+            class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> through
           alteration. <span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant Orbs</span> cannot be used on <span
             class="rarity-legendary">Legendary</span>
           items.
@@ -1156,7 +1161,7 @@
 
         <h3><span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant Orb</span> (Upgrade Rarity)</h3>
         <p>
-          Upgrades <strong><span class="tooltip" data-tooltip="rarity">item rarity</span></strong> by 1 tier with a chance to break based on
+          Upgrades <strong><span class="tooltip" data-tooltip="rarity">Item Rarity</span></strong> by 1 tier with a chance to break based on
           current rarity:
         </p>
         <table>
@@ -1198,9 +1203,9 @@
 
         <h3><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Upgrades</h3>
         <ul class="feature-list">
-          <li><strong><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor Plate:</span></strong> +1% to armor <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> (no break chance)
+          <li><strong><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor Plate:</span></strong> +1% to armor <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> (no break chance)
           </li>
-          <li><strong><span class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stone:</span></strong> +1% to weapon <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> (no
+          <li><strong><span class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stone:</span></strong> +1% to weapon <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> (no
             break chance)</li>
           <li>Can be upgraded 15+ times before hitting soft cap</li>
           <li><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> directly multiplies item stats</li>
@@ -1222,7 +1227,7 @@
           <li>Only items with soul levels can <strong>gain experience and level up</strong> through regular gameplay
           </li>
           <li><strong>Items with souls gain experience as you defeat enemies</strong> </li>
-          <li>Leveling items will grant <strong>additional <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> and stat bonuses</strong>
+          <li>Leveling items will grant <strong>additional <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> and stat bonuses</strong>
           </li>
         </ul>
 
@@ -1239,10 +1244,10 @@
 
         <h3>Alteration Strategy</h3>
         <ul class="feature-list">
-          <li>Save rare Orbs (<span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span>, <span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant
+          <li>Save rare <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> (<span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span>, <span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant
               Orbs</span>) for the best items</li>
           <li>Never use <span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span> on items you can't afford to lose</li>
-          <li>During hardcore ascensions, use orbs aggressively to progress faster</li>
+          <li>During hardcore ascensions, use <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> aggressively to progress faster</li>
         </ul>
 
         <h3>Pro Tips for Optimizing Gear with Alteration Orbs</h3>
@@ -1250,9 +1255,9 @@
           <li><strong>How to farm <span class="tooltip orb-soulstone" data-tooltip="orb-soulstone">Soulstones</span> efficiently:</strong> Focus on specific
             farming areas rather than relying
             on the 0.11% drop rate from general combat</li>
-          <li><strong>Best orbs for <span class="rarity-legendary">Legendary</span> items:</strong> Use <span
-              class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span> on 2-<strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> Legendaries to create
-            powerful 5-<strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> equipment</li>
+          <li><strong>Best <span class="tooltip orbs" data-tooltip="orbs">Orbs</span> for <span class="rarity-legendary">Legendary</span> items:</strong> Use <span
+              class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span> on 2-<strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> Legendaries to create
+            powerful 5-<strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> equipment</li>
           <li><strong>Min-maxing strategy:</strong> Use <span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor Plate</span> and <span
               class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stone</span> repeatedly on your best gear
             for safe, guaranteed improvements</li>
@@ -1262,11 +1267,11 @@
             <span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span>'s 50% break rate
           </li>
           <li><strong><strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> management:</strong> Use <span class="tooltip orb-reversal" data-tooltip="orb-reversal">Orb of Reversal</span> to remove
-            unwanted <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> before using <span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of
-              Divination</span> to fill slots with new random <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></li>
-          <li><strong>Resource allocation:</strong> Common orbs (<span class="tooltip orb-alteration" data-tooltip="orb-alteration">Alteration</span>, <span
+            unwanted <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> before using <span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of
+              Divination</span> to fill slots with new random <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></li>
+          <li><strong>Resource allocation:</strong> Common <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> (<span class="tooltip orb-alteration" data-tooltip="orb-alteration">Alteration</span>, <span
               class="tooltip orb-transformation" data-tooltip="orb-transformation">Transformation</span>, <span class="tooltip orb-reversal" data-tooltip="orb-reversal">Reversal</span>) can be used
-            freely, while extremely rare orbs should be reserved for <span class="rarity-artifact">Artifact</span>-tier
+            freely, while extremely rare <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> should be reserved for <span class="rarity-artifact">Artifact</span>-tier
             equipment</li>
         </ul>
       </section>
@@ -1276,17 +1281,17 @@
         <p>
           <strong>Item alteration</strong> is one of the most powerful <strong>gear modification systems</strong> in
           <span class="game-name">Idle Adventure</span>, offering experienced players the ability to craft truly exceptional equipment. By
-          understanding the 11 different <strong>alteration orb types</strong>, their drop rates, and strategic
+          understanding the 11 different <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orb</span></strong> types, their drop rates, and strategic
           applications, you can optimize your gear beyond what's possible through normal crafting.
         </p>
         <p>
           Remember these key principles for successful <strong>item crafting</strong>:
         </p>
         <ul class="feature-list">
-          <li><strong>Risk vs. Reward:</strong> High-risk orbs like <span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span> can
+          <li><strong>Risk vs. Reward:</strong> High-risk <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> like <span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span> can
             break items but offer powerful
             upgrades</li>
-          <li><strong>Resource Management:</strong> Save extremely rare orbs (<span
+          <li><strong>Resource Management:</strong> Save extremely rare <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> (<span
               class="tooltip orb-divination" data-tooltip="orb-divination">Divination</span>, <span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant</span>) for endgame <span
               class="rarity-legendary">Legendary</span>
             and <span class="rarity-artifact">Artifact</span> equipment</li>
@@ -1294,12 +1299,12 @@
               class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stone</span> provide consistent, risk-free quality
             improvements</li>
           <li><strong>Endgame Focus:</strong> <span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span> creates the best
-            possible items by enabling 5-<strong><span class="tooltip" data-tooltip="affixes">affix</span></strong>
+            possible items by enabling 5-<strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong>
             equipment</li>
         </ul>
         <p>
           With this complete <strong>alteration guide</strong>, you're ready to master equipment optimization and create
-          the most powerful gear in <span class="game-name">Idle Adventure</span>. Start farming those orbs and perfect your build!
+          the most powerful gear in <span class="game-name">Idle Adventure</span>. Start farming those <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> and perfect your build!
         </p>
       </section>
 
@@ -1310,9 +1315,9 @@
           <summary class="faq-question">What are Alteration Orbs in Idle Adventure?</summary>
           <div class="faq-answer">
             <p>
-              <strong>Alteration Orbs</strong> are specialized crafting materials used to modify equipment properties in
-              Idle Adventure. There are <strong>11 different orb types</strong> that can reroll stats, add or remove
-              <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, upgrade <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>, and improve item quality. They drop
+              <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong> are specialized crafting materials used to modify equipment properties in
+              Idle Adventure. There are <strong>11 different <span class="tooltip orbs" data-tooltip="orbs">Orb</span> types</strong> that can reroll stats, add or remove
+              <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>, upgrade <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>, and improve item quality. They drop
               from enemies during combat, with varying
               rarity levels.
             </p>
@@ -1326,11 +1331,11 @@
               <strong><span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span></strong> has a <strong>50% chance to break
                 items</strong>, making it the riskiest
               alteration. <strong><span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant Orb</span></strong> has a 10-20% break chance
-              depending on <strong><span class="tooltip" data-tooltip="rarity">item rarity</span></strong> (<span
+              depending on <strong><span class="tooltip" data-tooltip="rarity">Item Rarity</span></strong> (<span
                 class="stat-highlight">10%</span> for
               <span class="rarity-uncommon">Uncommon</span>, <span class="stat-highlight">15%</span> for <span
                 class="rarity-rare">Rare</span>, <span class="stat-highlight">20%</span> for <span
-                class="rarity-epic">Epic</span>). Safe orbs include <strong><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor
+                class="rarity-epic">Epic</span>). Safe <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> include <strong><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor
                   Plate</span>, <span class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stone</span>, and
                 <span class="tooltip orb-soulstone" data-tooltip="orb-soulstone">Soulstone</span></strong>, which have no break chance.
             </p>
@@ -1356,8 +1361,8 @@
             <p>
               <strong><span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span></strong> is the best for creating
               exceptional endgame gear. It can add 1-3
-              <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> to items with exactly 2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>, potentially creating <strong>5-<strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> items</strong> which exceeds
-              the normal 3-4 <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> limit. This makes it the only way to craft truly min-maxed equipment that surpasses
+              <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> to items with exactly 2 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>, potentially creating <strong>5-<strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> items</strong> which exceeds
+              the normal 3-4 <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> limit. This makes it the only way to craft truly min-maxed equipment that surpasses
               natural gear limitations.
             </p>
           </div>
@@ -1387,12 +1392,12 @@
           <div class="faq-answer">
             <p>
               Yes, but only using <strong><span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span></strong>. It has a <span
-                class="stat-highlight">5%</span> chance to upgrade <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>,
+                class="stat-highlight">5%</span> chance to upgrade <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>,
               a <span class="stat-highlight">50%</span> chance to
-              break the item, and a <span class="stat-highlight">45%</span> chance to reroll quality without changing <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong>. <span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant Orb</span> cannot
+              break the item, and a <span class="stat-highlight">45%</span> chance to reroll quality without changing <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>. <span class="tooltip orb-radiant" data-tooltip="orb-radiant">Radiant Orb</span> cannot
               be used on
               <span class="rarity-legendary">Legendary</span> items, making <span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of
-                Fortune</span> the only alteration method to reach <span class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> from <span class="rarity-legendary">Legendary</span>.
+                Fortune</span> the only alteration method to reach <span class="rarity-artifact">Artifact</span> <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> from <span class="rarity-legendary">Legendary</span>.
             </p>
           </div>
         </details>

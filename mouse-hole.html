@@ -166,6 +166,9 @@
       --accent-cyan: #06b6d4;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+
+      /* Alteration Orbs */
+      --orb-alteration-color: #00D6FF;
     }
 
     body {
@@ -273,6 +276,11 @@
 
     .rarity-artifact {
       color: #ef4444;
+    }
+
+    .orbs {
+      color: var(--orb-alteration-color);
+      font-weight: 600;
     }
 
     /* Main Content */
@@ -742,7 +750,7 @@
           <li><strong>Location:</strong> The Cottage (House)</li>
           <li><strong>Entry Requirement:</strong> 1 Saw per window (6m 30s)</li>
           <li><strong>Unlock:</strong> Level 125</li>
-          <li><strong>Excellent Orb Farm:</strong> 25% from treasure chests & 4% from each Mouse</li>
+          <li><strong>Excellent <span class="tooltip orbs" data-tooltip="orbs">Orb</span> Farm:</strong> 25% from treasure chests & 4% from each Mouse</li>
           <li><strong>Unique Reward:</strong> Score-scaled Magic Ring with Speed% bonuses</li>
           <li><strong>Special rules:</strong> You do not lose rank experience on death (You cant die in the Mouse Hole!)
           </li>
@@ -768,10 +776,10 @@
         </div>
 
         <p class="highlight-box">
-          <strong>Mouse Hole Exclusive:</strong> Treasure chests in Zone 1 have a 25% random orb drop rate & 4% from
+          <strong>Mouse Hole Exclusive:</strong> Treasure chests in Zone 1 have a 25% random <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> drop rate & 4% from
           each
           Mouse - This makes the Mouse
-          Hole a decent location for random orb farming.
+          Hole a decent location for random <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> farming.
         </p>
       </section>
 
@@ -814,13 +822,13 @@
             <div class="stat-value">4 Total</div>
           </div>
           <div class="stat-card">
-            <div class="stat-label">Random Orb Drop Rate</div>
+            <div class="stat-label">Random <span class="tooltip orbs" data-tooltip="orbs">Orb</span> Drop Rate</div>
             <div class="stat-value">4%</div>
           </div>
         </div>
 
         <p>
-          Combat zone where you fight enemies for 5 minutes per run. Enemies scale with each kill, but orbs always drop
+          Combat zone where you fight enemies for 5 minutes per run. Enemies scale with each kill, but <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> always drop
           at
           a 4% rate.
           Score from combat contributes to your final Magic Ring quality.
@@ -833,20 +841,20 @@
             <div class="stat-value">2 Opens</div>
           </div>
           <div class="stat-card">
-            <div class="stat-label">Orb Drop Rate</div>
+            <div class="stat-label"><span class="tooltip orbs" data-tooltip="orbs">Orb</span> Drop Rate</div>
             <div class="stat-value">25%</div>
           </div>
         </div>
 
         <p>
-          Treasure zone with dramatically increased orb drop rate. The 25% drop rate makes this the primary source of
-          orbs
+          Treasure zone with dramatically increased <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> drop rate. The 25% drop rate makes this the primary source of
+          <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong>
           during the raid. Limited to 2 chest opens per Saw usage.
         </p>
 
         <div class="special-box">
-          <strong>Orb Farming:</strong> Zone 1's 25% orb drop rate is over 6x higher than Zone 0's 4% rate.
-          Prioritize opening both chests for maximum orb gains!
+          <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span> Farming:</strong> Zone 1's 25% <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> drop rate is over 6x higher than Zone 0's 4% rate.
+          Prioritize opening both chests for maximum <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> gains!
         </div>
       </section>
 
@@ -968,7 +976,7 @@
         <h3>Ring Quality Goals</h3>
         <p>
           Aim for high scores to maximize your Magic Ring's Speed% bonus. Pray for a good random enchantment and nice
-          <strong><span class="tooltip" data-tooltip="rarity">rarity</span></strong> roll!
+          <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> roll!
         </p>
       </section>
 
@@ -1093,8 +1101,8 @@
         <details class="faq-item">
           <summary>What's the best strategy for orb farming in The Mouse Hole?</summary>
           <div class="faq-answer">
-            Zone 1 treasure chests have a 25% orb drop rate (6x higher than Zone 0's 4% rate from mice). Prioritize
-            opening both chests every run for maximum orb gains. The Mouse Hole is an excellent location for random orb
+            Zone 1 treasure chests have a 25% <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> drop rate (6x higher than Zone 0's 4% rate from mice). Prioritize
+            opening both chests every run for maximum <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong> gains. The Mouse Hole is an excellent location for random <strong><span class="tooltip orbs" data-tooltip="orbs">Orb</span></strong>
             farming due to these high drop rates combined with consistent combat encounters.
           </div>
         </details>

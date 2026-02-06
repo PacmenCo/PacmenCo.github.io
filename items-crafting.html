@@ -368,6 +368,7 @@
 
     /* Orb color classes (copied from alteration page for consistency) */
     :root {
+      --orb-alteration-color: #00D6FF;
       --orb-armor-plate-color: #FFA500;
       --orb-sharpening-stone-color: #e3e0f5;
     }
@@ -377,6 +378,11 @@
     }
     .orb-sharpening-stone {
       color: var(--orb-sharpening-stone-color);
+      font-weight: 600;
+    }
+
+    .orbs {
+      color: var(--orb-alteration-color);
       font-weight: 600;
     }
 
@@ -669,7 +675,7 @@
         <h2>How Crafting Works</h2>
         <p>
           Item crafting in <span class="game-name">Idle Adventure</span> is handled by the <strong>Snail NPC</strong>. The crafting system lets you
-          create equipment with random <strong><span class="tooltip" data-tooltip="quality">quality</span></strong>, <strong>rarity</strong>, and <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> based
+          create equipment with random <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong>, <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>, and <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> based
           on both investment and luck.
         </p>
 
@@ -677,7 +683,7 @@
         <ul class="feature-list">
           <li><strong>Access the Crafting Screen:</strong> Visit the <strong>Snail NPC</strong> and open the craft screen to browse
             available items</li>
-          <li><strong>Set Voxel Infusion:</strong> Optionally use <strong>Voxels</strong> to improve <strong>rarity</strong> odds</li>
+          <li><strong>Set Voxel Infusion:</strong> Optionally use <strong>Voxels</strong> to improve <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> odds</li>
           <li><strong>Craft the Item:</strong> Pay the costs and receive your randomized equipment</li>
         </ul>
 
@@ -685,9 +691,9 @@
           After crafting, your item will have:
         </p>
         <ul class="feature-list">
-          <li>Random <strong>rarity tier</strong> (Broken to Artifact) based on <strong>Voxel infusion</strong></li>
-          <li>Random <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (0-3 bonus stats) based on <strong>rarity tier</strong></li>
-          <li><strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> roll</strong> that affects the item's base stats via the <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier</li>
+          <li>Random <strong><span class="tooltip" data-tooltip="rarity">Rarity Tier</span></strong> (Broken to Artifact) based on <strong>Voxel infusion</strong></li>
+          <li>Random <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (0-3 bonus stats) based on <strong><span class="tooltip" data-tooltip="rarity">Rarity Tier</span></strong></li>
+          <li><strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> roll</strong> that affects the item's base stats via the <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> multiplier</li>
         </ul>
       </section>
 
@@ -719,13 +725,13 @@
           <span class="rarity-epic"><strong>Epic</strong></span>,
           <span class="rarity-legendary"><strong>Legendary</strong></span>, or
           <span class="rarity-artifact"><strong>Artifact</strong></span>
-          rarity items.
+          <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> items.
         </p>
 
         <h3>How Voxel Infusion Works</h3>
         <p>
           When crafting, you can add <strong class="voxel-highlight">0-10 Voxels</strong> to "imbue" the item. Each <strong class="voxel-highlight">Voxel</strong>
-          significantly improves the odds of obtaining a better rarity tier from the craft.
+          significantly improves the odds of obtaining a better <strong><span class="tooltip" data-tooltip="rarity">Rarity Tier</span></strong> from the craft.
         </p>
 
 
@@ -766,7 +772,7 @@
         <div class="warning-box">
           <strong>Strategy Tip:</strong> Save your <strong class="voxel-highlight">Voxels</strong> for important gear pieces you plan to keep and enhance with
           <a href="upgrading.html">Item Upgrading</a>, <a href="enchanting-details.html">Enchanting</a>, and
-          <a href="alteration.html">Alteration Orbs</a>. Skip Voxel infusion when crafting temporary gear or when <strong class="voxel-highlight">Voxels</strong>
+          <a href="alteration.html"><strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong></a>. Skip Voxel infusion when crafting temporary gear or when <strong class="voxel-highlight">Voxels</strong>
           are scarce.
         </div>
       </section>
@@ -774,8 +780,8 @@
       <section class="content-section" id="item-rarity">
         <h2>Item Rarity Tiers</h2>
         <p>
-          <strong>Item rarity</strong> determines the <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier applied to base stats and the number of
-          <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> the item can have. There are <strong>8 rarity tiers</strong> in <span class="game-name">Idle Adventure</span>, ranging from <span class="rarity-broken"><strong>Broken</strong></span>
+          <strong><span class="tooltip" data-tooltip="rarity">Item Rarity</span></strong> determines the <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> multiplier applied to base stats and the number of
+          <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> the item can have. There are <strong>8 <span class="tooltip" data-tooltip="rarity">Rarity Tiers</span></strong> in <span class="game-name">Idle Adventure</span>, ranging from <span class="rarity-broken"><strong>Broken</strong></span>
           (worst) to <span class="rarity-artifact"><strong>Artifact</strong></span> (best).
         </p>
 
@@ -845,7 +851,7 @@
 
         <h3>Understanding <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Multipliers</h3>
         <p>
-          The <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier directly affects your item's combat power. For example:
+          The <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> multiplier directly affects your item's <strong>Attack</strong> and <strong>Armor</strong>. For example:
         </p>
         <ul class="feature-list">
           <li>A weapon with 100 base damage and <span class="rarity-common">Common</span> rarity (1.00x) = 100 damage
@@ -856,19 +862,19 @@
         </ul>
 
         <div class="info-box">
-          <strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Improvement:</strong> Items can have their <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> improved further through
+          <strong><strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> Improvement:</strong> Items can have their <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> improved further through
           <a href="upgrading.html">Item Upgrading</a> (+5% per level) and <a href="alteration.html">Item Alteration</a>
           using <strong><span class="tooltip orb-armor-plate" data-tooltip="orb-armor-plate">Armor Plates</span></strong> or
           <strong><span class="tooltip orb-sharpening-stone" data-tooltip="orb-sharpening-stone">Sharpening Stones</span></strong>
-          (+0.01 <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> per use, max 15 uses).
+          (+0.01 <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> per use, max 15 uses).
         </div>
       </section>
 
       <section class="content-section" id="item-affixes">
         <h2>Item Affixes</h2>
         <p>
-          Item <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> are <strong>bonus stats</strong> that roll randomly on equipment based on rarity. Items can have
-          0-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> depending on their rarity tier. The same <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong> cannot appear twice on one item.
+          Item <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> are <strong>bonus stats</strong> that roll randomly on equipment based on <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>. Items can have
+          0-3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> depending on their <strong><span class="tooltip" data-tooltip="rarity">Rarity Tier</span></strong>. The same <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong> cannot appear twice on one item.
         </p>
 
         <h3>Complete Affix List (Combat Items)</h3>
@@ -922,21 +928,21 @@
         </div>
 
         <div class="info-box">
-          <strong>Mining Items:</strong> Mining pickaxes have different <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> including Critical Strike Chance % and
-          Extra Speed % instead of rating-based stats. These <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> directly increase mining efficiency.
+          <strong>Mining Items:</strong> Mining pickaxes have different <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> including Critical Strike Chance % and
+          Extra Speed % instead of rating-based stats. These <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> directly increase mining efficiency.
         </div>
 
         <h3>How Many Affixes Can Items Have?</h3>
         <p>
-          The number of <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> rolled depends entirely on item rarity:
+          The number of <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> rolled depends entirely on item <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>:
         </p>
         <ul class="feature-list">
-          <li><strong><span class="rarity-broken">Broken</span>/<span class="rarity-poor">Poor</span>/<span class="rarity-common">Common</span>:</strong> 0 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (no bonus stats)</li>
-          <li><strong><span class="rarity-uncommon">Uncommon:</span></strong> 10% chance for 1 <strong><span class="tooltip" data-tooltip="affixes">affix</span></strong></li>
-          <li><strong><span class="rarity-rare">Rare:</span></strong> 1-2 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (random)</li>
-          <li><strong><span class="rarity-epic">Epic:</span></strong> 2-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> (random)</li>
-          <li><strong><span class="rarity-legendary">Legendary:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong></li>
-          <li><strong><span class="rarity-artifact">Artifact:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> + best <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> rolls</li>
+          <li><strong><span class="rarity-broken">Broken</span>/<span class="rarity-poor">Poor</span>/<span class="rarity-common">Common</span>:</strong> 0 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (no bonus stats)</li>
+          <li><strong><span class="rarity-uncommon">Uncommon:</span></strong> 10% chance for 1 <strong><span class="tooltip" data-tooltip="affixes">Affix</span></strong></li>
+          <li><strong><span class="rarity-rare">Rare:</span></strong> 1-2 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (random)</li>
+          <li><strong><span class="rarity-epic">Epic:</span></strong> 2-3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> (random)</li>
+          <li><strong><span class="rarity-legendary">Legendary:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong></li>
+          <li><strong><span class="rarity-artifact">Artifact:</span></strong> Guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> + best <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> rolls</li>
         </ul>
       </section>
 
@@ -978,9 +984,9 @@
       <section class="content-section" id="conclusion">
         <h2>Conclusion</h2>
         <p>
-          The number of <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> and the items internal <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> are determined by the random <strong>rarity tier</strong> rolled during
+          The number of <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> and the items internal <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> are determined by the random <strong><span class="tooltip" data-tooltip="rarity">Rarity Tier</span></strong> rolled during
           crafting.
-          The <strong>rarity tier</strong> is primarily determined by luck, but can be somewhat manipulated through <strong>Voxel
+          The <strong><span class="tooltip" data-tooltip="rarity">Rarity Tier</span></strong> is primarily determined by luck, but can be somewhat manipulated through <strong>Voxel
           infusion</strong>.
         </p>
 
@@ -1012,28 +1018,28 @@
         <details class="faq-item">
           <summary>How does Voxel infusion work?</summary>
           <div class="faq-answer">
-            Voxel infusion lets you spend <span class="voxel-highlight">Voxels (0-10)</span> when crafting to dramatically increase odds of higher rarity
+            Voxel infusion lets you spend <span class="voxel-highlight">Voxels (0-10)</span> when crafting to dramatically increase odds of higher <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>
             items. Using <span class="voxel-highlight">10 Voxels</span> maximizes your chances of getting Epic,
-            Legendary, or Artifact rarity items.
+            Legendary, or Artifact <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> items.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What are item affixes and how many can an item have?</summary>
           <div class="faq-answer">
-            Item <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> are bonus stats like Critical Strike Rating, Evasion Rating, Accuracy Rating, Speed Rating,
-            Extra HP, HP Boost %, Critical Damage %, Mana, and HP Regen %. Items can have 0-3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> depending on
-            rarity: Common items have 0, Uncommon has 0-1, Rare has 1-2, Epic has 2-3, and Legendary/Artifact have
-            guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>.
+            Item <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> are bonus stats like Critical Strike Rating, Evasion Rating, Accuracy Rating, Speed Rating,
+            Extra HP, HP Boost %, Critical Damage %, Mana, and HP Regen %. Items can have 0-3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> depending on
+            <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>: Common items have 0, Uncommon has 0-1, Rare has 1-2, Epic has 2-3, and Legendary/Artifact have
+            guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What's the difference between Common and Legendary rarity?</summary>
           <div class="faq-answer">
-            Rarity determines item <strong><span class="tooltip" data-tooltip="quality">quality</span></strong> multiplier and <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>. Common items have 0.90-1.10x base stats with no
-            <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>. Legendary items have 1.79-2.07x base stats with guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>. Artifact is the highest
-            rarity with 2.35-2.70x stats and 3 <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>.
+            <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> determines item <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> multiplier and <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>. Common items have 0.90-1.10x base stats with no
+            <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>. Legendary items have 1.79-2.07x base stats with guaranteed 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>. Artifact is the highest
+            <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> with 2.35-2.70x stats and 3 <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>.
           </div>
         </details>
 
@@ -1042,15 +1048,15 @@
           <div class="faq-answer">
             Use Voxel infusion when crafting important gear you plan to keep long-term. Skip infusion for temporary gear
             or when <span class="voxel-highlight">Voxels</span> are scarce. Using <span class="voxel-highlight">5-10 Voxels</span> significantly improves your odds of getting Rare, Epic, or
-            Legendary items, which have better stats and more <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong>.
+            Legendary items, which have better stats and more <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>.
           </div>
         </details>
 
         <details class="faq-item">
           <summary>Can I improve an item's rarity after crafting?</summary>
           <div class="faq-answer">
-            Yes! You can use a Orbs from the <a href="alteration.html">Item Alteration</a> system to attempt
-            upgrading an item's rarity. However, this has a 5-50% chance to break the item, so only use it on items
+            Yes! You can use <strong><span class="tooltip orbs" data-tooltip="orbs">Orbs</span></strong> from the <a href="alteration.html">Item Alteration</a> system to attempt
+            upgrading an item's <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>. However, this has a 5-50% chance to break the item, so only use it on items
             you're
             willing to risk losing.
           </div>
@@ -1059,9 +1065,9 @@
         <details class="faq-item">
           <summary>What's the difference between affixes and enchantments?</summary>
           <div class="faq-answer">
-            <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> are random bonus stats that roll during crafting (0-3 per item based on rarity). Enchantments are
+            <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> are random bonus stats that roll during crafting (0-3 per item based on <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>). Enchantments are
             separate magical effects you add after crafting via the <a href="enchanting-details.html">Enchanting
-              system</a>. Items can have both <strong><span class="tooltip" data-tooltip="affixes">affixes</span></strong> AND enchantments for maximum power.
+              system</a>. Items can have both <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong> AND enchantments for maximum power.
           </div>
         </details>
 
