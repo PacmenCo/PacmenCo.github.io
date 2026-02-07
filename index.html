@@ -607,8 +607,7 @@
     /* Footer */
     footer {
       background: var(--bg-dark-2);
-      padding: 3rem 2rem;
-      text-align: center;
+      padding: 3rem 2rem 0;
       border-top: 1px solid rgba(124, 58, 237, 0.2);
     }
 
@@ -617,27 +616,58 @@
       margin: 0 auto;
     }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 2rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
-    .footer-links a {
+    .footer-column h4 {
+      color: var(--accent-orange);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-column ul li a {
       color: var(--text-secondary);
       text-decoration: none;
+      font-size: 0.9rem;
       transition: color 0.3s ease;
     }
 
-    .footer-links a:hover {
-      color: var(--accent-orange);
+    .footer-column ul li a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(124, 58, 237, 0.2);
+      padding: 1.5rem 0;
+      text-align: center;
     }
 
     .copyright {
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
     }
 
     /* Responsive */
@@ -1043,14 +1073,50 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-links">
-        <a href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&utm_source=website&utm_medium=organic&utm_campaign=landing"
-          target="_blank" rel="noopener" style="font-weight: bold;">Google Play</a>
-        <a href="https://discord.gg/2XMMFHY" target="_blank" rel="noopener" style="font-weight: bold;">Discord</a>
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="combat.html">Combat Mechanics</a></li>
+            <li><a href="companions.html">Companions</a></li>
+            <li><a href="pets.html">Pets</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="talents.html">Talents</a></li>
+            <li><a href="ascensions.html">Ascensions</a></li>
+            <li><a href="minigames.html">Mini Games</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="items-crafting.html">Items & Crafting</a></li>
+            <li><a href="enchanting.html">Enchanting</a></li>
+            <li><a href="alteration.html">Alteration</a></li>
+            <li><a href="upgrading.html">Upgrading</a></li>
+            <li><a href="consumables.html">Consumables</a></li>
+            <li><a href="progressbar.html">Progress Bar</a></li>
+            <li><a href="guild.html">Guilds</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://discord.gg/2XMMFHY" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.PacmenCo.IdleAdventure&utm_source=website&utm_medium=organic&utm_campaign=landing" target="_blank" rel="noopener">Google Play</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
       </div>
-      <p class="copyright">
-        © 2026 PacmenCo — <span class="game-name">Idle Adventure</span> Pixel RPG Guide. All rights reserved.
-      </p>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          © 2026 PacmenCo — <span class="game-name">Idle Adventure</span> Pixel RPG Guide. All rights reserved.
+        </p>
+      </div>
     </div>
   </footer>
 </body>

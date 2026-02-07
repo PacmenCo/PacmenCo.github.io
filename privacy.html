@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Idle Adventure Pixel RPG | Data & Security</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Privacy Policy for Idle Adventure pixel RPG. Learn how your data is collected, stored, and protected with encrypted passwords and secure authentication.">
+  <meta name="keywords" content="Idle Adventure, privacy policy, data security">
+  <meta name="author" content="PacmenCo">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://pacmenco.github.io/privacy.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pacmenco.github.io/privacy.html">
+  <meta property="og:title" content="Privacy Policy – Idle Adventure Pixel RPG">
+  <meta property="og:description" content="Privacy Policy for Idle Adventure. How your data is collected, stored, and protected with encrypted passwords and secure authentication.">
+  <meta property="og:site_name" content="Idle Adventure Guide">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://pacmenco.github.io/privacy.html">
+  <meta name="twitter:title" content="Privacy Policy – Idle Adventure Pixel RPG">
+  <meta name="twitter:description" content="Privacy Policy for Idle Adventure. How your data is collected, stored, and protected.">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy – Idle Adventure",
+    "description": "Privacy Policy for Idle Adventure pixel RPG. Learn how your data is collected, stored, and protected.",
+    "url": "https://pacmenco.github.io/privacy.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Idle Adventure Guide",
+      "url": "https://pacmenco.github.io/"
+    },
+    "about": {
+      "@type": "VideoGame",
+      "name": "Idle Adventure",
+      "genre": "Idle RPG",
+      "operatingSystem": "Android"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Shared Navigation Component -->
+  <script src="nav.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-dark-2: #141829;
+      --bg-card: #1a1f35;
+      --accent-purple: #7c3aed;
+      --accent-orange: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Game Name Styling */
+    .game-name {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      text-decoration: none;
+    }
+
+    .back-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent-orange);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .content-section h2 {
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .content-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-section ul {
+      color: var(--text-secondary);
+      margin: 0.5rem 0 1rem;
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .content-section a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    .content-section a:hover {
+      text-decoration: underline;
+    }
+
+    .last-updated {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .content-section {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation loaded from nav.js -->
+
+  <div class="container">
+    <div class="hero-section">
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-subtitle"><span class="game-name">Idle Adventure</span> by PacmenCo</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Information Collected</h2>
+      <p><span class="game-name">Idle Adventure</span> collects minimal data necessary for gameplay functionality:</p>
+      <ul>
+        <li>Account information (username, login credentials)</li>
+        <li>Game progress and save data</li>
+        <li>Guild membership and chat messages</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>How We Use Your Data</h2>
+      <p>Your data is used solely to:</p>
+      <ul>
+        <li>Save and sync your game progress</li>
+        <li>Enable multiplayer features (guilds, guild bosses)</li>
+        <li>Provide guild chat functionality</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Third-Party Services</h2>
+      <p><span class="game-name">Idle Adventure</span> uses the following third-party services:</p>
+      <ul>
+        <li><strong>Google AdMob</strong> – for serving advertisements. AdMob may collect device information and advertising identifiers. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>Google Play Services</strong> – for authentication and app distribution.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Data Storage & Security</h2>
+      <p>Your game data is stored on a secure server to enable cloud saving and multiplayer features.</p>
+      <p>Passwords are securely hashed before being stored — they are never saved in plain text, and not even the developer is able to see or retrieve them. All authentication data is encrypted before transmission, preventing interception through man-in-the-middle attacks.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Children's Privacy</h2>
+      <p><span class="game-name">Idle Adventure</span> is not directed at children under the age of 13. Personal information from children under 13 is not knowingly collected.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Changes to This Policy</h2>
+      <p>This privacy policy may be updated from time to time. Any changes will be reflected on this page.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, please reach out on <a href="https://discord.gg/2XMMFHY" target="_blank" rel="noopener">Discord</a>.</p>
+    </div>
+
+    <p class="last-updated">Last updated: February 2026</p>
+  </div>
+</body>
+
+</html>

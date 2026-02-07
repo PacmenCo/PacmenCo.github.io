@@ -70,7 +70,7 @@
         border: 1px solid rgba(124, 58, 237, 0.3);
         border-radius: 8px;
         color: var(--text-primary);
-        font-size: 0.9rem;
+        font-size: 16px;
         transition: all 0.3s ease;
         outline: none;
       }
