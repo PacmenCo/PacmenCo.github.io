@@ -1,13 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Favicon
-  if (!document.querySelector('link[rel="icon"]')) {
-    var link = document.createElement('link');
-    link.rel = 'icon';
-    link.type = 'image/png';
-    link.href = 'images/favicon/Favicon.png';
-    document.head.appendChild(link);
-  }
-
   var footer = document.createElement('footer');
   footer.innerHTML = '<div class="footer-content">' +
     '<div class="footer-grid">' +
