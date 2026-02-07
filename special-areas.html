@@ -21,6 +21,40 @@
   <meta name="twitter:title" content="Idle Adventure Special Areas Guide">
   <meta name="twitter:description" content="Complete special areas guide: all unique zones, rewards, and strategies.">
 
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Special Areas Guide – Idle Adventure | Cosy Cave, Crypt, Mouse Hole & More",
+    "description": "Complete guide to all special areas in Idle Adventure: Cosy Cave, Crypt, Mouse Hole, Ruined Tower - unique rewards, enemies, and mechanics",
+    "author": {
+      "@type": "Person",
+      "name": "PacmenCo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PacmenCo",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pacmenco.github.io/images/logo.png"
+      }
+    },
+    "datePublished": "2026-02-05",
+    "dateModified": "2026-02-05",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pacmenco.github.io/special-areas.html"
+    },
+    "keywords": "Idle Adventure special areas, Cosy Cave, Crypt, Mouse Hole, Ruined Tower, boss rush, roguelike dungeon, special zones",
+    "articleSection": "Game Guide",
+    "about": {
+      "@type": "VideoGame",
+      "name": "Idle Adventure"
+    }
+  }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +81,9 @@
       --accent-cyan: #06b6d4;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
+
+      /* Alteration Orbs */
+      --orb-soulstone-color: #a21b90;
     }
 
     body {
@@ -59,6 +96,12 @@
     /* Game Name Styling */
     .game-name {
       color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    /* Orb Highlighting */
+    .orb-soulstone {
+      color: var(--orb-soulstone-color);
       font-weight: 600;
     }
 
@@ -264,7 +307,7 @@
 
     <div class="intro-section">
       <p>
-        Special Areas are high-difficulty challenge zones that offer unique rewards and test your combat mastery.
+        Special Areas in <span class="game-name">Idle Adventure</span> are high-difficulty challenge zones that offer unique rewards and test your combat mastery.
         Unlike normal world areas, these special locations feature distinct mechanics, entry requirements, and
         exclusive loot systems designed to provide endgame progression and replayability.
       </p>
@@ -304,7 +347,7 @@
         <ul class="raid-highlights">
           <li>Fast enemy spawning</li>
           <li>Timer extends with kills</li>
-          <li>High chance of finding Soulstones</li>
+          <li>High chance of finding <span class="orb-soulstone">Soulstones</span></li>
           <li>Exponential stat scaling</li>
         </ul>
         <span class="raid-cta">Ascend the Tower →</span>
@@ -332,11 +375,11 @@
         <h3>The Crypt</h3>
         <p class="raid-description">
           Procedurally-generated roguelike dungeon with 37 rooms, 3 pillar puzzle, 10 treasure chests, and
-          guaranteed Soulstone from the vampire boss.
+          guaranteed <span class="orb-soulstone">Soulstone</span> from the vampire boss.
         </p>
         <ul class="raid-highlights">
           <li>6×6 procedural maze</li>
-          <li>100% Soulstone from boss</li>
+          <li>100% <span class="orb-soulstone">Soulstone</span> from boss</li>
           <li>Score-scaled Crypt Ring</li>
         </ul>
         <span class="raid-cta">Explore the Crypt →</span>

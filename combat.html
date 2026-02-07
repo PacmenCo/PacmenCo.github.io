@@ -148,6 +148,18 @@
       font-weight: 600;
     }
 
+    /* Feature Page Links */
+    .feature-link {
+      color: var(--accent-cyan);
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .feature-link:hover {
+      color: var(--accent-orange);
+    }
+
     /* Tooltip Styling */
     .tooltip {
       position: relative;
@@ -658,7 +670,7 @@
         <p>
           <span class="game-name">Idle Adventure</span> features a dynamic combat system that focuses on both strategy
           and progression.
-          Engage in battles where timing, skill selection, companions, pets and equipment choices make the
+          Engage in battles where timing, skill selection, <a href="companions.html" class="feature-link">Companions</a>, <a href="pets.html" class="feature-link">Pets</a> and equipment choices make the
           difference
           between victory and defeat.
         </p>
@@ -720,7 +732,8 @@
         <p>
           HP regenerates continuously every frame. Your base regen is calculated from your level and rank, then
           multiplied
-          by percentage bonuses from equipment, talents, pets, and buffs. The base regen value is already in HP per
+          by percentage bonuses from equipment, talents, pet bonuses, and buffs. The base regen value is already in HP
+          per
           second.
         </p>
 

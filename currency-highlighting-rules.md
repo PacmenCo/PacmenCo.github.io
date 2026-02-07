@@ -9,6 +9,7 @@ This document defines the styling rules for Currencies, Orbs, and Rarities highl
 - **Pixels**: `#FBFF00` (bright yellow) - from `Colors.pixelColor`
 - **Voxels**: `#E18700` (orange) - from `Colors.voxelColorForShops`
 - **Crystals**: `#00FF00` (bright green) - from `Colors.enchantingMatsForShops`
+- **Gems**: `#A98FF4` (light purple/lavender) - from `Colors.gemsColor`
 - **Valor Points**: `#FFD700` (gold) - from `ChooseVIPItem.cs` (Guild Boss currency)
 
 ### Progression & Pet Items
@@ -51,6 +52,7 @@ Add these to your `:root` or CSS variables section:
   --pixel-color: #FBFF00;
   --voxel-color: #E18700;
   --crystal-color: #00FF00;
+  --gem-color: #A98FF4;
   --valor-color: #FFD700;
 
   /* Progression & Pet Items */
@@ -100,6 +102,11 @@ Add these classes to your stylesheet:
 
 .crystal-highlight {
   color: var(--crystal-color);
+  font-weight: 600;
+}
+
+.gem-highlight {
+  color: var(--gem-color);
   font-weight: 600;
 }
 
@@ -225,6 +232,7 @@ Add these classes to your stylesheet:
 - **Pixels** (capital P) - never "pixels" unless mid-sentence grammatically requires lowercase
 - **Voxels** (capital V) - never "voxels" unless mid-sentence grammatically requires lowercase
 - **Crystals** (capital C) - never "crystals" unless mid-sentence grammatically requires lowercase
+- **Gems** (capital G) - never "gems" unless mid-sentence grammatically requires lowercase
 - **Valor Points** (both words capitalized) - never "valor points" or "Valor points"
 - **Valor** (capital V when used standalone)
 
@@ -963,6 +971,169 @@ Feeding <span class="tooltip pet-food" data-tooltip="pet-food">Pet Food</span> t
 - Apply in contexts discussing pet leveling, fish weight usage, or pet rewards
 - Do NOT apply in meta tags, JSON-LD, or image alt text
 
+## Feature Page Links
+
+### Purpose
+Create consistent links to major feature pages when their terms are mentioned in content. These are NOT tooltips - they are navigation links to help users explore related content.
+
+### Capitalization Rule
+**ALWAYS capitalize feature terms** since they are proper game features/systems:
+- **Companions** / **Companion** (capital C)
+- **Talents** / **Talent** (capital T)
+- **Pets** / **Pet** (capital P)
+- **Ascensions** / **Ascension** (capital A)
+
+Exception: When grammatically required in mid-sentence (rare cases), lowercase is acceptable, but prefer capitalizing to emphasize the proper feature name.
+
+### Styling Distinction
+**IMPORTANT:** Links and tooltips must be visually distinct:
+
+**Tooltips:**
+- Use dotted underline: `border-bottom: 1px dotted var(--accent-cyan);`
+- Have hover cursor: `cursor: help;`
+- Display tooltip on hover
+
+**Links:**
+- Use solid underline: `text-decoration: underline;`
+- Use cyan color: `color: var(--accent-cyan);`
+- Navigate to another page on click
+
+### CSS Classes
+
+```css
+/* Feature Page Links */
+.feature-link {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.feature-link:hover {
+  color: var(--accent-orange);
+}
+```
+
+### The Four Feature Link Terms
+
+#### 1. Companions / Companion
+**Link to:** `companions.html`
+
+```html
+<!-- Singular -->
+Each <a href="companions.html" class="feature-link">Companion</a> has unique abilities.
+
+<!-- Plural -->
+Recruit <a href="companions.html" class="feature-link">Companions</a> to fight alongside you.
+
+<!-- Inline mention -->
+Learn about all <a href="companions.html" class="feature-link">Companions</a> and their skills.
+```
+
+#### 2. Talents / Talent
+**Link to:** `talents.html`
+
+```html
+<!-- Singular -->
+Check the <a href="talents.html" class="feature-link">Talent</a> page for build options.
+
+<!-- Plural -->
+Learn more about <a href="talents.html" class="feature-link">Talents</a> to customize your character.
+
+<!-- Inline mention -->
+The <a href="talents.html" class="feature-link">Talents</a> system allows deep customization.
+```
+
+#### 3. Pets / Pet
+**Link to:** `pets.html`
+
+```html
+<!-- Singular -->
+Each <a href="pets.html" class="feature-link">Pet</a> provides unique bonuses.
+
+<!-- Plural -->
+Collect and level <a href="pets.html" class="feature-link">Pets</a> for permanent stat bonuses.
+
+<!-- Inline mention -->
+Visit the <a href="pets.html" class="feature-link">Pets</a> page for the complete database.
+```
+
+#### 4. Ascensions / Ascension
+**Link to:** `ascensions.html`
+
+```html
+<!-- Singular -->
+Each <a href="ascensions.html" class="feature-link">Ascension</a> grants permanent bonuses.
+
+<!-- Plural -->
+Learn about <a href="ascensions.html" class="feature-link">Ascensions</a> and the prestige system.
+
+<!-- Inline mention -->
+The <a href="ascensions.html" class="feature-link">Ascension</a> system provides endgame progression.
+```
+
+### When to Apply
+
+**DO apply feature links when:**
+- Mentioning the system/feature in regular content (paragraphs, lists, descriptions)
+- The mention is informational and could benefit from navigation to the detailed page
+- The term appears in FAQ answers, strategy tips, or guides
+- The term is in a context where users might want to learn more
+
+**DO NOT apply feature links when:**
+- The term appears in headlines (h1, h2, h3, etc.)
+- Already on the feature's own page (don't link "Talents" on talents.html)
+- In meta tags, JSON-LD structured data, or image alt text
+- In navigation menus (already linked there)
+- **In bullet points or list items** (keep lists clean and scannable)
+- When referring to a specific talent/pet/ascension NAME (not the system itself)
+  - Example: "Luck Seeker talent" - don't link (it's a specific talent name)
+  - Example: "The Talents system" - DO link (referring to the feature)
+
+### Important Notes
+
+1. **Capitalization:** Always capitalize the feature names (Talents, Pets, Ascensions)
+2. **Bold Not Required:** Unlike tooltips for game terms, feature links don't need `<strong>` tags
+3. **Link Style:** Use the inline style when no `.feature-link` class exists: `style="color: var(--accent-cyan); text-decoration: underline;"`
+4. **Avoid Over-linking:** Don't link every single mention - use judgment to link the first mention in a section or when contextually helpful
+
+### Examples
+
+**Good Examples:**
+```html
+<!-- First mention in a section - link it -->
+<p>
+  <a href="pets.html" class="feature-link">Pets</a> provide permanent stat bonuses. Each pet has unique abilities and can be leveled up with Pet Food.
+</p>
+
+<!-- Later mention in same section - don't need to link again -->
+<p>
+  You can unlock pets through various activities. Some pets require specific achievements.
+</p>
+
+<!-- Contextual link in FAQ -->
+<div class="faq-answer">
+  The <a href="ascensions.html" class="feature-link">Ascension</a> system unlocks after reaching level 100. Visit the Ascensions page for complete details on all prestige bonuses.
+</div>
+```
+
+**Bad Examples:**
+```html
+<!-- Don't link on the page itself -->
+<!-- On talents.html: -->
+<h1>Talents</h1> <!-- No link needed -->
+<p>The <a href="talents.html">Talents</a> system...</p> <!-- Already on this page! -->
+
+<!-- Don't link specific talent names -->
+<p>The <a href="talents.html">Luck Seeker</a> talent increases loot.</p> <!-- Wrong - this is a specific talent -->
+
+<!-- Don't over-link the same term -->
+<p>
+  <a href="pets.html">Pets</a> are great. <a href="pets.html">Pets</a> give bonuses. <a href="pets.html">Pets</a> can be leveled.
+</p>
+<!-- Should only link once -->
+```
+
 ## Quick Reference Checklist
 
 When adding game element mentions to a page:
@@ -992,3 +1163,11 @@ When adding game element mentions to a page:
 - [ ] Added Pet Food tooltips to ALL mentions of "Pet Food" across all pages
 - [ ] Included tooltips.js script tag before closing `</body>`
 - [ ] Updated tooltips.js with all tooltip content (item-types, affixes, rarity, orbs, experience, pet-food)
+- [ ] Added feature page links for Companions/Companion mentions (link to companions.html)
+- [ ] Added feature page links for Talents/Talent mentions (link to talents.html)
+- [ ] Added feature page links for Pets/Pet mentions (link to pets.html)
+- [ ] Added feature page links for Ascensions/Ascension mentions (link to ascensions.html)
+- [ ] Verified tooltips use dotted underline (border-bottom: 1px dotted)
+- [ ] Verified links use solid underline (text-decoration: underline)
+- [ ] Did not over-link the same term multiple times in one section
+- [ ] Did not link feature terms on their own pages (no "Talents" link on talents.html)

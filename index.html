@@ -223,6 +223,9 @@
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
       --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
+      /* Currencies */
+      --voxel-color: #E18700;
     }
 
     body {
@@ -237,6 +240,24 @@
     .game-name {
       color: var(--accent-orange);
       font-weight: 600;
+    }
+
+    /* Currency Highlighting */
+    .voxel-highlight {
+      color: var(--voxel-color);
+      font-weight: 600;
+    }
+
+    /* Feature Page Links */
+    .feature-link {
+      color: var(--accent-cyan);
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .feature-link:hover {
+      color: var(--accent-orange);
     }
 
     /* Header Image Section */
@@ -869,18 +890,10 @@
     <div class="about-section">
       <p>
         Welcome to <span class="game-name">Idle Adventure</span>! <br>
-        - A pixel style idle RPG where you battle fierce enemies with your team of <a href="companions.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan); font-weight: bold;">Companions</a>
-        and <a href="pets.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan); font-weight: bold;">Pets!</a>
-        Customize your character through your own <a href="talents.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan); font-weight: bold;">Talent
-          tree</a> and <a href="skills-viewer.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan); font-weight: bold;">Skill
-          combination</a> choices, and <a href="enchanting.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan); font-weight: bold;">Craft</a>
-        increasingly powerful equipment. Join a <a href="guild.html"
-          style="color: var(--accent-cyan); text-decoration: none; border-bottom: 1px dotted var(--accent-cyan); font-weight: bold;">Guild</a>
+        - A pixel style idle RPG where you battle fierce enemies with your team of <a href="companions.html" class="feature-link">Companions</a>
+        and <a href="pets.html" class="feature-link">Pets!</a>
+        Customize your character through your own <a href="talents.html" class="feature-link">Talent tree</a> and <a href="skills-viewer.html" class="feature-link">Skill combination</a> choices, and <a href="enchanting.html" class="feature-link">Craft</a>
+        increasingly powerful equipment. Join a <a href="guild.html" class="feature-link">Guild</a>
         to defeat epic bosses, or embark on a solo adventure!<br><br>
         <em style="color: var(--accent-cyan); font-size: 1.25rem;">Start your journey today!</em>
       </p>
@@ -892,8 +905,8 @@
     <div class="container">
       <h2>Adventure Awaits</h2>
       <p class="section-subtitle">
-        Discover a rich idle RPG experience with endless progression, strategic combat systems, loyal companions, pets,
-        talent trees, and guild boss battles
+        Discover a rich idle RPG experience with endless progression, strategic combat systems, loyal <a href="companions.html" class="feature-link">Companions</a>, <a href="pets.html" class="feature-link">Pets</a>,
+        <a href="talents.html" class="feature-link">Talent Trees</a>, and guild boss battles
       </p>
 
       <div class="features-grid">
@@ -957,7 +970,7 @@
           <div class="feature-card">
             <div class="feature-icon">🔨</div>
             <h3>Items & Crafting</h3>
-            <p>Craft powerful equipment with Voxel infusion and item optimization</p>
+            <p>Craft powerful equipment with <span class="voxel-highlight">Voxel</span> infusion and item optimization</p>
           </div>
         </a>
 

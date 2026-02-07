@@ -398,6 +398,12 @@
           </a>
         </li>
         <li>
+          <a href="minigames.html" class="menu-link">
+            <span class="feature-name">🎮 Mini Games</span>
+            <span class="feature-desc">Skill-based games: Fishing, Crossy Cube, and Space Invaders</span>
+          </a>
+        </li>
+        <li>
           <a href="talents.html" class="menu-link">
             <span class="feature-name">✨ Talents</span>
             <span class="feature-desc">Customize your character with powerful passives</span>

@@ -16,6 +16,43 @@
   <meta property="og:description" content="Complete guide to all mini games: fishing, Frogger, Space Invaders - mechanics and rewards.">
   <meta property="og:site_name" content="Idle Adventure Guide">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mini Games Guide – Idle Adventure">
+  <meta name="twitter:description" content="Complete guide to all mini games: fishing, Frogger, Space Invaders - mechanics and rewards.">
+  <meta property="og:url" content="https://pacmenco.github.io/minigames.html">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mini Games Guide – Idle Adventure | Fishing, Frogger & Space Invaders",
+    "description": "Complete guide to all mini games in Idle Adventure: Fishing, Crossy Cube (Frogger), and Space Invaders - mechanics, tips, and rewards",
+    "author": {
+      "@type": "Person",
+      "name": "PacmenCo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PacmenCo",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pacmenco.github.io/images/logo.png"
+      }
+    },
+    "datePublished": "2026-02-05",
+    "dateModified": "2026-02-05",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pacmenco.github.io/minigames.html"
+    },
+    "keywords": "Idle Adventure mini games, fishing game, Crossy Cube, Frogger, Space Invaders, mini game guide, skill-based games",
+    "articleSection": "Game Guide",
+    "about": {
+      "@type": "VideoGame",
+      "name": "Idle Adventure"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +67,12 @@
       --accent-purple: #7c3aed; --accent-orange: #f59e0b;
       --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
       --text-primary: #f3f4f6; --text-secondary: #9ca3af;
+
+      /* Currencies */
+      --pixel-color: #FBFF00;
+      --voxel-color: #E18700;
+      --crystal-color: #00FF00;
+      --gem-color: #A98FF4;
     }
     body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
 
@@ -38,6 +81,72 @@
       color: var(--accent-orange);
       font-weight: 600;
     }
+
+    /* Currency Highlighting */
+    .pixel-highlight {
+      color: var(--pixel-color);
+      font-weight: 600;
+    }
+
+    .voxel-highlight {
+      color: var(--voxel-color);
+      font-weight: 600;
+    }
+
+    .crystal-highlight {
+      color: var(--crystal-color);
+      font-weight: 600;
+    }
+
+    .gem-highlight {
+      color: var(--gem-color);
+      font-weight: 600;
+    }
+
+    /* Tooltip Styling */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
     .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
     .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
@@ -75,7 +184,7 @@
 
     <div class="content-section">
       <h2>Overview</h2>
-      <p>Mini games offer a fun diversion from the main adventure while providing valuable rewards. Each mini game has its own unique mechanics, progression systems, and reward structures. Perfect for when you want to actively engage with the game in a different way!</p>
+      <p><span class="game-name">Idle Adventure</span> features several engaging mini games that offer a fun diversion from the main adventure while providing valuable rewards. Each mini game has its own unique mechanics, progression systems, and reward structures. Perfect for when you want to actively engage with the game in a different way!</p>
     </div>
 
     <div class="minigames-grid">
@@ -88,7 +197,7 @@
       <a href="frogger.html" class="minigame-card">
         <div class="minigame-icon">🐸</div>
         <h3>Crossy Cube</h3>
-        <p>Navigate through dangerous roads and rivers in this classic arcade-style game. Collect Pixels, Crystals, Voxels, and gems while avoiding obstacles. Difficulty increases as you progress!</p>
+        <p>Navigate through dangerous roads and rivers in this classic arcade-style game. Collect <span class="pixel-highlight">Pixels</span>, <span class="crystal-highlight">Crystals</span>, <span class="voxel-highlight">Voxels</span>, and <span class="gem-highlight">Gems</span> while avoiding obstacles. Difficulty increases as you progress!</p>
       </a>
 
       <a href="spaceinvaders.html" class="minigame-card">
@@ -98,5 +207,6 @@
       </a>
     </div>
   </div>
+  <script src="tooltips.js"></script>
 </body>
 </html>

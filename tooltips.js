@@ -31,7 +31,10 @@ const TOOLTIP_CONTENT = {
   'pet-food': 'Feed to pets to instantly grant 250 XP - save for high-level pets!',
 
   // Progression
-  'experience': 'Gain XP to level up your character and unlock new content'
+  'experience': 'Gain XP to level up your character and unlock new content',
+
+  // Currencies
+  'gems': 'Premium currency earned from various activities - used for special purchases'
 };
 
 // Initialize tooltips on page load
