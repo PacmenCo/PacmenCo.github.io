@@ -287,6 +287,14 @@
           padding: 0.5rem 0.75rem 0.5rem 2.25rem;
         }
 
+        .search-results {
+          position: fixed;
+          left: 1rem;
+          right: 1rem;
+          top: 4rem;
+          width: auto;
+        }
+
         .faq-link {
           font-size: 0.85rem;
         }
@@ -342,7 +350,7 @@
             type="text"
             class="search-input"
             id="searchInput"
-            placeholder="Search site..."
+            placeholder="Search topic..."
             autocomplete="off"
           />
           <div class="search-results" id="searchResults"></div>
