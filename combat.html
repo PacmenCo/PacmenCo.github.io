@@ -10,7 +10,7 @@
   <meta name="description"
     content="Master Idle Adventure combat mechanics in 2026: Complete guide to damage calculation, HP regeneration, mana system, accuracy, evasion, status effects, and combat formulas.">
   <meta name="keywords"
-    content="Idle Adventure combat, combat mechanics, damage formula, stats guide, HP regeneration, mana, accuracy, evasion, status effects, combat system 2026">
+    content="Idle Adventure combat, combat mechanics, damage formula, stats guide, HP regeneration, mana, accuracy, evasion, glancing blows, level scaling, armor, armor penetration, resistance, endurance, damage reduction, level difference, status effects, combat system 2026">
   <meta name="author" content="PacmenCo">
   <meta name="theme-color" content="#0a0e1a">
   <link rel="canonical" href="https://pacmenco.github.io/combat.html">
@@ -101,6 +101,30 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Accuracy increases your hit chance against enemies, while Evasion reduces enemy hit chance against you. Both stats work together: net difference (Accuracy minus Evasion) determines actual hit chance at 1.2% per point. When facing high-evasion enemies, accuracy investment becomes crucial for reliable hits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are glancing blows and how do they affect damage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Glancing blows affect damage based on level differences. When you attack higher level enemies, your damage is reduced by 0.48% per level. When enemies attack you and they are higher level, they deal increased damage at 0.78% per level. For example, fighting an enemy 50 levels higher means you deal 76% damage while they deal 139% damage to you. In Ascension modes, enemies 30+ levels higher deal exponential damage up to 350%, creating a severe double penalty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does enemy level affect my armor's effectiveness?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enemy level significantly reduces armor effectiveness in two ways: higher level enemies have armor penetration that reduces your effective armor stat, and the damage reduction formula uses enemy level as a scaling factor. The impact grows exponentially with level difference. Armor works great against same-level enemies but becomes much weaker against enemies far above your level."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is resistance and why is it better than armor against high-level enemies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Resistance is a flat percentage damage reduction that applies after armor calculations. Unlike armor, resistance is NOT affected by enemy level, meaning it works at full effectiveness whether you are fighting enemies at your level or 100 levels above you. This makes resistance extremely valuable for challenging content. Sources include pets, talents, and the Endurance enchantment on equipment."
         }
       }
     ]
@@ -660,6 +684,9 @@
           <li><a href="#health">Health (HP)</a></li>
           <li><a href="#mana">Mana</a></li>
           <li><a href="#accuracy-evasion">Accuracy & Evasion</a></li>
+          <li><a href="#glancing-blows">Glancing Blows</a></li>
+          <li><a href="#armor">Armor & Damage Reduction</a></li>
+          <li><a href="#resistance">Resistance</a></li>
           <li><a href="#status-effects">Status Effects & Debuffs</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -1050,6 +1077,150 @@
         </p>
       </section>
 
+      <section class="content-section" id="glancing-blows">
+        <h2>Glancing Blows</h2>
+        <p>
+          When fighting enemies higher level than you, your attacks deal reduced damage through a mechanic called <strong>glancing blows</strong>. This damage penalty scales with the level difference between you and your target.
+        </p>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Player Damage Scaling</h3>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          If Player Level > Enemy Level: 102% damage (2% bonus)<br>
+          If Player Level ≤ Enemy Level: 100% + (Player Level - Enemy Level) × 0.48%<br><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">Minimum damage: 23% (at extreme level disadvantage)</span>
+        </p>
+
+        <p>
+          The damage reduction is gradual but noticeable when facing higher level enemies:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Same Level:</strong> 100% damage (no penalty)</li>
+          <li><strong>5 Levels Higher:</strong> 97.6% damage (2.4% reduction)</li>
+          <li><strong>10 Levels Higher:</strong> 95.2% damage (4.8% reduction)</li>
+          <li><strong>25 Levels Higher:</strong> 88% damage (12% reduction)</li>
+          <li><strong>50 Levels Higher:</strong> 76% damage (24% reduction)</li>
+          <li><strong>100 Levels Higher:</strong> 52% damage (48% reduction)</li>
+          <li><strong>160+ Levels Higher:</strong> 23% damage (77% reduction - capped)</li>
+        </ul>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Enemy Damage Scaling</h3>
+        <p>
+          Conversely, when enemies are higher level than you, they deal <strong>increased damage</strong> through the same glancing blows mechanic, but with additional bonuses:
+        </p>
+
+        <p
+          style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--accent-red); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-red); margin: 1rem 0;">
+          If Enemy Level ≤ Player Level: 87% minimum damage (enemies can't go below 87%)<br>
+          If Enemy Level > Player Level: 100% + (Enemy Level - Player Level) × 0.78%<br><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">In Ascension modes: Exponential scaling when 30+ levels higher (capped at 350% damage)</span>
+        </p>
+
+        <p>
+          Enemies higher level than you deal progressively more damage:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Same Level:</strong> 100% damage</li>
+          <li><strong>5 Levels Higher:</strong> 103.9% damage</li>
+          <li><strong>10 Levels Higher:</strong> 107.8% damage</li>
+          <li><strong>25 Levels Higher:</strong> 119.5% damage</li>
+          <li><strong>50 Levels Higher:</strong> 139% damage</li>
+          <li><strong>100 Levels Higher:</strong> 178% damage</li>
+          <li><strong>In Ascension, 30+ Levels Higher:</strong> Up to 350% damage (exponential scaling)</li>
+        </ul>
+
+        <div class="tip-box" style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent-red);">
+          <strong style="color: var(--accent-red);">⚠️ Danger:</strong> Fighting enemies significantly above your level is a double penalty - you deal less damage AND they deal more damage. In Ascension modes, high-level enemies can deal devastating damage with exponential scaling.
+        </div>
+      </section>
+
+      <section class="content-section" id="armor">
+        <h2>Armor & Damage Reduction</h2>
+        <p>
+          Armor reduces incoming damage from enemies, but its effectiveness depends heavily on the <strong>enemy's level</strong>. Higher level enemies have built-in armor penetration that reduces your effective armor.
+        </p>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Armor Effectiveness Formula</h3>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Scaling Factor = Enemy Level × 3^(0.0111 × Enemy Level + 1)<br><br>
+          Effective Armor = Your Armor - (0.4 × Scaling Factor)<br><br>
+          Damage Reduction % = Effective Armor / (Effective Armor + 0.5 × Scaling Factor)
+        </p>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Level-Based Armor Scaling</h3>
+        <p>
+          Enemy level affects armor in two ways:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Armor Penetration:</strong> Higher level enemies reduce your effective armor before calculating damage reduction</li>
+          <li><strong>Diminishing Returns:</strong> The damage reduction formula uses enemy level, making high armor less effective against high-level foes</li>
+          <li><strong>Exponential Scaling:</strong> Enemy level impact grows exponentially (3^level formula), making level differences critical</li>
+        </ul>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Practical Implications</h3>
+        <p>
+          This means that against same-level enemies, your armor works at full effectiveness. However, when fighting enemies even slightly higher level than you:
+        </p>
+        <ul class="feature-list">
+          <li>Your armor stat is reduced by their armor penetration</li>
+          <li>The remaining armor is less effective due to the level-scaling formula</li>
+          <li>The combined effect makes armor significantly weaker against higher level enemies</li>
+          <li>Stacking armor alone won't save you from enemies far above your level</li>
+        </ul>
+
+        <div class="tip-box">
+          <strong>💡 Strategy Tip:</strong> Armor is most effective when fighting enemies close to your level. Against much higher level enemies, focus on avoidance (evasion), HP, resistance, and damage output rather than relying solely on armor.
+        </div>
+      </section>
+
+      <section class="content-section" id="resistance">
+        <h2>Resistance</h2>
+        <p>
+          Resistance is a powerful defensive stat that provides <strong>flat percentage damage reduction</strong> that applies after armor calculations. Unlike armor, resistance is <strong>not affected by enemy level</strong>, making it extremely valuable against high-level enemies.
+        </p>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">How Resistance Works</h3>
+        <p
+          style="background: rgba(6, 182, 212, 0.05); border: 1px solid var(--accent-cyan); padding: 1rem; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--accent-cyan); margin: 1rem 0;">
+          Final Damage = Base Damage × Glancing Blows × (1 - Armor Reduction) × (1 - Resistance)<br><br>
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">Example: 30% resistance = you take 70% of incoming damage</span>
+        </p>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Sources of Resistance</h3>
+        <ul class="feature-list">
+          <li><strong><a href="pets.html" class="feature-link">Pet</a> Bonuses:</strong> Certain <a href="pets.html" class="feature-link">Pets</a> provide flat resistance bonuses when equipped or leveled</li>
+          <li><strong><a href="talents.html" class="feature-link">Talent</a> Nodes:</strong> Invest talent points to gain permanent resistance bonuses</li>
+          <li><strong><a href="enchanting-details.html#enchantment-types" class="feature-link">Endurance Enchantment</a>:</strong> Armor pieces can roll the Endurance enchantment for resistance</li>
+          <li><strong>Skills & Buffs:</strong> Certain skills and buffs can temporarily boost resistance (e.g., <strong><span class="tooltip" data-tooltip="fortify">Fortify</span></strong> skill, <span class="game-name">Acornelius</span> <strong><span class="tooltip" data-tooltip="squirrel-defense">Squirrel Defense</span></strong>)</li>
+        </ul>
+
+        <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">Resistance vs Armor</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+          <div style="background: rgba(124, 58, 237, 0.1); border: 2px solid var(--accent-purple); border-radius: 12px; padding: 1.5rem;">
+            <h4 style="color: var(--accent-purple); margin-bottom: 1rem; text-align: center;">Armor</h4>
+            <ul class="feature-list">
+              <li>Affected by enemy level</li>
+              <li>Less effective vs higher enemies</li>
+              <li>Exponential scaling penalty</li>
+            </ul>
+          </div>
+          <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid var(--accent-green); border-radius: 12px; padding: 1.5rem;">
+            <h4 style="color: var(--accent-green); margin-bottom: 1rem; text-align: center;">Resistance</h4>
+            <ul class="feature-list">
+              <li>NOT affected by enemy level</li>
+              <li>Full effectiveness vs all enemies</li>
+              <li>Flat percentage reduction</li>
+              <li>Scales equally at all levels</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tip-box" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent-green);">
+          <strong style="color: var(--accent-green);">💡 Pro Tip:</strong> Resistance becomes increasingly valuable as you progress. Since it works at full effectiveness regardless of enemy level, it's one of the best defensive stats for tackling challenging content and enemies above your level. Stack resistance alongside armor for maximum survivability!
+        </div>
+      </section>
+
       <section class="content-section" id="status-effects">
         <h2>Status Effects & Debuffs</h2>
         <p>
@@ -1106,6 +1277,27 @@
             Accuracy increases your hit chance against enemies, while Evasion reduces enemy hit chance against you. Both
             stats work together: net difference (Accuracy minus Evasion) determines actual hit chance at 1.2% per point.
             When facing high-evasion enemies, accuracy investment becomes crucial for reliable hits.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What are glancing blows and how do they affect damage?</summary>
+          <div class="faq-answer">
+            Glancing blows affect damage based on level differences. When YOU attack higher level enemies, your damage is reduced by 0.48% per level (e.g., 10 levels higher = 95.2% damage, 50 levels = 76%, 100 levels = 52%, capped at 23% minimum). When ENEMIES attack you and they're higher level, they deal increased damage at 0.78% per level (e.g., 10 levels higher = 107.8% damage, 50 levels = 139%, 100 levels = 178%). In Ascension modes, enemies 30+ levels higher deal exponential damage up to 350%. This creates a double penalty when fighting much stronger foes.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does enemy level affect my armor's effectiveness?</summary>
+          <div class="faq-answer">
+            Enemy level significantly reduces armor effectiveness in two ways: (1) Higher level enemies have armor penetration that reduces your effective armor stat, and (2) the damage reduction formula uses enemy level as a scaling factor, making armor less effective. The impact grows exponentially with level difference. This means armor works great against same-level enemies but becomes much weaker against enemies far above your level. Against high-level foes, diversify your defenses with HP, evasion, resistance, and damage output rather than relying solely on armor.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is resistance and why is it better than armor against high-level enemies?</summary>
+          <div class="faq-answer">
+            Resistance is a flat percentage damage reduction that applies after armor calculations. Unlike armor, resistance is NOT affected by enemy level, meaning it works at full effectiveness whether you're fighting enemies at your level or 100 levels above you. If you have 30% resistance, you always take 30% less damage regardless of enemy level. This makes resistance extremely valuable for challenging content. Sources include pets, talents, and the Endurance enchantment on equipment.
           </div>
         </details>
       </section>

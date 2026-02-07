@@ -34,7 +34,14 @@ const TOOLTIP_CONTENT = {
   'experience': 'Gain XP to level up your character and unlock new content',
 
   // Currencies
-  'gems': 'Premium currency earned from various activities - used for special purchases'
+  'gems': 'Premium currency earned from various activities - used for special purchases',
+
+  // Pets
+  'acornelius': 'A squirrel companion pet with a defense ability that grants resistance when equipped',
+
+  // Skills & Abilities
+  'fortify': 'Active skill that temporarily increases your resistance, reducing incoming damage for a duration',
+  'squirrel-defense': 'Acornelius\' active ability: reduces damage taken by 50% for a duration'
 };
 
 // Initialize tooltips on page load
