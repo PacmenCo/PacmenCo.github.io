@@ -41,7 +41,10 @@ const TOOLTIP_CONTENT = {
 
   // Skills & Abilities
   'fortify': 'Active skill that temporarily increases your resistance, reducing incoming damage for a duration',
-  'squirrel-defense': 'Acornelius\' active ability: reduces damage taken by 50% for a duration'
+  'squirrel-defense': 'Acornelius\' active ability: reduces damage taken by 50% for a duration',
+
+  // Enchantments
+  'endurance-enchantment': 'Armor enchantment that grants +3% resistance per enchantment level'
 };
 
 // Initialize tooltips on page load
