@@ -376,6 +376,10 @@
           {
             "type": "Chain Lightning",
             "description": "Damage spreads to nearby enemies"
+          },
+          {
+            "type": "Shock",
+            "description": "Debuffs enemy to take extra damage for a duration"
           }
         ]
       },
@@ -388,7 +392,8 @@
       "notes": [
         "High-Risk category",
         "Excellent for grouped enemies",
-        "Chain effect"
+        "Chain effect",
+        "Applies Shock debuff: enemy takes bonus damage"
       ]
     },
     {

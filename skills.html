@@ -129,7 +129,7 @@
         "name": "What is the Charge system?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Charge system allows you to build up power over time. Use Charged Strike to generate charges, then consume them with Static Discharge for massive damage and no mana cost! This creates high burst damage windows when you've built enough charges."
+          "text": "The Charge system allows you to build up power over time. Use Charged Strike to generate charges, then consume them with Static Discharge for massive damage. Static Discharge also applies the Shock debuff, making enemies take extra damage for a duration."
         }
       },
       {
@@ -137,7 +137,7 @@
         "name": "What are skill effects?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Skill effects are special properties that change combat mechanics. Common effects include Poison (reduce enemy HP regen), Life Steal (heal from damage), Armor Break (reduce enemy armor), and Bleed (damage over time). Many skills can have multiple effects active simultaneously."
+          "text": "Skill effects are special properties that change combat mechanics. Common effects include Poison (reduce enemy HP regen), Life Steal (heal from damage), Armor Break (reduce enemy armor), Bleed (damage over time), and Shock (enemy takes bonus damage). Many skills can have multiple effects active simultaneously."
         }
       },
       {
@@ -418,9 +418,9 @@
       <p>Some skills build or consume <strong>charges</strong>:</p>
       <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem; margin-bottom: 1rem;">
         <li><strong>Charged Strike:</strong> Builds charges over time</li>
-        <li><strong>Static Discharge:</strong> Consumes charges for massive damage and no mana cost!</li>
+        <li><strong>Static Discharge:</strong> Consumes charges for massive damage and applies <strong>Shock</strong>, a debuff that makes enemies take extra damage!</li>
       </ul>
-      <p>Strategy: Use Charged Strike to build up power, then unleash Static Discharge when charges are high.</p>
+      <p>Strategy: Use Charged Strike to build up power, then unleash Static Discharge when charges are high. The Shock debuff amplifies all subsequent damage.</p>
 
       <h3 style="color: var(--accent-cyan); margin-top: 1.5rem; margin-bottom: 0.75rem;">🩸 Low Health Scaling</h3>
       <p>Skills like <strong>Vengeance</strong> deal more damage when your HP is low. The lower your health, the higher the damage multiplier. High risk, high reward!</p>
@@ -432,6 +432,7 @@
         <li><strong>Life Steal:</strong> Heal for a percentage of damage dealt</li>
         <li><strong>Armor Break:</strong> Reduces enemy armor by 15% per stack (max 3 stacks)</li>
         <li><strong>Bleed:</strong> Damage over time effect</li>
+        <li><strong>Shock:</strong> Enemy takes bonus damage for a duration</li>
       </ul>
     </div>
 
@@ -469,14 +470,14 @@
       <details class="faq-item">
         <summary class="faq-question">What is the Charge system?</summary>
         <div class="faq-answer">
-          The Charge system allows you to build up power over time. Use <strong>Charged Strike</strong> to generate charges, then consume them with <strong>Static Discharge</strong> for massive damage and no mana cost! This creates high burst damage windows when you've built enough charges.
+          The Charge system allows you to build up power over time. Use <strong>Charged Strike</strong> to generate charges, then consume them with <strong>Static Discharge</strong> for massive damage. Static Discharge also applies the <strong>Shock</strong> debuff, making enemies take extra damage for a duration.
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">What are skill effects?</summary>
         <div class="faq-answer">
-          Skill effects are special properties that change combat mechanics. Common effects include <strong>Poison</strong> (reduce enemy HP regen), <strong>Life Steal</strong> (heal from damage), <strong>Armor Break</strong> (reduce enemy armor), and <strong>Bleed</strong> (damage over time). Many skills can have multiple effects active simultaneously.
+          Skill effects are special properties that change combat mechanics. Common effects include <strong>Poison</strong> (reduce enemy HP regen), <strong>Life Steal</strong> (heal from damage), <strong>Armor Break</strong> (reduce enemy armor), <strong>Bleed</strong> (damage over time), and <strong>Shock</strong> (enemy takes bonus damage). Many skills can have multiple effects active simultaneously.
         </div>
       </details>
 
