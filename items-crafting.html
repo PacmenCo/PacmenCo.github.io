@@ -982,6 +982,75 @@
         </ul>
       </section>
 
+      <section class="content-section" id="mining-stats">
+        <h2>Mining Pickaxe Stats</h2>
+        <p>
+          Mining pickaxes work differently from combat weapons. They have unique stats that determine how
+          effectively you mine ore veins.
+        </p>
+
+        <h3>Mining Proficiency</h3>
+        <p>
+          Mining Proficiency determines how well your pickaxe handles veins of different difficulty. Each vein
+          has a <strong>Vein Difficulty</strong> value, and your proficiency is compared against it:
+        </p>
+        <ul class="feature-list">
+          <li><strong style="color: #00FF00;">Green</strong> (Proficiency &ge; Difficulty): You deal bonus damage (+4% per point above)</li>
+          <li><strong style="color: #FFD700;">Yellow</strong> (Within 5 points): You deal slightly reduced damage</li>
+          <li><strong style="color: #FF0000;">Red</strong> (Proficiency &lt; Difficulty): Damage is heavily reduced (×0.9 per point below)</li>
+        </ul>
+        <p>
+          Mining Proficiency comes from your pickaxe's base stats. Higher <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> pickaxes
+          (<span class="rarity-epic">Epic</span> and above) gain +1 proficiency per rarity tier above <span class="rarity-rare">Rare</span>.
+        </p>
+
+        <h3>Pickaxe Damage</h3>
+        <p>
+          Each swing deals damage based on your pickaxe's <strong>power</strong> stat, modified by proficiency
+          and a random range (80-100% of base power per hit). Using a non-pickaxe weapon on mining veins results
+          in heavily reduced damage.
+        </p>
+
+        <h3>Mining Affixes</h3>
+        <p>
+          Mining pickaxes have their own set of <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>, different from combat items:
+        </p>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Affix Name</th>
+                <th>Effect</th>
+                <th>Roll Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="stat-highlight">Critical Strike Chance %</span></td>
+                <td>Directly increases <strong>critical hit</strong> chance while mining</td>
+                <td>2.3% - 5.5%</td>
+              </tr>
+              <tr>
+                <td><span class="stat-highlight">Extra Speed %</span></td>
+                <td>Directly increases <strong>mining speed</strong></td>
+                <td>2.3% - 5.5%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <strong>Note:</strong> Unlike combat items which use rating-based stats, mining pickaxe <strong><span class="tooltip" data-tooltip="affixes">Affixes</span></strong>
+          are <strong>direct percentage bonuses</strong> — no conversion formula needed.
+        </div>
+
+        <h3>Vein Difficulty Scaling</h3>
+        <p>
+          As you progress to harder areas, vein difficulty increases. Each game difficulty level adds
+          <strong>+5</strong> to the vein's base difficulty. Keep upgrading your pickaxe to maintain efficient mining.
+        </p>
+      </section>
+
       <section class="content-section" id="conclusion">
         <h2>Conclusion</h2>
         <p>
