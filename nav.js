@@ -4,6 +4,17 @@
 (function() {
   'use strict';
 
+  // Google Analytics
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-CCS1HHFYFP';
+  document.head.appendChild(gaScript);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CCS1HHFYFP');
+
   // Inject Lunr.js library
   const lunrScript = document.createElement('script');
   lunrScript.src = 'https://unpkg.com/lunr@2.3.9/lunr.min.js';
