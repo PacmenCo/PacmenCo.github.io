@@ -44,7 +44,10 @@ const TOOLTIP_CONTENT = {
   'squirrel-defense': 'Acornelius\' active ability: reduces damage taken by 50% for a duration',
 
   // Enchantments
-  'endurance-enchantment': 'Armor enchantment that grants +3% resistance per enchantment level'
+  'endurance-enchantment': 'Armor enchantment that grants +3% resistance per enchantment level',
+
+  // Ascension
+  'ascension-perks': 'Permanent upgrades unlocked with Dream Points after completing Normal Ascensions'
 };
 
 // Initialize tooltips on page load

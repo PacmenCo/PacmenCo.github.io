@@ -1072,6 +1072,20 @@ Learn about <a href="ascensions.html" class="feature-link">Ascensions</a> and th
 The <a href="ascensions.html" class="feature-link">Ascension</a> system provides endgame progression.
 ```
 
+#### 5. Skills / Skill
+**Link to:** `skills.html`
+
+```html
+<!-- Singular -->
+Each <a href="skills.html" class="feature-link">Skill</a> has unique effects and cooldowns.
+
+<!-- Plural -->
+Unlock powerful <a href="skills.html" class="feature-link">Skills</a> to use in combat.
+
+<!-- Inline mention -->
+The <a href="skills.html" class="feature-link">Skills</a> system lets you customize your combat abilities.
+```
+
 ### When to Apply
 
 **DO apply feature links when:**
@@ -1086,13 +1100,15 @@ The <a href="ascensions.html" class="feature-link">Ascension</a> system provides
 - In meta tags, JSON-LD structured data, or image alt text
 - In navigation menus (already linked there)
 - **In bullet points or list items** (keep lists clean and scannable)
-- When referring to a specific talent/pet/ascension NAME (not the system itself)
+- When referring to a specific talent/pet/ascension/skill NAME (not the system itself)
   - Example: "Luck Seeker talent" - don't link (it's a specific talent name)
   - Example: "The Talents system" - DO link (referring to the feature)
+  - Example: "Ascension Skill - MoreSkill" - don't link (it's a specific ascension skill)
+  - Example: "The Skills system" - DO link (referring to the feature)
 
 ### Important Notes
 
-1. **Capitalization:** Always capitalize the feature names (Talents, Pets, Ascensions)
+1. **Capitalization:** Always capitalize the feature names (Talents, Pets, Ascensions, Skills)
 2. **Bold Not Required:** Unlike tooltips for game terms, feature links don't need `<strong>` tags
 3. **Link Style:** Use the inline style when no `.feature-link` class exists: `style="color: var(--accent-cyan); text-decoration: underline;"`
 4. **Avoid Over-linking:** Don't link every single mention - use judgment to link the first mention in a section or when contextually helpful
