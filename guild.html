@@ -356,6 +356,16 @@
       font-weight: 600;
     }
 
+    .sigil-highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+    .guild-xp-highlight {
+      color: #2E8B57;
+      font-weight: 600;
+    }
+
     .valor-highlight {
       color: var(--valor-color);
       font-weight: 600;
@@ -568,7 +578,7 @@
         <h2>What Are Guilds?</h2>
         <p>
           Guilds are collaborative player organizations that bring together up to 5 adventurers to participate in
-          cooperative activities, earn guild (Sigils) and individual (<span class="valor-highlight">Valor Points</span>) rewards, and benefit from powerful
+          cooperative activities, earn guild (<span class="sigil-highlight">Sigils</span>) and individual (<span class="valor-highlight">Valor Points</span>) rewards, and benefit from powerful
           guild-wide buffs. Guilds provide
           a structured social experience with progression systems, communication, and exclusive cooperative
           content like guild boss raids.
@@ -654,19 +664,19 @@
         <h3>Guild Leveling System</h3>
         <p>
           Guilds have their own progression system separate from player levels. As your guild defeats bosses
-          and completes activities, it earns Guild XP and levels up.
+          and completes activities, it earns <span class="guild-xp-highlight">Guild XP</span> and levels up.
         </p>
         <div class="formula-box">
           XP Required to Level = Current Level × 250
         </div>
         <ul class="feature-list">
-          <li><strong>Level 1 → 2:</strong> 250 XP required</li>
-          <li><strong>Level 2 → 3:</strong> 500 XP required</li>
-          <li><strong>Level 5 → 6:</strong> 1,250 XP required</li>
-          <li><strong>Level 10 → 11:</strong> 2,500 XP required</li>
+          <li><strong>Level 1 → 2:</strong> <span class="guild-xp-highlight">250 XP</span> required</li>
+          <li><strong>Level 2 → 3:</strong> <span class="guild-xp-highlight">500 XP</span> required</li>
+          <li><strong>Level 5 → 6:</strong> <span class="guild-xp-highlight">1,250 XP</span> required</li>
+          <li><strong>Level 10 → 11:</strong> <span class="guild-xp-highlight">2,500 XP</span> required</li>
         </ul>
         <p>
-          Guild XP is earned primarily through guild boss participation (1 XP per 1% boss HP removed).
+          <span class="guild-xp-highlight">Guild XP</span> is earned primarily through guild boss participation (<span class="guild-xp-highlight">1 XP</span> per 1% boss HP removed).
         </p>
         <div class="info-box">
           <strong>Note:</strong> Guild levels currently track progression but do not provide bonuses yet.
@@ -675,16 +685,16 @@
 
         <h3>Sigils (Guild Currency)</h3>
         <p>
-          Sigils are the guild's shared currency, earned by all members during guild boss raids.
+          <span class="sigil-highlight">Sigils</span> are the guild's shared currency, earned by all members during guild boss raids.
         </p>
         <ul class="feature-list">
-          <li><strong>Earned From:</strong> Guild boss damage contributions (1 Sigil per 10% HP removed)</li>
-          <li><strong>Lifetime Sigils:</strong> Total Sigils ever earned by the guild</li>
-          <li><strong>Shared Resource:</strong> Sigils belong to the entire guild, not individual players</li>
+          <li><strong>Earned From:</strong> Guild boss damage contributions (<span class="sigil-highlight">1 Sigil</span> per 10% HP removed)</li>
+          <li><strong>Lifetime <span class="sigil-highlight">Sigils</span>:</strong> Total <span class="sigil-highlight">Sigils</span> ever earned by the guild</li>
+          <li><strong>Shared Resource:</strong> <span class="sigil-highlight">Sigils</span> belong to the entire guild, not individual players</li>
         </ul>
         <div class="warning-box">
-          <strong>Future Feature:</strong> Sigils are currently tracked but cannot be spent yet. Future updates
-          will add guild upgrades, perks, and other purchases available with Sigils.
+          <strong>Future Feature:</strong> <span class="sigil-highlight">Sigils</span> are currently tracked but cannot be spent yet. Future updates
+          will add guild upgrades, perks, and other purchases available with <span class="sigil-highlight">Sigils</span>.
         </div>
       </section>
 
@@ -891,7 +901,7 @@
       <section class="content-section" id="rewards">
         <h2>Rewards System</h2>
         <p>
-          Guild boss participation earns three types of rewards: personal <span class="valor-highlight">Valor Points</span>, guild Sigils, and guild XP.
+          Guild boss participation earns three types of rewards: personal <span class="valor-highlight">Valor Points</span>, guild <span class="sigil-highlight">Sigils</span>, and <span class="guild-xp-highlight">Guild XP</span>.
           All rewards are based on your guild's performance, not individual contribution.
         </p>
 
@@ -916,13 +926,13 @@
           Sigils = (Guild HP Removed ÷ 10%) + Kill Bonus
         </div>
         <ul class="feature-list">
-          <li><strong>1 Sigil</strong> per 10% of boss HP removed</li>
-          <li><strong>5 Bonus Sigils</strong> if the boss is killed</li>
-          <li><strong>Maximum:</strong> 15 Sigils (10 from damage + 5 bonus)</li>
-          <li><strong>Minimum:</strong> 1 Sigil if any damage was dealt (even 1%)</li>
+          <li><strong><span class="sigil-highlight">1 Sigil</span></strong> per 10% of boss HP removed</li>
+          <li><strong><span class="sigil-highlight">5 Bonus Sigils</span></strong> if the boss is killed</li>
+          <li><strong>Maximum:</strong> <span class="sigil-highlight">15 Sigils</span> (10 from damage + 5 bonus)</li>
+          <li><strong>Minimum:</strong> <span class="sigil-highlight">1 Sigil</span> if any damage was dealt (even 1%)</li>
         </ul>
         <p>
-          Sigils belong to the entire guild and are likely used for guild upgrades and features.
+          <span class="sigil-highlight">Sigils</span> belong to the entire guild and are likely used for guild upgrades and features.
         </p>
 
         <h3>Guild XP (Separate System)</h3>
@@ -930,18 +940,18 @@
           Guild XP = (Guild HP Removed ÷ 1%) + Kill Bonus
         </div>
         <ul class="feature-list">
-          <li><strong>1 Guild XP</strong> per 1% of boss HP removed</li>
-          <li><strong>25 Bonus Guild XP</strong> if the boss is killed</li>
-          <li><strong>Maximum:</strong> 125 Guild XP (100 from damage + 25 bonus)</li>
+          <li><strong><span class="guild-xp-highlight">1 Guild XP</span></strong> per 1% of boss HP removed</li>
+          <li><strong><span class="guild-xp-highlight">25 Bonus Guild XP</span></strong> if the boss is killed</li>
+          <li><strong>Maximum:</strong> <span class="guild-xp-highlight">125 Guild XP</span> (100 from damage + 25 bonus)</li>
         </ul>
 
         <h3>Reward Examples</h3>
         <ul class="feature-list">
-          <li>100% HP removed (boss killed): <span class="valor-highlight">25 Valor</span>, <span class="stat-highlight">15 Sigils, 125 Guild XP</span></li>
-          <li>95% HP removed: <span class="valor-highlight">19 Valor</span>, <span class="stat-highlight">9 Sigils, 95 Guild XP</span></li>
-          <li>50% HP removed: <span class="valor-highlight">10 Valor</span>, <span class="stat-highlight">5 Sigils, 50 Guild XP</span></li>
-          <li>25% HP removed: <span class="valor-highlight">5 Valor</span>, <span class="stat-highlight">2 Sigils, 25 Guild XP</span></li>
-          <li>1% HP removed: <span class="valor-highlight">0 Valor</span>, <span class="stat-highlight">1 Sigil, 1 Guild XP</span></li>
+          <li>100% HP removed (boss killed): <span class="valor-highlight">25 Valor</span>, <span class="sigil-highlight">15 Sigils</span>, <span class="guild-xp-highlight">125 Guild XP</span></li>
+          <li>95% HP removed: <span class="valor-highlight">19 Valor</span>, <span class="sigil-highlight">9 Sigils</span>, <span class="guild-xp-highlight">95 Guild XP</span></li>
+          <li>50% HP removed: <span class="valor-highlight">10 Valor</span>, <span class="sigil-highlight">5 Sigils</span>, <span class="guild-xp-highlight">50 Guild XP</span></li>
+          <li>25% HP removed: <span class="valor-highlight">5 Valor</span>, <span class="sigil-highlight">2 Sigils</span>, <span class="guild-xp-highlight">25 Guild XP</span></li>
+          <li>1% HP removed: <span class="valor-highlight">0 Valor</span>, <span class="sigil-highlight">1 Sigil</span>, <span class="guild-xp-highlight">1 Guild XP</span></li>
         </ul>
 
         <h3>Claiming Rewards</h3>
@@ -1072,7 +1082,7 @@
           <summary>What are guilds in Idle Adventure?</summary>
           <div class="faq-answer">
             Guilds are cooperative groups where players team up to fight powerful guild bosses, earn rewards, and access
-            guild buffs. Guilds have their own progression system with <span class="valor-highlight">Valor Points</span> (personal currency) and Sigils
+            guild buffs. Guilds have their own progression system with <span class="valor-highlight">Valor Points</span> (personal currency) and <span class="sigil-highlight">Sigils</span>
             (permanent guild currency) that can be spent in the Valor Shop for exclusive skills and guild buffs.
           </div>
         </details>
@@ -1087,9 +1097,9 @@
         </details>
 
         <details class="faq-item">
-          <summary>What are <span class="valor-highlight">Valor Points</span> and Sigils?</summary>
+          <summary>What are <span class="valor-highlight">Valor Points</span> and <span class="sigil-highlight">Sigils</span>?</summary>
           <div class="faq-answer">
-            <span class="valor-highlight">Valor</span> is personal currency earned by defeating guild bosses. Sigils are permanent guild currency earned from
+            <span class="valor-highlight">Valor</span> is personal currency earned by defeating guild bosses. <span class="sigil-highlight">Sigils</span> are permanent guild currency earned from
             guild participation. Both are earned based on your guild's performance (not individual contribution). <span class="valor-highlight">Valor</span>
             can be spent in the Valor Shop for exclusive skills and guild buffs.
           </div>
