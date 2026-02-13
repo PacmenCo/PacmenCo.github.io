@@ -23,6 +23,7 @@ const TOOLTIP_CONTENT = {
   'orb-soulstone': 'Adds +1 max soul level',
 
   // Ascension Difficulties
+  'ascension-modes': 'Normal, Hard, and Hardcore - each Ascension mode increases enemy difficulty and grants stronger permanent bonuses',
   'ascension-normal': 'Easiest difficulty - resets level but keeps items, grants Dream Points',
   'ascension-hard': 'Medium difficulty - locks items/currencies, increased enemy stats, grants stronger bonuses',
   'ascension-hardcore': 'Extreme difficulty - permadeath, highest enemy stats, most powerful bonuses',
