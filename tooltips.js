@@ -58,7 +58,8 @@ const TOOLTIP_CONTENT = {
   'resistance': 'Flat percentage damage reduction that works at full effectiveness regardless of enemy level',
   'loot-chance': 'Increases the probability of enemies dropping items',
   'open-wounds': 'Causes bleeding damage over time on hit',
-  'reflect-damage': 'Returns a percentage of incoming damage back to the attacker'
+  'reflect-damage': 'Returns a percentage of incoming damage back to the attacker',
+  'talent-points': 'Permanent passive bonuses for your character - earn 1 Talent Point for each Rank level up'
 };
 
 // Initialize tooltips on page load
