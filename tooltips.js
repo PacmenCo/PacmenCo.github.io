@@ -38,7 +38,7 @@ const TOOLTIP_CONTENT = {
   'gems': 'Premium currency earned from various activities - used for special purchases',
 
   // Pets
-  'acornelius': 'An acorn Companion pet',
+  'acornelius': 'An acorn Companion',
 
   // Skills & Abilities
   'fortify': 'Active skill that temporarily increases your resistance, reducing incoming damage for a duration',
