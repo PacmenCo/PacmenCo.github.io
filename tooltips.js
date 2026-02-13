@@ -38,7 +38,7 @@ const TOOLTIP_CONTENT = {
   'gems': 'Premium currency earned from various activities - used for special purchases',
 
   // Pets
-  'acornelius': 'A squirrel companion pet with a defense ability that grants resistance when equipped',
+  'acornelius': 'An acorn Companion pet',
 
   // Skills & Abilities
   'fortify': 'Active skill that temporarily increases your resistance, reducing incoming damage for a duration',
