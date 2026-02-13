@@ -66,75 +66,10 @@
 
   <!-- Shared Navigation Component -->
   <script src="nav.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="colors.css">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-dark: #0a0e1a;
-      --bg-dark-2: #141829;
-      --bg-card: #1a1f35;
-      --accent-purple: #7c3aed;
-      --accent-orange: #f59e0b;
-      --accent-cyan: #06b6d4;
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
-
-      /* Alteration Orbs */
-      --orb-soulstone-color: #a21b90;
-    }
-
-    body {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-    }
-
-    /* Game Name Styling */
-    .game-name {
-      color: var(--accent-orange);
-      font-weight: 600;
-    }
-
-    /* Orb Highlighting */
-    .orb-soulstone {
-      color: var(--orb-soulstone-color);
-      font-weight: 600;
-    }
-
-    /* Main Content */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 6rem 2rem 3rem;
-    }
-
-    .hero-section {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .page-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-    }
-
-    .page-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
     .intro-section {
       background: var(--bg-card);
       border-radius: 16px;
@@ -229,7 +164,7 @@
     }
 
     .raid-highlights li:before {
-      content: "✦";
+      content: "\2726";
       position: absolute;
       left: 0;
       color: var(--accent-orange);
@@ -252,26 +187,6 @@
     }
 
     @media (max-width: 768px) {
-      .nav-bar {
-        padding: 0.75rem 1rem;
-      }
-
-      .nav-logo {
-        font-size: 0.8rem;
-      }
-
-      .container {
-        padding: 5rem 1rem 2rem;
-      }
-
-      .hero-section {
-        margin-bottom: 2rem;
-      }
-
-      .page-subtitle {
-        font-size: 1rem;
-      }
-
       .intro-section {
         padding: 1.5rem;
       }

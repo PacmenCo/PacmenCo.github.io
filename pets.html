@@ -163,253 +163,24 @@
 
   <!-- Shared Navigation Component -->
   <script src="nav.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="colors.css">
 
   <!-- Tooltips -->
   <script src="tooltips.js"></script>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Page-specific: Emoji */
+    .feature-list li:before {
+      content: "🐾";
     }
 
-    :root {
-      --bg-dark: #0a0e1a;
-      --bg-dark-2: #141829;
-      --bg-card: #1a1f35;
-      --accent-purple: #7c3aed;
-      --accent-orange: #f59e0b;
-      --accent-cyan: #06b6d4;
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
-    }
-
-    body {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-    }
-
-    /* Game Name Styling */
-    .game-name {
-      color: var(--accent-orange);
-      font-weight: 600;
-    }
-
-    /* Main Content */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 6rem 2rem 3rem;
-    }
-
-    .hero-section {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .page-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-    }
-
-    .page-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .reading-time {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    .content-section {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border: 2px solid rgba(124, 58, 237, 0.2);
-    }
-
-    .content-section h2 {
-      color: var(--accent-orange);
-      margin-bottom: 1rem;
-      font-size: 1.75rem;
-    }
-
+    /* Page-specific: h3 font-size override */
     .content-section h3 {
-      color: var(--accent-cyan);
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
       font-size: 1.35rem;
     }
 
-    .content-section p {
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .feature-list li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
-      color: var(--text-secondary);
-    }
-
-    .feature-list li:last-child {
-      border-bottom: none;
-    }
-
-    .feature-list li:before {
-      content: "🐾";
-      margin-right: 0.75rem;
-    }
-
-    /* Table of Contents */
-    .table-of-contents {
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(245, 158, 11, 0.05));
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 3rem;
-      border: 2px solid rgba(124, 58, 237, 0.4);
-      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
-    }
-
-    .table-of-contents h2 {
-      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .toc-list {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 0.75rem;
-    }
-
-    .toc-list li a {
-      color: var(--accent-cyan);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      background: rgba(10, 14, 26, 0.6);
-      border: 1px solid rgba(124, 58, 237, 0.3);
-      font-weight: 500;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .toc-list li a:before {
-      content: "→";
-      margin-right: 0.75rem;
-      color: var(--accent-orange);
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-
-    .toc-list li a:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .toc-list li a:hover {
-      color: var(--accent-orange);
-      background: rgba(124, 58, 237, 0.2);
-      border-color: var(--accent-orange);
-      transform: translateX(5px);
-      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
-    }
-
-    .toc-list li a:hover:before {
-      transform: translateX(5px);
-    }
-
-    .toc-list li a:hover:after {
-      transform: scaleX(1);
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      margin-top: 3rem;
-    }
-
-    .faq-item {
-      background: rgba(10, 14, 26, 0.4);
-      border: 1px solid rgba(124, 58, 237, 0.2);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      overflow: visible;
-    }
-
-    .faq-item summary {
-      cursor: pointer;
-      padding: 1rem 1.5rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      list-style: none;
-      user-select: none;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary:hover {
-      background: rgba(124, 58, 237, 0.1);
-      color: var(--accent-orange);
-    }
-
-    .faq-item summary::before {
-      content: "▶";
-      display: inline-block;
-      margin-right: 0.75rem;
-      transition: transform 0.3s ease;
-      color: var(--accent-orange);
-    }
-
-    .faq-item[open] summary::before {
-      transform: rotate(90deg);
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1rem 3.25rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-
-    /* Info Boxes */
+    /* Page-specific: Color overrides – info-box cyan */
     .info-box {
       background: rgba(6, 182, 212, 0.1);
       border-left: 4px solid var(--accent-cyan);
@@ -419,6 +190,11 @@
       color: var(--text-secondary);
     }
 
+    .info-box strong {
+      color: var(--accent-cyan);
+    }
+
+    /* Page-specific: Color overrides – warning-box orange */
     .warning-box {
       background: rgba(245, 158, 11, 0.1);
       border-left: 4px solid var(--accent-orange);
@@ -428,7 +204,17 @@
       color: var(--text-secondary);
     }
 
-    /* System Card */
+    .warning-box strong {
+      color: var(--accent-orange);
+    }
+
+    /* Page-specific: Color override – stat-highlight cyan */
+    .stat-highlight {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    /* Page-specific: System Card */
     .system-card {
       background: var(--bg-card);
       border-radius: 12px;
@@ -488,7 +274,7 @@
       transform: translateX(4px);
     }
 
-    /* Tables */
+    /* Page-specific: Stats Table */
     .stats-table {
       width: 100%;
       border-collapse: collapse;
@@ -511,126 +297,6 @@
 
     .stats-table tr:hover {
       background: rgba(124, 58, 237, 0.05);
-    }
-
-    .stat-highlight {
-      color: var(--accent-cyan);
-      font-weight: 600;
-    }
-
-    /* Tooltip Styling */
-    .tooltip {
-      position: relative;
-      border-bottom: 1px dotted var(--accent-cyan);
-      cursor: help;
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 200px;
-      background-color: var(--bg-card);
-      color: var(--text-primary);
-      text-align: left;
-      border-radius: 8px;
-      padding: 0.75rem;
-      border: 2px solid var(--accent-cyan);
-      position: absolute;
-      z-index: 1000;
-      bottom: 125%;
-      left: 50%;
-      margin-left: -100px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    .tooltip .tooltiptext::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: var(--accent-cyan) transparent transparent transparent;
-    }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    /* Tooltips in FAQ sections appear below to avoid clipping */
-    .faq-section .tooltip .tooltiptext,
-    .faq-item .tooltip .tooltiptext,
-    details .tooltip .tooltiptext {
-      bottom: auto;
-      top: 125%;
-      margin-top: 0;
-    }
-
-    .faq-section .tooltip .tooltiptext::after,
-    .faq-item .tooltip .tooltiptext::after,
-    details .tooltip .tooltiptext::after {
-      top: auto;
-      bottom: 100%;
-      border-color: transparent transparent var(--accent-cyan) transparent;
-    }
-
-    /* Rarity Highlighting */
-    .rarity-broken {
-      color: #6b7280;
-    }
-
-    .rarity-poor {
-      color: #9ca3af;
-    }
-
-    .rarity-common {
-      color: #ffffff;
-    }
-
-    .rarity-uncommon {
-      color: #10b981;
-    }
-
-    .rarity-rare {
-      color: #3b82f6;
-    }
-
-    .rarity-epic {
-      color: #a855f7;
-    }
-
-    .rarity-legendary {
-      color: #f59e0b;
-    }
-
-    .rarity-artifact {
-      color: #ef4444;
-    }
-
-    /* Pet Food Styling */
-    .pet-food {
-      color: #D896FF;
-      font-weight: 600;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding: 5rem 1rem 2rem;
-      }
-
-      .content-section {
-        padding: 1.5rem;
-      }
-
-      .toc-list {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>

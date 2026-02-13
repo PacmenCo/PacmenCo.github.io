@@ -1,0 +1,190 @@
+/* ===================================
+   Idle Adventure – Color Utility Classes
+   =================================== */
+
+/* Currency Highlights */
+.voxel-highlight {
+  color: #E18700;
+  font-weight: 600;
+}
+
+.crystal-highlight {
+  color: #00FF00;
+  font-weight: 600;
+}
+
+.pixel-highlight {
+  color: #FBFF00;
+  font-weight: 600;
+}
+
+.experience-highlight,
+.experience {
+  color: #00FF00;
+  font-weight: 600;
+}
+
+.valor-highlight {
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.pet-food-highlight,
+.pet-food {
+  color: #D896FF;
+  font-weight: 600;
+}
+
+.gem-highlight {
+  color: #A98FF4;
+  font-weight: 600;
+}
+
+/* Guild Highlights */
+.sigil-highlight {
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.guild-xp-highlight {
+  color: #2E8B57;
+  font-weight: 600;
+}
+
+.guild-boss-highlight {
+  color: #DC143C;
+  font-weight: 600;
+}
+
+/* Ascension Highlights */
+.ascension-normal {
+  color: #00FF00;
+  font-weight: 600;
+}
+
+.ascension-hard {
+  color: #FF0000;
+  font-weight: 600;
+}
+
+.ascension-hardcore {
+  color: #800080;
+  font-weight: 600;
+}
+
+/* Dream Points / Acornelius */
+.dream-points-highlight {
+  color: #D4A0FF;
+  font-weight: 600;
+}
+
+.acornelius-highlight {
+  color: #8B4513;
+  font-weight: 600;
+}
+
+/* Legacy currency aliases */
+.pixels {
+  color: #FBFF00;
+  font-weight: 600;
+}
+
+.voxels {
+  color: #0000FF;
+  font-weight: 600;
+}
+
+.crystals {
+  color: #00FF00;
+  font-weight: 600;
+}
+
+/* Rarity Colors */
+.rarity-broken {
+  color: #6b7280;
+}
+
+.rarity-poor {
+  color: #9ca3af;
+}
+
+.rarity-common {
+  color: #ffffff;
+}
+
+.rarity-uncommon {
+  color: #10b981;
+}
+
+.rarity-rare {
+  color: #3b82f6;
+}
+
+.rarity-epic {
+  color: #a855f7;
+}
+
+.rarity-legendary {
+  color: #f59e0b;
+}
+
+.rarity-artifact {
+  color: #ef4444;
+}
+
+/* Orb Colors */
+.orb-alteration,
+.orbs {
+  color: #00D6FF;
+  font-weight: 600;
+}
+
+.orb-revision {
+  color: #0800DB;
+  font-weight: 600;
+}
+
+.orb-reversal {
+  color: #D728FF;
+  font-weight: 600;
+}
+
+.orb-nullification {
+  color: #141414;
+  font-weight: 600;
+}
+
+.orb-transformation {
+  color: #00FFAA;
+  font-weight: 600;
+}
+
+.orb-divination {
+  color: #CAFF00;
+  font-weight: 600;
+}
+
+.orb-fortune {
+  color: #FFFC00;
+  font-weight: 600;
+}
+
+.orb-radiant {
+  color: #FF0300;
+  font-weight: 600;
+}
+
+.orb-armor-plate {
+  color: #FFA500;
+  font-weight: 600;
+}
+
+.orb-sharpening-stone {
+  color: #e3e0f5;
+  font-weight: 600;
+}
+
+.orb-soulstone {
+  color: #a21b90;
+  font-weight: 600;
+}

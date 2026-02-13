@@ -158,33 +158,9 @@
 
   <!-- Shared Navigation Component -->
   <script src="nav.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="colors.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg-dark: #0a0e1a; --bg-card: #1a1f35;
-      --accent-purple: #7c3aed; --accent-orange: #f59e0b;
-      --accent-cyan: #06b6d4; --accent-red: #ef4444; --accent-green: #10b981;
-      --text-primary: #f3f4f6; --text-secondary: #9ca3af;
-    }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
-
-    /* Game Name Styling */
-    .game-name {
-      color: var(--accent-orange);
-      font-weight: 600;
-    }
-    .nav-bar { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(124, 58, 237, 0.2); }
-    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .nav-logo { font-family: 'Press Start 2P'; font-size: 1rem; color: var(--accent-orange); text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); text-decoration: none; }
-    .back-link { color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: color 0.3s; }
-    .back-link:hover { color: var(--accent-orange); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem 3rem; }
-    .hero-section { text-align: center; margin-bottom: 4rem; }
-    .page-title { font-size: clamp(2.5rem, 6vw, 4rem); background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
-    .page-subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; }
-    .content-section { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; border: 2px solid rgba(124, 58, 237, 0.2); }
-    .content-section h2 { color: var(--accent-orange); margin-bottom: 1rem; font-size: 1.75rem; }
-    .content-section p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
     .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
     .skill-card { background: rgba(20, 24, 41, 0.6); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 12px; padding: 1.5rem; transition: all 0.3s; }
     .skill-card:hover { border-color: var(--accent-cyan); transform: translateY(-2px); box-shadow: 0 5px 20px rgba(6, 182, 212, 0.2); }
@@ -193,60 +169,10 @@
     .skill-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(124, 58, 237, 0.2); font-size: 0.85rem; }
     .skill-meta span { color: var(--text-secondary); }
     .skill-meta .value { color: var(--accent-cyan); font-weight: 600; }
-    .info-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
-    .info-box strong { color: var(--accent-green); }
-    .warning-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent-red); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
-    .warning-box strong { color: var(--accent-red); }
     .view-database-btn { display: inline-block; background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; margin-top: 1rem; }
     .view-database-btn:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(124, 58, 237, 0.4); }
-    /* Table of Contents */
-    .table-of-contents {
-      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(138, 43, 226, 0.1) 100%);
-      border: 2px solid var(--accent-purple);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .table-of-contents h2 {
-      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0 0 1rem 0;
-      font-size: 1.4rem;
-    }
-    .toc-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.75rem;
-    }
-    .toc-list li a {
-      display: block;
-      padding: 0.6rem 1rem;
-      background: rgba(138, 43, 226, 0.1);
-      border: 1px solid var(--accent-purple);
-      border-radius: 8px;
-      color: var(--text-primary);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .toc-list li a:before {
-      content: "→ ";
-      color: var(--accent-cyan);
-      font-weight: bold;
-      margin-right: 0.5rem;
-    }
-    .toc-list li a:hover {
-      background: rgba(138, 43, 226, 0.2);
-      border-color: var(--accent-cyan);
-      transform: translateX(5px);
-      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
-    }
 
-    /* FAQ Section */
+    /* Page-specific FAQ styling (div-based with dropdown arrow) */
     .faq-item {
       background: rgba(138, 43, 226, 0.05);
       border: 1px solid var(--accent-purple);
@@ -270,7 +196,7 @@
       user-select: none;
     }
     .faq-question::after {
-      content: "▼";
+      content: "\25BC";
       position: absolute;
       right: 1.5rem;
       transition: transform 0.3s ease;
@@ -286,18 +212,11 @@
       animation: fadeIn 0.3s ease;
     }
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      .container { padding: 5rem 1rem 2rem; }
       .skill-grid { grid-template-columns: 1fr; }
     }
   </style>

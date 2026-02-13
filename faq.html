@@ -235,104 +235,15 @@
 
   <!-- Shared Navigation Component -->
   <script src="nav.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="colors.css">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-dark: #0a0e1a;
-      --bg-dark-2: #141829;
-      --bg-card: #1a1f35;
-      --accent-purple: #7c3aed;
-      --accent-orange: #f59e0b;
-      --accent-cyan: #06b6d4;
-      --accent-red: #ef4444;
-      --accent-green: #10b981;
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
-      --valor-color: #FFD700;
-    }
-
-    body {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-    }
-
-    /* Game Name Styling */
-    .game-name {
-      color: var(--accent-orange);
-      font-weight: 600;
-    }
-
-    .nav-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(10, 14, 26, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
-    }
-
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-logo {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1rem;
-      color: var(--accent-orange);
-      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-      text-decoration: none;
-    }
-
-    .back-link {
-      color: var(--accent-cyan);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .back-link:hover {
-      color: var(--accent-orange);
-    }
-
     .container {
       max-width: 1000px;
-      margin: 0 auto;
-      padding: 6rem 2rem 3rem;
-    }
-
-    .hero-section {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .page-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      background: linear-gradient(135deg, var(--accent-orange), var(--accent-cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
     }
 
     .page-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -411,34 +322,7 @@
       margin: 0.25rem 0;
     }
 
-    .valor-highlight {
-      color: var(--valor-color);
-      font-weight: 600;
-    }
-
-    .sigil-highlight {
-      color: var(--accent-orange);
-      font-weight: 600;
-    }
-
-    .guild-boss-highlight {
-      color: #DC143C;
-      font-weight: 600;
-    }
-
     @media (max-width: 768px) {
-      .nav-bar {
-        padding: 0.75rem 1rem;
-      }
-
-      .nav-logo {
-        font-size: 0.8rem;
-      }
-
-      .container {
-        padding: 5rem 1rem 2rem;
-      }
-
       .faq-item {
         padding: 1rem;
       }
