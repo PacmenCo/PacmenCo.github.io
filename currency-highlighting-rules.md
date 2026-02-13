@@ -1174,7 +1174,7 @@ All general tooltips use the standard format:
 | `gems` | Gems | Premium currency earned from various activities - used for special purchases |
 | `dream-points` | Dream Points | Currency earned from Normal Ascensions, spent on Ascension Perks for permanent upgrades |
 | `rank` | Rank / ranks | Secondary progression system - increases stats, unlocks content, and persists through Ascensions |
-| `talent-points` | Talent Points | Permanent passive bonuses for your character - earn 1 Talent Point for each Rank level up |
+| `talent-points` | Talent Points | Passive bonuses for your character - earn 1 Talent Point for each Rank level up |
 
 #### Combat Stats
 | Key | Display Text | Tooltip Description |
