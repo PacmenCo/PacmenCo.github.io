@@ -235,68 +235,6 @@
       flex-grow: 1;
     }
 
-    /* Page-specific: FAQ variant with ▼ arrow */
-    .faq-item {
-      border: 1px solid rgba(124, 58, 237, 0.3);
-      margin-bottom: 0.75rem;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: rgba(124, 58, 237, 0.5);
-      background: rgba(10, 14, 26, 0.6);
-    }
-
-    .faq-question {
-      cursor: pointer;
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: color 0.3s ease;
-    }
-
-    .faq-question::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-question::after {
-      content: "▼";
-      font-size: 0.8rem;
-      color: var(--accent-orange);
-      transition: transform 0.3s ease;
-    }
-
-    details[open] .faq-question::after {
-      transform: rotate(-180deg);
-    }
-
-    .faq-item:hover .faq-question {
-      color: var(--accent-orange);
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.25rem 1.5rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
     /* Page-specific: Responsive for companions */
     @media (max-width: 768px) {
@@ -586,7 +524,7 @@
         <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
         <details class="faq-item">
-          <summary class="faq-question">What are Loyal Companions in Idle Adventure?</summary>
+          <summary>What are Loyal Companions in Idle Adventure?</summary>
           <div class="faq-answer">
             <p>
               <strong>Loyal Companions</strong> are 9 unique battle partners in Idle Adventure, each with specialized
@@ -599,7 +537,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How does the companion leveling system work?</summary>
+          <summary>How does the companion leveling system work?</summary>
           <div class="faq-answer">
             <p>
               <strong>Companions earn experience</strong> from combat and level up automatically. Each level grants
@@ -612,7 +550,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">What is the companion mentor system?</summary>
+          <summary>What is the companion mentor system?</summary>
           <div class="faq-answer">
             <p>
               The <strong>mentor system</strong> allows your active companion to share <strong>15% of earned XP</strong>
@@ -624,7 +562,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">What is Total Companion Level and why does it matter?</summary>
+          <summary>What is Total Companion Level and why does it matter?</summary>
           <div class="faq-answer">
             <p>
               <strong>Total Companion Level</strong> is the sum of all your companions' individual levels. It provides
@@ -636,7 +574,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How do companions gain experience in combat?</summary>
+          <summary>How do companions gain experience in combat?</summary>
           <div class="faq-answer">
             <p>
               <strong>Companions gain XP</strong> based on their combat contribution: they earn XP proportional to the
@@ -649,7 +587,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How do companion stats affect combat?</summary>
+          <summary>How do companion stats affect combat?</summary>
           <div class="faq-answer">
             <p>
               <strong>Companions have five stats</strong>: <strong>STR</strong> increases damage, <strong>DEX</strong>

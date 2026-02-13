@@ -172,49 +172,6 @@
     .view-database-btn { display: inline-block; background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; margin-top: 1rem; }
     .view-database-btn:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(124, 58, 237, 0.4); }
 
-    /* Page-specific FAQ styling (div-based with dropdown arrow) */
-    .faq-item {
-      background: rgba(138, 43, 226, 0.05);
-      border: 1px solid var(--accent-purple);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .faq-item:hover {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
-    }
-    .faq-question {
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      cursor: pointer;
-      list-style: none;
-      position: relative;
-      user-select: none;
-    }
-    .faq-question::after {
-      content: "\25BC";
-      position: absolute;
-      right: 1.5rem;
-      transition: transform 0.3s ease;
-      color: var(--accent-purple);
-    }
-    .faq-item[open] .faq-question::after {
-      transform: rotate(180deg);
-    }
-    .faq-answer {
-      padding: 0 1.5rem 1.5rem 1.5rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
 
     @media (max-width: 768px) {
       .skill-grid { grid-template-columns: 1fr; }
@@ -359,49 +316,49 @@
       <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
       <details class="faq-item">
-        <summary class="faq-question">How many skills can I equip at once?</summary>
+        <summary>How many skills can I equip at once?</summary>
         <div class="faq-answer">
           You can equip <strong>4 skills of your choice</strong> plus the <strong>Heal spell</strong> (which is always available), giving you <strong>5 total abilities</strong> in combat. Change your loadout outside of combat to adapt to different challenges.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Can I change skills during combat?</summary>
+        <summary>Can I change skills during combat?</summary>
         <div class="faq-answer">
           No, you can only change your skill loadout <strong>outside of combat</strong>. Plan your loadout carefully before engaging tough enemies or bosses.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What skills should I use as a beginner?</summary>
+        <summary>What skills should I use as a beginner?</summary>
         <div class="faq-answer">
           Start with <strong>Quick Attack</strong> (fast, low mana cost) and <strong>Auto Attack</strong> (hands-free fighting). As you level up, add <strong>Heavy Attack</strong> (Level 55) for burst damage and <strong>Poison Attack</strong> (Level 70) to weaken tanky enemies. This gives you a balanced early-game loadout.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What is the Execute mechanic?</summary>
+        <summary>What is the Execute mechanic?</summary>
         <div class="faq-answer">
           The <strong>Execute</strong> skill deals bonus damage to enemies below 30% HP. When an enemy's health drops to this threshold, Execute's damage multiplier activates, making it excellent for finishing off tough bosses or high-HP enemies quickly.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What is the Charge system?</summary>
+        <summary>What is the Charge system?</summary>
         <div class="faq-answer">
           The Charge system allows you to build up power over time. Use <strong>Charged Strike</strong> to generate charges, then consume them with <strong>Static Discharge</strong> for massive damage. Static Discharge also applies the <strong>Shock</strong> debuff, making enemies take extra damage for a duration.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What are skill effects?</summary>
+        <summary>What are skill effects?</summary>
         <div class="faq-answer">
           Skill effects are special properties that change combat mechanics. Common effects include <strong>Poison</strong> (reduce enemy HP regen), <strong>Life Steal</strong> (heal from damage), <strong>Armor Break</strong> (reduce enemy armor), <strong>Bleed</strong> (damage over time), and <strong>Shock</strong> (enemy takes bonus damage). Many skills can have multiple effects active simultaneously.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What's the difference between Offensive and Debuff skills?</summary>
+        <summary>What's the difference between Offensive and Debuff skills?</summary>
         <div class="faq-answer">
           <strong>Offensive skills</strong> focus on dealing direct damage (Quick Attack, Heavy Attack, Cleave), while <strong>Debuff skills</strong> weaken enemies by reducing their stats (Poison Attack reduces HP regen, Break Armor reduces defense). Many skills like Execute belong to both categories.
         </div>

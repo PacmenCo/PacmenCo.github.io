@@ -215,63 +215,6 @@
       border-bottom-color: var(--accent-orange);
     }
 
-    /* Page-specific: FAQ uses down-arrow pattern (different from shared) */
-    .faq-item {
-      border: 1px solid rgba(124, 58, 237, 0.3);
-      margin-bottom: 0.75rem;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: rgba(124, 58, 237, 0.5);
-      background: rgba(10, 14, 26, 0.6);
-    }
-
-    .faq-item summary {
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: color 0.3s ease;
-    }
-
-    .faq-item summary::before {
-      content: none;
-    }
-
-    .faq-item summary::after {
-      content: "▼";
-      font-size: 0.8rem;
-      color: var(--accent-orange);
-      transition: transform 0.3s ease;
-    }
-
-    details[open] .faq-question::after {
-      transform: rotate(-180deg);
-    }
-
-    .faq-item:hover .faq-question {
-      color: var(--accent-orange);
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.25rem 1.5rem;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Page-specific: table responsive overrides */
     @media (max-width: 768px) {
       table {
@@ -775,7 +718,7 @@
         <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
         <details class="faq-item">
-          <summary class="faq-question">What are Alteration Orbs in Idle Adventure?</summary>
+          <summary>What are Alteration Orbs in Idle Adventure?</summary>
           <div class="faq-answer">
             <p>
               <strong><span class="tooltip orbs" data-tooltip="orbs">Alteration Orbs</span></strong> are specialized crafting materials used to modify equipment properties in
@@ -788,7 +731,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">Which Alteration Orbs can break items?</summary>
+          <summary>Which Alteration Orbs can break items?</summary>
           <div class="faq-answer">
             <p>
               <strong><span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span></strong> has a <strong>50% chance to break
@@ -806,7 +749,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How do I get Soulstones in Idle Adventure?</summary>
+          <summary>How do I get Soulstones in Idle Adventure?</summary>
           <div class="faq-answer">
             <p>
               <span class="tooltip orb-soulstone" data-tooltip="orb-soulstone">Soulstones</span> have an extremely low drop rate (<span
@@ -819,7 +762,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">What is the best Alteration Orb for endgame items?</summary>
+          <summary>What is the best Alteration Orb for endgame items?</summary>
           <div class="faq-answer">
             <p>
               <strong><span class="tooltip orb-divination" data-tooltip="orb-divination">Orb of Divination</span></strong> is the best for creating
@@ -832,7 +775,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How many orbs does it cost to alter Legendary and Artifact items?</summary>
+          <summary>How many orbs does it cost to alter Legendary and Artifact items?</summary>
           <div class="faq-answer">
             <p>
               <strong><span class="rarity-legendary">Legendary</span> items require <span class="stat-highlight">8
@@ -851,7 +794,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">Can I upgrade a Legendary item to Artifact rarity?</summary>
+          <summary>Can I upgrade a Legendary item to Artifact rarity?</summary>
           <div class="faq-answer">
             <p>
               Yes, but only using <strong><span class="tooltip orb-fortune" data-tooltip="orb-fortune">Orb of Fortune</span></strong>. It has a <span

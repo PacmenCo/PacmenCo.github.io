@@ -152,43 +152,6 @@
   <link rel="stylesheet" href="colors.css">
 
   <style>
-    .faq-item:hover {
-      border-color: rgba(124, 58, 237, 0.5);
-      background: rgba(10, 14, 26, 0.6);
-    }
-
-    .faq-question {
-      cursor: pointer;
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: color 0.3s ease;
-    }
-
-    .faq-question::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-question::after {
-      content: "▼";
-      font-size: 0.8rem;
-      color: var(--accent-orange);
-      transition: transform 0.3s ease;
-    }
-
-    details[open] .faq-question::after {
-      transform: rotate(-180deg);
-    }
-
-    .faq-item:hover .faq-question {
-      color: var(--accent-orange);
-    }
-
     ul.feature-list li strong {
       color: var(--accent-orange);
     }
@@ -452,7 +415,7 @@
         <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
         <details class="faq-item">
-          <summary class="faq-question">Why should I fish at all?</summary>
+          <summary>Why should I fish at all?</summary>
           <div class="faq-answer">
             Fishing provides unique rewards you can't get elsewhere!
             <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
@@ -470,7 +433,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">What is the best fishing rod to upgrade first?</summary>
+          <summary>What is the best fishing rod to upgrade first?</summary>
           <div class="faq-answer">
             It depends on what you want from fishing! Each rod offers different benefits to suit various playstyles.
             Check the <a href="#rods" style="color: var(--accent-cyan); text-decoration: underline;">Fishing Rods
@@ -480,7 +443,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How do combos work in fishing?</summary>
+          <summary>How do combos work in fishing?</summary>
           <div class="faq-answer">
             Combos build when you land <strong>Perfect</strong> (+3) or <strong>Awesome</strong> (+1) throws. Any other
             accuracy level breaks your combo. Combo modifiers increase at specific thresholds:
@@ -495,7 +458,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">Can I get pets from fishing?</summary>
+          <summary>Can I get pets from fishing?</summary>
           <div class="faq-answer">
             <strong>Yes!</strong> Some tough fishing challenges reward exclusive pets. These are special achievements
             that require high fishing skill or specific accomplishments. Check the <a href="pets.html"
@@ -505,7 +468,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">What's the difference between fish types?</summary>
+          <summary>What's the difference between fish types?</summary>
           <div class="faq-answer">
             There are three categories of catches:
             <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
@@ -523,7 +486,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How does the patience system work?</summary>
+          <summary>How does the patience system work?</summary>
           <div class="faq-answer">
             Patience is your fishing resource that depletes with each throw. Your <strong>maximum patience = 40 + (2 ×
               Fishing Level)</strong>. Different throw accuracies cost different amounts:
@@ -542,7 +505,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">Should I focus on Perfect throws or just fish quickly?</summary>
+          <summary>Should I focus on Perfect throws or just fish quickly?</summary>
           <div class="faq-answer">
             <strong>Always aim for Perfect throws!</strong> They provide multiple benefits:
             <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
@@ -558,7 +521,7 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">I hate fishing... what can I do?</summary>
+          <summary>I hate fishing... what can I do?</summary>
           <div class="faq-answer">
             You're not alone! The developer himself (Zymosis) isn't exactly a fan of this feature either. 😄 The good
             news is that fishing is completely optional - you can progress through the game without ever touching a

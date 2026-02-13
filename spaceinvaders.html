@@ -244,66 +244,6 @@
       transform: none;
     }
 
-    /* Page-specific: FAQ with ▼ arrow pattern */
-    .faq-item {
-      background: rgba(138, 43, 226, 0.05);
-      border: 1px solid var(--accent-purple);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
-    }
-
-    .faq-question {
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      cursor: pointer;
-      list-style: none;
-      position: relative;
-      user-select: none;
-    }
-
-    .faq-question::before {
-      content: none;
-    }
-
-    .faq-question::after {
-      content: "\25BC";
-      position: absolute;
-      right: 1.5rem;
-      transition: transform 0.3s ease;
-      color: var(--accent-purple);
-    }
-
-    .faq-item[open] .faq-question::after {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.5rem 1.5rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Page-specific: feature-list strong color */
     ul.feature-list li strong { color: var(--accent-orange); }
 
@@ -503,63 +443,63 @@
       <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
       <details class="faq-item">
-        <summary class="faq-question">Why play Space Invaders?</summary>
+        <summary>Why play Space Invaders?</summary>
         <div class="faq-answer">
           Why did people in the 80's play the game? At least here you can get pets for doing it! But if you don't like it, try the <a href="minigames.html" style="color: var(--accent-cyan); text-decoration: underline;">other mini games</a>.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What are the point values for each enemy type?</summary>
+        <summary>What are the point values for each enemy type?</summary>
         <div class="faq-answer">
           Top row invaders are worth 30 points, middle row invaders are worth 20 points, and bottom row invaders are worth 10 points. UFOs provide variable bonus points.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">How do I unlock the Cool Invader pet?</summary>
+        <summary>How do I unlock the Cool Invader pet?</summary>
         <div class="faq-answer">
           Destroy 10 UFOs total in a single game to unlock the Cool Invader companion pet. Missing UFOs doesn't reset your counter - you just need to destroy 10 before the game ends. UFOs spawn up to 3 times per level, so you'll need to hunt them across multiple levels.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">How many UFOs spawn per level?</summary>
+        <summary>How many UFOs spawn per level?</summary>
         <div class="faq-answer">
           Up to 3 UFOs can spawn per level. The spawn chance starts at 45% and decreases with each UFO that appears. Hunting UFOs in early levels is recommended since enemy shooting frequency increases by 5% each level.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What happens when I lose my life?</summary>
+        <summary>What happens when I lose my life?</summary>
         <div class="faq-answer">
           The game ends immediately when you lose your one life (either from being hit by an enemy projectile or when an invader reaches the bottom). Your final score is recorded if it beats your previous high score.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">How do protection blocks work?</summary>
+        <summary>How do protection blocks work?</summary>
         <div class="faq-answer">
           Protection blocks shield you from enemy fire but deteriorate with each hit. They can be destroyed by both enemy and player projectiles.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Why should I clear outer columns first?</summary>
+        <summary>Why should I clear outer columns first?</summary>
         <div class="faq-answer">
           Targeting invaders on the far left and right columns first forces the remaining aliens to travel further horizontally before they can drop down a row. This gives you more time to shoot them and complete the level.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">How do I find the Atari console to unlock this game?</summary>
+        <summary>How do I find the Atari console to unlock this game?</summary>
         <div class="faq-answer">
           The Atari console is a hidden decoration somewhere in the game world. Explore different areas and look for a small retro console object. Once found, click it 5 times to permanently unlock Space Invaders in your mini games panel.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Does the game get harder as I progress through levels?</summary>
+        <summary>Does the game get harder as I progress through levels?</summary>
         <div class="faq-answer">
           Yes! Enemy movement speed increases slightly each level, and enemy shooting frequency increases by 5% per level (starting at 30% in level 1, 35% in level 2, etc.). Invaders also speed up dramatically as you destroy more of them within a level.
         </div>

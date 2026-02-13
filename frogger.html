@@ -229,66 +229,6 @@
       transform: none;
     }
 
-    /* Page-specific: FAQ with ▼ arrow pattern */
-    .faq-item {
-      background: rgba(138, 43, 226, 0.05);
-      border: 1px solid var(--accent-purple);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
-    }
-
-    .faq-question {
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      cursor: pointer;
-      list-style: none;
-      position: relative;
-      user-select: none;
-    }
-
-    .faq-question::before {
-      content: none;
-    }
-
-    .faq-question::after {
-      content: "\25BC";
-      position: absolute;
-      right: 1.5rem;
-      transition: transform 0.3s ease;
-      color: var(--accent-purple);
-    }
-
-    .faq-item[open] .faq-question::after {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.5rem 1.5rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Page-specific: tooltip width override */
     .tooltip .tooltiptext {
       width: 200px;
@@ -486,49 +426,49 @@
       <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">FAQ</h2>
 
       <details class="faq-item">
-        <summary class="faq-question">How do I avoid getting hit by cars?</summary>
+        <summary>How do I avoid getting hit by cars?</summary>
         <div class="faq-answer">
           Watch the traffic patterns carefully. <strong>Evil Cubes</strong> move at different speeds - wait for gaps before crossing. You can also move backward if needed to wait for a safe opening.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What happens if I fall in the water?</summary>
+        <summary>What happens if I fall in the water?</summary>
         <div class="faq-answer">
           Instant death! You must jump onto floating logs to cross water sections. Stay on the logs - they move left or right, so position yourself carefully. Falling off means you'll have to restart.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">How do I unlock the Chicken pet?</summary>
+        <summary>How do I unlock the Chicken pet?</summary>
         <div class="faq-answer">
           The Chicken pet is a rare loot drop that only spawns if your score is above 100 and you don't already own it. You'll also unlock the Egg pet at score 100 and Chick pet at score 200 as guaranteed rewards.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What's the best strategy for high scores?</summary>
+        <summary>What's the best strategy for high scores?</summary>
         <div class="faq-answer">
           Focus on moving forward consistently rather than collecting every piece of loot. Prioritize safety over greed - one death means starting over. Watch for warning lights on rails to avoid fast trains, and always stay aware of your position relative to the left/right boundaries.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Do rewards get better the further I go?</summary>
+        <summary>Do rewards get better the further I go?</summary>
         <div class="faq-answer">
           Yes! Loot amounts scale with difficulty, so pushing further yields better rewards of <span class="pixels">Pixels</span>, <span class="voxels">Voxels</span>, <span class="crystals">Crystals</span>, and <span class="gem-highlight">Gems</span>. The difficulty multiplier caps at 5.0×, providing a good balance between challenge and reward.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What are the warning lights on rails for?</summary>
+        <summary>What are the warning lights on rails for?</summary>
         <div class="faq-answer">
           Warning lights signal that a very fast train is about to spawn on that rail track. When you see the lights activate, either cross immediately before the train appears or wait for it to pass. Trains move much faster than cars, so timing is critical!
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Can I move backward if I'm in danger?</summary>
+        <summary>Can I move backward if I'm in danger?</summary>
         <div class="faq-answer">
           Yes! You can move backward one tile. This is useful for waiting out traffic or repositioning before crossing water. However, moving backward doesn't increase your score - only forward progress counts.
         </div>

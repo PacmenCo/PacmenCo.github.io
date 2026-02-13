@@ -210,62 +210,6 @@
       border-bottom-color: var(--accent-orange);
     }
 
-    /* Page-specific: FAQ uses down-arrow pattern (different from shared) */
-    .faq-item {
-      border: 1px solid rgba(124, 58, 237, 0.3);
-      margin-bottom: 0.75rem;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: rgba(124, 58, 237, 0.5);
-      background: rgba(10, 14, 26, 0.6);
-    }
-
-    .faq-item summary {
-      padding: 1rem 1.5rem;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: color 0.3s ease;
-    }
-
-    .faq-item summary::before {
-      content: none;
-    }
-
-    .faq-item summary::after {
-      content: "▼";
-      font-size: 0.8rem;
-      color: var(--accent-orange);
-      transition: transform 0.3s ease;
-    }
-
-    details[open] .faq-question::after {
-      transform: rotate(-180deg);
-    }
-
-    .faq-item:hover .faq-question {
-      color: var(--accent-orange);
-    }
-
-    .faq-answer {
-      padding: 0 1.5rem 1.25rem 1.5rem;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Page-specific: table responsive overrides */
     @media (max-width: 768px) {
       table {
@@ -466,7 +410,7 @@
       <h2 style="color: var(--accent-orange); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
 
       <details class="faq-item">
-        <summary class="faq-question">What is item upgrading in Idle Adventure?</summary>
+        <summary>What is item upgrading in Idle Adventure?</summary>
         <div class="faq-answer">
           <p>
             <strong>Item upgrading</strong> permanently increases an item's base stats using <span class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. Each <strong>upgrade level</strong> increases damage or armor by <strong>5% multiplicatively</strong>. Enchantments are preserved during upgrades.
@@ -475,7 +419,7 @@
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">How much does each upgrade level increase stats?</summary>
+        <summary>How much does each upgrade level increase stats?</summary>
         <div class="faq-answer">
           <p>
             Each <strong>upgrade level</strong> adds a <strong>5% multiplicative bonus</strong> to your item's stats. The bonus stacks with item <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong> for powerful results.
@@ -484,7 +428,7 @@
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What currencies does upgrading require?</summary>
+        <summary>What currencies does upgrading require?</summary>
         <div class="faq-answer">
           <p>
             <strong>Upgrading requires</strong> <span class="pixel-highlight">Pixels</span> and <span class="crystal-highlight">Crystals</span>. Costs increase based on upgrade level, item <strong><span class="tooltip" data-tooltip="quality">Quality</span></strong>, item level, <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong>, and <strong><span class="tooltip" data-tooltip="item-types">item type</span></strong>. Higher <strong><span class="tooltip" data-tooltip="rarity">Rarity</span></strong> items are significantly more expensive to upgrade.
@@ -493,7 +437,7 @@
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">What is the maximum upgrade level?</summary>
+        <summary>What is the maximum upgrade level?</summary>
         <div class="faq-answer">
           <p>
             The <strong>maximum upgrade level is 6</strong>, but this requires the <strong>Enchanting ascension perk</strong>. Without the ascension perk, the maximum upgrade level is 5.
@@ -502,7 +446,7 @@
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Are enchantments preserved when upgrading items?</summary>
+        <summary>Are enchantments preserved when upgrading items?</summary>
         <div class="faq-answer">
           <p>
             <strong>Yes, enchantments and all item properties are preserved</strong> during upgrades. You can safely upgrade enchanted items without losing any bonuses. This makes upgrading a safe way to enhance your gear.
