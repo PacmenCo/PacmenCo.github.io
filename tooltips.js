@@ -48,7 +48,17 @@ const TOOLTIP_CONTENT = {
   'endurance-enchantment': 'Armor enchantment that grants +3% resistance per enchantment level',
 
   // Ascension
-  'ascension-perks': 'Permanent upgrades unlocked with Dream Points after completing Normal Ascensions'
+  'ascension-perks': 'Permanent upgrades unlocked with Dream Points after completing Normal Ascensions',
+
+  // Combat Stats
+  'rank': 'Secondary progression system - increases stats, unlocks content, and persists through Ascensions',
+  'dream-points': 'Currency earned from Normal Ascensions, spent on Ascension Perks for permanent upgrades',
+  'accuracy': 'Increases your hit chance against enemies - each point of net advantage grants 1.2% hit chance',
+  'evasion': 'Reduces enemy hit chance against you - each point of net advantage grants 1.2% dodge chance',
+  'resistance': 'Flat percentage damage reduction that works at full effectiveness regardless of enemy level',
+  'loot-chance': 'Increases the probability of enemies dropping items',
+  'open-wounds': 'Causes bleeding damage over time on hit',
+  'reflect-damage': 'Returns a percentage of incoming damage back to the attacker'
 };
 
 // Initialize tooltips on page load
