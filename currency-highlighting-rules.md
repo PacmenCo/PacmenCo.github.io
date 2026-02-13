@@ -12,6 +12,12 @@ This document defines the styling rules for Currencies, Orbs, and Rarities highl
 - **Gems**: `#A98FF4` (light purple/lavender) - from `Colors.gemsColor`
 - **Valor Points**: `#FFD700` (gold) - from `ChooseVIPItem.cs` (Guild Boss currency)
 
+### Guild Elements
+
+- **Sigils**: `var(--accent-orange)` (orange) - Guild currency earned from boss damage
+- **Guild XP**: `#2E8B57` (dark green) - Guild progression experience
+- **Guild Boss**: `#DC143C` (crimson) - Cooperative boss encounters
+
 ### Progression & Pet Items
 
 - **Experience**: `#00FF00` (bright green) - Progression/XP gains
@@ -54,6 +60,11 @@ Add these to your `:root` or CSS variables section:
   --crystal-color: #00FF00;
   --gem-color: #A98FF4;
   --valor-color: #FFD700;
+
+  /* Guild Elements */
+  --sigil-color: var(--accent-orange);
+  --guild-xp-color: #2E8B57;
+  --guild-boss-color: #DC143C;
 
   /* Progression & Pet Items */
   --experience-color: #00FF00;
@@ -112,6 +123,22 @@ Add these classes to your stylesheet:
 
 .valor-highlight {
   color: var(--valor-color);
+  font-weight: 600;
+}
+
+/* Guild Elements */
+.sigil-highlight {
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.guild-xp-highlight {
+  color: #2E8B57;
+  font-weight: 600;
+}
+
+.guild-boss-highlight {
+  color: #DC143C;
   font-weight: 600;
 }
 
@@ -235,6 +262,9 @@ Add these classes to your stylesheet:
 - **Gems** (capital G) - never "gems" unless mid-sentence grammatically requires lowercase
 - **Valor Points** (both words capitalized) - never "valor points" or "Valor points"
 - **Valor** (capital V when used standalone)
+- **Sigils** (capital S) - never "sigils"
+- **Guild XP** (both words capitalized) - never "guild XP" or "guild xp"
+- **Guild Boss** / **Guild Bosses** (both words capitalized) - never "guild boss" or "guild bosses"
 
 ```html
 <!-- CORRECT -->
@@ -476,6 +506,44 @@ Legendary
 ```
 
 **Note:** The items-crafting.html page already has these classes defined (rarity-broken, rarity-poor, etc.) - use those same class names consistently across all pages.
+
+## Guild Element Highlighting Rules
+
+Apply color highlighting to guild-related terms: **Sigils**, **Guild XP**, and **Guild Boss** / **Guild Bosses**.
+
+### Capitalization
+**ALWAYS use title case** (both words capitalized):
+- **Guild Boss** / **Guild Bosses** - never "guild boss" or "guild bosses"
+- **Sigils** - never "sigils"
+- **Guild XP** - never "guild xp" or "guild XP"
+
+### CSS Classes
+
+```html
+<!-- Guild Boss (crimson) -->
+<span class="guild-boss-highlight">Guild Boss</span>
+<span class="guild-boss-highlight">Guild Bosses</span>
+
+<!-- Sigils (orange) -->
+<span class="sigil-highlight">Sigils</span>
+<span class="sigil-highlight">15 Sigils</span>
+
+<!-- Guild XP (dark green) -->
+<span class="guild-xp-highlight">Guild XP</span>
+<span class="guild-xp-highlight">125 Guild XP</span>
+```
+
+### When to Apply
+- Apply to ALL visible mentions in regular content (paragraphs, lists, FAQ answers, info boxes)
+- When "Guild Boss" appears in compounds like "Guild Boss raids", wrap ONLY "Guild Boss"
+- Include numbers when they appear with the term (e.g., `<span class="sigil-highlight">15 Sigils</span>`)
+- Do NOT apply in: headlines (h1-h6), meta tags, JSON-LD, image alt text, formula boxes, TOC nav links
+
+### Combined Reward Examples
+When rewards appear together, each gets its own color span:
+```html
+<span class="valor-highlight">25 Valor</span>, <span class="sigil-highlight">15 Sigils</span>, <span class="guild-xp-highlight">125 Guild XP</span>
+```
 
 ## Item Type Tooltips
 
