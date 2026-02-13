@@ -567,6 +567,66 @@
         font-size: 0.75rem;
       }
     }
+
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dotted var(--accent-cyan);
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.75rem;
+      border: 2px solid var(--accent-cyan);
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--accent-cyan) transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Tooltips in FAQ sections appear below to avoid clipping */
+    .faq-section .tooltip .tooltiptext,
+    .faq-item .tooltip .tooltiptext,
+    details .tooltip .tooltiptext {
+      bottom: auto;
+      top: 125%;
+      margin-top: 0;
+    }
+
+    .faq-section .tooltip .tooltiptext::after,
+    .faq-item .tooltip .tooltiptext::after,
+    details .tooltip .tooltiptext::after {
+      top: auto;
+      bottom: 100%;
+      border-color: transparent transparent var(--accent-cyan) transparent;
+    }
   </style>
 </head>
 
@@ -878,6 +938,7 @@
       </section>
     </article>
   </div>
+  <script src="tooltips.js"></script>
 <link rel="stylesheet" href="footer.css">
 <script src="footer.js"></script>
 </body>
