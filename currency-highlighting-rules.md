@@ -1150,6 +1150,85 @@ The <a href="skills.html" class="feature-link">Skills</a> system lets you custom
 <!-- Should only link once -->
 ```
 
+## General Tooltip Terms
+
+### Purpose
+Display interactive tooltips when users hover over game terms, explaining what each term means. These are purely informational tooltips (no color coding, no links).
+
+### HTML Structure
+All general tooltips use the standard format:
+```html
+<strong><span class="tooltip" data-tooltip="KEY">Term Text</span></strong>
+```
+
+### Tooltip Terms List
+
+#### Item & Equipment
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `quality` | Quality | Numerical stat multiplier for items - improves stats like Attack and Armor (Companions also benefit from it!) |
+
+#### Currency & Progression
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `gems` | Gems | Premium currency earned from various activities - used for special purchases |
+| `dream-points` | Dream Points | Currency earned from Normal Ascensions, spent on Ascension Perks for permanent upgrades |
+| `rank` | Rank / ranks | Secondary progression system - increases stats, unlocks content, and persists through Ascensions |
+| `talent-points` | Talent Points | Permanent passive bonuses for your character - earn 1 Talent Point for each Rank level up |
+
+#### Combat Stats
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `accuracy` | accuracy | Increases your hit chance against enemies - each point of net advantage grants 1.2% hit chance |
+| `evasion` | evasion | Reduces enemy hit chance against you - each point of net advantage grants 1.2% dodge chance |
+| `resistance` | Resistance / resistances | Flat percentage damage reduction that works at full effectiveness regardless of enemy level |
+| `loot-chance` | Loot Chance | Increases the probability of enemies dropping items |
+| `open-wounds` | Open Wounds | Causes bleeding damage over time on hit |
+| `reflect-damage` | Reflect Damage | Returns a percentage of incoming damage back to the attacker |
+
+#### Skills & Abilities
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `fortify` | Fortify | Active skill that temporarily increases your resistance, reducing incoming damage for a duration |
+| `squirrel-defense` | Squirrel Defense | Acornelius' active ability: reduces damage taken by 50% for a duration |
+
+#### Enchantments
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `endurance-enchantment` | Endurance | Armor enchantment that grants +3% resistance per enchantment level |
+
+#### Ascension
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `ascension-perks` | Ascension Perks | Permanent upgrades unlocked with Dream Points after completing Normal Ascensions |
+| `ascension-modes` | Ascension modes | Normal, Hard, and Hardcore - each Ascension mode increases enemy difficulty and grants stronger permanent bonuses |
+| `ascension-normal` | Normal | Easiest difficulty - resets level but keeps items, grants Dream Points |
+| `ascension-hard` | Hard | Medium difficulty - locks items/currencies, increased enemy stats, grants stronger bonuses |
+| `ascension-hardcore` | Hardcore | Extreme difficulty - permadeath, highest enemy stats, most powerful bonuses |
+
+#### Pets
+| Key | Display Text | Tooltip Description |
+|-----|-------------|-------------------|
+| `acornelius` | Acornelius | An acorn Companion |
+
+### Placement Rules
+
+**DO apply tooltips in:**
+- Regular `<p>` paragraphs
+- Info boxes, warning boxes, tip boxes
+- FAQ answers (inside `<details>` elements - these use bottom-positioned tooltips)
+
+**DO NOT apply tooltips in:**
+- Headlines (h1, h2, h3, h4, h5, h6)
+- Meta tags or JSON-LD structured data
+- Formula boxes (monospace styled elements)
+- Table cells (`<td>`, `<th>`)
+- Bullet points / list items (`<li>`)
+- Image alt text
+- Navigation elements
+
+**First mention rule:** Only apply the tooltip to the first meaningful mention per section. Do not wrap every occurrence.
+
 ## Quick Reference Checklist
 
 When adding game element mentions to a page:
